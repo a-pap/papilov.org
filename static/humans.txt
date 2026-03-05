@@ -1,0 +1,11 @@
+/* TEAM */
+Author: Artem Papilov
+Site: https://papilov.org
+Location: Belgrade → Barcelona
+
+Research co-author: Claude (Anthropic)
+
+/* SITE */
+Generator: Hugo
+Hosting: Cloudflare Pages
+Theme: Cosmos (custom)

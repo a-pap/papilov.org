@@ -1,0 +1,42 @@
+baseURL = "https://papilov.org/"
+languageCode = "en"
+title = "Artem Papilov — Research"
+theme = "cosmos"
+
+[params]
+  description = "Open research at the intersection of technology, economics, and human behavior."
+  author = "Artem Papilov"
+  tagline = "Product practitioner. Open research. AI-assisted."
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    style = "dracula"
+    lineNos = false
+
+[outputs]
+  home = ["HTML"]
+  section = ["HTML"]
+
+[menu]
+  [[menu.main]]
+    name = "Research"
+    url = "/research/"
+    weight = 1
+  [[menu.main]]
+    name = "Work With Me"
+    url = "/work-with-me/"
+    weight = 2
+  [[menu.main]]
+    name = "Colophon"
+    url = "/colophon/"
+    weight = 3
+
+[taxonomies]
+  tag = "tags"
+
+[sitemap]
+  changefreq = "weekly"
+  priority = 0.5
