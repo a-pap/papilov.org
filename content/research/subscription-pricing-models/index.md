@@ -3,7 +3,7 @@ title: "The Price of Loyalty"
 date: 2026-03-03
 lastmod: 2026-03-05
 version: "1.0"
-status: "finished"
+status: "in-progress"
 confidence: "likely"
 description: "Why Netflix raises prices every year while World of Warcraft hasn't in 21 years. An analytical deep dive into the economics, psychology, and strategic logic of subscription pricing."
 tags: ["economics", "subscriptions", "pricing", "behavioral-economics"]

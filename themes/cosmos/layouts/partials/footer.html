@@ -1,8 +1,24 @@
 <footer class="site-footer">
   <div class="container">
     <p>
-      © {{ now.Year }} Artem Papilov · Research published under <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a> · Code under <a href="https://opensource.org/licenses/MIT">MIT</a><br>
+      © {{ now.Year }} Artem Papilov · Research under <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a> · Code under <a href="https://opensource.org/licenses/MIT">MIT</a><br>
       AI-assisted research with <a href="https://claude.ai">Claude</a> (Anthropic) · <a href="/colophon/">How this site works</a>
     </p>
   </div>
 </footer>
+<script>
+(function(){
+  var btn = document.getElementById('theme-toggle');
+  if (!btn) return;
+  function getEffective() {
+    var attr = document.documentElement.getAttribute('data-theme');
+    if (attr) return attr;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+  btn.addEventListener('click', function(){
+    var next = getEffective() === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+  });
+})();
+</script>

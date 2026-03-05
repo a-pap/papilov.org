@@ -10,16 +10,21 @@
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
 <meta property="og:url" content="{{ .Permalink }}">
 
-<!-- Fonts -->
+<!-- Fonts: only weights we use -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
 
-<!-- CSS -->
 <link rel="stylesheet" href="/css/main.css">
-
-<!-- Favicon -->
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-
-<!-- Canonical -->
 <link rel="canonical" href="{{ .Permalink }}">
+
+<!-- Theme: restore preference before render to prevent flash -->
+<script>
+(function(){
+  var t = localStorage.getItem('theme');
+  if (t === 'dark' || t === 'light') {
+    document.documentElement.setAttribute('data-theme', t);
+  }
+})();
+</script>
