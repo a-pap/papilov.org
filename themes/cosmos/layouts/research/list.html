@@ -9,7 +9,7 @@
           <time>{{ .Date.Format "Jan 2006" }}</time>
           {{ with .Params.status }}<span class="status">{{ . }}</span>{{ end }}
           {{ with .Params.confidence }}
-          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-dim);">confidence: {{ . }}</span>
+          <span class="research-meta-detail">confidence: {{ . }}</span>
           {{ end }}
         </div>
         <h2>{{ .Title }}</h2>

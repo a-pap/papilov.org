@@ -177,6 +177,13 @@ body {
   color: var(--text);
 }
 
+/* ── RESEARCH META DETAIL ── */
+.research-meta-detail {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--text-dim);
+}
+
 /* ── SECTION LABEL ── */
 .section-label {
   font-family: 'JetBrains Mono', monospace;
