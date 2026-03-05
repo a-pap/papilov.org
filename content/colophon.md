@@ -25,6 +25,6 @@ This is a deliberate choice. I believe transparency about AI use in research is 
 
 ## Design
 
-Custom theme ("Cosmos") built for this site. Dark-first, data-dense, minimal JavaScript. Typography: Playfair Display (headings), DM Sans (body), JetBrains Mono (data and code).
+Custom theme ("Cosmos") built for this site. Light-default with dark mode, typography-driven, minimal JavaScript. Typography: Playfair Display (headings), DM Sans (body), JetBrains Mono (data and code).
 
 Interactive infographics are single-file HTML with embedded CSS/JS — they work standalone and embedded.

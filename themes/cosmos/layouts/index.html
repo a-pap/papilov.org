@@ -17,7 +17,8 @@
       <a href="{{ .Permalink }}">
         <div class="research-meta">
           <time>{{ .Date.Format "Jan 2006" }}</time>
-          {{ with .Params.status }}<span class="status">{{ . }}</span>{{ end }}
+          {{ with .Params.status }}<span class="status status-{{ . | urlize }}">{{ . }}</span>{{ end }}
+          {{ with .Params.confidence }}<span>confidence: {{ . }}</span>{{ end }}
         </div>
         <h2>{{ .Title }}</h2>
         {{ with .Params.description }}<p class="excerpt">{{ . }}</p>{{ end }}
