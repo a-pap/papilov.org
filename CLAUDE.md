@@ -150,6 +150,6 @@ SSL: Full (Strict), HSTS enabled (1yr, preload), Always HTTPS, HTTP/3, 0-RTT, TL
 
 1. Enable Cloudflare Web Analytics (manual dashboard click)
 2. Update subscription infographic to support light/dark themes
-3. Common Knowledge research article
+3. Common Knowledge research article (next up)
 4. Cal.com setup for /work-with-me/
 5. WHOIS contact update (Belgrade → Barcelona)

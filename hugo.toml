@@ -1,38 +1,82 @@
 baseURL = "https://papilov.org/"
-languageCode = "en"
-title = "Artem Papilov — Research"
+title = "Artem Papilov"
 theme = "cosmos"
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = false
 
 [params]
   description = "Open research at the intersection of technology, economics, and human behavior."
   author = "Artem Papilov"
-  tagline = "Product practitioner. Open research. AI-assisted."
 
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
   [markup.highlight]
-    style = "dracula"
+    style = "monokailight"
     lineNos = false
 
 [outputs]
   home = ["HTML"]
   section = ["HTML"]
 
-[menu]
-  [[menu.main]]
-    name = "Research"
-    url = "/research/"
+[languages]
+  [languages.en]
+    languageCode = "en"
+    languageName = "EN"
     weight = 1
-  [[menu.main]]
-    name = "Work With Me"
-    url = "/work-with-me/"
+    [languages.en.params]
+      description = "Open research at the intersection of technology, economics, and human behavior."
+    [[languages.en.menu.main]]
+      name = "Research"
+      url = "/research/"
+      weight = 1
+    [[languages.en.menu.main]]
+      name = "Work With Me"
+      url = "/work-with-me/"
+      weight = 2
+    [[languages.en.menu.main]]
+      name = "Colophon"
+      url = "/colophon/"
+      weight = 3
+
+  [languages.ru]
+    languageCode = "ru"
+    languageName = "RU"
     weight = 2
-  [[menu.main]]
-    name = "Colophon"
-    url = "/colophon/"
+    [languages.ru.params]
+      description = "Открытые исследования на стыке технологий, экономики и человеческого поведения."
+    [[languages.ru.menu.main]]
+      name = "Исследования"
+      url = "/ru/research/"
+      weight = 1
+    [[languages.ru.menu.main]]
+      name = "Сотрудничество"
+      url = "/ru/work-with-me/"
+      weight = 2
+    [[languages.ru.menu.main]]
+      name = "Колофон"
+      url = "/ru/colophon/"
+      weight = 3
+
+  [languages.es]
+    languageCode = "es"
+    languageName = "ES"
     weight = 3
+    [languages.es.params]
+      description = "Investigación abierta en la intersección de tecnología, economía y comportamiento humano."
+    [[languages.es.menu.main]]
+      name = "Investigación"
+      url = "/es/research/"
+      weight = 1
+    [[languages.es.menu.main]]
+      name = "Trabajar Conmigo"
+      url = "/es/work-with-me/"
+      weight = 2
+    [[languages.es.menu.main]]
+      name = "Colofón"
+      url = "/es/colophon/"
+      weight = 3
 
 [taxonomies]
   tag = "tags"

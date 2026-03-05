@@ -1,11 +1,16 @@
 <header class="site-header">
   <div class="container">
-    <a href="/" class="site-logo">Artem Papilov</a>
+    <a href="{{ .Site.Home.RelPermalink }}" class="site-logo">Artem Papilov</a>
     <nav class="site-nav">
       {{ range .Site.Menus.main }}
-        <a href="{{ .URL }}"{{ if eq $.RelPermalink .URL }} class="active"{{ end }}>{{ .Name }}</a>
+        <a href="{{ .URL }}"{{ if $.RelPermalink | hasPrefix .URL }} class="active"{{ end }}>{{ .Name }}</a>
       {{ end }}
-      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme" title="Toggle light/dark">◐</button>
+      <div class="lang-switch">
+        {{ range $.Site.Languages }}
+          <a href="/{{ if ne .Lang "en" }}{{ .Lang }}/{{ end }}"{{ if eq $.Language.Lang .Lang }} class="active"{{ end }}>{{ .LanguageName }}</a>
+        {{ end }}
+      </div>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">◐</button>
     </nav>
   </div>
 </header>

@@ -1,3 +1,0 @@
----
-title: "Artem Papilov — Research"
----

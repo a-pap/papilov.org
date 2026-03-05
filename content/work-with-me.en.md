@@ -19,5 +19,3 @@ Typical engagements: monetization audits, pricing strategy reviews, adtech archi
 ## Get in Touch
 
 Email: [artem@papilov.org](mailto:artem@papilov.org)
-
-<!-- Cal.com embed will go here when set up -->

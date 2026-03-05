@@ -1,14 +1,14 @@
 {{ define "main" }}
 <div class="container">
   <div class="article-header">
-    <div class="label">Research{{ with .Params.series }} · {{ . }}{{ end }}</div>
+    <div class="label">{{ i18n "research_label" }}{{ with .Params.series }} · {{ . }}{{ end }}</div>
     <h1>{{ .Title }}</h1>
     {{ with .Params.description }}<p class="description">{{ . }}</p>{{ end }}
     <div class="meta">
       <span>{{ .Date.Format "2 Jan 2006" }}</span>
       {{ with .Params.version }}<span>v{{ . }}</span>{{ end }}
-      {{ with .Params.status }}<span class="status status-{{ . | urlize }}">{{ . }}</span>{{ end }}
-      {{ with .Params.confidence }}<span>confidence: {{ . }}</span>{{ end }}
+      {{ with .Params.status }}<span class="status status-{{ . }}">{{ . }}</span>{{ end }}
+      {{ with .Params.confidence }}<span>{{ i18n "confidence_label" }}: {{ . }}</span>{{ end }}
       {{ with .Params.license }}<span>{{ . }}</span>{{ end }}
     </div>
   </div>
@@ -18,7 +18,7 @@
 
     {{ with .Params.ai_disclosure }}
     <div class="ai-disclosure">
-      <strong>AI Disclosure:</strong> {{ . }}
+      <strong>{{ i18n "ai_disclosure_label" }}:</strong> {{ . }}
     </div>
     {{ end }}
   </div>
