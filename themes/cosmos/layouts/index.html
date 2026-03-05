@@ -1,7 +1,7 @@
 {{ define "main" }}
 <div class="container">
   <div class="home-hero">
-    <h1>Product practitioner.<br><span class="accent">Open research.</span></h1>
+    <h1>Product practitioner.<br>Open research.</h1>
     <p class="intro">15 years building adtech products at scale. Now publishing analytical research at the intersection of technology, economics, and human behavior. AI-assisted, openly licensed, data-driven.</p>
     <div class="home-links">
       <a href="/research/">Research →</a>
@@ -11,7 +11,7 @@
   </div>
 
   <div class="research-list">
-    <h2 style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 32px;">Latest Research</h2>
+    <h2 class="section-label">Latest Research</h2>
     {{ range first 5 (where .Site.RegularPages "Section" "research") }}
     <div class="research-item">
       <a href="{{ .Permalink }}">
