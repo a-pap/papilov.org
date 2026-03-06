@@ -7,6 +7,7 @@ defaultContentLanguageInSubdir = false
 [params]
   description = "Open research at the intersection of technology, economics, and human behavior."
   author = "Artem Papilov"
+  email = "artem@papilov.org"
 
 [markup]
   [markup.goldmark]
@@ -17,8 +18,8 @@ defaultContentLanguageInSubdir = false
     lineNos = false
 
 [outputs]
-  home = ["HTML"]
-  section = ["HTML"]
+  home = ["HTML", "RSS"]
+  section = ["HTML", "RSS"]
 
 [languages]
   [languages.en]

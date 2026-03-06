@@ -1,0 +1,27 @@
+# papilov.org
+
+> Personal research site of Artem Papilov. Open research at the intersection of technology, economics, and human behavior.
+
+This site publishes long-form research articles with original analysis. Content is available in English, Russian, Spanish, German, and Chinese. All research is licensed under CC BY-NC 4.0.
+
+## Research
+
+- [The Price of Loyalty: Subscription Pricing Models](https://papilov.org/research/subscription-pricing-models/): Why Netflix raises prices every year while World of Warcraft hasn't in 21 years. An analytical deep dive into the economics, psychology, and strategic logic of subscription pricing.
+
+## Pages
+
+- [Homepage](https://papilov.org/): Research index and author introduction
+- [Work With Me](https://papilov.org/work-with-me/): Consulting and collaboration
+- [Colophon](https://papilov.org/colophon/): How this site is built
+
+## Author
+
+- Name: Artem Papilov
+- Email: artem@papilov.org
+- GitHub: https://github.com/a-pap
+- LinkedIn: https://linkedin.com/in/papilov
+
+## Optional
+
+- [RSS Feed](https://papilov.org/index.xml): Subscribe to new research
+- [Sitemap](https://papilov.org/sitemap.xml): Full site index
