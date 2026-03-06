@@ -3,7 +3,42 @@
 <title>{{ if .IsHome }}{{ .Site.Title }} — {{ .Site.Params.description }}{{ else }}{{ .Title }} — {{ .Site.Title }}{{ end }}</title>
 <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
 <meta name="author" content="{{ .Site.Params.author }}">
+{{ if .IsTermPage }}<meta name="robots" content="noindex, follow">{{ end }}
 {{ with .Params.tags }}<meta name="keywords" content="{{ delimit . ", " }}">{{ end }}
+
+{{ if and .IsPage (eq .Section "research") }}
+<!-- Google Scholar / Highwire Press citation tags -->
+<meta name="citation_title" content="{{ .Title }}">
+<meta name="citation_author" content="Papilov, Artem">
+<meta name="citation_publication_date" content="{{ .Date.Format "2006/01/02" }}">
+<meta name="citation_online_date" content="{{ .Date.Format "2006/01/02" }}">
+<meta name="citation_journal_title" content="Papilov Research">
+<meta name="citation_language" content="{{ .Language.LanguageCode }}">
+<meta name="citation_public_url" content="{{ .Permalink }}">
+{{ with .Params.description }}<meta name="citation_abstract" content="{{ . }}">{{ end }}
+{{ range .Params.tags }}<meta name="citation_keywords" content="{{ . }}">
+{{ end }}
+
+<!-- Dublin Core metadata -->
+<meta name="DC.title" content="{{ .Title }}">
+<meta name="DC.creator" content="Artem Papilov">
+<meta name="DC.date" content="{{ .Date.Format "2006-01-02" }}">
+<meta name="DC.description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 200 }}{{ end }}">
+<meta name="DC.language" content="{{ .Language.LanguageCode }}">
+<meta name="DC.rights" content="CC BY-NC 4.0">
+<meta name="DC.type" content="Text">
+<meta name="DC.format" content="text/html">
+<meta name="DC.publisher" content="Papilov Research">
+<meta name="DC.source" content="{{ .Permalink }}">
+{{ range .Params.tags }}<meta name="DC.subject" content="{{ . }}">
+{{ end }}
+
+<!-- PRISM (Publishing Requirements for Industry Standard Metadata) -->
+<meta name="prism.publicationName" content="Papilov Research">
+<meta name="prism.publicationDate" content="{{ .Date.Format "2006-01-02" }}">
+<meta name="prism.url" content="{{ .Permalink }}">
+<meta name="prism.copyright" content="CC BY-NC 4.0">
+{{ end }}
 
 <!-- Canonical + hreflang -->
 <link rel="canonical" href="{{ .Permalink }}">
@@ -22,6 +57,13 @@
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
 <meta property="og:url" content="{{ .Permalink }}">
 <meta property="og:site_name" content="{{ .Site.Title }}">
+{{ with .Params.og_image }}<meta property="og:image" content="https://papilov.org{{ . }}">
+<meta name="twitter:image" content="https://papilov.org{{ . }}">
+{{ else }}<meta property="og:image" content="https://papilov.org/img/og-default.png">
+<meta name="twitter:image" content="https://papilov.org/img/og-default.png">
+{{ end }}
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:locale" content="{{ .Language.LanguageCode }}">
 {{ range .Translations }}
 <meta property="og:locale:alternate" content="{{ .Language.LanguageCode }}">
@@ -113,6 +155,7 @@
   {{ with .Params.version }}"version": "{{ . }}",{{ end }}
   "license": "https://creativecommons.org/licenses/by-nc/4.0/",
   "isAccessibleForFree": true,
+  {{ with .Params.og_image }}"image": "https://papilov.org{{ . }}",{{ end }}
   "wordCount": {{ .WordCount }}
 }
 </script>

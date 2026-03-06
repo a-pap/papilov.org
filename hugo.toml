@@ -131,3 +131,13 @@ defaultContentLanguageInSubdir = false
   changefreq = "monthly"
   priority = 0.5
   filename = "sitemap.xml"
+
+# Disable sitemap for taxonomy term pages (thin content)
+[outputFormats]
+  [outputFormats.SITEMAP]
+    baseName = "sitemap"
+    mediaType = "application/xml"
+
+# Exclude tag pages from sitemap
+[params.seo]
+  excludeTagsFromSitemap = true

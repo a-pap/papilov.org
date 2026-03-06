@@ -1,22 +1,40 @@
-# papilov.org
+# papilov.org — Open Research
 
-Open research at the intersection of technology, economics, and human behavior.
+[![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc/4.0/)
+[![License: MIT](https://img.shields.io/badge/Code-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
-Built with [Hugo](https://gohugo.io/), hosted on [Cloudflare Pages](https://pages.cloudflare.com/).
+Open research at the intersection of technology, economics, and human behavior by [Artem Papilov](https://papilov.org).
 
-## Research
+## Published Research
 
-All research is AI-assisted (Claude by Anthropic) and openly licensed.
+| Article | Languages | Date |
+|---------|-----------|------|
+| [The Price of Loyalty: Subscription Pricing Models](https://papilov.org/research/subscription-pricing-models/) | EN · [RU](https://papilov.org/ru/research/subscription-pricing-models/) · [ES](https://papilov.org/es/research/subscription-pricing-models/) · [DE](https://papilov.org/de/research/subscription-pricing-models/) · [ZH](https://papilov.org/zh/research/subscription-pricing-models/) | Mar 2026 |
 
-- **Text:** [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/)
-- **Code:** [MIT](LICENSE)
+## Citation
 
-## Local Development
+If you reference this research, please cite:
 
-```bash
-hugo server --buildDrafts
+```bibtex
+@article{papilov2026loyalty,
+  title={The Price of Loyalty: Three Models of Subscription Pricing},
+  author={Papilov, Artem},
+  journal={Papilov Research},
+  year={2026},
+  url={https://papilov.org/research/subscription-pricing-models/},
+  license={CC BY-NC 4.0}
+}
 ```
 
-## Deploy
+See [CITATION.cff](CITATION.cff) for machine-readable citation metadata.
 
-Push to `main` → Cloudflare Pages auto-builds → live at [papilov.org](https://papilov.org).
+## Stack
+
+Hugo · Cloudflare Pages · Custom theme ([cosmos](themes/cosmos/))
+
+## License
+
+Research content: [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/)
+Code: [MIT](LICENSE)
+
+AI-assisted research with [Claude](https://claude.ai) (Anthropic). Human editorial direction and domain expertise.

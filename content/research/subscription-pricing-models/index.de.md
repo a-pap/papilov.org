@@ -3,13 +3,14 @@ title: "Der Preis der Treue"
 date: 2026-03-03
 lastmod: 2026-03-06
 version: "1.0"
-status: "in-progress"
+status: "finished"
 confidence: "likely"
 description: "Warum Netflix jedes Jahr die Preise erhöht, während World of Warcraft seit 21 Jahren unverändert bleibt. Eine analytische Untersuchung der Ökonomie, Psychologie und strategischen Logik von Abo-Preisgestaltung."
 tags: ["economics", "subscriptions", "pricing", "behavioral-economics"]
 series: ""
 ai_disclosure: "Forschung durchgeführt mit Claude (Anthropic). Redaktionelle Leitung und Fachexpertise durch den Autor."
 license: "CC BY-NC 4.0"
+og_image: "/img/og-subscription-pricing.png"
 ---
 
 Seit 2020 sind Abo-Preise 3–5× schneller gestiegen als die Inflation. Der US-Verbraucherpreisindex stieg in diesem Zeitraum um etwa 22%. Die meisten großen Abonnements stiegen um 50–170%.

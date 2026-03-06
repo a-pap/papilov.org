@@ -84,7 +84,3 @@ User-agent: *
 Allow: /
 
 Sitemap: https://papilov.org/sitemap.xml
-Sitemap: https://papilov.org/ru/sitemap.xml
-Sitemap: https://papilov.org/es/sitemap.xml
-Sitemap: https://papilov.org/de/sitemap.xml
-Sitemap: https://papilov.org/zh/sitemap.xml

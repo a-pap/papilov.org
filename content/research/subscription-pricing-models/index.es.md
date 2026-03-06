@@ -3,13 +3,14 @@ title: "El precio de la lealtad"
 date: 2026-03-03
 lastmod: 2026-03-06
 version: "1.0"
-status: "in-progress"
+status: "finished"
 confidence: "likely"
 description: "Por qué Netflix sube precios cada año mientras World of Warcraft no lo ha hecho en 21 años. Un análisis profundo de la economía, psicología y lógica estratégica de los precios de suscripción."
 tags: ["economía", "suscripciones", "precios", "economía-conductual"]
 series: ""
 ai_disclosure: "Investigación realizada con Claude (Anthropic). Dirección editorial y experiencia de dominio del autor."
 license: "CC BY-NC 4.0"
+og_image: "/img/og-subscription-pricing.png"
 ---
 
 Desde 2020, los precios de suscripción han superado la inflación entre 3 y 5 veces. El Índice de Precios al Consumo en EE.UU. subió aproximadamente un 22% en este período. La mayoría de las suscripciones importantes subieron entre un 50% y un 170%.

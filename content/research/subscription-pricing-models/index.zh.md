@@ -3,13 +3,14 @@ title: "忠诚的代价"
 date: 2026-03-03
 lastmod: 2026-03-06
 version: "1.0"
-status: "in-progress"
+status: "finished"
 confidence: "likely"
 description: "Netflix为何年年涨价，而《魔兽世界》21年不变？对订阅定价的经济学、心理学与战略逻辑的深度分析。"
 tags: ["economics", "subscriptions", "pricing", "behavioral-economics"]
 series: ""
 ai_disclosure: "研究由Claude（Anthropic）辅助完成。编辑方向与领域专业知识由作者提供。"
 license: "CC BY-NC 4.0"
+og_image: "/img/og-subscription-pricing.png"
 ---
 
 自2020年以来，订阅价格的涨幅超过通胀率3–5倍。美国消费者价格指数在此期间上涨约22%。多数主要订阅服务涨幅为50–170%。

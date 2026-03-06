@@ -3,13 +3,14 @@ title: "The Price of Loyalty"
 date: 2026-03-03
 lastmod: 2026-03-06
 version: "1.0"
-status: "in-progress"
+status: "finished"
 confidence: "likely"
 description: "Why Netflix raises prices every year while World of Warcraft hasn't in 21 years. An analytical deep dive into the economics, psychology, and strategic logic of subscription pricing."
 tags: ["economics", "subscriptions", "pricing", "behavioral-economics"]
 series: ""
 ai_disclosure: "Research conducted with Claude (Anthropic). Human editorial direction and domain expertise."
 license: "CC BY-NC 4.0"
+og_image: "/img/og-subscription-pricing.png"
 ---
 
 Since 2020, subscription prices have outpaced inflation by 3–5×. The US Consumer Price Index rose roughly 22% over this period. Most major subscriptions rose 50–170%.

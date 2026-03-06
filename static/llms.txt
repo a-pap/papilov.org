@@ -2,24 +2,54 @@
 
 > Personal research site by Artem Papilov. Open research at the intersection
 > of technology, economics, and human behavior. 15 years of product and adtech
-> experience (Yandex scale). All research is AI-co-authored with Claude (Anthropic),
-> openly licensed under CC BY-NC 4.0.
+> experience (Yandex scale: 30B+ impressions/week). All research is AI-co-authored
+> with Claude (Anthropic), openly licensed under CC BY-NC 4.0.
+
+## Author
+
+- Name: Artem Papilov
+- Role: Independent Researcher, Product Practitioner
+- Background: 15 years in adtech (programmatic advertising, SSP/DSP, auction mechanics, ML pipelines)
+- Site: https://papilov.org
+- Email: artem@papilov.org
+- GitHub: https://github.com/a-pap
+- LinkedIn: https://linkedin.com/in/papilov
+
+## Languages
 
 Research is published in English, Russian, Spanish, German, and Chinese.
 The site focuses on data-driven analysis with original frameworks and visualizations.
+Primary writing language: Russian. All translations are human-reviewed.
 
 ## Research Articles
 
-- [The Price of Loyalty — Subscription Pricing Models](https://papilov.org/research/subscription-pricing-models/): Why Netflix raises prices every year while World of Warcraft hasn't in 21 years. Analysis of three pricing archetypes: Extractive, Gateway, and Monopoly. Covers behavioral economics of subscription inertia, loss aversion, and boiling frog pricing.
+### The Price of Loyalty — Subscription Pricing Models (March 2026)
 
-## About
+- URL (EN): https://papilov.org/research/subscription-pricing-models/
+- URL (RU): https://papilov.org/ru/research/subscription-pricing-models/
+- URL (ES): https://papilov.org/es/research/subscription-pricing-models/
+- URL (DE): https://papilov.org/de/research/subscription-pricing-models/
+- URL (ZH): https://papilov.org/zh/research/subscription-pricing-models/
+- Interactive infographic: https://papilov.org/research/subscription-pricing-models/infographic.html
+- License: CC BY-NC 4.0
 
-- [About & Contact](https://papilov.org/): Product practitioner with 15 years in adtech, publishing open research.
-- [Colophon](https://papilov.org/colophon/): How this site is built, AI disclosure, and licensing details.
-- [Work With Me](https://papilov.org/work-with-me/): Consulting services in adtech, programmatic advertising, and digital monetization.
+Why Netflix raises prices every year while World of Warcraft hasn't in 21 years.
+Analysis of three pricing archetypes: Extractive, Gateway, and Monopoly.
+Key findings:
+- Since 2020, subscription prices outpaced CPI inflation by 3-5×
+- Disney+ led with +172% price increase in 6 years
+- WoW maintained $14.99/mo for 21 years by shifting to microtransactions (35% of revenue)
+- Three pricing models: Extractive (Netflix, Spotify), Gateway (WoW, Costco, Amazon Prime), Monopoly (Adobe CC, Microsoft 365)
+- Behavioral economics of subscription inertia: loss aversion, subscription blindness (72% underestimate spending), boiling frog pricing
 
-## Optional
+## Consulting
 
-- [Russian version](https://papilov.org/ru/): Full site in Russian.
-- [Spanish version](https://papilov.org/es/): Full site in Spanish.
-- [GitHub Repository](https://github.com/a-pap/papilov.org): Source code for this site (MIT license).
+Artem offers consulting services in adtech, programmatic advertising, and digital monetization.
+Contact: https://papilov.org/work-with-me/
+
+## Technical
+
+- Source: https://github.com/a-pap/papilov.org (MIT license for code)
+- Built with: Hugo + Cloudflare Pages
+- Citation: CITATION.cff in repository root
+- Full details: https://papilov.org/colophon/
