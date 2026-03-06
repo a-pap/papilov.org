@@ -19,4 +19,4 @@ The frame: the human is the thinker, AI is the laboratory. Every piece is explic
 
 ## Design
 
-Custom theme built for this site. Light and dark modes, system-preference aware. Typography: Playfair Display (headings), DM Sans (body), JetBrains Mono (data). Available in English, Russian, and Spanish.
+Custom theme built for this site. Light and dark modes, system-preference aware. Typography: Playfair Display (headings), DM Sans (body), JetBrains Mono (data). Available in English, Russian, Spanish, German, and Chinese.

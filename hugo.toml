@@ -78,6 +78,44 @@ defaultContentLanguageInSubdir = false
       url = "/es/colophon/"
       weight = 3
 
+  [languages.de]
+    languageCode = "de"
+    languageName = "DE"
+    weight = 4
+    [languages.de.params]
+      description = "Offene Forschung an der Schnittstelle von Technologie, Wirtschaft und menschlichem Verhalten."
+    [[languages.de.menu.main]]
+      name = "Forschung"
+      url = "/de/research/"
+      weight = 1
+    [[languages.de.menu.main]]
+      name = "Zusammenarbeit"
+      url = "/de/work-with-me/"
+      weight = 2
+    [[languages.de.menu.main]]
+      name = "Kolophon"
+      url = "/de/colophon/"
+      weight = 3
+
+  [languages.zh]
+    languageCode = "zh"
+    languageName = "中文"
+    weight = 5
+    [languages.zh.params]
+      description = "技术、经济与人类行为交叉领域的开放研究。"
+    [[languages.zh.menu.main]]
+      name = "研究"
+      url = "/zh/research/"
+      weight = 1
+    [[languages.zh.menu.main]]
+      name = "合作咨询"
+      url = "/zh/work-with-me/"
+      weight = 2
+    [[languages.zh.menu.main]]
+      name = "关于本站"
+      url = "/zh/colophon/"
+      weight = 3
+
 [taxonomies]
   tag = "tags"
 
