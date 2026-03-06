@@ -6,11 +6,21 @@
         <a href="{{ .URL }}"{{ if $.RelPermalink | hasPrefix .URL }} class="active"{{ end }}>{{ .Name }}</a>
       {{ end }}
       <div class="lang-switch">
+        {{ $.Scratch.Set "tr" (dict .Language.Lang .) }}
+        {{ range .Translations }}
+          {{ $.Scratch.SetInMap "tr" .Language.Lang . }}
+        {{ end }}
+        {{ $tr := $.Scratch.Get "tr" }}
         {{ range $.Site.Languages }}
-          <a href="/{{ if ne .Lang "en" }}{{ .Lang }}/{{ end }}"{{ if eq $.Language.Lang .Lang }} class="active"{{ end }}>{{ .LanguageName }}</a>
+          {{ $page := index $tr .Lang }}
+          {{ if $page }}
+            <a href="{{ $page.RelPermalink }}"{{ if eq $.Language.Lang .Lang }} class="active"{{ end }}>{{ .LanguageName }}</a>
+          {{ else }}
+            <a href="/{{ if ne .Lang "en" }}{{ .Lang }}/{{ end }}">{{ .LanguageName }}</a>
+          {{ end }}
         {{ end }}
       </div>
-      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">◐</button>
+      <button class="theme-toggle" id="theme-toggle" aria-label="{{ i18n "toggle_theme" }}">◐</button>
     </nav>
   </div>
 </header>

@@ -28,14 +28,17 @@ defaultContentLanguageInSubdir = false
     [languages.en.params]
       description = "Open research at the intersection of technology, economics, and human behavior."
     [[languages.en.menu.main]]
+      identifier = "research"
       name = "Research"
       url = "/research/"
       weight = 1
     [[languages.en.menu.main]]
+      identifier = "work-with-me"
       name = "Work With Me"
       url = "/work-with-me/"
       weight = 2
     [[languages.en.menu.main]]
+      identifier = "colophon"
       name = "Colophon"
       url = "/colophon/"
       weight = 3
@@ -47,14 +50,17 @@ defaultContentLanguageInSubdir = false
     [languages.ru.params]
       description = "Открытые исследования на стыке технологий, экономики и человеческого поведения."
     [[languages.ru.menu.main]]
+      identifier = "research"
       name = "Исследования"
       url = "/ru/research/"
       weight = 1
     [[languages.ru.menu.main]]
+      identifier = "work-with-me"
       name = "Сотрудничество"
       url = "/ru/work-with-me/"
       weight = 2
     [[languages.ru.menu.main]]
+      identifier = "colophon"
       name = "Колофон"
       url = "/ru/colophon/"
       weight = 3
@@ -66,14 +72,17 @@ defaultContentLanguageInSubdir = false
     [languages.es.params]
       description = "Investigación abierta en la intersección de tecnología, economía y comportamiento humano."
     [[languages.es.menu.main]]
+      identifier = "research"
       name = "Investigación"
       url = "/es/research/"
       weight = 1
     [[languages.es.menu.main]]
+      identifier = "work-with-me"
       name = "Trabajar Conmigo"
       url = "/es/work-with-me/"
       weight = 2
     [[languages.es.menu.main]]
+      identifier = "colophon"
       name = "Colofón"
       url = "/es/colophon/"
       weight = 3

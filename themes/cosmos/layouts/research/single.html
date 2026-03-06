@@ -5,10 +5,10 @@
     <h1>{{ .Title }}</h1>
     {{ with .Params.description }}<p class="description">{{ . }}</p>{{ end }}
     <div class="meta">
-      <span>{{ .Date.Format "2 Jan 2006" }}</span>
+      <span>{{ partial "date-full.html" .Date }}</span>
       {{ with .Params.version }}<span>v{{ . }}</span>{{ end }}
-      {{ with .Params.status }}<span class="status status-{{ . }}">{{ . }}</span>{{ end }}
-      {{ with .Params.confidence }}<span>{{ i18n "confidence_label" }}: {{ . }}</span>{{ end }}
+      {{ with .Params.status }}<span class="status status-{{ . }}">{{ i18n (printf "status_%s" .) }}</span>{{ end }}
+      {{ with .Params.confidence }}<span>{{ i18n "confidence_label" }}: {{ i18n (printf "confidence_%s" .) }}</span>{{ end }}
       {{ with .Params.license }}<span>{{ . }}</span>{{ end }}
     </div>
   </div>
