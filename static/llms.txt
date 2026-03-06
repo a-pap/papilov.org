@@ -1,0 +1,25 @@
+# Papilov Research
+
+> Personal research site by Artem Papilov. Open research at the intersection
+> of technology, economics, and human behavior. 15 years of product and adtech
+> experience (Yandex scale). All research is AI-co-authored with Claude (Anthropic),
+> openly licensed under CC BY-NC 4.0.
+
+Research is published in English, Russian, Spanish, German, and Chinese.
+The site focuses on data-driven analysis with original frameworks and visualizations.
+
+## Research Articles
+
+- [The Price of Loyalty — Subscription Pricing Models](https://papilov.org/research/subscription-pricing-models/): Why Netflix raises prices every year while World of Warcraft hasn't in 21 years. Analysis of three pricing archetypes: Extractive, Gateway, and Monopoly. Covers behavioral economics of subscription inertia, loss aversion, and boiling frog pricing.
+
+## About
+
+- [About & Contact](https://papilov.org/): Product practitioner with 15 years in adtech, publishing open research.
+- [Colophon](https://papilov.org/colophon/): How this site is built, AI disclosure, and licensing details.
+- [Work With Me](https://papilov.org/work-with-me/): Consulting services in adtech, programmatic advertising, and digital monetization.
+
+## Optional
+
+- [Russian version](https://papilov.org/ru/): Full site in Russian.
+- [Spanish version](https://papilov.org/es/): Full site in Spanish.
+- [GitHub Repository](https://github.com/a-pap/papilov.org): Source code for this site (MIT license).

@@ -7,6 +7,10 @@ defaultContentLanguageInSubdir = false
 [params]
   description = "Open research at the intersection of technology, economics, and human behavior."
   author = "Artem Papilov"
+  twitter = "papilov"
+  github = "a-pap"
+  linkedin = "papilov"
+  email = "artem@papilov.org"
 
 [markup]
   [markup.goldmark]
@@ -17,8 +21,12 @@ defaultContentLanguageInSubdir = false
     lineNos = false
 
 [outputs]
-  home = ["HTML"]
-  section = ["HTML"]
+  home = ["HTML", "RSS"]
+  section = ["HTML", "RSS"]
+
+[services]
+  [services.rss]
+    limit = 50
 
 [languages]
   [languages.en]
@@ -120,5 +128,6 @@ defaultContentLanguageInSubdir = false
   tag = "tags"
 
 [sitemap]
-  changefreq = "weekly"
+  changefreq = "monthly"
   priority = 0.5
+  filename = "sitemap.xml"

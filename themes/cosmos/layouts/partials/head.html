@@ -1,21 +1,124 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} — {{ .Site.Title }}{{ end }}</title>
+<title>{{ if .IsHome }}{{ .Site.Title }} — {{ .Site.Params.description }}{{ else }}{{ .Title }} — {{ .Site.Title }}{{ end }}</title>
 <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
 <meta name="author" content="{{ .Site.Params.author }}">
+{{ with .Params.tags }}<meta name="keywords" content="{{ delimit . ", " }}">{{ end }}
+
+<!-- Canonical + hreflang -->
+<link rel="canonical" href="{{ .Permalink }}">
+{{ range .AllTranslations }}
+<link rel="alternate" hreflang="{{ .Language.LanguageCode }}" href="{{ .Permalink }}">
+{{ end }}
+{{ if .IsTranslated }}{{ range .AllTranslations }}{{ if eq .Lang "en" }}
+<link rel="alternate" hreflang="x-default" href="{{ .Permalink }}">
+{{ end }}{{ end }}{{ else }}
+<link rel="alternate" hreflang="x-default" href="{{ .Permalink }}">
+{{ end }}
+
+<!-- Open Graph -->
 <meta property="og:title" content="{{ .Title }}">
 <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
 <meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:site_name" content="{{ .Site.Title }}">
+<meta property="og:locale" content="{{ .Language.LanguageCode }}">
+{{ range .Translations }}
+<meta property="og:locale:alternate" content="{{ .Language.LanguageCode }}">
+{{ end }}
+{{ if .IsPage }}
+{{ with .PublishDate }}<meta property="article:published_time" content="{{ .Format "2006-01-02T15:04:05-07:00" }}">{{ end }}
+{{ with .Lastmod }}<meta property="article:modified_time" content="{{ .Format "2006-01-02T15:04:05-07:00" }}">{{ end }}
+<meta property="article:author" content="{{ .Site.Params.author }}">
+{{ range .Params.tags }}<meta property="article:tag" content="{{ . }}">
+{{ end }}
+{{ end }}
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+{{ with .Site.Params.twitter }}<meta name="twitter:site" content="@{{ . }}">{{ end }}
+<meta name="twitter:title" content="{{ .Title }}">
+<meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+
+<!-- RSS autodiscovery -->
+{{ with .OutputFormats.Get "rss" }}
+{{ printf `<link rel=%q type=%q href=%q title=%q>` .Rel .MediaType.Type .Permalink site.Title | safeHTML }}
+{{ end }}
+
+<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/main.css">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="canonical" href="{{ .Permalink }}">
-{{ range .Translations }}
-<link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}">
+
+<!-- JSON-LD Structured Data -->
+{{ if .IsHome }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://papilov.org/#website",
+      "name": "Papilov Research",
+      "alternateName": "Artem Papilov",
+      "url": "https://papilov.org",
+      "inLanguage": ["en", "ru", "es", "de", "zh"],
+      "publisher": { "@id": "https://papilov.org/#person" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://papilov.org/#person",
+      "name": "Artem Papilov",
+      "url": "https://papilov.org",
+      "jobTitle": "Product Leader & Independent Researcher",
+      "description": "Product practitioner with 15 years in adtech. Publishing open research at the intersection of technology, economics, and human behavior.",
+      "knowsAbout": ["Programmatic Advertising", "Subscription Economics", "AdTech", "Behavioral Economics", "Product Management", "RTB", "SSP"],
+      "sameAs": [
+        "https://github.com/a-pap",
+        "https://linkedin.com/in/papilov"
+      ]
+    }
+  ]
+}
+</script>
+{{ else if and .IsPage (eq .Section "research") }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["Article", "ScholarlyArticle"],
+  "@id": "{{ .Permalink }}#article",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ .Permalink }}"
+  },
+  "headline": "{{ .Title }}",
+  "description": "{{ with .Description }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 200 }}{{ end }}",
+  "datePublished": "{{ .PublishDate.Format "2006-01-02T15:04:05-07:00" }}",
+  "dateModified": "{{ .Lastmod.Format "2006-01-02T15:04:05-07:00" }}",
+  "author": {
+    "@type": "Person",
+    "@id": "https://papilov.org/#person",
+    "name": "Artem Papilov",
+    "url": "https://papilov.org"
+  },
+  "publisher": {
+    "@type": "Person",
+    "@id": "https://papilov.org/#person",
+    "name": "Artem Papilov"
+  },
+  "inLanguage": "{{ .Language.LanguageCode }}",
+  {{ with .Params.tags }}"keywords": [{{ range $i, $t := . }}{{ if $i }},{{ end }}"{{ $t }}"{{ end }}],{{ end }}
+  {{ with .Params.version }}"version": "{{ . }}",{{ end }}
+  "license": "https://creativecommons.org/licenses/by-nc/4.0/",
+  "isAccessibleForFree": true,
+  "wordCount": {{ .WordCount }}
+}
+</script>
 {{ end }}
+
+<!-- Theme -->
 <script>
 (function(){
   var t = localStorage.getItem('theme');
