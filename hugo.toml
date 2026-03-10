@@ -11,6 +11,7 @@ defaultContentLanguageInSubdir = false
   github = "a-pap"
   linkedin = "papilov"
   email = "artem@papilov.org"
+  cfWebAnalyticsToken = "058abfd5c8d44abbac0d4ef05ac33a2d"
 
 [markup]
   [markup.goldmark]
