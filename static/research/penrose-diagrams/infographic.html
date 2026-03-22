@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Диаграммы Пенроуза — Вся Вселенная на салфетке</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@300;400;500&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #06060e;
+  --surface: #0c0c1a;
+  --surface2: #10102a;
+  --border: rgba(120, 140, 255, 0.12);
+  --text: #c8cce0;
+  --text-dim: #6b7094;
+  --accent: #7b8cff;
+  --accent2: #ff6b8a;
+  --accent3: #4aeadc;
+  --gold: #f0c060;
+  --glow: rgba(123, 140, 255, 0.15);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Source Sans 3', sans-serif;
+  font-weight: 300;
+  line-height: 1.75;
+  overflow-x: hidden;
+}
+
+/* ── Stars ── */
+.stars { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+.stars canvas { width: 100%; height: 100%; }
+
+/* ── Layout ── */
+.content { position: relative; z-index: 1; max-width: 780px; margin: 0 auto; padding: 0 24px; }
+
+/* ── Hero ── */
+.hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column;
+  justify-content: center; align-items: center;
+  text-align: center;
+}
+
+.hero-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; letter-spacing: 4px;
+  text-transform: uppercase; color: var(--accent);
+  margin-bottom: 24px;
+  opacity: 0; animation: fadeUp 1s 0.3s forwards;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.2rem, 5.5vw, 3.8rem);
+  font-weight: 700; line-height: 1.15; color: #fff;
+  margin-bottom: 12px;
+  opacity: 0; animation: fadeUp 1s 0.5s forwards;
+}
+
+.hero h1 em {
+  font-style: italic;
+  background: linear-gradient(135deg, var(--gold), var(--accent2));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+
+.hero-sub {
+  font-size: 1.15rem; color: var(--text-dim);
+  max-width: 540px; margin-bottom: 40px;
+  opacity: 0; animation: fadeUp 1s 0.7s forwards;
+}
+
+.hero-mini-diagram {
+  opacity: 0; animation: fadeUp 1s 0.9s forwards;
+}
+
+.scroll-hint {
+  position: absolute; bottom: 40px;
+  opacity: 0; animation: fadeUp 1s 1.4s forwards;
+}
+.scroll-hint span {
+  display: block; width: 1px; height: 40px;
+  background: linear-gradient(to bottom, var(--accent), transparent);
+  margin: 0 auto; animation: pulse 2s infinite;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse { 0%,100% { opacity: .3; } 50% { opacity: 1; } }
+
+/* ── Sections ── */
+section {
+  padding: 90px 0;
+  opacity: 0; transform: translateY(30px);
+  transition: opacity .8s, transform .8s;
+}
+section.visible { opacity: 1; transform: translateY(0); }
+
+section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.5rem, 3.8vw, 2.1rem);
+  color: #fff; margin-bottom: 8px; line-height: 1.25;
+}
+section h2 .num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .55em; color: var(--accent);
+  vertical-align: super; margin-right: 8px;
+}
+
+.section-subtitle {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--accent2);
+  margin-bottom: 32px;
+}
+
+section p { margin-bottom: 20px; font-size: 1.05rem; }
+
+.hl { color: #fff; font-weight: 400; }
+.t1 { color: var(--accent3); font-weight: 400; }
+.t2 { color: var(--accent); font-weight: 400; }
+.t3 { color: var(--accent2); font-weight: 400; }
+.tg { color: var(--gold); font-weight: 400; }
+
+/* ── Cards ── */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 32px; margin: 36px 0;
+  position: relative; overflow: hidden;
+}
+.card::before {
+  content: ''; position: absolute;
+  top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+}
+.card h3 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--accent);
+  margin-bottom: 20px;
+}
+.card-caption {
+  text-align: center; color: var(--text-dim);
+  font-size: .88rem; margin-top: 12px; line-height: 1.5;
+}
+
+/* ── Diagram container ── */
+.dia-wrap {
+  display: flex; justify-content: center;
+  padding: 16px 0;
+}
+.dia-wrap svg { width: 100%; max-width: 460px; height: auto; }
+
+/* ── Analogy ── */
+.analogy {
+  background: linear-gradient(135deg, rgba(123,140,255,.06), rgba(74,234,220,.04));
+  border-left: 3px solid var(--accent3);
+  padding: 24px 28px; margin: 32px 0;
+  border-radius: 0 8px 8px 0; font-size: 1rem;
+}
+.analogy .emoji { font-size: 1.4rem; margin-right: 8px; }
+
+/* ── Insight quote ── */
+.insight {
+  text-align: center; padding: 48px 32px; margin: 40px 0;
+  border: 1px solid var(--border); border-radius: 16px;
+  background: radial-gradient(ellipse at center, rgba(240,192,96,.04), transparent);
+}
+.insight blockquote {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.15rem, 2.8vw, 1.5rem);
+  font-style: italic; color: #fff; line-height: 1.5;
+}
+.insight cite {
+  display: block; margin-top: 16px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; font-style: normal;
+  color: var(--text-dim); letter-spacing: 1px;
+}
+
+/* ── Legend strips ── */
+.legend {
+  display: flex; flex-wrap: wrap; gap: 16px;
+  margin: 20px 0 8px; justify-content: center;
+}
+.legend-item {
+  display: flex; align-items: center; gap: 6px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; color: var(--text-dim);
+}
+.legend-line {
+  width: 24px; height: 2px; border-radius: 1px;
+}
+.legend-line.dashed {
+  background: repeating-linear-gradient(90deg, var(--accent) 0 6px, transparent 6px 10px);
+}
+
+/* ── Interactive diagram ── */
+.interactive-wrap {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px; padding: 24px; margin: 36px 0;
+  overflow: hidden;
+}
+.interactive-wrap::before {
+  content: ''; position: absolute;
+  top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+.interactive-wrap h3 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--gold);
+  margin-bottom: 16px; text-align: center;
+}
+
+.tabs {
+  display: flex; gap: 6px; justify-content: center;
+  margin-bottom: 20px; flex-wrap: wrap;
+}
+.tab-btn {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; letter-spacing: 1px;
+  padding: 8px 16px; border-radius: 6px;
+  border: 1px solid var(--border);
+  background: transparent; color: var(--text-dim);
+  cursor: pointer; transition: all .2s;
+}
+.tab-btn:hover { border-color: var(--accent); color: var(--text); }
+.tab-btn.active {
+  background: rgba(123,140,255,.12);
+  border-color: var(--accent); color: #fff;
+}
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+/* ── Grid comparison ── */
+.compare-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 20px; margin: 32px 0;
+}
+.compare-card {
+  padding: 24px; border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+.compare-card h4 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; letter-spacing: 2px;
+  text-transform: uppercase; margin-bottom: 12px;
+}
+.compare-card p { font-size: .92rem; margin: 0; line-height: 1.6; }
+
+/* ── Cheatsheet ── */
+.cheat {
+  display: grid; gap: 1px;
+  background: var(--border); border-radius: 8px;
+  overflow: hidden; margin: 32px 0;
+}
+.cheat-row {
+  display: grid; grid-template-columns: 160px 1fr;
+  background: var(--surface);
+}
+.cheat-key {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px; color: var(--accent);
+  padding: 14px 16px; border-right: 1px solid var(--border);
+  display: flex; align-items: center;
+}
+.cheat-val { font-size: .95rem; padding: 14px 16px; }
+
+/* ── Footer ── */
+footer {
+  text-align: center; padding: 60px 0 40px;
+  color: var(--text-dim);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; letter-spacing: 1px;
+}
+
+@media (max-width: 600px) {
+  .compare-grid { grid-template-columns: 1fr; }
+  .cheat-row { grid-template-columns: 120px 1fr; }
+  .card, .interactive-wrap { padding: 20px; }
+  .tabs { gap: 4px; }
+  .tab-btn { padding: 6px 10px; font-size: 10px; }
+}
+</style>
+</head>
+<body>
+
+<div class="stars"><canvas id="starfield"></canvas></div>
+
+<div class="content">
+
+<!-- ══════════════ HERO ══════════════ -->
+<div class="hero">
+  <div class="hero-label">General Relativity · Visual Guide</div>
+  <h1>Диаграммы <em>Пенроуза</em></h1>
+  <p class="hero-sub">Как уместить бесконечное пространство-время на конечном листе бумаги — и зачем это нужно</p>
+
+  <div class="hero-mini-diagram">
+    <svg viewBox="0 0 200 220" width="160" height="176" xmlns="http://www.w3.org/2000/svg">
+      <!-- Mini Minkowski diamond -->
+      <polygon points="100,10 190,110 100,210 10,110" fill="rgba(123,140,255,0.04)" stroke="rgba(123,140,255,0.25)" stroke-width="1"/>
+      <text x="100" y="6" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="8" fill="#ff6b8a">i⁺</text>
+      <text x="100" y="224" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="8" fill="#4aeadc">i⁻</text>
+      <text x="196" y="113" font-family="'JetBrains Mono', monospace" font-size="8" fill="#f0c060">i⁰</text>
+      <text x="4" y="113" text-anchor="end" font-family="'JetBrains Mono', monospace" font-size="8" fill="#f0c060">i⁰</text>
+      <!-- Light ray -->
+      <line x1="100" y1="150" x2="145" y2="105" stroke="rgba(240,192,96,0.5)" stroke-width="1" stroke-dasharray="3,3">
+        <animate attributeName="stroke-opacity" values="0.3;0.8;0.3" dur="3s" repeatCount="indefinite"/>
+      </line>
+    </svg>
+  </div>
+
+  <div class="scroll-hint"><span></span></div>
+</div>
+
+<!-- ══════════════ 01. ПРОБЛЕМА ══════════════ -->
+<section>
+  <h2><span class="num">01</span>Проблема бесконечности</h2>
+  <div class="section-subtitle">Зачем вообще нужен трюк</div>
+
+  <p>Пространство-время бесконечно. Свет может лететь вечно. Чёрная дыра сжимает точку до нуля. Как нарисовать всё это на конечном листе?</p>
+
+  <p>Обычная пространственно-временная диаграмма (координаты Минковского) не поможет: <span class="hl">бесконечность — это буквально бесконечность</span>, край листа всегда обрезает что-то важное. Роджер Пенроуз в начале 1960-х предложил элегантное решение: <span class="t1">конформное сжатие</span>.</p>
+
+  <p>Идея: применить математическое преобразование координат, которое «стягивает» бесконечность в конечные точки и линии. При этом сохраняется <span class="t2">причинно-следственная структура</span> — кто может повлиять на кого — но искажаются расстояния. Для физики причинности расстояния не важны; важны <em>световые конусы</em>.</p>
+
+  <div class="analogy">
+    <span class="emoji">🗺️</span> <strong>Аналогия:</strong> проекция Меркатора растягивает Гренландию до размера Африки — зато сохраняет углы (локальные направления). Пенроуз делает то же для пространства-времени: жертвует масштабом ради сохранения причинной структуры.
+  </div>
+
+  <div class="compare-grid">
+    <div class="compare-card">
+      <h4 style="color:var(--text-dim)">Обычная диаграмма</h4>
+      <p>Показывает «честные» расстояния и время. Бесконечность за пределами листа. Невозможно увидеть глобальную структуру.</p>
+    </div>
+    <div class="compare-card">
+      <h4 style="color:var(--accent)">Диаграмма Пенроуза</h4>
+      <p>Вся бесконечность на конечной площади. Расстояния искажены. Зато видна полная причинная структура: кто с кем может «поговорить» светом.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ 02. КАК ЧИТАТЬ ══════════════ -->
+<section>
+  <h2><span class="num">02</span>Как читать диаграмму</h2>
+  <div class="section-subtitle">Пять правил на все случаи</div>
+
+  <p>Любая диаграмма Пенроуза подчиняется одним и тем же правилам. Выучив пять, вы сможете читать любую — от плоского пространства до вращающейся чёрной дыры.</p>
+
+  <div class="cheat">
+    <div class="cheat-row">
+      <div class="cheat-key">Время ↑</div>
+      <div class="cheat-val">Время идёт снизу вверх. Нижняя точка — бесконечное прошлое, верхняя — бесконечное будущее.</div>
+    </div>
+    <div class="cheat-row">
+      <div class="cheat-key">Пространство ↔</div>
+      <div class="cheat-val">Пространственные направления — горизонтально. Левый и правый края — пространственная бесконечность.</div>
+    </div>
+    <div class="cheat-row">
+      <div class="cheat-key">Свет = 45°</div>
+      <div class="cheat-val">Лучи света <em>всегда</em> идут под углом 45° к вертикали. Это главное свойство, ради которого всё затевалось.</div>
+    </div>
+    <div class="cheat-row">
+      <div class="cheat-key">Массивные тела</div>
+      <div class="cheat-val">Всё, что имеет массу, движется по линиям <em>круче</em> 45° (ближе к вертикали). Быстрее света ничто не идёт.</div>
+    </div>
+    <div class="cheat-row">
+      <div class="cheat-key">Каждая точка = сфера</div>
+      <div class="cheat-val">Диаграмма двумерна: время + один радиус. Каждая точка на самом деле — целая 2-сфера (S²). Вертикальная ось слева — центр (r = 0).</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Анатомия диаграммы — плоское пространство Минковского</h3>
+    <div class="dia-wrap">
+      <svg viewBox="0 0 460 500" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="arr" markerWidth="6" markerHeight="4" refX="6" refY="2" orient="auto">
+            <polygon points="0 0, 6 2, 0 4" fill="rgba(200,204,224,0.4)"/>
+          </marker>
+        </defs>
+
+        <!-- Diamond -->
+        <polygon points="230,40 410,250 230,460 50,250"
+          fill="rgba(123,140,255,0.03)" stroke="rgba(123,140,255,0.2)" stroke-width="1.5"/>
+
+        <!-- Null boundaries (ℐ) -->
+        <!-- Future null infinity ℐ+ (top-right and top-left edges) -->
+        <line x1="230" y1="40" x2="410" y2="250" stroke="#ff6b8a" stroke-width="2" opacity="0.7"/>
+        <line x1="230" y1="40" x2="50" y2="250" stroke="#ff6b8a" stroke-width="2" opacity="0.7"/>
+        <!-- Past null infinity ℐ- (bottom-right and bottom-left edges) -->
+        <line x1="50" y1="250" x2="230" y2="460" stroke="#4aeadc" stroke-width="2" opacity="0.7"/>
+        <line x1="410" y1="250" x2="230" y2="460" stroke="#4aeadc" stroke-width="2" opacity="0.7"/>
+
+        <!-- Axes -->
+        <line x1="230" y1="450" x2="230" y2="50" stroke="rgba(200,204,224,0.15)" stroke-width="1" marker-end="url(#arr)"/>
+        <line x1="60" y1="250" x2="400" y2="250" stroke="rgba(200,204,224,0.15)" stroke-width="1" marker-end="url(#arr)"/>
+
+        <!-- Sample light cone from a point -->
+        <circle cx="230" cy="300" r="4" fill="var(--gold)" opacity="0.9"/>
+        <line x1="230" y1="300" x2="310" y2="220" stroke="var(--gold)" stroke-width="1.5" stroke-dasharray="5,4" opacity="0.6"/>
+        <line x1="230" y1="300" x2="150" y2="220" stroke="var(--gold)" stroke-width="1.5" stroke-dasharray="5,4" opacity="0.6"/>
+        <!-- Filled future cone -->
+        <polygon points="230,300 310,220 150,220" fill="rgba(240,192,96,0.06)" stroke="none"/>
+
+        <!-- Worldline of a massive particle -->
+        <path d="M 230,420 Q 245,350 240,300 Q 235,250 230,80" fill="none" stroke="#fff" stroke-width="1.5" opacity="0.4" stroke-dasharray="2,3"/>
+
+        <!-- Labels: infinities -->
+        <!-- i+ future timelike -->
+        <circle cx="230" cy="40" r="5" fill="#ff6b8a"/>
+        <text x="230" y="28" text-anchor="middle" font-family="'Playfair Display', serif" font-size="14" fill="#ff6b8a" font-style="italic">i⁺</text>
+        <text x="230" y="16" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="9" fill="var(--text-dim)">будущая временна́я ∞</text>
+
+        <!-- i- past timelike -->
+        <circle cx="230" cy="460" r="5" fill="#4aeadc"/>
+        <text x="230" y="482" text-anchor="middle" font-family="'Playfair Display', serif" font-size="14" fill="#4aeadc" font-style="italic">i⁻</text>
+        <text x="230" y="496" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="9" fill="var(--text-dim)">прошлая временна́я ∞</text>
+
+        <!-- i0 spacelike -->
+        <circle cx="410" cy="250" r="5" fill="var(--gold)"/>
+        <text x="432" y="245" font-family="'Playfair Display', serif" font-size="14" fill="var(--gold)" font-style="italic">i⁰</text>
+        <text x="432" y="260" font-family="'JetBrains Mono', monospace" font-size="9" fill="var(--text-dim)">пространств. ∞</text>
+
+        <circle cx="50" cy="250" r="5" fill="var(--gold)"/>
+        <text x="28" y="245" text-anchor="end" font-family="'Playfair Display', serif" font-size="14" fill="var(--gold)" font-style="italic">i⁰</text>
+
+        <!-- ℐ+ label -->
+        <text x="340" y="135" font-family="'Playfair Display', serif" font-size="13" fill="#ff6b8a" font-style="italic" transform="rotate(-45,340,135)">ℐ⁺</text>
+        <text x="120" y="135" font-family="'Playfair Display', serif" font-size="13" fill="#ff6b8a" font-style="italic" transform="rotate(45,120,135)">ℐ⁺</text>
+
+        <!-- ℐ- label -->
+        <text x="340" y="370" font-family="'Playfair Display', serif" font-size="13" fill="#4aeadc" font-style="italic" transform="rotate(45,340,370)">ℐ⁻</text>
+        <text x="120" y="370" font-family="'Playfair Display', serif" font-size="13" fill="#4aeadc" font-style="italic" transform="rotate(-45,120,370)">ℐ⁻</text>
+
+        <!-- Light cone label -->
+        <text x="316" y="216" font-family="'JetBrains Mono', monospace" font-size="9" fill="var(--gold)">луч света (45°)</text>
+
+        <!-- Event label -->
+        <text x="245" y="314" font-family="'JetBrains Mono', monospace" font-size="9" fill="var(--gold)">событие</text>
+
+        <!-- Axis labels -->
+        <text x="236" y="62" font-family="'JetBrains Mono', monospace" font-size="9" fill="rgba(200,204,224,0.4)">t</text>
+        <text x="396" y="264" font-family="'JetBrains Mono', monospace" font-size="9" fill="rgba(200,204,224,0.4)">r</text>
+
+        <!-- r=0 label on left axis -->
+        <text x="40" y="150" font-family="'JetBrains Mono', monospace" font-size="9" fill="var(--text-dim)" transform="rotate(-90,40,150)">r = 0 (центр)</text>
+      </svg>
+    </div>
+    <div class="legend">
+      <div class="legend-item"><div class="legend-line" style="background:#ff6b8a"></div> ℐ⁺ будущая световая ∞</div>
+      <div class="legend-item"><div class="legend-line" style="background:#4aeadc"></div> ℐ⁻ прошлая световая ∞</div>
+      <div class="legend-item"><div class="legend-line dashed" style="background:none;background:repeating-linear-gradient(90deg,var(--gold) 0 5px,transparent 5px 9px)"></div> световой конус</div>
+    </div>
+    <p class="card-caption">
+      Пространство Минковского (плоское, без гравитации). Вся бесконечность сжата в ромб.<br>
+      Свет из любой точки всегда идёт под 45° и достигает ℐ⁺. Массивные тела — круче, к i⁺.
+    </p>
+  </div>
+
+  <p>Три типа бесконечности: <span class="t3">временна́я</span> (i⁺, i⁻ — куда уходят массивные тела), <span class="tg">пространственная</span> (i⁰ — «бесконечно далеко»), и <span class="t1">световая</span> (ℐ⁺, ℐ⁻ — куда приходят и откуда уходят лучи света). На диаграмме Пенроуза все три видны одновременно.</p>
+</section>
+
+<!-- ══════════════ 03. ЗООПАРК ПРОСТРАНСТВ ══════════════ -->
+<section>
+  <h2><span class="num">03</span>Зоопарк пространств-времён</h2>
+  <div class="section-subtitle">Четыре ключевых случая</div>
+
+  <p>Сила диаграмм Пенроуза — в том, что качественно разные вселенные выглядят качественно по-разному. Вот четыре фундаментальных случая:</p>
+
+  <div class="interactive-wrap">
+    <h3>Интерактивный атлас</h3>
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="mink">Минковский</button>
+      <button class="tab-btn" data-tab="schw">Чёрная дыра</button>
+      <button class="tab-btn" data-tab="ds">de Sitter</button>
+      <button class="tab-btn" data-tab="ads">Anti-de Sitter</button>
+    </div>
+
+    <!-- Minkowski -->
+    <div class="tab-panel active" id="tab-mink">
+      <div class="dia-wrap">
+        <svg viewBox="0 0 320 360" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="160,20 300,180 160,340 20,180" fill="rgba(123,140,255,0.04)" stroke="rgba(123,140,255,0.25)" stroke-width="1.5"/>
+          <circle cx="160" cy="20" r="4" fill="#ff6b8a"/>
+          <circle cx="160" cy="340" r="4" fill="#4aeadc"/>
+          <circle cx="300" cy="180" r="4" fill="var(--gold)"/>
+          <circle cx="20" cy="180" r="4" fill="var(--gold)"/>
+          <text x="160" y="12" text-anchor="middle" font-family="'JetBrains Mono'" font-size="10" fill="#ff6b8a">i⁺</text>
+          <text x="160" y="358" text-anchor="middle" font-family="'JetBrains Mono'" font-size="10" fill="#4aeadc">i⁻</text>
+          <text x="310" y="183" font-family="'JetBrains Mono'" font-size="10" fill="var(--gold)">i⁰</text>
+          <!-- Light cone -->
+          <line x1="160" y1="240" x2="220" y2="180" stroke="var(--gold)" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
+          <line x1="160" y1="240" x2="100" y2="180" stroke="var(--gold)" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
+          <circle cx="160" cy="240" r="3" fill="var(--gold)" opacity="0.7"/>
+        </svg>
+      </div>
+      <p style="text-align:center; font-size:.92rem; color:var(--text);">
+        <strong style="color:#fff">Плоское пространство.</strong> Нет гравитации, нет кривизны. Простой ромб. Свет из любой точки в конечном счёте достигает ℐ⁺ — будущей световой бесконечности. Самый «скучный» случай — но он базовый.
+      </p>
+    </div>
+
+    <!-- Schwarzschild -->
+    <div class="tab-panel" id="tab-schw">
+      <div class="dia-wrap">
+        <svg viewBox="0 0 320 400" xmlns="http://www.w3.org/2000/svg">
+          <!-- Exterior region (I) -->
+          <polygon points="160,40 300,200 160,200 160,40" fill="rgba(123,140,255,0.03)" stroke="none"/>
+          <polygon points="160,200 300,200 160,360 160,200" fill="rgba(123,140,255,0.03)" stroke="none"/>
+          <!-- Interior (II - inside BH) -->
+          <polygon points="20,40 160,40 160,200 20,200" fill="rgba(255,107,138,0.04)" stroke="none"/>
+
+          <!-- Singularity -->
+          <line x1="20" y1="40" x2="160" y2="40" stroke="#ff6b8a" stroke-width="3"/>
+          <text x="90" y="30" text-anchor="middle" font-family="'JetBrains Mono'" font-size="10" fill="#ff6b8a">сингулярность (r=0)</text>
+
+          <!-- Horizon -->
+          <line x1="160" y1="40" x2="160" y2="360" stroke="var(--gold)" stroke-width="1.5" stroke-dasharray="6,4"/>
+          <text x="172" y="120" font-family="'JetBrains Mono'" font-size="9" fill="var(--gold)">горизонт</text>
+          <text x="172" y="132" font-family="'JetBrains Mono'" font-size="9" fill="var(--gold)">событий</text>
+
+          <!-- Outer boundaries -->
+          <line x1="160" y1="40" x2="300" y2="200" stroke="rgba(123,140,255,0.3)" stroke-width="1"/>
+          <line x1="300" y1="200" x2="160" y2="360" stroke="rgba(123,140,255,0.3)" stroke-width="1"/>
+          <line x1="20" y1="200" x2="160" y2="360" stroke="rgba(74,234,220,0.3)" stroke-width="1"/>
+          <line x1="20" y1="200" x2="20" y2="40" stroke="rgba(255,107,138,0.15)" stroke-width="1"/>
+
+          <!-- Labels -->
+          <circle cx="300" cy="200" r="4" fill="var(--gold)"/>
+          <text x="310" y="203" font-family="'JetBrains Mono'" font-size="10" fill="var(--gold)">i⁰</text>
+          <circle cx="160" cy="360" r="4" fill="#4aeadc"/>
+          <text x="160" y="378" text-anchor="middle" font-family="'JetBrains Mono'" font-size="10" fill="#4aeadc">i⁻</text>
+
+          <!-- Region labels -->
+          <text x="80" y="130" text-anchor="middle" font-family="'Playfair Display'" font-size="14" fill="rgba(255,107,138,0.4)" font-style="italic">II</text>
+          <text x="80" y="148" text-anchor="middle" font-family="'JetBrains Mono'" font-size="8" fill="rgba(255,107,138,0.3)">внутри дыры</text>
+          <text x="230" y="200" text-anchor="middle" font-family="'Playfair Display'" font-size="14" fill="rgba(123,140,255,0.4)" font-style="italic">I</text>
+          <text x="230" y="218" text-anchor="middle" font-family="'JetBrains Mono'" font-size="8" fill="rgba(123,140,255,0.3)">наш мир</text>
+
+          <!-- Infalling worldline -->
+          <path d="M 250,320 Q 200,240 120,100" fill="none" stroke="#fff" stroke-width="1.2" opacity="0.4" stroke-dasharray="2,3"/>
+          <text x="252" y="318" font-family="'JetBrains Mono'" font-size="8" fill="rgba(255,255,255,0.4)">падение</text>
+
+          <!-- Zigzag on singularity -->
+          <path d="M 25,40 L 35,35 L 45,45 L 55,35 L 65,45 L 75,35 L 85,45 L 95,35 L 105,45 L 115,35 L 125,45 L 135,35 L 145,45 L 155,40" fill="none" stroke="#ff6b8a" stroke-width="1.5"/>
+        </svg>
+      </div>
+      <p style="text-align:center; font-size:.92rem; color:var(--text);">
+        <strong style="color:#fff">Чёрная дыра Шварцшильда.</strong> Горизонт событий — <span style="color:var(--gold)">вертикальная пунктирная линия</span> под 45°. За горизонтом любое движение неизбежно ведёт к <span style="color:#ff6b8a">сингулярности</span> наверху. Обратного пути нет: горизонт — это граница причинности, а не стена.
+      </p>
+    </div>
+
+    <!-- de Sitter -->
+    <div class="tab-panel" id="tab-ds">
+      <div class="dia-wrap">
+        <svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="dsTop" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#ff6b8a" stop-opacity="0"/>
+              <stop offset="50%" stop-color="#ff6b8a" stop-opacity="0.8"/>
+              <stop offset="100%" stop-color="#ff6b8a" stop-opacity="0"/>
+            </linearGradient>
+            <linearGradient id="dsBot" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#4aeadc" stop-opacity="0"/>
+              <stop offset="50%" stop-color="#4aeadc" stop-opacity="0.8"/>
+              <stop offset="100%" stop-color="#4aeadc" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Square -->
+          <rect x="40" y="40" width="240" height="240" fill="rgba(123,140,255,0.03)" stroke="rgba(123,140,255,0.15)" stroke-width="1"/>
+
+          <!-- Future/past boundaries -->
+          <line x1="40" y1="40" x2="280" y2="40" stroke="url(#dsTop)" stroke-width="3"/>
+          <line x1="40" y1="280" x2="280" y2="280" stroke="url(#dsBot)" stroke-width="3"/>
+
+          <!-- Observer worldline -->
+          <line x1="160" y1="280" x2="160" y2="40" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" stroke-dasharray="4,4"/>
+          <circle cx="160" cy="160" r="4" fill="#fff">
+            <animate attributeName="r" values="3;5;3" dur="2s" repeatCount="indefinite"/>
+          </circle>
+
+          <!-- Cosmological horizon -->
+          <line x1="40" y1="160" x2="160" y2="40" stroke="rgba(240,192,96,0.35)" stroke-width="1"/>
+          <line x1="160" y1="40" x2="280" y2="160" stroke="rgba(240,192,96,0.35)" stroke-width="1"/>
+          <line x1="40" y1="160" x2="160" y2="280" stroke="rgba(240,192,96,0.35)" stroke-width="1"/>
+          <line x1="160" y1="280" x2="280" y2="160" stroke="rgba(240,192,96,0.35)" stroke-width="1"/>
+
+          <!-- Labels -->
+          <text x="160" y="30" text-anchor="middle" font-family="'JetBrains Mono'" font-size="10" fill="#ff6b8a">I⁺ (будущая ∞)</text>
+          <text x="160" y="300" text-anchor="middle" font-family="'JetBrains Mono'" font-size="10" fill="#4aeadc">I⁻ (прошлая ∞)</text>
+
+          <text x="100" y="100" text-anchor="middle" font-family="'JetBrains Mono'" font-size="8" fill="rgba(240,192,96,0.5)" transform="rotate(-45,100,100)">горизонт</text>
+
+          <text x="160" y="155" text-anchor="middle" font-family="'JetBrains Mono'" font-size="9" fill="rgba(255,255,255,0.6)">наблюдатель</text>
+        </svg>
+      </div>
+      <p style="text-align:center; font-size:.92rem; color:var(--text);">
+        <strong style="color:#fff">Пространство де Ситтера</strong> (положительная Λ, ускоренное расширение). Квадрат вместо ромба. Верхняя и нижняя границы — <em>пространственноподобные</em> бесконечности. Каждый наблюдатель окружён <span style="color:var(--gold)">космологическим горизонтом</span>: есть области, до которых свет никогда не дойдёт. Именно такая Вселенная у нас.
+      </p>
+    </div>
+
+    <!-- Anti-de Sitter -->
+    <div class="tab-panel" id="tab-ads">
+      <div class="dia-wrap">
+        <svg viewBox="0 0 320 380" xmlns="http://www.w3.org/2000/svg">
+          <!-- Vertical strip -->
+          <rect x="80" y="30" width="160" height="320" fill="rgba(123,140,255,0.03)" stroke="none"/>
+
+          <!-- Boundary walls (timelike) -->
+          <line x1="80" y1="30" x2="80" y2="350" stroke="var(--accent)" stroke-width="2.5" opacity="0.7"/>
+          <line x1="240" y1="30" x2="240" y2="350" stroke="var(--accent)" stroke-width="2.5" opacity="0.7"/>
+
+          <!-- Top/bottom -->
+          <line x1="80" y1="30" x2="240" y2="30" stroke="rgba(123,140,255,0.2)" stroke-width="1"/>
+          <line x1="80" y1="350" x2="240" y2="350" stroke="rgba(123,140,255,0.2)" stroke-width="1"/>
+
+          <!-- Light bouncing off boundary -->
+          <path d="M 160,300 L 240,220 L 160,140 L 80,60" fill="none" stroke="var(--gold)" stroke-width="1.2" stroke-dasharray="4,3" opacity="0.5"/>
+          <circle cx="160" cy="300" r="3" fill="var(--gold)" opacity="0.7"/>
+
+          <!-- Labels -->
+          <text x="60" y="190" text-anchor="middle" font-family="'Playfair Display'" font-size="13" fill="var(--accent)" font-style="italic" transform="rotate(-90,60,190)">граница (CFT)</text>
+          <text x="260" y="190" text-anchor="middle" font-family="'Playfair Display'" font-size="13" fill="var(--accent)" font-style="italic" transform="rotate(90,260,190)">граница (CFT)</text>
+          <text x="160" y="200" text-anchor="middle" font-family="'Playfair Display'" font-size="14" fill="rgba(123,140,255,0.3)" font-style="italic">AdS bulk</text>
+
+          <text x="160" y="20" text-anchor="middle" font-family="'JetBrains Mono'" font-size="9" fill="var(--text-dim)">t → +∞</text>
+          <text x="160" y="368" text-anchor="middle" font-family="'JetBrains Mono'" font-size="9" fill="var(--text-dim)">t → −∞</text>
+
+          <text x="248" y="218" font-family="'JetBrains Mono'" font-size="8" fill="var(--gold)">свет «отражается»</text>
+          <text x="248" y="230" font-family="'JetBrains Mono'" font-size="8" fill="var(--gold)">от границы</text>
+        </svg>
+      </div>
+      <p style="text-align:center; font-size:.92rem; color:var(--text);">
+        <strong style="color:#fff">Анти-де Ситтер</strong> (отрицательная Λ). Вертикальная полоса. Боковые стенки — <span style="color:var(--accent)">времениподобные границы</span>, на которых живёт CFT (дуальная теория из AdS/CFT). Свет долетает до границы за конечное время и «отражается». Пространство действует как ящик.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ 04. ЧТО МОЖНО ПРОЧИТАТЬ ══════════════ -->
+<section>
+  <h2><span class="num">04</span>Что можно прочитать с диаграммы</h2>
+  <div class="section-subtitle">Практическая ценность</div>
+
+  <p>Диаграммы Пенроуза — не просто красивые картинки. Они позволяют <em>с одного взгляда</em> ответить на вопросы, для которых иначе нужны страницы вычислений:</p>
+
+  <div class="compare-grid">
+    <div class="compare-card">
+      <h4 style="color:var(--accent3)">Причинность</h4>
+      <p>Может ли событие A повлиять на событие B? Проведите линию под 45° или круче. Если можно соединить — да. Если нельзя — никогда, ни при каких обстоятельствах.</p>
+    </div>
+    <div class="compare-card">
+      <h4 style="color:var(--accent2)">Горизонты</h4>
+      <p>Где находятся горизонты событий? Линии 45°, которые разделяют области с качественно разной причинной структурой. Видны явно.</p>
+    </div>
+    <div class="compare-card">
+      <h4 style="color:var(--gold)">Сингулярности</h4>
+      <p>Есть ли сингулярности? Это обрезанные края, часто зигзагообразные линии. Неизбежность попадания в сингулярность видна геометрически.</p>
+    </div>
+    <div class="compare-card">
+      <h4 style="color:var(--accent)">Глобальная топология</h4>
+      <p>Квадрат (dS), ромб (Минковский), полоса (AdS), полуромб с зигзагом (чёрная дыра) — форма диаграммы кодирует физику.</p>
+    </div>
+  </div>
+
+  <div class="insight">
+    <blockquote>Диаграмма Пенроуза — это не рисунок пространства-времени. Это рисунок его причинной структуры. Она показывает не «где», а «кто может узнать о чём».</blockquote>
+  </div>
+
+  <p>Именно поэтому диаграммы Пенроуза стали стандартным инструментом в общей теории относительности, космологии и квантовой гравитации. Без них невозможно обсуждать ни чёрные дыры, ни информационный парадокс, ни голографический принцип, ни AdS/CFT.</p>
+</section>
+
+<!-- ══════════════ 05. НОБЕЛЬ ══════════════ -->
+<section>
+  <h2><span class="num">05</span>Человек за диаграммой</h2>
+  <div class="section-subtitle">Роджер Пенроуз</div>
+
+  <p>Роджер Пенроуз разработал технику конформных диаграмм в начале 1960-х как часть более широкой программы: применения методов дифференциальной геометрии и топологии к общей теории относительности. Вместо того чтобы решать уравнения Эйнштейна в лоб (что часто невозможно аналитически), Пенроуз предложил <span class="hl">извлекать глобальные выводы из топологических свойств</span>.</p>
+
+  <p>Этот подход привёл его к <span class="t2">теоремам о сингулярностях</span> (1965, совместно со Стивеном Хокингом) — доказательству того, что сингулярности неизбежны в общей теории относительности при выполнении определённых условий. За эту работу Пенроуз получил Нобелевскую премию по физике в 2020 году.</p>
+
+  <p>Конформные диаграммы были независимо развиты Брэндоном Картером, поэтому в литературе часто встречается название <span class="t1">диаграммы Картера-Пенроуза</span>.</p>
+
+  <div class="analogy">
+    <span class="emoji">🔭</span> <strong>Контекст:</strong> Пенроуз — один из немногих учёных, внёсших фундаментальный вклад одновременно в математику (мозаики Пенроуза, твисторная теория), физику (теоремы о сингулярностях, циклическая космология) и философию сознания (книга «The Emperor's New Mind»).
+  </div>
+</section>
+
+<!-- ══════════════ 06. ШПАРГАЛКА ══════════════ -->
+<section>
+  <h2><span class="num">06</span>Шпаргалка</h2>
+  <div class="section-subtitle">Для дальнейшего чтения</div>
+
+  <div class="cheat">
+    <div class="cheat-row">
+      <div class="cheat-key">ℐ⁺, ℐ⁻</div>
+      <div class="cheat-val">Будущая / прошлая <strong>световая</strong> бесконечность (script-I, «scri»). Куда уходит / откуда приходит свет.</div>
+    </div>
+    <div class="cheat-row">
+      <div class="cheat-key">i⁺, i⁻</div>
+      <div class="cheat-val">Будущая / прошлая <strong>времениподобная</strong> бесконечность. Конечная точка мировых линий массивных тел.</div>
+    </div>
+    <div class="cheat-row">
+      <div class="cheat-key">i⁰</div>
+      <div class="cheat-val"><strong>Пространственная</strong> бесконечность. «Бесконечно далеко» в пространственном направлении в данный момент времени.</div>
+    </div>
+    <div class="cheat-row">
+      <div class="cheat-key">45°</div>
+      <div class="cheat-val">Угол световых лучей. Всегда. Это определяющее свойство конформной диаграммы.</div>
+    </div>
+    <div class="cheat-row">
+      <div class="cheat-key">Зигзаг ∿∿∿</div>
+      <div class="cheat-val">Сингулярность — край пространства-времени, где кривизна расходится. Физика ломается.</div>
+    </div>
+    <div class="cheat-row">
+      <div class="cheat-key">Пунктир 45°</div>
+      <div class="cheat-val">Горизонт событий — граница причинности, но не физический барьер. Ничто не мешает пересечь; мешает вернуться.</div>
+    </div>
+    <div class="cheat-row">
+      <div class="cheat-key">Конформный</div>
+      <div class="cheat-val">Сохраняющий углы (и значит — структуру световых конусов), но не расстояния.</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Научно-популярный ликбез · Не является рецензированной публикацией
+</footer>
+
+</div>
+
+<!-- ══════════════ SCRIPTS ══════════════ -->
+<script>
+// Starfield
+(function(){
+  const c = document.getElementById('starfield'), ctx = c.getContext('2d');
+  let stars = [];
+  function resize(){ c.width=innerWidth; c.height=innerHeight; }
+  function init(){
+    resize(); stars=[];
+    for(let i=0;i<180;i++) stars.push({
+      x:Math.random()*c.width, y:Math.random()*c.height,
+      r:Math.random()*1.1+.2, a:Math.random()*.45+.1,
+      sp:Math.random()*.0003+.0001, ph:Math.random()*Math.PI*2
+    });
+  }
+  function draw(t){
+    ctx.clearRect(0,0,c.width,c.height);
+    for(const s of stars){
+      const a=s.a+Math.sin(t*s.sp*1000+s.ph)*.15;
+      ctx.beginPath(); ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+      ctx.fillStyle=`rgba(200,210,255,${Math.max(0,a)})`; ctx.fill();
+    }
+    requestAnimationFrame(draw);
+  }
+  init(); addEventListener('resize',init); requestAnimationFrame(draw);
+})();
+
+// Section reveal
+const obs = new IntersectionObserver(es=>{
+  es.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('visible'); });
+},{threshold:.1});
+document.querySelectorAll('section').forEach(s=>obs.observe(s));
+
+// Tabs
+document.querySelectorAll('.tab-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-'+btn.dataset.tab).classList.add('active');
+  });
+});
+</script>
+
+</body>
+</html>
