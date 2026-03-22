@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AdS/CFT — Голографическая Вселенная</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@300;400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #06060e;
+  --surface: #0c0c1a;
+  --border: rgba(120, 140, 255, 0.12);
+  --text: #c8cce0;
+  --text-dim: #6b7094;
+  --accent: #7b8cff;
+  --accent2: #ff6b8a;
+  --accent3: #4aeadc;
+  --glow: rgba(123, 140, 255, 0.15);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) var(--bg);
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Source Sans 3', sans-serif;
+  font-weight: 300;
+  line-height: 1.75;
+  overflow-x: hidden;
+}
+
+/* ── Stars background ── */
+.stars {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.stars canvas {
+  width: 100%;
+  height: 100%;
+}
+
+/* ── Layout ── */
+.content {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Hero ── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+.hero-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 24px;
+  opacity: 0;
+  animation: fadeUp 1s 0.3s forwards;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.4rem, 6vw, 4.2rem);
+  font-weight: 700;
+  line-height: 1.15;
+  color: #fff;
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: fadeUp 1s 0.5s forwards;
+}
+
+.hero h1 em {
+  font-style: italic;
+  background: linear-gradient(135deg, var(--accent), var(--accent3));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-sub {
+  font-size: 1.15rem;
+  color: var(--text-dim);
+  max-width: 520px;
+  opacity: 0;
+  animation: fadeUp 1s 0.7s forwards;
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: 40px;
+  opacity: 0;
+  animation: fadeUp 1s 1.2s forwards;
+}
+
+.scroll-hint span {
+  display: block;
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--accent), transparent);
+  margin: 0 auto;
+  animation: pulse 2s infinite;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+/* ── Sections ── */
+section {
+  padding: 100px 0;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s, transform 0.8s;
+}
+
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  color: #fff;
+  margin-bottom: 8px;
+  line-height: 1.25;
+}
+
+section h2 .num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.55em;
+  color: var(--accent);
+  vertical-align: super;
+  margin-right: 8px;
+}
+
+.section-subtitle {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent2);
+  margin-bottom: 32px;
+}
+
+section p {
+  margin-bottom: 20px;
+  font-size: 1.05rem;
+}
+
+.highlight {
+  color: #fff;
+  font-weight: 400;
+}
+
+.term {
+  color: var(--accent3);
+  font-weight: 400;
+}
+
+.term2 {
+  color: var(--accent);
+  font-weight: 400;
+}
+
+.term3 {
+  color: var(--accent2);
+  font-weight: 400;
+}
+
+/* ── Diagram cards ── */
+.diagram-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 32px;
+  margin: 36px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.diagram-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+}
+
+.diagram-card h3 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+
+/* ── Hologram SVG ── */
+.holo-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.holo-container svg {
+  width: 100%;
+  max-width: 500px;
+}
+
+/* ── Analogy box ── */
+.analogy {
+  background: linear-gradient(135deg, rgba(123,140,255,0.06), rgba(74,234,220,0.04));
+  border-left: 3px solid var(--accent3);
+  padding: 24px 28px;
+  margin: 32px 0;
+  border-radius: 0 8px 8px 0;
+  font-size: 1rem;
+}
+
+.analogy .emoji {
+  font-size: 1.4rem;
+  margin-right: 8px;
+}
+
+/* ── Key insight ── */
+.insight {
+  text-align: center;
+  padding: 48px 32px;
+  margin: 40px 0;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: radial-gradient(ellipse at center, rgba(123,140,255,0.05), transparent);
+}
+
+.insight blockquote {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
+  font-style: italic;
+  color: #fff;
+  line-height: 1.5;
+}
+
+.insight cite {
+  display: block;
+  margin-top: 16px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-style: normal;
+  color: var(--text-dim);
+  letter-spacing: 1px;
+}
+
+/* ── Interactive demo ── */
+.demo {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 32px;
+  margin: 36px 0;
+  text-align: center;
+}
+
+.demo canvas {
+  border-radius: 8px;
+  cursor: crosshair;
+  max-width: 100%;
+}
+
+.demo-caption {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--text-dim);
+  margin-top: 12px;
+  letter-spacing: 1px;
+}
+
+/* ── Dictionary ── */
+.dict {
+  display: grid;
+  gap: 1px;
+  background: var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 32px 0;
+}
+
+.dict-entry {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  background: var(--surface);
+  gap: 0;
+}
+
+.dict-key {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--accent);
+  padding: 14px 16px;
+  border-right: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+}
+
+.dict-val {
+  font-size: 0.95rem;
+  padding: 14px 16px;
+  color: var(--text);
+}
+
+/* ── Timeline ── */
+.timeline {
+  position: relative;
+  margin: 36px 0;
+  padding-left: 28px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--accent), var(--accent2), var(--accent3));
+}
+
+.tl-item {
+  position: relative;
+  margin-bottom: 28px;
+}
+
+.tl-item::before {
+  content: '';
+  position: absolute;
+  left: -32px;
+  top: 6px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--glow);
+}
+
+.tl-item:nth-child(2)::before { background: var(--accent2); }
+.tl-item:nth-child(3)::before { background: var(--accent3); }
+.tl-item:nth-child(4)::before { background: var(--accent); }
+
+.tl-year {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+
+.tl-item:nth-child(2) .tl-year { color: var(--accent2); }
+.tl-item:nth-child(3) .tl-year { color: var(--accent3); }
+
+.tl-text {
+  font-size: 0.95rem;
+}
+
+/* ── Verdict ── */
+.verdict {
+  margin: 40px 0;
+  padding: 40px 32px;
+  background: linear-gradient(135deg, rgba(255,107,138,0.05), rgba(123,140,255,0.05), rgba(74,234,220,0.05));
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+
+.verdict h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.verdict-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.v-card {
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: rgba(6,6,14,0.6);
+}
+
+.v-card h4 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.v-card.pro h4 { color: var(--accent3); }
+.v-card.con h4 { color: var(--accent2); }
+
+.v-card p {
+  font-size: 0.9rem;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* ── Footer ── */
+footer {
+  text-align: center;
+  padding: 60px 0 40px;
+  color: var(--text-dim);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+footer a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .verdict-grid { grid-template-columns: 1fr; }
+  .dict-entry { grid-template-columns: 110px 1fr; }
+  .diagram-card, .demo { padding: 20px; }
+}
+</style>
+</head>
+<body>
+
+<div class="stars"><canvas id="starfield"></canvas></div>
+
+<div class="content">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-label">Theoretical Physics · Scientific Explainer</div>
+    <h1>Вселенная как <em>голограмма</em></h1>
+    <p class="hero-sub">AdS/CFT-соответствие и вопрос о том, может ли всё, что мы считаем реальностью, быть проекцией с далёкой поверхности</p>
+    <div class="scroll-hint"><span></span></div>
+  </div>
+
+  <!-- 1. ГОЛОГРАФИЧЕСКИЙ ПРИНЦИП -->
+  <section id="s1">
+    <h2><span class="num">01</span>Голографический принцип</h2>
+    <div class="section-subtitle">Информация на поверхности</div>
+
+    <p>В 1993 году Герард 'т Хоофт предложил радикальную идею: <span class="highlight">максимальное количество информации, которое можно упаковать в область пространства, пропорционально не её объёму, а площади её границы.</span></p>
+
+    <p>Это контринтуитивно. Мы привыкли думать, что содержимое комнаты определяется тем, что расположено <em>внутри</em> неё. Но физика чёрных дыр говорит иначе: энтропия чёрной дыры — мера всей заключённой в ней информации — определяется <span class="term">площадью горизонта событий</span>, а не объёмом. Это формула Бекенштейна-Хокинга:</p>
+
+    <div class="diagram-card">
+      <h3>Энтропия Бекенштейна-Хокинга</h3>
+      <div style="text-align:center; padding: 20px 0;">
+        <svg width="340" height="80" viewBox="0 0 340 80">
+          <text x="170" y="45" text-anchor="middle" font-family="'Playfair Display', serif" font-size="32" fill="#fff" font-style="italic">S</text>
+          <text x="200" y="45" text-anchor="middle" font-family="'Source Sans 3', sans-serif" font-size="28" fill="#6b7094"> = </text>
+          <line x1="230" y1="42" x2="330" y2="42" stroke="#6b7094" stroke-width="1"/>
+          <text x="280" y="32" text-anchor="middle" font-family="'Playfair Display', serif" font-size="26" fill="#7b8cff" font-style="italic">A</text>
+          <text x="280" y="68" text-anchor="middle" font-family="'Source Sans 3', sans-serif" font-size="22" fill="#6b7094">4 ℓ²<tspan baseline-shift="sub" font-size="14">P</tspan></text>
+        </svg>
+      </div>
+      <p style="text-align:center; color: var(--text-dim); font-size: 0.9rem;">
+        Энтропия <span style="color:var(--accent)">S</span> пропорциональна площади горизонта <span style="color:var(--accent)">A</span>, а не объёму.<br>
+        ℓ<sub>P</sub> — планковская длина ≈ 1.6 × 10<sup>−35</sup> м
+      </p>
+    </div>
+
+    <p>Представьте: вы бросаете в чёрную дыру энциклопедию. Вся информация из неё «размазывается» по горизонту событий. Не теряется, не уходит в объём — <span class="highlight">записывается на поверхности</span>. Леонард Сасскинд развил эту идею в полноценный <span class="term2">голографический принцип</span>: вся физика объёмной области может быть полностью описана теорией, живущей на её границе.</p>
+
+    <div class="analogy">
+      <span class="emoji">💿</span> <strong>Аналогия:</strong> обычная голограмма на кредитной карте — двумерная плёнка, но содержит всю информацию для воссоздания трёхмерного изображения. Голографический принцип говорит, что вся Вселенная может работать так же.
+    </div>
+  </section>
+
+  <!-- 2. AdS/CFT -->
+  <section id="s2">
+    <h2><span class="num">02</span>AdS/CFT-соответствие</h2>
+    <div class="section-subtitle">Словарь Малдасены</div>
+
+    <p>В 1997 году Хуан Малдасена совершил одно из самых влиятельных открытий в теоретической физике последних десятилетий. Он показал математически точное соответствие между двумя совершенно разными теориями:</p>
+
+    <div class="dict">
+      <div class="dict-entry">
+        <div class="dict-key">AdS</div>
+        <div class="dict-val"><strong>Anti-de Sitter</strong> — пространство-время с отрицательной космологической постоянной. Объёмное, (d+1)-мерное, с гравитацией. «Внутренность».</div>
+      </div>
+      <div class="dict-entry">
+        <div class="dict-key">CFT</div>
+        <div class="dict-val"><strong>Conformal Field Theory</strong> — конформная теория поля. Живёт на d-мерной границе AdS. Без гравитации. «Поверхность».</div>
+      </div>
+      <div class="dict-entry">
+        <div class="dict-key">Дуальность</div>
+        <div class="dict-val">Это не приближение. Это <em>точное</em> соответствие: каждому объекту в одной теории соответствует объект в другой. Два языка описания одной реальности.</div>
+      </div>
+    </div>
+
+    <div class="diagram-card">
+      <h3>Bulk ↔ Boundary</h3>
+      <div class="holo-container">
+        <svg viewBox="0 0 500 320" xmlns="http://www.w3.org/2000/svg">
+          <!-- AdS bulk (interior) -->
+          <defs>
+            <radialGradient id="bulkGrad" cx="50%" cy="50%">
+              <stop offset="0%" stop-color="rgba(123,140,255,0.12)"/>
+              <stop offset="100%" stop-color="transparent"/>
+            </radialGradient>
+            <linearGradient id="boundaryGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#ff6b8a"/>
+              <stop offset="50%" stop-color="#7b8cff"/>
+              <stop offset="100%" stop-color="#4aeadc"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Bulk disc -->
+          <ellipse cx="250" cy="160" rx="180" ry="120" fill="url(#bulkGrad)" stroke="rgba(123,140,255,0.2)" stroke-width="1" stroke-dasharray="4,4"/>
+
+          <!-- Grid lines inside to show curvature -->
+          <path d="M 120 160 Q 250 100 380 160" fill="none" stroke="rgba(123,140,255,0.08)" stroke-width="1"/>
+          <path d="M 120 160 Q 250 220 380 160" fill="none" stroke="rgba(123,140,255,0.08)" stroke-width="1"/>
+          <path d="M 250 50 Q 200 160 250 270" fill="none" stroke="rgba(123,140,255,0.08)" stroke-width="1"/>
+          <path d="M 250 50 Q 300 160 250 270" fill="none" stroke="rgba(123,140,255,0.08)" stroke-width="1"/>
+
+          <!-- Boundary circle (the CFT lives here) -->
+          <ellipse cx="250" cy="160" rx="180" ry="120" fill="none" stroke="url(#boundaryGrad)" stroke-width="2.5"/>
+
+          <!-- Object in bulk -->
+          <circle cx="220" cy="140" r="6" fill="#7b8cff" opacity="0.9">
+            <animate attributeName="opacity" values="0.5;1;0.5" dur="3s" repeatCount="indefinite"/>
+          </circle>
+          <text x="236" y="133" font-family="'JetBrains Mono', monospace" font-size="10" fill="#7b8cff">чёрная дыра</text>
+          <text x="236" y="147" font-family="'JetBrains Mono', monospace" font-size="10" fill="#6b7094">в bulk (d+1)</text>
+
+          <!-- Projection on boundary -->
+          <circle cx="410" cy="105" r="4" fill="#ff6b8a" opacity="0.9">
+            <animate attributeName="opacity" values="0.5;1;0.5" dur="3s" repeatCount="indefinite"/>
+          </circle>
+          <line x1="224" y1="136" x2="407" y2="105" stroke="rgba(255,107,138,0.3)" stroke-width="1" stroke-dasharray="3,3"/>
+
+          <!-- Labels -->
+          <text x="250" y="170" text-anchor="middle" font-family="'Playfair Display', serif" font-size="16" fill="rgba(255,255,255,0.4)" font-style="italic">AdS</text>
+          <text x="250" y="190" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="9" fill="rgba(255,255,255,0.2)">гравитация · d+1 измерений</text>
+
+          <text x="250" y="300" text-anchor="middle" font-family="'Playfair Display', serif" font-size="13" fill="var(--accent2)">CFT на границе</text>
+          <text x="250" y="314" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="9" fill="var(--text-dim)">квантовая теория поля · d измерений · без гравитации</text>
+
+          <!-- Arrow annotation -->
+          <text x="440" y="102" font-family="'JetBrains Mono', monospace" font-size="9" fill="#ff6b8a">тепловое</text>
+          <text x="440" y="114" font-family="'JetBrains Mono', monospace" font-size="9" fill="#ff6b8a">состояние в CFT</text>
+        </svg>
+      </div>
+    </div>
+
+    <p>Ключевой разворот мышления: <span class="term3">чёрная дыра в объёме</span> AdS-пространства — это просто <span class="term">тепловое состояние</span> квантовой теории на границе. Гравитация внутри — это <em>эмерджентное</em> свойство, возникающее из запутанности на поверхности. Не фундаментальная сила, а проекция квантовой информации.</p>
+
+    <div class="insight">
+      <blockquote>«Гравитация — самая слабая из всех сил. Возможно, потому что это не отдельная сила, а голографическая тень квантовой запутанности.»</blockquote>
+      <cite>— Пересказ идей Марка ван Раамсдонка, 2010</cite>
+    </div>
+  </section>
+
+  <!-- 3. Как это работает -->
+  <section id="s3">
+    <h2><span class="num">03</span>Словарь дуальности</h2>
+    <div class="section-subtitle">Что чему соответствует</div>
+
+    <p>AdS/CFT — это не метафора. Это математически точный словарь перевода между двумя описаниями. Вот несколько ключевых записей:</p>
+
+    <div class="dict">
+      <div class="dict-entry">
+        <div class="dict-key">Bulk ↔ Boundary</div>
+        <div class="dict-val">Массивная частица в объёме AdS ↔ оператор с определённой размерностью в CFT</div>
+      </div>
+      <div class="dict-entry">
+        <div class="dict-key">Глубина</div>
+        <div class="dict-val">Радиальная координата (глубина «внутрь» AdS) ↔ масштаб энергии / ренормгруппа в CFT</div>
+      </div>
+      <div class="dict-entry">
+        <div class="dict-key">Чёрная дыра</div>
+        <div class="dict-val">Чёрная дыра в AdS ↔ термализованное состояние при конечной температуре в CFT</div>
+      </div>
+      <div class="dict-entry">
+        <div class="dict-key">Запутанность</div>
+        <div class="dict-val">Квантовая запутанность в CFT ↔ геометрическая связность пространства-времени в bulk (формула Рю-Таканаги)</div>
+      </div>
+    </div>
+
+    <p>Последний пункт особенно поразителен. В 2006 году Шиндзи Рю и Тадаши Таканаги показали, что <span class="highlight">энтропия запутанности области на границе равна площади минимальной поверхности в объёме, привязанной к этой области</span>. Пространство-время буквально «сшивается» из квантовой запутанности. Уберите запутанность — пространство распадётся.</p>
+
+    <div class="analogy">
+      <span class="emoji">🧵</span> <strong>Аналогия:</strong> представьте ткань, где нити — это квантовые корреляции между точками на границе. Гравитация — это натяжение ткани. Чем больше запутанности между двумя областями — тем «ближе» они геометрически в объёмном описании.
+    </div>
+  </section>
+
+  <!-- 4. А как же наша Вселенная? -->
+  <section id="s4">
+    <h2><span class="num">04</span>А мы-то внутри?</h2>
+    <div class="section-subtitle">Проекция поверхности горизонта</div>
+
+    <p>Вот где начинается самое интересное — и самое спекулятивное. AdS/CFT работает в <span class="term2">анти-де Ситтеровском</span> пространстве — с отрицательной космологической постоянной. Наша Вселенная, судя по всему, имеет <span class="term3">положительную</span> космологическую постоянную (de Sitter, dS). Мы живём не в AdS, а в чём-то ближе к dS.</p>
+
+    <p>Это принципиальная проблема. AdS-пространство имеет <em>границу</em> — буквально «стену» на бесконечности, где может жить CFT. У de Sitter пространства такой пространственноподобной границы нет. Вместо неё есть <span class="term">космологический горизонт</span> — предел наблюдаемой Вселенной для каждого наблюдателя.</p>
+
+    <p>И здесь возникает захватывающая гипотеза. В 2001 году Эндрю Стромингер предложил <span class="highlight">dS/CFT-соответствие</span>: аналог AdS/CFT для де-ситтеровских пространств. Граница, на которой живёт дуальная теория — это не стена в пространстве, а <span class="term3">поверхности в далёком будущем и далёком прошлом</span> (будущая и прошлая бесконечности, I⁺ и I⁻).</p>
+
+    <div class="diagram-card">
+      <h3>Пенроуз-диаграмма de Sitter</h3>
+      <div class="holo-container">
+        <svg viewBox="0 0 400 340" xmlns="http://www.w3.org/2000/svg">
+          <!-- dS Penrose diagram (diamond shape) -->
+          <defs>
+            <linearGradient id="futureGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#ff6b8a" stop-opacity="0"/>
+              <stop offset="50%" stop-color="#ff6b8a" stop-opacity="0.8"/>
+              <stop offset="100%" stop-color="#ff6b8a" stop-opacity="0"/>
+            </linearGradient>
+            <linearGradient id="pastGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#4aeadc" stop-opacity="0"/>
+              <stop offset="50%" stop-color="#4aeadc" stop-opacity="0.8"/>
+              <stop offset="100%" stop-color="#4aeadc" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Diamond body -->
+          <polygon points="200,30 370,170 200,310 30,170" fill="rgba(123,140,255,0.04)" stroke="rgba(123,140,255,0.15)" stroke-width="1"/>
+
+          <!-- Future infinity I+ -->
+          <line x1="80" y1="30" x2="320" y2="30" stroke="url(#futureGrad)" stroke-width="3"/>
+          <text x="200" y="20" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="11" fill="#ff6b8a">I⁺ (будущая бесконечность)</text>
+
+          <!-- Past infinity I- -->
+          <line x1="80" y1="310" x2="320" y2="310" stroke="url(#pastGrad)" stroke-width="3"/>
+          <text x="200" y="332" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="11" fill="#4aeadc">I⁻ (прошлая бесконечность)</text>
+
+          <!-- Observer worldline -->
+          <line x1="200" y1="310" x2="200" y2="30" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" stroke-dasharray="4,4"/>
+          <circle cx="200" cy="170" r="4" fill="#fff">
+            <animate attributeName="r" values="3;5;3" dur="2s" repeatCount="indefinite"/>
+          </circle>
+          <text x="215" y="167" font-family="'JetBrains Mono', monospace" font-size="10" fill="#fff">мы</text>
+
+          <!-- Cosmological horizon -->
+          <line x1="30" y1="170" x2="200" y2="30" stroke="rgba(255,107,138,0.4)" stroke-width="1"/>
+          <line x1="200" y1="30" x2="370" y2="170" stroke="rgba(255,107,138,0.4)" stroke-width="1"/>
+          <line x1="30" y1="170" x2="200" y2="310" stroke="rgba(74,234,220,0.4)" stroke-width="1"/>
+          <line x1="200" y1="310" x2="370" y2="170" stroke="rgba(74,234,220,0.4)" stroke-width="1"/>
+
+          <!-- Horizon labels -->
+          <text x="100" y="90" text-anchor="middle" font-family="'Source Sans 3', sans-serif" font-size="10" fill="rgba(255,107,138,0.5)" transform="rotate(-45, 100, 90)">горизонт</text>
+
+          <!-- CFT label -->
+          <text x="200" y="55" text-anchor="middle" font-family="'Playfair Display', serif" font-size="13" fill="rgba(255,107,138,0.6)" font-style="italic">CFT ?</text>
+
+          <!-- Interior label -->
+          <text x="200" y="200" text-anchor="middle" font-family="'Playfair Display', serif" font-size="14" fill="rgba(123,140,255,0.3)" font-style="italic">dS bulk</text>
+        </svg>
+      </div>
+      <p style="text-align:center; color: var(--text-dim); font-size: 0.85rem; margin-top: 8px;">
+        Ромб Пенроуза для de Sitter. Наблюдатель «мы» видит лишь часть пространства.<br>
+        Гипотетическая CFT живёт на I⁺ — в бесконечном будущем.
+      </p>
+    </div>
+
+    <p>Если это работает, то да — в определённом смысле <span class="highlight">мы можем быть «проекцией» данных, закодированных на нашем космологическом горизонте или на будущей границе Вселенной</span>. Но тут есть принципиальные сложности, которые не позволяют утверждать это уверенно.</p>
+  </section>
+
+  <!-- 5. Проблемы и статус -->
+  <section id="s5">
+    <h2><span class="num">05</span>Что мешает ответить «да»</h2>
+    <div class="section-subtitle">Открытые проблемы</div>
+
+    <p><span class="term3">Проблема знака.</span> AdS/CFT доказана (точнее — имеет колоссальное количество подтверждений) для пространств с отрицательной космологической постоянной. Мы живём в пространстве с положительной. Переход от AdS к dS — это не просто смена знака. Это качественное изменение причинно-следственной структуры, топологии, и самой возможности определить границу.</p>
+
+    <p><span class="term2">Проблема наблюдателя.</span> В AdS граница — объективная геометрическая структура, одна для всех. В dS каждый наблюдатель имеет свой горизонт. Если голографический экран зависит от наблюдателя — что значит «объективная» голографическая теория?</p>
+
+    <p><span class="term">Проблема Евклидовости.</span> dS/CFT Стромингера работает через аналитическое продолжение в евклидово время. CFT на I⁺ оказывается не обычной унитарной квантовой теорией, а чем-то более экзотическим — возможно, с нестандартной нормой состояний. Физическая интерпретация неясна.</p>
+
+    <p><span class="term3">Проблема «не-AdS».</span> Даже если наша Вселенная сейчас де-ситтеровская, она не была таковой всегда (инфляция → замедление → ускорение). Точная dS-симметрия — это идеализация, а не реальность.</p>
+
+    <div class="verdict">
+      <h3>Итого: можем ли мы быть голограммой?</h3>
+      <p>Короткий ответ: <span class="highlight">мы не знаем</span>. Но это не пустая спекуляция — это одно из самых продуктивных направлений теоретической физики за последние 25 лет.</p>
+
+      <div class="verdict-grid">
+        <div class="v-card pro">
+          <h4>В пользу «да»</h4>
+          <p>AdS/CFT точно работает в своей области. Голографический принцип имеет независимую поддержку (энтропия чёрных дыр). Формула Рю-Таканаги связывает запутанность и геометрию. Несколько программ (dS/CFT, static patch holography, celestial holography) активно развиваются.</p>
+        </div>
+        <div class="v-card con">
+          <h4>Почему рано</h4>
+          <p>Нет доказанной dS/CFT. Нет экспериментальных предсказаний. Проблема наблюдателя нерешена. Наша Вселенная не является точно de Sitter. Путь от математической дуальности к физической реальности остаётся открытым.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Хронология -->
+  <section id="s6">
+    <h2><span class="num">06</span>Хронология идей</h2>
+    <div class="section-subtitle">От чёрных дыр к голограмме</div>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-year">1972–1973</div>
+        <div class="tl-text"><strong>Бекенштейн</strong> предлагает, что чёрные дыры имеют энтропию, пропорциональную площади горизонта. Хокинг уточняет формулу. Первое указание: информация «живёт» на поверхности.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">1993–1995</div>
+        <div class="tl-text"><strong>'т Хоофт и Сасскинд</strong> формулируют голографический принцип: физика любой области описывается теорией на её границе. Родилась идея-рамка.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">1997</div>
+        <div class="tl-text"><strong>Малдасена</strong> публикует конкретную реализацию: AdS₅/CFT₄. Теория струн в 5-мерном AdS эквивалентна 𝒩=4 суперсимметричной теории Янга-Миллса на 4-мерной границе. Статья набирает >20 000 цитирований.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2001–2006</div>
+        <div class="tl-text"><strong>Стромингер</strong> предлагает dS/CFT. <strong>Рю и Таканаги</strong> связывают запутанность с геометрией (RT-формула). <strong>Ван Раамсдонк</strong> показывает: убрав запутанность, вы буквально рвёте пространство-время.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Что это значит -->
+  <section id="s7">
+    <h2><span class="num">07</span>Что это значит для реальности</h2>
+    <div class="section-subtitle">Философский контекст</div>
+
+    <p>Голографический принцип не говорит, что мир «ненастоящий» или что мы живём в «Матрице». Он говорит нечто более тонкое: <span class="highlight">описание мира в терминах объёмного пространства-времени с гравитацией может быть <em>эквивалентно</em> описанию в терминах квантовой теории на поверхности без гравитации</span>.</p>
+
+    <p>Это два равноправных описания. Ни одно не «настоящее», а другое «иллюзия». Это как волновое и корпускулярное описания света — разные языки для одной реальности. Только здесь языки отличаются количеством измерений.</p>
+
+    <p>Если dS-голография когда-нибудь будет доказана для нашей Вселенной, это будет означать: вся информация о том, что происходит в трёхмерном пространстве (включая нас, наши мысли, и звёзды), может быть <em>полностью</em> закодирована на двумерной поверхности — будь то космологический горизонт, будущая бесконечность или что-то, чему мы ещё не придумали имя.</p>
+
+    <div class="insight">
+      <blockquote>Вопрос не в том, «реальны ли мы». Вопрос в том, сколько измерений на самом деле нужно для полного описания реальности — и ответ может оказаться на одно меньше, чем мы думаем.</blockquote>
+    </div>
+  </section>
+
+  <footer>
+    Артефакт создан для научно-популярного ликбеза · Не является рецензированной публикацией
+  </footer>
+
+</div>
+
+<script>
+// ── Starfield ──
+(function() {
+  const canvas = document.getElementById('starfield');
+  const ctx = canvas.getContext('2d');
+  let stars = [];
+  const COUNT = 200;
+
+  function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+
+  function init() {
+    resize();
+    stars = [];
+    for (let i = 0; i < COUNT; i++) {
+      stars.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 1.2 + 0.2,
+        a: Math.random() * 0.5 + 0.1,
+        speed: Math.random() * 0.0003 + 0.0001,
+        phase: Math.random() * Math.PI * 2
+      });
+    }
+  }
+
+  function draw(t) {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (const s of stars) {
+      const alpha = s.a + Math.sin(t * s.speed * 1000 + s.phase) * 0.15;
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(200, 210, 255, ${Math.max(0, alpha)})`;
+      ctx.fill();
+    }
+    requestAnimationFrame(draw);
+  }
+
+  init();
+  window.addEventListener('resize', init);
+  requestAnimationFrame(draw);
+})();
+
+// ── Section reveal ──
+const sections = document.querySelectorAll('section');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) e.target.classList.add('visible');
+  });
+}, { threshold: 0.12 });
+sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>
