@@ -2,19 +2,19 @@
 title: "Trabajar Conmigo"
 ---
 
-Asesoro en estrategia de monetización, economía adtech e infraestructura del lado del publisher.
+Estrategia de producto, economía adtech y arquitectura de monetización.
 
 ## Experiencia
 
-Gestión de producto en adtech, e-commerce y productos de consumo. Actualmente dirijo la monetización web en una de las mayores redes publicitarias de Europa — infraestructura SSP que procesa más de 30 mil millones de impresiones semanales en más de 400.000 integraciones de publishers.
+15 años en gestión de producto tecnológico. Actualmente: infraestructura de monetización web — 30+ mil millones de impresiones publicitarias por semana, 400K+ integraciones de publishers. Stack completo SSP/DSP: mecánica de subastas RTB, optimización de rendimiento, monetización de publishers, ranking publicitario con ML.
 
-Experiencia principal: mecánica de subastas RTB, optimización de rendimiento, sistemas de calidad publicitaria, monetización de publishers a escala y selección de formatos publicitarios basada en ML.
+Antes del adtech: e-commerce y productos de consumo.
 
-## Cómo trabajo
+## Formato
 
-Proyectos cortos con entregables concretos. Resuelvo problemas definidos y dejo un camino claro — sin contratos de asesoría continua.
+Proyectos cortos con entregables concretos. Sin retainers continuos.
 
-Proyectos típicos: auditorías de monetización, análisis de modelos de precios, revisiones de arquitectura SSP/subastas, análisis de product-market fit para productos basados en publicidad o suscripción.
+Alcance típico: auditorías de monetización, estrategia de precios, arquitectura adtech, product-market fit para productos basados en publicidad o suscripción.
 
 ## Contacto
 

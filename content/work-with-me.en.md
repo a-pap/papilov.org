@@ -2,21 +2,21 @@
 title: "Work With Me"
 ---
 
-I consult on monetization strategy, adtech economics, and publisher-side infrastructure.
+Product strategy, adtech economics, and monetization architecture.
 
 ## Background
 
-Product management across adtech, e-commerce, and consumer products. Currently running web monetization at one of Europe's largest advertising networks — SSP infrastructure serving 30+ billion impressions per week across 400,000+ publisher integrations.
+15 years in tech product management. Currently running web monetization infrastructure — 30B+ ad impressions per week, 400K+ publisher integrations. Deep in the SSP/DSP stack: RTB auction mechanics, yield optimization, publisher monetization, ML-driven ad ranking.
 
-Core expertise: RTB auction mechanics, yield optimization, ad quality systems, publisher monetization at scale, and ML-driven ad format selection.
+Before adtech: e-commerce and consumer products.
 
-## How I Work
+## Engagements
 
-Short engagements with specific deliverables. I solve defined problems and leave a clear path forward — no ongoing retainers.
+Short projects, specific deliverables. No ongoing retainers.
 
-Typical projects: monetization audits, pricing model analysis, SSP/auction architecture reviews, product-market fit for ad-supported or subscription products.
+Typical scope: monetization audits, pricing strategy, adtech architecture, product-market fit for ad-supported or subscription products.
 
-## Get in Touch
+## Contact
 
 Email: [artem@papilov.org](mailto:artem@papilov.org)
 LinkedIn: [linkedin.com/in/papilov](https://linkedin.com/in/papilov)
