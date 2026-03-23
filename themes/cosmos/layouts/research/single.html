@@ -6,10 +6,12 @@
     {{ with .Params.description }}<p class="description">{{ . }}</p>{{ end }}
     <div class="meta">
       <span>{{ .Date.Format "2 Jan 2006" }}</span>
+      {{ if and .Params.lastmod (ne (.Params.lastmod.Format "2006-01-02") (.Date.Format "2006-01-02")) }}
+      <span>{{ i18n "updated_label" }}: {{ .Params.lastmod.Format "2 Jan 2006" }}</span>
+      {{ end }}
       {{ with .Params.version }}<span>v{{ . }}</span>{{ end }}
-      {{ with .Params.status }}<span class="status status-{{ . }}">{{ . }}</span>{{ end }}
-      {{ with .Params.confidence }}<span>{{ i18n "confidence_label" }}: {{ . }}</span>{{ end }}
       {{ with .Params.license }}<span>{{ . }}</span>{{ end }}
+      <a href="https://github.com/a-pap/papilov.org/commits/main/content/research/{{ .File.Dir | path.Base }}/" class="changelog-link">{{ i18n "changelog_label" }}</a>
     </div>
   </div>
 

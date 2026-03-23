@@ -7,9 +7,8 @@
       <a href="{{ .Permalink }}">
         <div class="research-meta">
           <time>{{ .Date.Format "Jan 2006" }}</time>
-          {{ with .Params.status }}<span class="status status-{{ . }}">{{ . }}</span>{{ end }}
-          {{ with .Params.confidence }}
-          <span style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--text-tertiary);">{{ i18n "confidence_label" }}: {{ . }}</span>
+          {{ if and .Params.lastmod (ne (.Params.lastmod.Format "2006-01-02") (.Date.Format "2006-01-02")) }}
+          <span class="updated">{{ i18n "updated_label" }}: {{ .Params.lastmod.Format "Jan 2, 2006" }}</span>
           {{ end }}
         </div>
         <h2>{{ .Title }}</h2>

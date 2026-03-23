@@ -118,8 +118,12 @@ body {
 .container { max-width: 720px; margin: 0 auto; padding: 0 1.5rem; }
 
 /* ── HEADER ── */
-.site-header { padding: 2rem 0; border-bottom: 1px solid var(--border); }
-.site-header .container { display: flex; justify-content: space-between; align-items: baseline; }
+.site-header { padding: 2rem 0 1rem; border-bottom: 1px solid var(--border); }
+.site-header .container { display: flex; flex-direction: column; gap: 0.6rem; }
+
+.header-top { display: flex; justify-content: space-between; align-items: center; }
+
+.header-utils { display: flex; align-items: center; gap: 0.75rem; }
 
 .site-logo,
 .site-title {
@@ -137,8 +141,6 @@ body {
 .site-nav a { font-size: 0.82rem; color: var(--text-secondary); text-decoration: none; letter-spacing: 0.02em; }
 .site-nav a:hover { color: var(--text); }
 .site-nav a.active { color: var(--text); font-weight: 500; }
-
-.header-utils { display: flex; align-items: baseline; gap: 0.75rem; }
 
 .theme-toggle {
   background: none; border: none; cursor: pointer;
@@ -234,6 +236,10 @@ img { max-width: 100%; height: auto; margin: 1.5rem 0; }
 .article-header h1 { font-size: 2.4rem; margin-bottom: 0.75rem; }
 .article-header .description { font-size: 1.1rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem; max-width: var(--measure); }
 .article-header .meta { font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-tertiary); display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; }
+.article-header .meta .changelog-link { font-family: var(--font-mono); font-size: 0.65rem; color: var(--text-tertiary); text-decoration: none; border: 1px solid var(--border-light); padding: 0.15em 0.5em; border-radius: 2px; transition: color 0.15s, border-color 0.15s; }
+.article-header .meta .changelog-link:hover { color: var(--text); border-color: var(--text-tertiary); }
+
+.research-meta .updated { font-size: 0.65rem; color: var(--text-tertiary); }
 
 .article-body { padding-bottom: 4rem; }
 .article-body h2 { font-size: 1.4rem; margin-top: 2.5rem; margin-bottom: 0.75rem; }
@@ -364,8 +370,7 @@ img { max-width: 100%; height: auto; margin: 1.5rem 0; }
 @media (max-width: 640px) {
   html { font-size: 16px; }
   h1 { font-size: 1.8rem; }
-  .site-header .container { flex-direction: column; gap: 0.75rem; }
-  .site-nav { gap: 1rem; }
+  .site-nav { gap: 1rem; flex-wrap: wrap; }
   .home-hero, .home-intro { padding: 4rem 0 2rem; }
   .home-links { flex-direction: column; gap: 0.75rem; }
   .article-header { padding: 3rem 0 1.5rem; }
