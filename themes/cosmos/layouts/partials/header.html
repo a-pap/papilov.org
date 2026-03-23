@@ -1,26 +1,15 @@
 <header class="site-header">
   <div class="container">
-    <div class="header-top">
-      <a href="{{ .Site.Home.RelPermalink }}" class="site-logo">Artem Papilov</a>
-      <div class="header-utils">
-        <div class="lang-switch">
-          {{ if .IsTranslated }}
-            {{ range .AllTranslations }}
-              <a href="{{ .RelPermalink }}"{{ if eq $.Language.Lang .Lang }} class="active"{{ end }}>{{ .Language.LanguageName }}</a>
-            {{ end }}
-          {{ else }}
-            {{ range $.Site.Languages }}
-              <a href="/{{ if ne .Lang "en" }}{{ .Lang }}/{{ end }}"{{ if eq $.Language.Lang .Lang }} class="active"{{ end }}>{{ .LanguageName }}</a>
-            {{ end }}
-          {{ end }}
-        </div>
-        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">◐</button>
-      </div>
+    <div class="header-left">
+      <a href="{{ .Site.Home.RelPermalink }}" class="site-name">Artem Papilov</a>
+      <nav class="site-nav">
+        {{ range .Site.Menus.main }}
+          <a href="{{ .URL }}"{{ if and (not $.IsHome) (hasPrefix $.RelPermalink .URL) }} class="active"{{ end }}>{{ .Name }}</a>
+        {{ end }}
+      </nav>
     </div>
-    <nav class="site-nav">
-      {{ range .Site.Menus.main }}
-        <a href="{{ .URL }}"{{ if $.RelPermalink | hasPrefix .URL }} class="active"{{ end }}>{{ .Name }}</a>
-      {{ end }}
-    </nav>
+    <div class="header-utils">
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">◐</button>
+    </div>
   </div>
 </header>

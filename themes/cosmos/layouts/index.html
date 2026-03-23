@@ -1,42 +1,52 @@
 {{ define "main" }}
 <div class="container">
-  <div class="home-hero">
-    <h1>{{ .Title }}</h1>
-    {{ with .Content }}<div class="intro">{{ . }}</div>{{ end }}
-    <div class="home-links">
-      <a href="{{ "research" | relLangURL }}/">{{ i18n "research_label" }} →</a>
-      {{ range .Site.Menus.main }}
-        {{ if ne .Weight 1 }}
-          <a href="{{ .URL }}">{{ .Name }}</a>
-        {{ end }}
-      {{ end }}
-      <a href="https://github.com/a-pap/papilov.org">GitHub</a>
-      <a href="https://linkedin.com/in/papilov">LinkedIn</a>
-      <a href="mailto:artem@papilov.org">artem@papilov.org</a>
-    </div>
-  </div>
-
-  <div class="research-list">
-    <h2>{{ i18n "latest_research" }}</h2>
-    {{ range first 5 (where .Site.RegularPages "Section" "research") }}
-    <div class="research-item">
-      <a href="{{ .Permalink }}">
-        <div class="research-meta">
-          <time>{{ .Date.Format "2006-01" }}</time>
-          {{ if and .Params.lastmod (ne (.Params.lastmod.Format "2006-01-02") (.Date.Format "2006-01-02")) }}
-          <span class="updated">{{ i18n "updated_label" }} {{ .Params.lastmod.Format "2006-01-02" }}</span>
+  <article>
+    <div class="home-intro">
+      {{ .Content }}
+      <div class="home-links">
+        <a href="{{ "research" | relLangURL }}/">{{ i18n "research_label" }} →</a>
+        {{ range .Site.Menus.main }}
+          {{ if ne .Weight 1 }}
+            <a href="{{ .URL }}">{{ .Name }}</a>
           {{ end }}
-        </div>
-        <h2>{{ .Title }}</h2>
-        {{ with .Params.description }}<p class="excerpt">{{ . }}</p>{{ end }}
-        {{ with .Params.tags }}
-        <div class="research-tags">
-          {{ range . }}<span>{{ . }}</span>{{ end }}
-        </div>
         {{ end }}
-      </a>
+        <a href="https://github.com/a-pap/papilov.org">GitHub</a>
+        <a href="https://linkedin.com/in/papilov">LinkedIn</a>
+        <a href="mailto:artem@papilov.org">artem@papilov.org</a>
+      </div>
     </div>
+
+    {{ $research := where .Site.RegularPages "Section" "research" }}
+    {{ with $research }}
+    <section class="home-section">
+      <h2 class="home-section-title">{{ i18n "research_section" }}</h2>
+      <ul class="bullet-list">
+        {{ range . }}
+        <li>
+          <a href="{{ .Permalink }}">{{ .Title }}</a>
+          <span class="meta-inline">({{ .Date.Format "2006" }})</span>
+        </li>
+        {{ end }}
+      </ul>
+    </section>
     {{ end }}
-  </div>
+  </article>
 </div>
+
+<script>
+(function(){
+  var link = document.querySelector('.expand-link');
+  if (!link) return;
+  var content = document.querySelector('.home-expand');
+  var ellipsis = document.querySelector('.expand-ellipsis');
+  var period = document.querySelector('.expand-period');
+  link.addEventListener('click', function(e){
+    e.preventDefault();
+    content.classList.add('is-open');
+    if (ellipsis) ellipsis.style.display = 'none';
+    if (period) period.style.display = '';
+    link.style.display = 'none';
+  });
+})();
+</script>
 {{ end }}

@@ -1,9 +1,24 @@
 <footer class="site-footer">
   <div class="container">
-    <p>
-      © {{ now.Year }} Artem Papilov · {{ i18n "footer_research" }} <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a> · {{ i18n "footer_code" }} <a href="https://opensource.org/licenses/MIT">MIT</a><br>
-      {{ i18n "footer_ai" }} <a href="https://claude.ai">Claude</a> (Anthropic) · <a href="{{ "colophon" | relLangURL }}/">{{ i18n "footer_how" }}</a>
-    </p>
+    <div class="footer-top">
+      <div class="footer-meta">
+        <p>
+          © {{ now.Year }} Artem Papilov · {{ i18n "footer_research" }} <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a> · {{ i18n "footer_code" }} <a href="https://opensource.org/licenses/MIT">MIT</a><br>
+          {{ i18n "footer_ai" }} <a href="https://claude.ai">Claude</a> (Anthropic) · <a href="{{ "colophon" | relLangURL }}/">{{ i18n "footer_how" }}</a>
+        </p>
+      </div>
+      <div class="lang-switch">
+        {{ if .IsTranslated }}
+          {{ range .AllTranslations }}
+            <a href="{{ .RelPermalink }}"{{ if eq $.Language.Lang .Lang }} class="active"{{ end }}>{{ .Language.LanguageName }}</a>
+          {{ end }}
+        {{ else }}
+          {{ range $.Site.Languages }}
+            <a href="/{{ if ne .Lang "en" }}{{ .Lang }}/{{ end }}"{{ if eq $.Language.Lang .Lang }} class="active"{{ end }}>{{ .LanguageName }}</a>
+          {{ end }}
+        {{ end }}
+      </div>
+    </div>
   </div>
 </footer>
 <script>
