@@ -13,7 +13,32 @@
       {{ with .Params.license }}<span>{{ . }}</span>{{ end }}
       <a href="https://github.com/a-pap/papilov.org/commits/main/content/research/{{ .File.Dir | path.Base }}/" class="changelog-link">{{ i18n "changelog_label" }}</a>
     </div>
+
+    {{/* Language switcher for this article */}}
+    {{ if .IsTranslated }}
+    <div class="article-langs">
+      {{ range .AllTranslations }}
+        {{ if eq $.Language.Lang .Lang }}
+          <span class="active">{{ .Language.LanguageName }}</span>
+        {{ else }}
+          <a href="{{ .RelPermalink }}">{{ .Language.LanguageName }}</a>
+        {{ end }}
+      {{ end }}
+    </div>
+    {{ end }}
   </div>
+
+  {{/* Table of contents */}}
+  {{ if .TableOfContents }}
+  <nav class="article-toc">
+    <details open>
+      <summary class="toc-toggle">{{ i18n "toc_label" }}</summary>
+      <div class="toc-body">
+        {{ .TableOfContents }}
+      </div>
+    </details>
+  </nav>
+  {{ end }}
 
   <div class="article-body">
     {{ .Content }}

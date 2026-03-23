@@ -406,6 +406,99 @@ img { max-width: 100%; height: auto; margin: 1.5rem 0; }
 .fw-list li:last-child { border-bottom: none; }
 .fw-list li::before { content: '→ '; color: var(--text-tertiary); }
 
+/* ── ARTICLE LANGUAGE SWITCHER ── */
+.article-langs {
+  display: flex;
+  gap: 0.4rem;
+  margin-top: 1rem;
+}
+.article-langs a, .article-langs span {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.03em;
+  padding: 0.2em 0.45em;
+  border-radius: 2px;
+  text-decoration: none;
+  transition: color 0.15s, background 0.15s;
+}
+.article-langs a {
+  color: var(--text-tertiary);
+  border: 1px solid var(--border-light);
+}
+.article-langs a:hover {
+  color: var(--text);
+  border-color: var(--text-tertiary);
+}
+.article-langs span.active {
+  color: var(--text);
+  background: var(--tag-bg);
+  font-weight: 500;
+}
+
+/* ── TABLE OF CONTENTS ── */
+.article-toc {
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 1.5rem;
+  margin-bottom: 2rem;
+}
+.toc-toggle {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  list-style: none;
+  padding: 0.5rem 0;
+}
+.toc-toggle::-webkit-details-marker { display: none; }
+.toc-toggle::before {
+  content: '▸ ';
+  display: inline-block;
+  transition: transform 0.15s;
+}
+details[open] > .toc-toggle::before {
+  transform: rotate(90deg);
+}
+.toc-body {
+  padding-top: 0.5rem;
+}
+.toc-body nav#TableOfContents > ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.toc-body nav#TableOfContents > ul > li {
+  padding: 0.2rem 0;
+}
+.toc-body nav#TableOfContents > ul > li > a {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.toc-body nav#TableOfContents > ul > li > a:hover {
+  color: var(--text);
+}
+/* Nested (h3) */
+.toc-body nav#TableOfContents > ul > li > ul {
+  list-style: none;
+  padding-left: 1.25rem;
+  margin: 0;
+}
+.toc-body nav#TableOfContents > ul > li > ul > li {
+  padding: 0.15rem 0;
+}
+.toc-body nav#TableOfContents > ul > li > ul > li > a {
+  font-size: 0.82rem;
+  color: var(--text-tertiary);
+  text-decoration: none;
+}
+.toc-body nav#TableOfContents > ul > li > ul > li > a:hover {
+  color: var(--text-secondary);
+}
+
 /* ── PAGE ── */
 .page-content { padding: 4rem 0; }
 .page-content h1 { font-size: 1.6rem; margin-bottom: 2rem; }

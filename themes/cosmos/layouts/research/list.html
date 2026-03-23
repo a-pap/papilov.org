@@ -2,25 +2,14 @@
 <div class="container">
   <div class="research-list">
     <h1>{{ .Title }}</h1>
-    {{ range .Pages.ByDate.Reverse }}
-    <div class="research-item">
-      <a href="{{ .Permalink }}">
-        <div class="research-meta">
-          <time>{{ .Date.Format "2006-01" }}</time>
-          {{ if and .Params.lastmod (ne (.Params.lastmod.Format "2006-01-02") (.Date.Format "2006-01-02")) }}
-          <span class="updated">{{ i18n "updated_label" }} {{ .Params.lastmod.Format "2006-01-02" }}</span>
-          {{ end }}
-        </div>
-        <h2>{{ .Title }}</h2>
-        {{ with .Params.description }}<p class="excerpt">{{ . }}</p>{{ end }}
-        {{ with .Params.tags }}
-        <div class="research-tags">
-          {{ range . }}<span>{{ . }}</span>{{ end }}
-        </div>
-        {{ end }}
-      </a>
-    </div>
-    {{ end }}
+    <ul class="bullet-list">
+      {{ range .Pages.ByDate.Reverse }}
+      <li>
+        <a href="{{ .Permalink }}">{{ .Title }}</a>
+        <span class="meta-inline">({{ .Date.Format "2006" }})</span>
+      </li>
+      {{ end }}
+    </ul>
   </div>
 </div>
 {{ end }}

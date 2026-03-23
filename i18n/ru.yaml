@@ -11,3 +11,4 @@ error_404: "Эта страница не существует. Возможно,
 updated_label: "обновлено"
 changelog_label: "история изменений"
 research_section: "Исследования"
+toc_label: "Содержание"
