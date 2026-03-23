@@ -8,7 +8,7 @@ confidence: "certain"
 description: "Как уместить бесконечное пространство-время на конечном листе бумаги — и зачем это нужно. Визуальный гид по конформным диаграммам: Минковский, Шварцшильд, де Ситтер, анти-де Ситтер."
 tags: ["physics", "general-relativity", "penrose-diagrams", "black-holes", "cosmology"]
 series: "physics-explainers"
-ai_disclosure: "Research conducted with Claude (Anthropic). Human editorial direction and domain expertise."
+ai_disclosure: "Исследование проведено с помощью Claude (Anthropic). Редакционное направление и доменная экспертиза — автора."
 license: "CC BY-NC 4.0"
 ---
 

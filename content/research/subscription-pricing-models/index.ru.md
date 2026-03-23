@@ -3,7 +3,7 @@ title: "Цена лояльности"
 date: 2026-03-03
 lastmod: 2026-03-08
 version: "5.0"
-status: "in-progress"
+status: "finished"
 confidence: "likely"
 description: "Почему Netflix повышает цены каждый год, а World of Warcraft не менял цену 21 год. Как устроена подписочная экономика на $500B+ — от тёмных паттернов Amazon до Planet Wild, от гача-игр Японии до M-Pesa в Кении."
 tags: ["экономика", "подписки", "ценообразование", "поведенческая-экономика", "экономика-внимания", "dark-patterns"]

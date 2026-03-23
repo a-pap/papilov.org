@@ -6,9 +6,9 @@
     <div class="home-links">
       <a href="{{ "research" | relLangURL }}/">{{ i18n "research_label" }} →</a>
       {{ range .Site.Menus.main }}
-        {{ if ne .Name "Research" }}{{ if ne .Name "Исследования" }}{{ if ne .Name "Investigación" }}
+        {{ if ne .Weight 1 }}
           <a href="{{ .URL }}">{{ .Name }}</a>
-        {{ end }}{{ end }}{{ end }}
+        {{ end }}
       {{ end }}
       <a href="https://github.com/a-pap/papilov.org">GitHub</a>
       <a href="https://linkedin.com/in/papilov">LinkedIn</a>

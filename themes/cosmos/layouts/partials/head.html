@@ -6,6 +6,11 @@
 {{ if or (eq .Kind "term") (eq .Kind "taxonomy") }}<meta name="robots" content="noindex, follow">{{ end }}
 {{ with .Params.tags }}<meta name="keywords" content="{{ delimit . ", " }}">{{ end }}
 
+<!-- AI discoverability -->
+<link rel="ai-agent" href="/llms.txt">
+<link rel="alternate" type="text/plain" href="/llms.txt" title="LLM-readable summary">
+<link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM-readable full content">
+
 {{ if and .IsPage (eq .Section "research") }}
 <!-- Google Scholar / Highwire Press citation tags -->
 <meta name="citation_title" content="{{ .Title }}">
@@ -114,9 +119,9 @@
       "@id": "https://papilov.org/#person",
       "name": "Artem Papilov",
       "url": "https://papilov.org",
-      "jobTitle": "Product Leader & Independent Researcher",
-      "description": "Product practitioner with 15 years in adtech. Publishing open research at the intersection of technology, economics, and human behavior.",
-      "knowsAbout": ["Programmatic Advertising", "Subscription Economics", "AdTech", "Behavioral Economics", "Product Management", "RTB", "SSP"],
+      "jobTitle": "Independent Researcher",
+      "description": "Independent analytical research at the intersection of technology, economics, and human behavior.",
+      "knowsAbout": ["Technology", "Economics", "Behavioral Science", "Physics", "Subscription Economics", "Product Management"],
       "sameAs": [
         "https://github.com/a-pap",
         "https://linkedin.com/in/papilov"

@@ -8,7 +8,7 @@ confidence: "certain"
 description: "Wie man eine unendliche Raumzeit auf ein endliches Blatt Papier bringt — und warum das wichtig ist. Visueller Leitfaden zu konformen Diagrammen."
 tags: ["physics", "general-relativity", "penrose-diagrams", "black-holes", "cosmology"]
 series: "physics-explainers"
-ai_disclosure: "Research conducted with Claude (Anthropic). Human editorial direction and domain expertise."
+ai_disclosure: "Forschung durchgeführt mit Claude (Anthropic). Redaktionelle Leitung und Fachexpertise durch den Autor."
 license: "CC BY-NC 4.0"
 ---
 

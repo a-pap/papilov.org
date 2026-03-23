@@ -8,7 +8,7 @@ confidence: "likely"
 description: "AdS/CFT对应与全息原理：我们所感知的现实是否可能是遥远表面上的投影？从贝肯斯坦-霍金公式到马尔达塞纳对偶性。"
 tags: ["physics", "holographic-principle", "AdS-CFT", "quantum-gravity", "cosmology"]
 series: "physics-explainers"
-ai_disclosure: "Research conducted with Claude (Anthropic). Human editorial direction and domain expertise."
+ai_disclosure: "研究由Claude（Anthropic）辅助完成。编辑方向与领域专业知识由作者提供。"
 license: "CC BY-NC 4.0"
 ---
 

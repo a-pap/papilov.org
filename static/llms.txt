@@ -1,15 +1,13 @@
 # Papilov Research
 
-> Personal research site by Artem Papilov. Open research at the intersection
-> of technology, economics, and human behavior. 15 years of product and adtech
-> experience (Yandex scale: 30B+ impressions/week). All research is AI-co-authored
-> with Claude (Anthropic), openly licensed under CC BY-NC 4.0.
+> Personal research site by Artem Papilov. Independent analytical research at the
+> intersection of technology, economics, and human behavior. All research is
+> AI-co-authored with Claude (Anthropic), openly licensed under CC BY-NC 4.0.
 
 ## Author
 
 - Name: Artem Papilov
-- Role: Independent Researcher, Product Practitioner
-- Background: 15 years in adtech (programmatic advertising, SSP/DSP, auction mechanics, ML pipelines)
+- Role: Independent Researcher
 - Site: https://papilov.org
 - Email: artem@papilov.org
 - GitHub: https://github.com/a-pap
@@ -22,6 +20,35 @@ The site focuses on data-driven analysis with original frameworks and visualizat
 Primary writing language: Russian. All translations are human-reviewed.
 
 ## Research Articles
+
+### Penrose Diagrams (March 2026)
+
+- URL (EN): https://papilov.org/research/penrose-diagrams/
+- URL (RU): https://papilov.org/ru/research/penrose-diagrams/
+- URL (ES): https://papilov.org/es/research/penrose-diagrams/
+- URL (DE): https://papilov.org/de/research/penrose-diagrams/
+- URL (ZH): https://papilov.org/zh/research/penrose-diagrams/
+- Interactive infographic: https://papilov.org/research/penrose-diagrams/infographic.html
+- License: CC BY-NC 4.0
+
+How to fit infinite spacetime onto a finite sheet of paper. A visual guide to
+conformal diagrams: Minkowski, Schwarzschild, de Sitter, Anti-de Sitter.
+Covers Penrose's conformal compactification, the five rules for reading any diagram,
+and four fundamental spacetimes with annotated SVG diagrams.
+
+### The Universe as a Hologram — AdS/CFT Correspondence (March 2026)
+
+- URL (EN): https://papilov.org/research/ads-cft-holographic/
+- URL (RU): https://papilov.org/ru/research/ads-cft-holographic/
+- URL (ES): https://papilov.org/es/research/ads-cft-holographic/
+- URL (DE): https://papilov.org/de/research/ads-cft-holographic/
+- URL (ZH): https://papilov.org/zh/research/ads-cft-holographic/
+- Interactive infographic: https://papilov.org/research/ads-cft-holographic/infographic.html
+- License: CC BY-NC 4.0
+
+AdS/CFT correspondence and the holographic principle. From the Bekenstein-Hawking
+entropy formula to Maldacena's duality, Ryu-Takayanagi formula, and attempts to
+construct dS/CFT for our Universe with positive cosmological constant.
 
 ### The Price of Loyalty — Subscription Pricing Models (March 2026)
 

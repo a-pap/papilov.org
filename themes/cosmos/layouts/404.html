@@ -2,8 +2,8 @@
 <div class="container">
   <div class="error-page">
     <h1>404</h1>
-    <p>This page doesn't exist. Maybe it will someday.</p>
-    <a href="/">← Back to research</a>
+    <p>{{ i18n "error_404" }}</p>
+    <a href="{{ .Site.Home.RelPermalink }}">{{ i18n "back_to_research" }}</a>
   </div>
 </div>
 {{ end }}

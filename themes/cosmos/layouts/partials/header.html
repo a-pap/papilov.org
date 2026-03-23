@@ -6,8 +6,14 @@
         <a href="{{ .URL }}"{{ if $.RelPermalink | hasPrefix .URL }} class="active"{{ end }}>{{ .Name }}</a>
       {{ end }}
       <div class="lang-switch">
-        {{ range $.Site.Languages }}
-          <a href="/{{ if ne .Lang "en" }}{{ .Lang }}/{{ end }}"{{ if eq $.Language.Lang .Lang }} class="active"{{ end }}>{{ .LanguageName }}</a>
+        {{ if .IsTranslated }}
+          {{ range .AllTranslations }}
+            <a href="{{ .RelPermalink }}"{{ if eq $.Language.Lang .Lang }} class="active"{{ end }}>{{ .Language.LanguageName }}</a>
+          {{ end }}
+        {{ else }}
+          {{ range $.Site.Languages }}
+            <a href="/{{ if ne .Lang "en" }}{{ .Lang }}/{{ end }}"{{ if eq $.Language.Lang .Lang }} class="active"{{ end }}>{{ .LanguageName }}</a>
+          {{ end }}
         {{ end }}
       </div>
       <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">◐</button>

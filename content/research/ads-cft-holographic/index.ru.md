@@ -8,7 +8,7 @@ confidence: "likely"
 description: "AdS/CFT-соответствие и голографический принцип: может ли всё, что мы считаем реальностью, быть проекцией с далёкой поверхности? Формула Бекенштейна-Хокинга, дуальность Малдасены, формула Рю-Таканаги."
 tags: ["physics", "holographic-principle", "AdS-CFT", "quantum-gravity", "cosmology"]
 series: "physics-explainers"
-ai_disclosure: "Research conducted with Claude (Anthropic). Human editorial direction and domain expertise."
+ai_disclosure: "Исследование проведено с помощью Claude (Anthropic). Редакционное направление и доменная экспертиза — автора."
 license: "CC BY-NC 4.0"
 ---
 
