@@ -2,19 +2,19 @@
 title: "Work With Me"
 ---
 
-Product strategy, adtech economics, and monetization architecture.
+Product strategy, monetization architecture, and adtech economics.
 
 ## Background
 
-15 years in tech product management. Currently running web monetization infrastructure — 30B+ ad impressions per week, 400K+ publisher integrations. Deep in the SSP/DSP stack: RTB auction mechanics, yield optimization, publisher monetization, ML-driven ad ranking.
+Product management in programmatic advertising. I run web monetization at a large advertising network — SSP/DSP infrastructure processing billions of impressions per week across thousands of publisher integrations.
 
-Before adtech: e-commerce and consumer products.
+Core expertise: RTB auction mechanics, yield optimization, ad quality systems, publisher monetization at scale.
 
-## Engagements
+## How I Work
 
-Short projects, specific deliverables. No ongoing retainers.
+Short engagements, specific deliverables. I solve a defined problem and leave a clear path forward.
 
-Typical scope: monetization audits, pricing strategy, adtech architecture, product-market fit for ad-supported or subscription products.
+Typical projects: monetization audits, pricing model analysis, SSP/auction architecture reviews, ad product strategy.
 
 ## Contact
 

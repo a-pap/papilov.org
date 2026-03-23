@@ -19,4 +19,4 @@ title: "关于本站"
 
 ## 设计
 
-本站定制主题。支持浅色/深色模式，自动适配系统偏好。字体：Playfair Display（标题）、DM Sans（正文）、JetBrains Mono（数据）。提供英语、俄语、西班牙语、德语和中文版本。
+本站定制主题。支持浅色/深色模式，自动适配系统偏好。字体：Source Serif 4（标题）、DM Sans（正文）、JetBrains Mono（数据）。提供英语、俄语、西班牙语、德语和中文版本。

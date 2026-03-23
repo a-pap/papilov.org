@@ -5,9 +5,9 @@
     <h1>{{ .Title }}</h1>
     {{ with .Params.description }}<p class="description">{{ . }}</p>{{ end }}
     <div class="meta">
-      <span>{{ .Date.Format "2 Jan 2006" }}</span>
+      <span>{{ .Date.Format "2006-01-02" }}</span>
       {{ if and .Params.lastmod (ne (.Params.lastmod.Format "2006-01-02") (.Date.Format "2006-01-02")) }}
-      <span>{{ i18n "updated_label" }}: {{ .Params.lastmod.Format "2 Jan 2006" }}</span>
+      <span>{{ i18n "updated_label" }} {{ .Params.lastmod.Format "2006-01-02" }}</span>
       {{ end }}
       {{ with .Params.version }}<span>v{{ . }}</span>{{ end }}
       {{ with .Params.license }}<span>{{ . }}</span>{{ end }}

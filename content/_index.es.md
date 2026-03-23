@@ -1,5 +1,5 @@
 ---
-title: "Líder de producto. Investigación abierta."
+title: "Investigación abierta"
 ---
 
-Investigación analítica independiente en la intersección de tecnología, economía y comportamiento humano. Datos densos, licencia abierta, coautoría con IA [Claude](https://claude.ai).
+Investigación analítica en la intersección de tecnología, economía y comportamiento humano. Coautoría con [Claude](https://claude.ai), licencia abierta.

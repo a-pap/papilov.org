@@ -2,19 +2,19 @@
 title: "Trabajar Conmigo"
 ---
 
-Estrategia de producto, economía adtech y arquitectura de monetización.
+Estrategia de producto, arquitectura de monetización y economía adtech.
 
 ## Experiencia
 
-15 años en gestión de producto tecnológico. Actualmente: infraestructura de monetización web — 30+ mil millones de impresiones publicitarias por semana, 400K+ integraciones de publishers. Stack completo SSP/DSP: mecánica de subastas RTB, optimización de rendimiento, monetización de publishers, ranking publicitario con ML.
+Gestión de producto en publicidad programática. Dirijo la monetización web en una gran red publicitaria — infraestructura SSP/DSP que procesa miles de millones de impresiones semanales en miles de integraciones de publishers.
 
-Antes del adtech: e-commerce y productos de consumo.
+Experiencia principal: mecánica de subastas RTB, optimización de rendimiento, sistemas de calidad publicitaria, monetización de publishers a escala.
 
-## Formato
+## Cómo trabajo
 
-Proyectos cortos con entregables concretos. Sin retainers continuos.
+Proyectos cortos con entregables concretos. Resuelvo un problema definido y dejo un camino claro.
 
-Alcance típico: auditorías de monetización, estrategia de precios, arquitectura adtech, product-market fit para productos basados en publicidad o suscripción.
+Proyectos típicos: auditorías de monetización, análisis de modelos de precios, revisiones de arquitectura SSP/subastas, estrategia de productos publicitarios.
 
 ## Contacto
 

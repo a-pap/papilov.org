@@ -1,5 +1,5 @@
 ---
-title: "Produktleiter. Offene Forschung."
+title: "Offene Forschung"
 ---
 
-Unabhängige analytische Forschung an der Schnittstelle von Technologie, Wirtschaft und menschlichem Verhalten. Datenintensiv, offen lizenziert, KI-ko-verfasst mit [Claude](https://claude.ai).
+Analytische Forschung an der Schnittstelle von Technologie, Wirtschaft und menschlichem Verhalten. KI-ko-verfasst mit [Claude](https://claude.ai), offen lizenziert.

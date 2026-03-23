@@ -2,19 +2,19 @@
 title: "Zusammenarbeit"
 ---
 
-Produktstrategie, Adtech-Ökonomie und Monetarisierungsarchitektur.
+Produktstrategie, Monetarisierungsarchitektur und Adtech-Ökonomie.
 
 ## Hintergrund
 
-15 Jahre Tech-Produktmanagement. Aktuell: Web-Monetarisierungsinfrastruktur — 30+ Milliarden Werbeeinblendungen pro Woche, 400K+ Publisher-Integrationen. Tief im SSP/DSP-Stack: RTB-Auktionsmechanik, Ertragsoptimierung, Publisher-Monetarisierung, ML-gesteuertes Ad-Ranking.
+Produktmanagement in programmatischer Werbung. Ich leite die Web-Monetarisierung bei einem großen Werbenetzwerk — SSP/DSP-Infrastruktur mit Milliarden Impressions pro Woche und tausenden Publisher-Integrationen.
 
-Vor Adtech: E-Commerce und Consumer-Produkte.
+Kernexpertise: RTB-Auktionsmechanik, Ertragsoptimierung, Anzeigenqualitätssysteme, Publisher-Monetarisierung im Maßstab.
 
-## Format
+## Wie ich arbeite
 
-Kurze Projekte mit konkreten Ergebnissen. Keine laufenden Retainer.
+Kurze Projekte mit konkreten Ergebnissen. Ich löse ein definiertes Problem und hinterlasse einen klaren Aktionsplan.
 
-Typischer Umfang: Monetarisierungsaudits, Preisstrategie, Adtech-Architektur, Product-Market-Fit für werbe- oder abobasierte Produkte.
+Typische Projekte: Monetarisierungsaudits, Preismodellanalysen, SSP-/Auktions-Architektur-Reviews, Strategie für Werbeprodukte.
 
 ## Kontakt
 

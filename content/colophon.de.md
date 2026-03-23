@@ -19,4 +19,4 @@ Das Prinzip: Der Mensch ist der Denker, die KI ist das Labor. Jede Veröffentlic
 
 ## Design
 
-Individuelles Theme für diese Seite. Hell- und Dunkelmodus, systemeinstellungsabhängig. Typografie: Playfair Display (Überschriften), DM Sans (Fließtext), JetBrains Mono (Daten). Verfügbar auf Englisch, Russisch, Spanisch, Deutsch und Chinesisch.
+Individuelles Theme für diese Seite. Hell- und Dunkelmodus, systemeinstellungsabhängig. Typografie: Source Serif 4 (Überschriften), DM Sans (Fließtext), JetBrains Mono (Daten). Verfügbar auf Englisch, Russisch, Spanisch, Deutsch und Chinesisch.
