@@ -32,21 +32,4 @@
     {{ end }}
   </article>
 </div>
-
-<script>
-(function(){
-  var link = document.querySelector('.expand-link');
-  if (!link) return;
-  var content = document.querySelector('.home-expand');
-  var ellipsis = document.querySelector('.expand-ellipsis');
-  var period = document.querySelector('.expand-period');
-  link.addEventListener('click', function(e){
-    e.preventDefault();
-    content.classList.add('is-open');
-    if (ellipsis) ellipsis.style.display = 'none';
-    if (period) period.style.display = '';
-    link.style.display = 'none';
-  });
-})();
-</script>
 {{ end }}

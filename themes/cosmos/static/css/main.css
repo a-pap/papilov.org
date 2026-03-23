@@ -214,29 +214,6 @@ img { max-width: 100%; height: auto; margin: 1.5rem 0; }
 }
 .home-intro a { color: var(--text-secondary); }
 
-.expand-ellipsis { display: none; }
-.expand-link {
-  color: var(--text-secondary);
-  text-decoration: underline;
-  text-decoration-color: var(--link-underline);
-  text-underline-offset: 3px;
-  cursor: pointer;
-  transition: color 0.15s;
-}
-.expand-link:hover { color: var(--text); text-decoration-color: var(--text); }
-
-.home-expand {
-  overflow: hidden;
-  max-height: 0;
-  opacity: 0;
-  transition: max-height 0.4s ease, opacity 0.3s ease;
-}
-.home-expand.is-open {
-  max-height: 800px;
-  opacity: 1;
-}
-.home-expand p { margin-top: 0.75rem; }
-
 /* Sections on homepage */
 .home-section { margin-top: 2.5rem; }
 .home-section-title {
