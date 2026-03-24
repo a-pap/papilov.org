@@ -26,7 +26,7 @@
       <article class="research-card">
         <a href="{{ .Permalink }}" class="research-card-link">
           <div class="research-card-meta">
-            <span>{{ .Date.Format "Jan 2006" }}</span>
+            <span>{{ i18n (printf "month_%d" (int .Date.Month)) }} {{ .Date.Year }}</span>
             {{ with .Params.series }}<span class="series-tag">{{ . }}</span>{{ end }}
             <span>{{ .ReadingTime }} {{ i18n "min_read" }}</span>
           </div>

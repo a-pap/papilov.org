@@ -4,6 +4,7 @@
   {{- range .Data.Pages }}
   {{- if not (eq .Kind "term") }}
   {{- if not (eq .Kind "taxonomy") }}
+  {{- if not (eq .Params.robots "noindex") }}
   <url>
     <loc>{{ .Permalink }}</loc>
     {{- with .Lastmod }}
@@ -27,6 +28,7 @@
                 />
     {{- end }}
   </url>
+  {{- end }}
   {{- end }}
   {{- end }}
   {{- end }}

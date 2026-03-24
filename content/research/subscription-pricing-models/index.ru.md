@@ -10,6 +10,7 @@ tags: ["экономика", "подписки", "ценообразование
 series: "Информация ≠ Понимание"
 ai_disclosure: "Исследование проведено с помощью Claude (Anthropic). Редакционное направление и доменная экспертиза — автора."
 license: "CC BY-NC 4.0"
+og_image: "/img/og-subscription-pricing.png"
 ---
 
 Подписочная экономика достигла [$492 млрд в 2024 году](https://www.grandviewresearch.com/horizon/outlook/subscription-economy-market/europe) и движется к $1.2 трлн к 2030. С 2020 года цены на подписки обогнали инфляцию в 3–5 раз. CPI в США вырос на ~22%. Стриминговые сервисы подорожали на 50–172%.
