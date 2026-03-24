@@ -115,7 +115,12 @@ body {
   color: var(--text);
   background: var(--bg);
   transition: background-color 0.2s ease, color 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
 }
+
+main { flex: 1; display: flex; flex-direction: column; }
 
 .container { max-width: 720px; margin: 0 auto; padding: 0 1.5rem; }
 
@@ -203,16 +208,16 @@ li { margin-bottom: 0.4rem; }
 img { max-width: 100%; height: auto; margin: 1.5rem 0; }
 
 /* ── HOMEPAGE ── */
-.home-container { max-width: 960px; }
+.home-container { max-width: 960px; flex: 1; display: flex; align-items: center; }
 .home-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
   align-items: start;
-  min-height: calc(100vh - 10rem);
+  width: 100%;
 }
 .home-intro {
-  padding: 4rem 0 0;
+  padding: 0;
 }
 .home-intro h1 {
   font-size: 1.6rem;
@@ -228,7 +233,7 @@ img { max-width: 100%; height: auto; margin: 1.5rem 0; }
 .home-intro a { color: var(--text-secondary); }
 
 /* Sections on homepage */
-.home-section { padding-top: 4rem; }
+.home-section { padding-top: 0; }
 .home-section-title {
   font-size: 1.1rem;
   font-weight: 600;
@@ -505,7 +510,7 @@ details[open] > .toc-toggle::before {
 .error-page a { font-family: var(--font-mono); font-size: 0.85rem; }
 
 /* ── FOOTER ── */
-.site-footer { padding: 2rem 0 3rem; border-top: 1px solid var(--border); margin-top: 4rem; font-size: 0.75rem; color: var(--text-tertiary); line-height: 1.8; }
+.site-footer { padding: 2rem 0 3rem; border-top: 1px solid var(--border); margin-top: auto; font-size: 0.75rem; color: var(--text-tertiary); line-height: 1.8; }
 .site-footer a { color: var(--text-tertiary); text-decoration-color: var(--border); }
 .site-footer a:hover { color: var(--text); }
 .footer-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; }
@@ -517,11 +522,10 @@ details[open] > .toc-toggle::before {
   h1 { font-size: 1.6rem; }
   .header-left { gap: 1rem; flex-wrap: wrap; }
   .site-nav { gap: 1rem; }
-  .home-intro { padding: 3rem 0 0; }
   .home-intro h1 { font-size: 1.4rem; }
   .home-links { flex-direction: column; gap: 0.5rem; }
-  .home-grid { grid-template-columns: 1fr; gap: 1.5rem; min-height: auto; }
-  .home-section { padding-top: 0; }
+  .home-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .home-container { align-items: flex-start; padding-top: 2rem; }
   .research-list { padding: 3rem 0; }
   .research-list > h1 { font-size: 1.4rem; }
   .article-header { padding: 3rem 0 1.5rem; }
