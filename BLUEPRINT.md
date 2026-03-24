@@ -232,6 +232,36 @@ Every page extends this. Keep it minimal.
 </html>
 ```
 
+### _default/single.html — Generic single pages (colophon, etc.)
+
+```html
+{{ define "main" }}
+<div class="container">
+  <h1>{{ .Title }}</h1>
+  <div class="article-body">
+    {{ .Content }}
+  </div>
+</div>
+{{ end }}
+```
+
+### _default/list.html — Generic list pages
+
+```html
+{{ define "main" }}
+<div class="container">
+  <h1>{{ .Title }}</h1>
+  {{ .Content }}
+  {{ range .Pages }}
+  <article>
+    <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+    {{ with .Description }}<p>{{ . }}</p>{{ end }}
+  </article>
+  {{ end }}
+</div>
+{{ end }}
+```
+
 ### head.html — SEO, fonts, structured data
 
 This is the most important template. It handles:
@@ -573,6 +603,37 @@ This is the most important template. It handles:
 </div>
 {{ end }}
 ```
+
+### Research archetype (archetypes/research.md)
+
+When you run `hugo new research/your-topic/index.md`, Hugo uses this template to pre-fill front matter. Place this file at `themes/your-theme/archetypes/research.md`:
+
+```markdown
+---
+title: "{{ replace .File.ContentBaseName "-" " " | title }}"
+date: {{ .Date }}
+lastmod: {{ .Date }}
+version: "1.0"
+status: "draft"
+confidence: "possible"
+description: ""
+tags: []
+series: ""
+ai_disclosure: "Research conducted with Claude (Anthropic). Human editorial direction and domain expertise."
+license: "CC BY-NC 4.0"
+---
+```
+
+Also create a minimal `archetypes/default.md` in the project root:
+
+```markdown
+---
+title: "{{ replace .File.ContentBaseName "-" " " | title }}"
+date: {{ .Date }}
+---
+```
+
+**Note on dates:** Hugo does not build content with future dates by default. If your article's `date:` is after today, it simply won't appear. Use `hugo server --buildFuture` during development, or keep dates at today or earlier.
 
 ---
 
@@ -937,8 +998,8 @@ mkdir -p content/research/your-topic
 cat > content/research/your-topic/index.en.md << 'EOF'
 ---
 title: "Your Article Title"
-date: 2026-04-01
-lastmod: 2026-04-01
+date: 2026-03-01          # IMPORTANT: must be today or earlier — Hugo skips future dates
+lastmod: 2026-03-01
 version: "1.0"
 status: "finished"
 confidence: "likely"
