@@ -20,3 +20,7 @@ El marco: el humano es el pensador, la IA es el laboratorio. Cada pieza se acred
 ## Diseño
 
 Tema personalizado para este sitio. Modos claro y oscuro, adaptable a preferencias del sistema. Tipografía: Newsreader (cuerpo y títulos), JetBrains Mono (código y datos). Disponible en inglés, ruso, español, alemán y chino.
+
+## Construye el tuyo
+
+¿Quieres un sitio como este? Toda la arquitectura está documentada en [BLUEPRINT.md](https://github.com/a-pap/papilov.org/blob/main/BLUEPRINT.md) — un archivo que es documentación legible y un prompt ejecutable para Claude o cualquier LLM. Dáselo a un asistente de IA junto con tu nombre de dominio y construirá todo el proyecto. Coste: ~$10/año por el dominio.

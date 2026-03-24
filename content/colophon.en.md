@@ -20,3 +20,7 @@ The frame: the human is the thinker, AI is the laboratory. Every piece is explic
 ## Design
 
 Custom theme built for this site. Light and dark modes, system-preference aware. Typography: Newsreader (body & headings), JetBrains Mono (code & data). Available in English, Russian, Spanish, German, and Chinese.
+
+## Build Your Own
+
+Want a site like this? The entire architecture is documented in [BLUEPRINT.md](https://github.com/a-pap/papilov.org/blob/main/BLUEPRINT.md) — a single file that's both human-readable documentation and an executable prompt for Claude or any LLM. Give it to an AI assistant along with your domain name, and it will scaffold the full project: Hugo config, multilingual templates, SEO metadata, light/dark themes, academic citation tags, AI discoverability, and Cloudflare deployment. Total cost: ~$10/year for the domain.

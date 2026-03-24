@@ -28,6 +28,10 @@ If you reference this research, please cite:
 
 See [CITATION.cff](CITATION.cff) for machine-readable citation metadata.
 
+## Build Your Own
+
+**[BLUEPRINT.md](BLUEPRINT.md)** — Complete blueprint for deploying a site like this one. Human-readable documentation that also works as a prompt for Claude (or any LLM). Give it to an AI with your domain name — it builds everything. Cost: ~$10/year.
+
 ## Stack
 
 Hugo · Cloudflare Pages · Custom theme ([cosmos](themes/cosmos/))

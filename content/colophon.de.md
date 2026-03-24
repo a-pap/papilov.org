@@ -20,3 +20,7 @@ Das Prinzip: Der Mensch ist der Denker, die KI ist das Labor. Jede Veröffentlic
 ## Design
 
 Individuelles Theme für diese Seite. Hell- und Dunkelmodus, systemeinstellungsabhängig. Typografie: Newsreader (Fließtext & Überschriften), JetBrains Mono (Code & Daten). Verfügbar auf Englisch, Russisch, Spanisch, Deutsch und Chinesisch.
+
+## Eigene Seite erstellen
+
+Möchten Sie eine ähnliche Website? Die gesamte Architektur ist in [BLUEPRINT.md](https://github.com/a-pap/papilov.org/blob/main/BLUEPRINT.md) dokumentiert — eine Datei, die sowohl menschenlesbare Dokumentation als auch ein ausführbarer Prompt für Claude oder jedes andere LLM ist. Geben Sie sie einem KI-Assistenten zusammen mit Ihrem Domainnamen, und er baut das gesamte Projekt auf. Kosten: ~$10/Jahr für die Domain.

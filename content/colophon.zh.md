@@ -20,3 +20,7 @@ title: "关于本站"
 ## 设计
 
 本站定制主题。支持浅色/深色模式，自动适配系统偏好。字体：Newsreader（正文和标题）、JetBrains Mono（代码和数据）。提供英语、俄语、西班牙语、德语和中文版本。
+
+## 自建站点
+
+想要类似的网站？完整架构已记录在 [BLUEPRINT.md](https://github.com/a-pap/papilov.org/blob/main/BLUEPRINT.md) 中——这份文件既是可读文档，也是 Claude 或任何 LLM 的可执行提示词。将其提供给 AI 助手并附上你的域名，它将搭建整个项目。成本：约 $10/年（仅域名）。
