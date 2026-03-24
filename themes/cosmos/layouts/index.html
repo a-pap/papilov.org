@@ -1,6 +1,6 @@
 {{ define "main" }}
-<div class="container">
-  <article>
+<div class="container home-container">
+  <article class="home-grid">
     <div class="home-intro">
       <h1>{{ .Title }}</h1>
       {{ .Content }}
@@ -19,7 +19,7 @@
 
     {{ $research := where .Site.RegularPages "Section" "research" }}
     {{ with $research }}
-    <section class="home-section">
+    <aside class="home-section">
       <h2 class="home-section-title">{{ i18n "research_section" }}</h2>
       <ul class="bullet-list">
         {{ range . }}
@@ -29,7 +29,7 @@
         </li>
         {{ end }}
       </ul>
-    </section>
+    </aside>
     {{ end }}
   </article>
 </div>
