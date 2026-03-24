@@ -5,7 +5,7 @@ defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = false
 
 [params]
-  description = "Open research at the intersection of technology, economics, and human behavior."
+  description = "Independent analytical research: subscription economics, behavioral science, physics explainers. Data-driven, AI-co-authored, openly licensed."
   author = "Artem Papilov"
   twitter = "papilov"
   github = "a-pap"
@@ -35,7 +35,7 @@ defaultContentLanguageInSubdir = false
     languageName = "EN"
     weight = 1
     [languages.en.params]
-      description = "Open research at the intersection of technology, economics, and human behavior."
+      description = "Independent analytical research: subscription economics, behavioral science, physics explainers. Data-driven, AI-co-authored, openly licensed."
     [[languages.en.menu.main]]
       name = "Research"
       url = "/research/"
@@ -54,7 +54,7 @@ defaultContentLanguageInSubdir = false
     languageName = "RU"
     weight = 2
     [languages.ru.params]
-      description = "Открытые исследования на стыке технологий, экономики и человеческого поведения."
+      description = "Аналитические исследования: подписочная экономика, поведенческая наука, физика. С данными, ИИ-соавторством и открытой лицензией."
     [[languages.ru.menu.main]]
       name = "Исследования"
       url = "/ru/research/"
@@ -73,7 +73,7 @@ defaultContentLanguageInSubdir = false
     languageName = "ES"
     weight = 3
     [languages.es.params]
-      description = "Investigación abierta en la intersección de tecnología, economía y comportamiento humano."
+      description = "Investigación analítica: economía de suscripciones, ciencia del comportamiento, física. Basada en datos, co-escrita con IA, licencia abierta."
     [[languages.es.menu.main]]
       name = "Investigación"
       url = "/es/research/"
@@ -92,7 +92,7 @@ defaultContentLanguageInSubdir = false
     languageName = "DE"
     weight = 4
     [languages.de.params]
-      description = "Offene Forschung an der Schnittstelle von Technologie, Wirtschaft und menschlichem Verhalten."
+      description = "Analytische Forschung: Abo-Ökonomie, Verhaltensforschung, Physik-Erklärungen. Datenbasiert, KI-unterstützt, offen lizenziert."
     [[languages.de.menu.main]]
       name = "Forschung"
       url = "/de/research/"
@@ -111,7 +111,7 @@ defaultContentLanguageInSubdir = false
     languageName = "中文"
     weight = 5
     [languages.zh.params]
-      description = "技术、经济与人类行为交叉领域的开放研究。"
+      description = "独立分析研究：订阅经济学、行为科学、物理学。数据驱动，AI协作，开放许可。"
     [[languages.zh.menu.main]]
       name = "研究"
       url = "/zh/research/"

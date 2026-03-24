@@ -14,6 +14,7 @@
         <a href="https://github.com/a-pap/papilov.org">GitHub</a>
         <a href="https://linkedin.com/in/papilov">LinkedIn</a>
         <a href="mailto:artem@papilov.org">artem@papilov.org</a>
+        <a href="{{ "index.xml" | relLangURL }}" class="rss-link" title="RSS">RSS</a>
       </div>
     </div>
 
@@ -21,14 +22,19 @@
     {{ with $research }}
     <aside class="home-section">
       <h2 class="home-section-title">{{ i18n "research_section" }}</h2>
-      <ul class="bullet-list">
-        {{ range . }}
-        <li>
-          <a href="{{ .Permalink }}">{{ .Title }}</a>
-          <span class="meta-inline">({{ .Date.Format "2006" }})</span>
-        </li>
-        {{ end }}
-      </ul>
+      {{ range . }}
+      <article class="research-card">
+        <a href="{{ .Permalink }}" class="research-card-link">
+          <div class="research-card-meta">
+            <span>{{ .Date.Format "Jan 2006" }}</span>
+            {{ with .Params.series }}<span class="series-tag">{{ . }}</span>{{ end }}
+            <span>{{ .ReadingTime }} {{ i18n "min_read" }}</span>
+          </div>
+          <h3>{{ .Title }}</h3>
+          {{ with .Params.description }}<p class="research-card-desc">{{ . }}</p>{{ end }}
+        </a>
+      </article>
+      {{ end }}
     </aside>
     {{ end }}
   </article>

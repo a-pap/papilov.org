@@ -19,4 +19,4 @@ El marco: el humano es el pensador, la IA es el laboratorio. Cada pieza se acred
 
 ## Diseño
 
-Tema personalizado para este sitio. Modos claro y oscuro, adaptable a preferencias del sistema. Tipografía: Source Serif 4 (títulos), DM Sans (cuerpo), JetBrains Mono (datos). Disponible en inglés, ruso, español, alemán y chino.
+Tema personalizado para este sitio. Modos claro y oscuro, adaptable a preferencias del sistema. Tipografía: Newsreader (cuerpo y títulos), JetBrains Mono (código y datos). Disponible en inglés, ruso, español, alemán y chino.

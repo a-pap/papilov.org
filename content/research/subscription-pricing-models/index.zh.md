@@ -10,6 +10,7 @@ tags: ["经济学", "订阅", "定价", "行为经济学"]
 series: ""
 ai_disclosure: "研究由Claude（Anthropic）辅助完成。编辑方向与领域专业知识由作者提供。"
 license: "CC BY-NC 4.0"
+robots: "noindex"
 og_image: "/img/og-subscription-pricing.png"
 ---
 

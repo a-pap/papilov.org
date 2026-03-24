@@ -3,7 +3,7 @@
 <title>{{ if .IsHome }}{{ .Site.Title }} — {{ .Site.Params.description }}{{ else }}{{ .Title }} — {{ .Site.Title }}{{ end }}</title>
 <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
 <meta name="author" content="{{ .Site.Params.author }}">
-{{ if or (eq .Kind "term") (eq .Kind "taxonomy") }}<meta name="robots" content="noindex, follow">{{ end }}
+{{ if .Params.robots }}<meta name="robots" content="{{ .Params.robots }}">{{ else if or (eq .Kind "term") (eq .Kind "taxonomy") }}<meta name="robots" content="noindex, follow">{{ end }}
 {{ with .Params.tags }}<meta name="keywords" content="{{ delimit . ", " }}">{{ end }}
 
 <!-- AI discoverability -->

@@ -1,0 +1,41 @@
+cff-version: 1.2.0
+title: "Papilov Research — Independent Analytical Research at the Intersection of Technology, Economics, and Human Behavior"
+message: "If you use or cite this research, please use the metadata from this file."
+type: dataset
+authors:
+  - family-names: Papilov
+    given-names: Artem
+    email: artem@papilov.org
+    affiliation: "Independent Researcher"
+    orcid: ""
+repository-code: "https://github.com/a-pap/papilov.org"
+url: "https://papilov.org"
+license: CC-BY-NC-4.0
+date-released: "2026-03-03"
+keywords:
+  - subscription economics
+  - pricing models
+  - behavioral economics
+  - holographic principle
+  - AdS-CFT correspondence
+  - Penrose diagrams
+  - general relativity
+  - physics explainers
+preferred-citation:
+  type: article
+  title: "The Price of Loyalty: Three Models of Subscription Pricing"
+  authors:
+    - family-names: Papilov
+      given-names: Artem
+  url: "https://papilov.org/research/subscription-pricing-models/"
+  date-published: "2026-03-03"
+  year: 2026
+  month: 3
+  journal: "Papilov Research"
+  license: CC-BY-NC-4.0
+  languages:
+    - en
+    - ru
+    - es
+    - de
+    - zh

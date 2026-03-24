@@ -10,6 +10,7 @@ tags: ["物理学", "广义相对论", "彭罗斯图", "黑洞", "宇宙学"]
 series: "physics-explainers"
 ai_disclosure: "研究由Claude（Anthropic）辅助完成。编辑方向与领域专业知识由作者提供。"
 license: "CC BY-NC 4.0"
+robots: "noindex"
 ---
 
 时空是无限的。光可以永远传播。黑洞将一个点压缩到零。如何在一张有限的纸上画出这一切？

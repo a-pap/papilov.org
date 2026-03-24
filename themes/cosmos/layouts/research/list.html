@@ -2,14 +2,24 @@
 <div class="container">
   <div class="research-list">
     <h1>{{ .Title }}</h1>
-    <ul class="bullet-list">
-      {{ range .Pages.ByDate.Reverse }}
-      <li>
-        <a href="{{ .Permalink }}">{{ .Title }}</a>
-        <span class="meta-inline">({{ .Date.Format "2006" }})</span>
-      </li>
-      {{ end }}
-    </ul>
+    {{ range .Pages.ByDate.Reverse }}
+    <article class="research-card">
+      <a href="{{ .Permalink }}" class="research-card-link">
+        <div class="research-card-meta">
+          <span>{{ .Date.Format "Jan 2006" }}</span>
+          {{ with .Params.series }}<span class="series-tag">{{ . }}</span>{{ end }}
+          <span>{{ .ReadingTime }} {{ i18n "min_read" }}</span>
+        </div>
+        <h2>{{ .Title }}</h2>
+        {{ with .Params.description }}<p class="research-card-desc">{{ . }}</p>{{ end }}
+        {{ with .Params.tags }}
+        <div class="research-card-tags">
+          {{ range . }}<span class="tag">{{ . }}</span>{{ end }}
+        </div>
+        {{ end }}
+      </a>
+    </article>
+    {{ end }}
   </div>
 </div>
 {{ end }}

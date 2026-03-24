@@ -19,4 +19,4 @@ The frame: the human is the thinker, AI is the laboratory. Every piece is explic
 
 ## Design
 
-Custom theme built for this site. Light and dark modes, system-preference aware. Typography: Source Serif 4 (headings), DM Sans (body), JetBrains Mono (data). Available in English, Russian, Spanish, German, and Chinese.
+Custom theme built for this site. Light and dark modes, system-preference aware. Typography: Newsreader (body & headings), JetBrains Mono (code & data). Available in English, Russian, Spanish, German, and Chinese.

@@ -509,6 +509,27 @@ details[open] > .toc-toggle::before {
 .error-page p { font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 2rem; }
 .error-page a { font-family: var(--font-mono); font-size: 0.85rem; }
 
+/* ── RESEARCH CARDS ── */
+.research-card { margin-bottom: 1.5rem; }
+.research-card-link { display: block; text-decoration: none; color: var(--text); padding: 1rem 1.25rem; border: 1px solid var(--border-light); border-radius: 6px; transition: border-color 0.15s, background 0.15s; }
+.research-card-link:hover { border-color: var(--border); background: var(--bg-secondary); }
+.research-card-link h2, .research-card-link h3 { margin: 0.25rem 0 0.4rem; font-size: 1.15rem; font-weight: 600; color: var(--text); }
+.research-card-meta { display: flex; gap: 0.75rem; font-size: 0.75rem; color: var(--text-tertiary); font-family: var(--font-mono); }
+.research-card-desc { margin: 0; font-size: 0.88rem; color: var(--text-secondary); line-height: 1.5; }
+.research-card-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 0.5rem; }
+.series-tag { color: var(--blue-soft); font-style: italic; }
+
+/* ── RELATED ARTICLES ── */
+.related-articles { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+.related-articles h2 { font-size: 1rem; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 500; margin-bottom: 1rem; }
+.related-card { display: block; text-decoration: none; padding: 0.75rem 1rem; border: 1px solid var(--border-light); border-radius: 6px; margin-bottom: 0.75rem; transition: border-color 0.15s, background 0.15s; }
+.related-card:hover { border-color: var(--border); background: var(--bg-secondary); }
+.related-title { display: block; font-weight: 600; color: var(--text); font-size: 0.95rem; }
+.related-desc { display: block; font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.2rem; line-height: 1.4; }
+
+/* ── RSS LINK ── */
+.rss-link { font-family: var(--font-mono); font-size: 0.85rem; }
+
 /* ── FOOTER ── */
 .site-footer { padding: 2rem 0 3rem; border-top: 1px solid var(--border); margin-top: auto; font-size: 0.75rem; color: var(--text-tertiary); line-height: 1.8; }
 .site-footer a { color: var(--text-tertiary); text-decoration-color: var(--border); }
@@ -542,6 +563,8 @@ details[open] > .toc-toggle::before {
   .bar-row .label { font-size: 0.72rem; }
   .metrics { grid-template-columns: repeat(2, 1fr); }
   .footer-top { flex-direction: column; }
+  .research-card-link { padding: 0.75rem 1rem; }
+  .research-card-link h2, .research-card-link h3 { font-size: 1.05rem; }
 }
 
 @media print {
