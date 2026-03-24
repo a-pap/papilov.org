@@ -302,7 +302,8 @@ img { max-width: 100%; height: auto; margin: 1.5rem 0; }
 .article-header .label { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 1rem; }
 .article-header h1 { font-size: 2rem; margin-bottom: 0.75rem; }
 .article-header .description { font-size: 1.05rem; color: var(--text-secondary); line-height: 1.75; margin-bottom: 1.5rem; max-width: var(--measure); }
-.article-header .meta { font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-tertiary); display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
+.article-header .meta { font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-tertiary); display: flex; flex-wrap: wrap; gap: 0.25rem 0.75rem; align-items: center; }
+.article-header .meta > span, .article-header .meta > a { white-space: nowrap; }
 .article-header .meta .changelog-link { font-family: var(--font-mono); font-size: 0.65rem; color: var(--text-tertiary); text-decoration: none; border: 1px solid var(--border-light); padding: 0.15em 0.5em; border-radius: 2px; transition: color 0.15s, border-color 0.15s; }
 .article-header .meta .changelog-link:hover { color: var(--text); border-color: var(--text-tertiary); }
 
@@ -514,10 +515,11 @@ details[open] > .toc-toggle::before {
 .research-card-link { display: block; text-decoration: none; color: var(--text); padding: 1rem 1.25rem; border: 1px solid var(--border-light); border-radius: 6px; transition: border-color 0.15s, background 0.15s; }
 .research-card-link:hover { border-color: var(--border); background: var(--bg-secondary); }
 .research-card-link h2, .research-card-link h3 { margin: 0.25rem 0 0.4rem; font-size: 1.15rem; font-weight: 600; color: var(--text); }
-.research-card-meta { display: flex; gap: 0.75rem; font-size: 0.75rem; color: var(--text-tertiary); font-family: var(--font-mono); }
+.research-card-meta { display: flex; flex-wrap: wrap; gap: 0.25rem 0.75rem; align-items: baseline; font-size: 0.75rem; color: var(--text-tertiary); font-family: var(--font-mono); }
+.research-card-meta > span { white-space: nowrap; }
 .research-card-desc { margin: 0; font-size: 0.88rem; color: var(--text-secondary); line-height: 1.5; }
 .research-card-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 0.5rem; }
-.series-tag { color: var(--blue-soft); font-style: italic; }
+.series-tag { color: var(--text-secondary); font-style: italic; }
 
 /* ── RELATED ARTICLES ── */
 .related-articles { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); }
