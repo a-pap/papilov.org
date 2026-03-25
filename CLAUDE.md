@@ -77,7 +77,7 @@ license: "CC BY-NC 4.0"
 ---
 ```
 
-## Design System (v2 — Editorial Minimal)
+## Design System (v4 — Newsreader Editorial)
 
 **See `REDESIGN.md` for full rationale and context.**
 
@@ -85,15 +85,14 @@ Light/dark theme with system preference detection + manual toggle (◐ button in
 
 | Token           | Light     | Dark      |
 |-----------------|-----------|-----------|
-| --bg            | `#ffffff` | `#111111` |
-| --text          | `#1a1a1a` | `#e0e0e0` |
-| --text-secondary| `#555555` | `#999999` |
-| --text-tertiary | `#888888` | `#666666` |
-| --border        | `#e0e0e0` | `#2a2a2a` |
-| --link          | `#1a1a1a` | `#e0e0e0` |
-| Headings font   | Playfair Display 700 |
-| Body font       | DM Sans 400/500/600 |
-| Data/code font  | JetBrains Mono 400 |
+| --bg            | `#faf9f7` | `#1c1b1a` |
+| --text          | `#2c2c2c` | `#cec9c1` |
+| --text-secondary| `#5c5c5c` | `#96918a` |
+| --text-tertiary | `#8c8c8c` | `#6e6a64` |
+| --border        | `#ddd9d3` | `#3a3836` |
+| --link          | `#2c2c2c` | `#cec9c1` |
+| Body + headings | Newsreader 400/500/600/700 |
+| Data/code font  | JetBrains Mono 400/500 |
 | Container       | 720px |
 
 **Theme cascade:** `:root` = light, `[data-theme="dark"]` = explicit dark, `@media prefers-color-scheme: dark` with `:root:not([data-theme="light"])` = system dark. Inline script in `<head>` restores `localStorage.theme` before render.

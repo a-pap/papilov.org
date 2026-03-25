@@ -9,6 +9,8 @@ Open research at the intersection of technology, economics, and human behavior b
 
 | Article | Languages | Date |
 |---------|-----------|------|
+| [Penrose Diagrams](https://papilov.org/research/penrose-diagrams/) | EN · [RU](https://papilov.org/ru/research/penrose-diagrams/) · [ES](https://papilov.org/es/research/penrose-diagrams/) · [DE](https://papilov.org/de/research/penrose-diagrams/) · [ZH](https://papilov.org/zh/research/penrose-diagrams/) | Mar 2026 |
+| [The Universe as a Hologram: AdS/CFT](https://papilov.org/research/ads-cft-holographic/) | EN · [RU](https://papilov.org/ru/research/ads-cft-holographic/) · [ES](https://papilov.org/es/research/ads-cft-holographic/) · [DE](https://papilov.org/de/research/ads-cft-holographic/) · [ZH](https://papilov.org/zh/research/ads-cft-holographic/) | Mar 2026 |
 | [The Price of Loyalty: Subscription Pricing Models](https://papilov.org/research/subscription-pricing-models/) | EN · [RU](https://papilov.org/ru/research/subscription-pricing-models/) · [ES](https://papilov.org/es/research/subscription-pricing-models/) · [DE](https://papilov.org/de/research/subscription-pricing-models/) · [ZH](https://papilov.org/zh/research/subscription-pricing-models/) | Mar 2026 |
 
 ## Citation
