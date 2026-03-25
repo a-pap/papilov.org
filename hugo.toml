@@ -44,6 +44,10 @@ defaultContentLanguageInSubdir = false
       name = "Colophon"
       url = "/colophon/"
       weight = 2
+    [[languages.en.menu.main]]
+      name = "Work With Me"
+      url = "/work-with-me/"
+      weight = 3
 
   [languages.ru]
     languageCode = "ru"
@@ -59,6 +63,10 @@ defaultContentLanguageInSubdir = false
       name = "Колофон"
       url = "/ru/colophon/"
       weight = 2
+    [[languages.ru.menu.main]]
+      name = "Сотрудничество"
+      url = "/ru/work-with-me/"
+      weight = 3
 
   [languages.es]
     languageCode = "es"
@@ -74,6 +82,10 @@ defaultContentLanguageInSubdir = false
       name = "Colofón"
       url = "/es/colophon/"
       weight = 2
+    [[languages.es.menu.main]]
+      name = "Trabajar Conmigo"
+      url = "/es/work-with-me/"
+      weight = 3
 
   [languages.de]
     languageCode = "de"
@@ -89,6 +101,10 @@ defaultContentLanguageInSubdir = false
       name = "Kolophon"
       url = "/de/colophon/"
       weight = 2
+    [[languages.de.menu.main]]
+      name = "Zusammenarbeit"
+      url = "/de/work-with-me/"
+      weight = 3
 
   [languages.zh]
     languageCode = "zh"
@@ -104,6 +120,10 @@ defaultContentLanguageInSubdir = false
       name = "关于本站"
       url = "/zh/colophon/"
       weight = 2
+    [[languages.zh.menu.main]]
+      name = "合作咨询"
+      url = "/zh/work-with-me/"
+      weight = 3
 
 [taxonomies]
   tag = "tags"
