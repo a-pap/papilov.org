@@ -7,7 +7,7 @@ status: "finished"
 confidence: "likely"
 description: "Warum Netflix jedes Jahr die Preise erhöht, während World of Warcraft seit 21 Jahren unverändert bleibt. Eine analytische Untersuchung der Ökonomie, Psychologie und strategischen Logik von Abo-Preisgestaltung."
 tags: ["Wirtschaft", "Abonnements", "Preisgestaltung", "Verhaltensökonomie"]
-series: ""
+series: "Information ≠ Verständnis"
 ai_disclosure: "Forschung durchgeführt mit Claude (Anthropic). Redaktionelle Leitung und Fachexpertise durch den Autor."
 license: "CC BY-NC 4.0"
 og_image: "/img/og-subscription-pricing.png"

@@ -7,7 +7,7 @@ status: "finished"
 confidence: "likely"
 description: "AdS/CFT correspondence and the holographic principle: could everything we perceive as reality be a projection from a distant surface? From the Bekenstein-Hawking formula to Maldacena's duality and beyond."
 tags: ["physics", "holographic-principle", "AdS-CFT", "quantum-gravity", "cosmology"]
-series: "physics-explainers"
+series: "Physics Explainers"
 ai_disclosure: "Research conducted with Claude (Anthropic). Human editorial direction and domain expertise."
 license: "CC BY-NC 4.0"
 ---

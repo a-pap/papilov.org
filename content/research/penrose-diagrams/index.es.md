@@ -7,7 +7,7 @@ status: "finished"
 confidence: "certain"
 description: "Cómo encajar un espacio-tiempo infinito en una hoja finita de papel — y por qué importa. Guía visual de diagramas conformes: Minkowski, Schwarzschild, de Sitter, anti-de Sitter."
 tags: ["física", "relatividad-general", "diagramas-de-Penrose", "agujeros-negros", "cosmología"]
-series: "physics-explainers"
+series: "Física: explicaciones"
 ai_disclosure: "Investigación realizada con Claude (Anthropic). Dirección editorial y experiencia de dominio del autor."
 license: "CC BY-NC 4.0"
 ---

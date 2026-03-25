@@ -7,7 +7,7 @@ status: "finished"
 confidence: "certain"
 description: "How to fit infinite spacetime onto a finite sheet of paper — and why it matters. A visual guide to conformal diagrams: Minkowski, Schwarzschild, de Sitter, Anti-de Sitter."
 tags: ["physics", "general-relativity", "penrose-diagrams", "black-holes", "cosmology"]
-series: "physics-explainers"
+series: "Physics Explainers"
 ai_disclosure: "Research conducted with Claude (Anthropic). Human editorial direction and domain expertise."
 license: "CC BY-NC 4.0"
 ---

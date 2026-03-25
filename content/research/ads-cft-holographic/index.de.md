@@ -7,7 +7,7 @@ status: "finished"
 confidence: "likely"
 description: "AdS/CFT-Korrespondenz und das holographische Prinzip: Könnte alles, was wir als Realität wahrnehmen, eine Projektion von einer fernen Oberfläche sein?"
 tags: ["Physik", "holographisches-Prinzip", "AdS-CFT", "Quantengravitation", "Kosmologie"]
-series: "physics-explainers"
+series: "Physik erklärt"
 ai_disclosure: "Forschung durchgeführt mit Claude (Anthropic). Redaktionelle Leitung und Fachexpertise durch den Autor."
 license: "CC BY-NC 4.0"
 ---

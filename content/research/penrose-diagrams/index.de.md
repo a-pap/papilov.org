@@ -7,7 +7,7 @@ status: "finished"
 confidence: "certain"
 description: "Wie man eine unendliche Raumzeit auf ein endliches Blatt Papier bringt — und warum das wichtig ist. Visueller Leitfaden zu konformen Diagrammen: Minkowski, Schwarzschild, de Sitter, Anti-de Sitter."
 tags: ["Physik", "allgemeine-Relativitätstheorie", "Penrose-Diagramme", "schwarze-Löcher", "Kosmologie"]
-series: "physics-explainers"
+series: "Physik erklärt"
 ai_disclosure: "Forschung durchgeführt mit Claude (Anthropic). Redaktionelle Leitung und Fachexpertise durch den Autor."
 license: "CC BY-NC 4.0"
 ---

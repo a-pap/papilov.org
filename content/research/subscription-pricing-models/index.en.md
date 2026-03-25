@@ -7,7 +7,7 @@ status: "finished"
 confidence: "likely"
 description: "Why Netflix raises prices every year while World of Warcraft hasn't in 21 years. An analytical deep dive into the economics, psychology, and strategic logic of subscription pricing."
 tags: ["economics", "subscriptions", "pricing", "behavioral-economics"]
-series: ""
+series: "Information ≠ Understanding"
 ai_disclosure: "Research conducted with Claude (Anthropic). Human editorial direction and domain expertise."
 license: "CC BY-NC 4.0"
 og_image: "/img/og-subscription-pricing.png"

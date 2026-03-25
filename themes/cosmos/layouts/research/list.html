@@ -14,7 +14,7 @@
         {{ with .Params.description }}<p class="research-card-desc">{{ . }}</p>{{ end }}
         {{ with .Params.tags }}
         <div class="research-card-tags">
-          {{ range . }}<span class="tag">{{ . }}</span>{{ end }}
+          {{ range . }}<span class="tag">{{ replace . "-" " " }}</span>{{ end }}
         </div>
         {{ end }}
       </a>

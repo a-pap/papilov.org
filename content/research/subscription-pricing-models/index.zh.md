@@ -7,7 +7,7 @@ status: "finished"
 confidence: "likely"
 description: "Netflix为何年年涨价，而《魔兽世界》21年不变？对订阅定价的经济学、心理学与战略逻辑的深度分析。"
 tags: ["经济学", "订阅", "定价", "行为经济学"]
-series: ""
+series: "信息 ≠ 理解"
 ai_disclosure: "研究由Claude（Anthropic）辅助完成。编辑方向与领域专业知识由作者提供。"
 license: "CC BY-NC 4.0"
 robots: "noindex"

@@ -7,7 +7,7 @@ status: "finished"
 confidence: "likely"
 description: "Correspondencia AdS/CFT y el principio holográfico: ¿podría todo lo que percibimos como realidad ser una proyección desde una superficie lejana?"
 tags: ["física", "principio-holográfico", "AdS-CFT", "gravedad-cuántica", "cosmología"]
-series: "physics-explainers"
+series: "Física: explicaciones"
 ai_disclosure: "Investigación realizada con Claude (Anthropic). Dirección editorial y experiencia de dominio del autor."
 license: "CC BY-NC 4.0"
 ---

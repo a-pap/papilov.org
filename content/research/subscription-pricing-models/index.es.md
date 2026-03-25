@@ -7,7 +7,7 @@ status: "finished"
 confidence: "likely"
 description: "Por qué Netflix sube precios cada año mientras World of Warcraft no lo ha hecho en 21 años. Un análisis profundo de la economía, psicología y lógica estratégica de los precios de suscripción."
 tags: ["economía", "suscripciones", "precios", "economía-conductual"]
-series: ""
+series: "Información ≠ Comprensión"
 ai_disclosure: "Investigación realizada con Claude (Anthropic). Dirección editorial y experiencia de dominio del autor."
 license: "CC BY-NC 4.0"
 og_image: "/img/og-subscription-pricing.png"
