@@ -300,6 +300,8 @@ img { max-width: 100%; height: auto; margin: 1.5rem 0; }
 .research-tags span { font-family: var(--font-mono); font-size: 0.6rem; color: var(--tag-text); background: var(--tag-bg); padding: 0.15em 0.5em; border-radius: 2px; }
 
 /* ── ARTICLE ── */
+.back-link { font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-tertiary); text-decoration: none; display: inline-block; margin-bottom: 1.5rem; transition: color 0.15s; }
+.back-link:hover { color: var(--text); }
 .article-header { padding: 4rem 0 2rem; border-bottom: 1px solid var(--border); margin-bottom: 2rem; }
 .article-header .label { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 1rem; }
 .article-header h1 { font-size: 2rem; margin-bottom: 0.75rem; }
