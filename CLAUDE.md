@@ -21,6 +21,17 @@ hugo --minify
 # Deployment: push to main → Cloudflare Pages auto-builds
 ```
 
+## Pre-Push Verification
+
+**Before making ANY change to templates, CSS, or `hugo.toml` — read `.claude/verification.md` first.**
+
+After every change, run the full 7-step checklist from that file before pushing. The two most common production bugs:
+
+1. **CSS classes used in templates but missing from `main.css`** — renders content invisible
+2. **Untranslated slugs leaking into user-facing text** — e.g. "physics-explainers" instead of localized name
+
+No push without passing all 7 steps.
+
 ## Repo Structure
 
 ```
