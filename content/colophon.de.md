@@ -3,8 +3,6 @@ title: "Kolophon"
 date: 2026-03-01
 ---
 
-## Wie diese Seite funktioniert
-
 Eine statische Website, generiert mit [Hugo](https://gohugo.io/), gehostet auf [Cloudflare Pages](https://pages.cloudflare.com/) und weltweit über das Edge-Netzwerk ausgeliefert. Der Quellcode ist öffentlich: [github.com/a-pap/papilov.org](https://github.com/a-pap/papilov.org). Betriebskosten: ca. $10/Jahr für die Domain.
 
 ## KI-Offenlegung

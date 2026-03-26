@@ -3,8 +3,6 @@ title: "关于本站"
 date: 2026-03-01
 ---
 
-## 网站架构
-
 本站为静态网站，使用 [Hugo](https://gohugo.io/) 生成，托管于 [Cloudflare Pages](https://pages.cloudflare.com/)，通过全球边缘网络交付。源代码公开：[github.com/a-pap/papilov.org](https://github.com/a-pap/papilov.org)。年运营成本约 $10（仅域名费用）。
 
 ## AI 声明

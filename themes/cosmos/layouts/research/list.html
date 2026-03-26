@@ -1,25 +1,5 @@
 {{ define "main" }}
-<div class="container">
-  <div class="research-list">
-    <h1>{{ .Title }}</h1>
-    {{ range .Pages.ByDate.Reverse }}
-    <article class="research-card">
-      <a href="{{ .Permalink }}" class="research-card-link">
-        <div class="research-card-meta">
-          <span>{{ i18n (printf "month_%d" (int .Date.Month)) }} {{ .Date.Year }}</span>
-          {{ with .Params.series }}<span class="series-tag">{{ . }}</span>{{ end }}
-          <span>{{ .ReadingTime }} {{ i18n "min_read" }}</span>
-        </div>
-        <h2>{{ .Title }}</h2>
-        {{ with .Params.description }}<p class="research-card-desc">{{ . }}</p>{{ end }}
-        {{ with .Params.tags }}
-        <div class="research-card-tags">
-          {{ range . }}<span class="tag">{{ replace . "-" " " }}</span>{{ end }}
-        </div>
-        {{ end }}
-      </a>
-    </article>
-    {{ end }}
-  </div>
-</div>
+{{/* Redirect /research/ to homepage — articles are listed there */}}
+<script>window.location.replace("{{ .Site.Home.RelPermalink }}");</script>
+<noscript><meta http-equiv="refresh" content="0; url={{ .Site.Home.RelPermalink }}"></noscript>
 {{ end }}

@@ -3,8 +3,6 @@ title: "Colophon"
 date: 2026-03-01
 ---
 
-## How This Site Works
-
 This is a static site generated with [Hugo](https://gohugo.io/), hosted on [Cloudflare Pages](https://pages.cloudflare.com/), and served from the edge at papilov.org. Source code is public: [github.com/a-pap/papilov.org](https://github.com/a-pap/papilov.org). Total operating cost: roughly $10/year for the domain.
 
 ## AI Disclosure

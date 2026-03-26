@@ -3,8 +3,6 @@ title: "Colofón"
 date: 2026-03-01
 ---
 
-## Cómo funciona este sitio
-
 Es un sitio estático generado con [Hugo](https://gohugo.io/), alojado en [Cloudflare Pages](https://pages.cloudflare.com/) y servido desde la red edge en papilov.org. El código fuente es público: [github.com/a-pap/papilov.org](https://github.com/a-pap/papilov.org). Coste total: aproximadamente $10/año por el dominio.
 
 ## Declaración sobre IA

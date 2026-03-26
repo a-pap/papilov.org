@@ -3,8 +3,6 @@ title: "Колофон"
 date: 2026-03-01
 ---
 
-## Как устроен сайт
-
 Статический сайт на [Hugo](https://gohugo.io/), хостинг — [Cloudflare Pages](https://pages.cloudflare.com/), доставка с CDN по всему миру. Исходный код открыт: [github.com/a-pap/papilov.org](https://github.com/a-pap/papilov.org). Себестоимость: ~$10/год за домен.
 
 ## Раскрытие ИИ
