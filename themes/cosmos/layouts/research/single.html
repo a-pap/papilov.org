@@ -13,7 +13,7 @@
       {{ with .Params.version }}<span>v{{ . }}</span>{{ end }}
       <span>{{ $.ReadingTime }} {{ i18n "min_read" }}</span>
       {{ with .Params.license }}<span>{{ . }}</span>{{ end }}
-      <a href="https://github.com/a-pap/papilov.org/commits/main/content/research/{{ .File.Dir | path.Base }}/" class="changelog-link">{{ i18n "changelog_label" }}</a>
+      <a href="https://github.com/a-pap/papilov.org/commits/main/content/research/{{ .File.Dir | path.Base }}/" class="changelog-link" target="_blank" rel="noopener noreferrer">{{ i18n "changelog_label" }}</a>
     </div>
 
     {{/* Language switcher for this article */}}

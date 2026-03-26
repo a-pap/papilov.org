@@ -181,7 +181,8 @@ h2 { font-size: 1.4rem; margin-top: 2.5rem; margin-bottom: 0.75rem; }
 h3 { font-size: 1.1rem; margin-top: 2rem; margin-bottom: 0.5rem; }
 p { margin-bottom: 1.2rem; }
 
-a, a:any-link, a:visited { color: var(--link); text-decoration: none; transition: color 0.15s; }
+a, a:any-link, a:link, a:visited { color: var(--link); text-decoration: none; transition: color 0.15s; }
+a[class], a[class]:any-link, a[class]:link, a[class]:visited { text-decoration: none !important; -webkit-text-decoration: none !important; text-decoration-line: none !important; }
 a:hover { color: var(--link-hover); }
 strong { font-weight: 600; }
 
@@ -213,7 +214,7 @@ img { max-width: 100%; height: auto; margin: 1.5rem 0; }
   max-width: var(--measure);
 }
 .home-intro a { color: var(--text-secondary); }
-.home-intro p a { text-decoration: underline; text-decoration-color: var(--link-underline); text-underline-offset: 3px; }
+.home-intro p a { text-decoration: underline !important; text-decoration-color: var(--link-underline); text-underline-offset: 3px; }
 .home-intro p a:hover { text-decoration-color: var(--link-hover); }
 
 .home-links {
@@ -311,7 +312,7 @@ img { max-width: 100%; height: auto; margin: 1.5rem 0; }
 .article-header .meta .changelog-link:hover { color: var(--text); border-color: var(--text-tertiary); }
 
 .article-body { padding-bottom: 4rem; }
-.article-body a { text-decoration: underline; text-decoration-color: var(--link-underline); text-underline-offset: 3px; }
+.article-body a { text-decoration: underline !important; text-decoration-color: var(--link-underline); text-underline-offset: 3px; }
 .article-body a:hover { text-decoration-color: var(--link-hover); }
 .article-body h2 { font-size: 1.35rem; margin-top: 2.5rem; margin-bottom: 0.75rem; }
 .article-body h3 { font-size: 1.1rem; margin-top: 2rem; margin-bottom: 0.5rem; }
@@ -505,7 +506,7 @@ details[open] > .toc-toggle::before {
 .page-content h1 { font-size: 1.6rem; margin-bottom: 2rem; }
 .page-content h2 { font-size: 1.35rem; margin-top: 2.5rem; margin-bottom: 0.75rem; }
 .page-content p { font-size: 1rem; line-height: 1.78; margin-bottom: 1.2rem; }
-.page-content a { color: var(--link); text-decoration: underline; text-decoration-color: var(--link-underline); text-underline-offset: 3px; }
+.page-content a { color: var(--link); text-decoration: underline !important; text-decoration-color: var(--link-underline); text-underline-offset: 3px; }
 .page-content a:hover { text-decoration-color: var(--link-hover); }
 .page-content ul { margin: 1rem 0; padding-left: 1.5rem; font-size: 1rem; }
 .page-content li { margin-bottom: 0.4rem; line-height: 1.75; }
