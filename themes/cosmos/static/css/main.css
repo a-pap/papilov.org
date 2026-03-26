@@ -185,14 +185,17 @@ p { margin-bottom: 1.2rem; }
 
 a, a:any-link, a:link, a:visited, a:-webkit-any-link {
   color: var(--link);
-  text-decoration: none;
-  text-decoration-line: none;
-  -webkit-text-decoration-line: none;
+  text-decoration: none !important;
+  text-decoration-line: none !important;
+  -webkit-text-decoration: none !important;
+  -webkit-text-decoration-line: none !important;
   transition: color 0.15s;
 }
 /* Re-apply underlines only inside article/page content */
-.page-content a, .article-body a { text-decoration: underline; text-decoration-color: var(--link-underline); text-underline-offset: 3px; }
+.page-content a, .article-body a { text-decoration: underline !important; text-decoration-color: var(--link-underline); text-underline-offset: 3px; }
 .page-content a:hover, .article-body a:hover { text-decoration-color: var(--link-hover); }
+.home-intro p a { text-decoration: underline !important; text-decoration-color: var(--link-underline); text-underline-offset: 3px; }
+.home-intro p a:hover { text-decoration-color: var(--link-hover); }
 a:hover { color: var(--link-hover); }
 strong { font-weight: 600; }
 
