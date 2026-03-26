@@ -3,6 +3,7 @@ title = "Artem Papilov"
 theme = "cosmos"
 defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = false
+hasCJKLanguage = true
 
 [params]
   description = "Independent analytical research: subscription economics, behavioral science, physics explainers. Data-driven, AI-co-authored, openly licensed."

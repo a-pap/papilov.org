@@ -1,5 +1,6 @@
 ---
 title: "Colofón"
+date: 2026-03-01
 ---
 
 ## Cómo funciona este sitio

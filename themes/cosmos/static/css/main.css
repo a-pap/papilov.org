@@ -99,7 +99,10 @@
 }
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { overflow-x: hidden; }
 ::selection { background: var(--selection-bg); color: inherit; }
+.skip-nav { position: absolute; left: -9999px; top: auto; z-index: 999; padding: 0.5rem 1rem; background: var(--bg); color: var(--text); font-size: 0.85rem; text-decoration: none; border: 1px solid var(--border); }
+.skip-nav:focus { left: 1rem; top: 1rem; }
 
 html {
   font-size: 19px;
@@ -132,7 +135,7 @@ main { flex: 1; display: flex; flex-direction: column; }
   align-items: baseline;
 }
 
-.site-name {
+.site-name, .site-name:any-link {
   font-family: var(--font-body);
   font-size: 1.1rem;
   font-weight: 600;
@@ -151,7 +154,7 @@ main { flex: 1; display: flex; flex-direction: column; }
 
 /* Language switcher in footer */
 .lang-switch { display: flex; gap: 0.4rem; flex-wrap: wrap; }
-.lang-switch a {
+.lang-switch a, .lang-switch a:any-link {
   font-family: var(--font-mono);
   font-size: 0.65rem;
   letter-spacing: 0.03em;
@@ -175,7 +178,7 @@ h2 { font-size: 1.4rem; margin-top: 2.5rem; margin-bottom: 0.75rem; }
 h3 { font-size: 1.1rem; margin-top: 2rem; margin-bottom: 0.5rem; }
 p { margin-bottom: 1.2rem; }
 
-a { color: var(--link); text-decoration: none; transition: color 0.15s; }
+a, a:any-link, a:visited { color: var(--link); text-decoration: none; transition: color 0.15s; }
 a:hover { color: var(--link-hover); }
 strong { font-weight: 600; }
 
@@ -216,7 +219,7 @@ img { max-width: 100%; height: auto; margin: 1.5rem 0; }
   gap: 1.25rem;
   margin-top: 1.5rem;
 }
-.home-links a {
+.home-links a, .home-links a:any-link {
   font-size: 0.85rem;
   color: var(--text-secondary);
   text-decoration: none;
@@ -229,7 +232,7 @@ img { max-width: 100%; height: auto; margin: 1.5rem 0; }
   flex-direction: column;
   border-top: 1px solid var(--border-light);
 }
-.article-list-item {
+.article-list-item, .article-list-item:any-link {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
@@ -240,6 +243,7 @@ img { max-width: 100%; height: auto; margin: 1.5rem 0; }
   color: inherit;
   transition: color 0.15s;
 }
+.article-list-item *, .article-list-item *::before, .article-list-item *::after { text-decoration: none; }
 .article-list-item:hover .article-list-title { color: var(--link-hover); }
 .article-list-title {
   font-size: 1rem;
@@ -264,7 +268,7 @@ img { max-width: 100%; height: auto; margin: 1.5rem 0; }
   margin-top: 2rem;
   padding-top: 1rem;
 }
-.home-bottom a {
+.home-bottom a, .home-bottom a:any-link {
   font-size: 0.82rem;
   color: var(--text-tertiary);
   text-decoration: none;
@@ -292,6 +296,8 @@ img { max-width: 100%; height: auto; margin: 1.5rem 0; }
 .research-tags span { font-family: var(--font-mono); font-size: 0.6rem; color: var(--tag-text); background: var(--tag-bg); padding: 0.15em 0.5em; border-radius: 2px; }
 
 /* ── ARTICLE ── */
+.back-link, .back-link:any-link { font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-tertiary); text-decoration: none; display: inline-block; margin-bottom: 1.5rem; transition: color 0.15s; }
+.back-link:hover { color: var(--text); }
 .article-header { padding: 4rem 0 2rem; border-bottom: 1px solid var(--border); margin-bottom: 2rem; }
 .article-header .label { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 1rem; }
 .article-header h1 { font-size: 2rem; margin-bottom: 0.75rem; }
@@ -509,8 +515,9 @@ details[open] > .toc-toggle::before {
 
 /* ── RESEARCH CARDS ── */
 .research-card { margin-bottom: 1rem; }
-.research-card-link { display: block; text-decoration: none; color: var(--text); padding: 1.25rem 1.25rem; border: 1px solid var(--border); border-radius: 6px; transition: border-color 0.15s, background 0.15s; }
+.research-card-link, .research-card-link:any-link { display: block; text-decoration: none; color: var(--text); padding: 1.25rem 1.25rem; border: 1px solid var(--border); border-radius: 6px; transition: border-color 0.15s, background 0.15s; }
 .research-card-link:hover { border-color: var(--text-tertiary); background: var(--bg-secondary); }
+.research-card-link *, .research-card-link *::before, .research-card-link *::after { text-decoration: none; }
 .research-card-link h2, .research-card-link h3 { margin: 0.4rem 0 0.35rem; font-size: 1.15rem; font-weight: 600; color: var(--text); }
 .research-card-meta { display: flex; flex-wrap: wrap; gap: 0.25rem 0.75rem; align-items: baseline; font-size: 0.72rem; color: var(--text-tertiary); font-family: var(--font-mono); }
 .research-card-meta > span { white-space: nowrap; }
@@ -522,7 +529,7 @@ details[open] > .toc-toggle::before {
 /* ── RELATED ARTICLES ── */
 .related-articles { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); }
 .related-articles h2 { font-size: 1rem; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 500; margin-bottom: 1rem; }
-.related-card { display: block; text-decoration: none; padding: 0.75rem 1rem; border: 1px solid var(--border); border-radius: 6px; margin-bottom: 0.75rem; transition: border-color 0.15s, background 0.15s; }
+.related-card, .related-card:any-link { display: block; text-decoration: none; color: inherit; padding: 0.75rem 1rem; border: 1px solid var(--border); border-radius: 6px; margin-bottom: 0.75rem; transition: border-color 0.15s, background 0.15s; }
 .related-card:hover { border-color: var(--text-tertiary); background: var(--bg-secondary); }
 .related-title { display: block; font-weight: 600; color: var(--text); font-size: 0.95rem; }
 .related-desc { display: block; font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.2rem; line-height: 1.4; }
@@ -532,7 +539,7 @@ details[open] > .toc-toggle::before {
 
 /* ── FOOTER ── */
 .site-footer { padding: 2rem 0 3rem; border-top: 1px solid var(--border); margin-top: auto; font-size: 0.75rem; color: var(--text-tertiary); line-height: 1.8; }
-.site-footer a { color: var(--text-tertiary); }
+.site-footer a, .site-footer a:any-link { color: var(--text-tertiary); text-decoration: none; }
 .site-footer a:hover { color: var(--text); }
 .footer-row { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
 

@@ -1,5 +1,6 @@
 ---
 title: "Trabajar Conmigo"
+date: 2026-03-01
 ---
 
 Estrategia de producto, arquitectura de monetización y economía adtech.

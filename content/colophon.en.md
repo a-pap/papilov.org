@@ -1,5 +1,6 @@
 ---
 title: "Colophon"
+date: 2026-03-01
 ---
 
 ## How This Site Works

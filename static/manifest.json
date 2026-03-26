@@ -1,0 +1,12 @@
+{
+  "name": "Papilov Research",
+  "short_name": "Papilov",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#faf9f7",
+  "theme_color": "#1c1b1a",
+  "icons": [
+    { "src": "/favicon.svg", "type": "image/svg+xml", "sizes": "any" },
+    { "src": "/apple-touch-icon.png", "type": "image/png", "sizes": "180x180" }
+  ]
+}

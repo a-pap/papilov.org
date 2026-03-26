@@ -1,5 +1,6 @@
 ---
 title: "Work With Me"
+date: 2026-03-01
 ---
 
 Product strategy, monetization architecture, and adtech economics.
