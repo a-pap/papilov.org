@@ -135,11 +135,12 @@ main { flex: 1; display: flex; flex-direction: column; }
   align-items: baseline;
 }
 
-.site-name, .site-name:any-link {
+.site-name, .site-name:any-link, .site-name:link, .site-name:visited {
   font-family: var(--font-body);
   font-size: 1.1rem;
   font-weight: 600;
-  text-decoration: none;
+  text-decoration: none !important;
+  -webkit-text-decoration: none !important;
   color: var(--text);
   letter-spacing: -0.01em;
 }
@@ -552,6 +553,7 @@ details[open] > .toc-toggle::before {
   .home-container { padding-top: 1.5rem; }
   .article-list-item { flex-direction: column; gap: 0.2rem; }
   .article-list-title { white-space: normal; }
+  .article-list-meta { white-space: normal; flex-wrap: wrap; }
   .research-list { padding: 3rem 0; }
   .research-list > h1 { font-size: 1.4rem; }
   .article-header { padding: 3rem 0 1.5rem; }
@@ -572,8 +574,25 @@ details[open] > .toc-toggle::before {
   .research-card-link h2, .research-card-link h3 { font-size: 1.05rem; }
 }
 
+@media (max-width: 360px) {
+  html { font-size: 16px; }
+  .container { padding: 0 1rem; }
+  h1 { font-size: 1.4rem; }
+  .home-intro h1 { font-size: 1.25rem; }
+  .research-card-link { padding: 0.6rem 0.75rem; }
+  .research-card-meta { font-size: 0.65rem; }
+  .article-header h1 { font-size: 1.4rem; }
+  .article-header .meta { font-size: 0.62rem; gap: 0.2rem 0.5rem; }
+}
+
 @media print {
-  body { background: white; color: black; font-size: 11pt; }
-  .site-header, .site-footer, .theme-toggle, .lang-switch { display: none; }
+  body { background: white !important; color: black !important; font-size: 11pt; }
+  .site-header, .site-footer, .theme-toggle, .lang-switch, .back-link, .skip-nav, .article-langs, .article-toc { display: none; }
   a { color: black; text-decoration: underline; }
+  a[href]::after { content: " (" attr(href) ")"; font-size: 0.8em; color: #555; }
+  a[href^="#"]::after, a[href^="mailto"]::after { content: ""; }
+  .research-card-link { border: 1px solid #ccc; }
+  .related-card { border: 1px solid #ccc; }
+  pre { border: 1px solid #ccc; overflow-x: visible; white-space: pre-wrap; }
+  img { max-width: 100% !important; }
 }
