@@ -1,18 +1,37 @@
 <footer class="site-footer">
   <div class="container">
-    <div class="footer-row">
-      <span>© {{ now.Year }} Artem Papilov · <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a> · <a href="{{ "colophon" | relLangURL }}/">{{ i18n "footer_how" }}</a></span>
-      <div class="lang-switch">
-        {{ if .IsTranslated }}
-          {{ range .AllTranslations }}
-            <a href="{{ .RelPermalink }}"{{ if eq $.Language.Lang .Lang }} class="active"{{ end }}>{{ .Language.LanguageName }}</a>
-          {{ end }}
+    <div class="footer-nav">
+      <div class="footer-left">
+        {{ if .IsHome }}
+          <span class="footer-name">Artem Papilov</span>
         {{ else }}
-          {{ range $.Site.Languages }}
-            <a href="/{{ if ne .Lang "en" }}{{ .Lang }}/{{ end }}"{{ if eq $.Language.Lang .Lang }} class="active"{{ end }}>{{ .LanguageName }}</a>
-          {{ end }}
+          <a href="{{ .Site.Home.RelPermalink }}" class="footer-name">Artem Papilov</a>
+        {{ end }}
+        <span class="footer-sep">&middot;</span>
+        {{ $isColophon := findRE "colophon" .RelPermalink }}
+        {{ if $isColophon }}
+          <span class="footer-colophon-current">{{ i18n "footer_how" }}</span>
+        {{ else }}
+          <a href="{{ "colophon" | relLangURL }}/">{{ i18n "footer_how" }}</a>
         {{ end }}
       </div>
+      <div class="footer-right">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">&#9684;</button>
+        <div class="lang-switch">
+          {{ if .IsTranslated }}
+            {{ range .AllTranslations }}
+              <a href="{{ .RelPermalink }}"{{ if eq $.Language.Lang .Lang }} class="active"{{ end }}>{{ .Language.LanguageName }}</a>
+            {{ end }}
+          {{ else }}
+            {{ range $.Site.Languages }}
+              <a href="/{{ if ne .Lang "en" }}{{ .Lang }}/{{ end }}"{{ if eq $.Language.Lang .Lang }} class="active"{{ end }}>{{ .LanguageName }}</a>
+            {{ end }}
+          {{ end }}
+        </div>
+      </div>
+    </div>
+    <div class="footer-legal">
+      &copy; {{ now.Year }} &middot; <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a>
     </div>
   </div>
 </footer>

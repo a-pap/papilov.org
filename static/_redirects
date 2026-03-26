@@ -1,2 +1,7 @@
 # Redirects for Cloudflare Pages
 /blog/*  /research/:splat  301
+/research/  /  301
+/ru/research/  /ru/  301
+/es/research/  /es/  301
+/de/research/  /de/  301
+/zh/research/  /zh/  301

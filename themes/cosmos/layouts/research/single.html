@@ -1,7 +1,7 @@
 {{ define "main" }}
 <div class="container">
   <div class="article-header">
-    <a href="{{ "research" | relLangURL }}/" class="back-link">{{ i18n "back_to_research" }}</a>
+    <a href="{{ .Site.Home.RelPermalink }}" class="back-link">{{ i18n "back_to_research" }}</a>
     <div class="label">{{ i18n "research_label" }}{{ with .Params.series }} · {{ . }}{{ end }}</div>
     <h1>{{ .Title }}</h1>
     {{ with .Params.description }}<p class="description">{{ . }}</p>{{ end }}
