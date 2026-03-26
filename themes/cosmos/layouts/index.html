@@ -1,42 +1,34 @@
 {{ define "main" }}
 <div class="container home-container">
-  <article class="home-grid">
-    <div class="home-intro">
-      <h1>{{ .Title }}</h1>
-      {{ .Content }}
-      <div class="home-links">
-        <a href="{{ "research" | relLangURL }}/">{{ i18n "research_label" }} →</a>
-        {{ range .Site.Menus.main }}
-          {{ if ne .Weight 1 }}
-            <a href="{{ .URL }}">{{ .Name }}</a>
-          {{ end }}
-        {{ end }}
-        <a href="https://github.com/a-pap/papilov.org">GitHub</a>
-        <a href="https://linkedin.com/in/papilov">LinkedIn</a>
-        <a href="mailto:artem@papilov.org">artem@papilov.org</a>
-        <a href="{{ "index.xml" | relLangURL }}" class="rss-link" title="RSS">RSS</a>
-      </div>
+  <div class="home-intro">
+    <h1>{{ .Title }}</h1>
+    {{ .Content }}
+    <div class="home-links">
+      <a href="mailto:artem@papilov.org">artem@papilov.org</a>
+      <a href="https://github.com/a-pap/papilov.org">GitHub</a>
+      <a href="https://linkedin.com/in/papilov">LinkedIn</a>
+      <a href="{{ "index.xml" | relLangURL }}" class="rss-link" title="RSS">RSS</a>
     </div>
+  </div>
 
-    {{ $research := where .Site.RegularPages "Section" "research" }}
-    {{ with $research }}
-    <aside class="home-section">
-      <h2 class="home-section-title">{{ i18n "research_section" }}</h2>
-      {{ range . }}
-      <article class="research-card">
-        <a href="{{ .Permalink }}" class="research-card-link">
-          <div class="research-card-meta">
-            <span>{{ i18n (printf "month_%d" (int .Date.Month)) }} {{ .Date.Year }}</span>
-            {{ with .Params.series }}<span class="series-tag">{{ . }}</span>{{ end }}
-            <span>{{ .ReadingTime }} {{ i18n "min_read" }}</span>
-          </div>
-          <h3>{{ .Title }}</h3>
-          {{ with .Params.description }}<p class="research-card-desc">{{ . }}</p>{{ end }}
-        </a>
-      </article>
-      {{ end }}
-    </aside>
+  {{ $research := where .Site.RegularPages "Section" "research" }}
+  {{ with $research }}
+  <nav class="article-list">
+    {{ range . }}
+    <a href="{{ .Permalink }}" class="article-list-item">
+      <span class="article-list-title">{{ .Title }}</span>
+      <span class="article-list-meta">
+        {{ with .Params.series }}<span class="series-tag">{{ . }}</span>{{ end }}
+        <span>{{ i18n (printf "month_%d" (int .Date.Month)) }} {{ .Date.Year }}</span>
+        <span>{{ .ReadingTime }} {{ i18n "min_read" }}</span>
+      </span>
+    </a>
     {{ end }}
-  </article>
+  </nav>
+  {{ end }}
+
+  <div class="home-bottom">
+    <a href="{{ "colophon" | relLangURL }}/">{{ i18n "footer_how" }}</a>
+  </div>
 </div>
 {{ end }}

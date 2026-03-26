@@ -1,12 +1,7 @@
 <footer class="site-footer">
   <div class="container">
-    <div class="footer-top">
-      <div class="footer-meta">
-        <p>
-          © {{ now.Year }} <a href="{{ .Site.Home.RelPermalink }}">Artem Papilov</a> · {{ i18n "footer_research" }} <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a> · {{ i18n "footer_code" }} <a href="https://opensource.org/licenses/MIT">MIT</a><br>
-          {{ i18n "footer_ai" }} <a href="https://claude.ai">Claude</a> (Anthropic) · <a href="{{ "colophon" | relLangURL }}/">{{ i18n "footer_how" }}</a>
-        </p>
-      </div>
+    <div class="footer-row">
+      <span>© {{ now.Year }} Artem Papilov · <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a> · <a href="{{ "colophon" | relLangURL }}/">{{ i18n "footer_how" }}</a></span>
       <div class="lang-switch">
         {{ if .IsTranslated }}
           {{ range .AllTranslations }}
