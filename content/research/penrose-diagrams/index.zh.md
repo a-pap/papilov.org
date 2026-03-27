@@ -146,7 +146,29 @@ robots: "noindex"
 <div style="font-size: 0.78rem; color: var(--text-tertiary); margin-top: 0.5rem;">德西特时空。正方形而非菱形。上下边界为类空的——宇宙在所有地方同时开始和结束。每个观测者都被宇宙学视界包围。</div>
 </div>
 
-**反德西特——垂直条带。** 负宇宙学常数。类时垂直边界。1997年，马尔达塞纳证明该空间中的量子引力等价于其边界上的量子场论——[AdS/CFT对应](/research/ads-cft-holographic/)，高能物理史上被引最多的成果（20,000+引用）。彭罗斯图的垂直边缘就是对偶理论所在之处。
+**反德西特——垂直条带。** 负宇宙学常数。类时垂直边界。不是我们的宇宙——但可以说是当今理论物理中最重要的时空。
+
+<div style="text-align:center; margin: 2rem 0; padding: 1.5rem; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 8px;">
+<svg viewBox="0 0 320 380" xmlns="http://www.w3.org/2000/svg" style="max-width: 300px; width: 100%;">
+  <rect x="80" y="30" width="160" height="320" fill="var(--blue-soft)" opacity="0.04" stroke="none"/>
+  <line x1="80" y1="30" x2="80" y2="350" stroke="var(--purple-soft)" stroke-width="2.5" opacity="0.7"/>
+  <line x1="240" y1="30" x2="240" y2="350" stroke="var(--purple-soft)" stroke-width="2.5" opacity="0.7"/>
+  <line x1="80" y1="30" x2="240" y2="30" stroke="var(--blue-soft)" stroke-width="1" opacity="0.25"/>
+  <line x1="80" y1="350" x2="240" y2="350" stroke="var(--blue-soft)" stroke-width="1" opacity="0.25"/>
+  <path d="M 160,300 L 240,220 L 160,140 L 80,60" fill="none" stroke="var(--text-secondary)" stroke-width="1.2" stroke-dasharray="4,3" opacity="0.4"/>
+  <circle cx="160" cy="300" r="3" fill="var(--text-secondary)" opacity="0.6"/>
+  <text x="60" y="190" text-anchor="middle" font-family="var(--font-body)" font-size="13" fill="var(--purple-soft)" font-style="italic" transform="rotate(-90,60,190)">边界（CFT）</text>
+  <text x="260" y="190" text-anchor="middle" font-family="var(--font-body)" font-size="13" fill="var(--purple-soft)" font-style="italic" transform="rotate(90,260,190)">边界（CFT）</text>
+  <text x="160" y="200" text-anchor="middle" font-family="var(--font-body)" font-size="14" fill="var(--blue-soft)" font-style="italic" opacity="0.5">AdS 体</text>
+  <text x="160" y="20" text-anchor="middle" font-family="var(--font-mono)" font-size="9" fill="var(--text-tertiary)">t → +∞</text>
+  <text x="160" y="368" text-anchor="middle" font-family="var(--font-mono)" font-size="9" fill="var(--text-tertiary)">t → −∞</text>
+  <text x="248" y="218" font-family="var(--font-mono)" font-size="8" fill="var(--text-tertiary)">光在边界</text>
+  <text x="248" y="230" font-family="var(--font-mono)" font-size="8" fill="var(--text-tertiary)">处"反弹"</text>
+</svg>
+<div style="font-size: 0.78rem; color: var(--text-tertiary); margin-top: 0.5rem;">反德西特时空。垂直条带。侧壁为类时边界，对偶CFT就在其上。光在有限时间内到达边界并"反弹"回来——该空间如同一个盒子。</div>
+</div>
+
+1997年，马尔达塞纳证明该空间中的量子引力等价于其边界上的量子场论——[AdS/CFT对应](/research/ads-cft-holographic/)，高能物理史上被引最多的成果（20,000+引用）。彭罗斯图的垂直边缘就是对偶理论所在之处。
 
 ## 这些图使什么成为可能
 
