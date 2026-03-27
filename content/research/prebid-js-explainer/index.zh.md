@@ -113,13 +113,38 @@ ANA供应链研究（2023年）发现，广告主每花费一美元，只有**36
 
 ## 三种架构
 
-| 参数 | 客户端 | 服务端 | 混合 |
-|------|--------|--------|------|
-| 拍卖 | 浏览器 | 服务器 | 两者 |
-| 买家数量 | 15–20（上限） | 无限制 | 5–8 + 其余（最优） |
-| 延迟 | 随买家增加而增长 | −40% | 可控 |
-| Cookie访问 | 完整（最高CPM） | 受限（CPM降低20–40%） | 关键买家完整访问 |
-| 最适合 | 中型发布商 | CTV、应用、AMP | 大型发布商 |
+<div class="fw-grid">
+  <div class="fw-card fw-card--blue">
+    <h4>客户端</h4>
+    <div class="fw-sub">在浏览器中拍卖</div>
+    <ul class="fw-list">
+      <li>买家：15–20（上限）</li>
+      <li>延迟：随买家增加而增长</li>
+      <li>Cookie访问：完整（最高CPM）</li>
+      <li>适合：中型发布商</li>
+    </ul>
+  </div>
+  <div class="fw-card fw-card--purple">
+    <h4>服务端</h4>
+    <div class="fw-sub">在服务器拍卖（Prebid Server）</div>
+    <ul class="fw-list">
+      <li>买家：无限制</li>
+      <li>延迟：−40%</li>
+      <li>Cookie访问：受限（CPM降低20–40%）</li>
+      <li>适合：CTV、应用、AMP</li>
+    </ul>
+  </div>
+  <div class="fw-card fw-card--green">
+    <h4>混合（行业标准）</h4>
+    <div class="fw-sub">两者兼用——最优平衡</div>
+    <ul class="fw-list">
+      <li>买家：5–8客户端 + 其余服务端</li>
+      <li>延迟：可控</li>
+      <li>Cookie访问：关键买家完整访问</li>
+      <li>适合：大型发布商</li>
+    </ul>
+  </div>
+</div>
 
 <div class="highlight-box">
 <strong>混合模式是行业标准：</strong>

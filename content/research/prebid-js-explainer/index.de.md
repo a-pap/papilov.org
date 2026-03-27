@@ -112,13 +112,38 @@ Für Prebid ist dies **struktureller Rückenwind**. Wenn Google seinen Ad Server
 
 ## Drei Architekturen
 
-| Parameter | Client-side | Server-side | Hybrid |
-|-----------|------------|-------------|--------|
-| Auktion | Browser | Server | Beides |
-| Käufer | 15–20 (Limit) | Unbegrenzt | 5–8 + Rest (optimal) |
-| Latenz | Wächst mit Käuferzahl | −40% | Kontrolliert |
-| Cookie-Zugang | Voll (max. CPM) | Eingeschränkt (−20–40% CPM) | Voll für Schlüsselkäufer |
-| Ideal für | Mittelgroße Publisher | CTV, App, AMP | Große Publisher |
+<div class="fw-grid">
+  <div class="fw-card fw-card--blue">
+    <h4>Client-side</h4>
+    <div class="fw-sub">Auktion im Browser</div>
+    <ul class="fw-list">
+      <li>Käufer: 15–20 (Limit)</li>
+      <li>Latenz: wächst mit Käuferzahl</li>
+      <li>Cookie-Zugang: voll (max. CPM)</li>
+      <li>Ideal für: mittelgroße Publisher</li>
+    </ul>
+  </div>
+  <div class="fw-card fw-card--purple">
+    <h4>Server-side</h4>
+    <div class="fw-sub">Auktion auf Server (Prebid Server)</div>
+    <ul class="fw-list">
+      <li>Käufer: unbegrenzt</li>
+      <li>Latenz: −40%</li>
+      <li>Cookie-Zugang: eingeschränkt (−20–40% CPM)</li>
+      <li>Ideal für: CTV, App, AMP</li>
+    </ul>
+  </div>
+  <div class="fw-card fw-card--green">
+    <h4>Hybrid (Industriestandard)</h4>
+    <div class="fw-sub">Beides — optimale Balance</div>
+    <ul class="fw-list">
+      <li>Käufer: 5–8 client + Rest server</li>
+      <li>Latenz: kontrolliert</li>
+      <li>Cookie-Zugang: voll für Schlüsselkäufer</li>
+      <li>Ideal für: große Publisher</li>
+    </ul>
+  </div>
+</div>
 
 <div class="highlight-box">
 <strong>Hybrid ist der Industriestandard:</strong>

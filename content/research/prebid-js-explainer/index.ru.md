@@ -112,13 +112,38 @@ license: "CC BY-NC 4.0"
 
 ## Три архитектуры
 
-| Параметр | Client-side | Server-side | Гибрид |
-|-----------|------------|-------------|--------|
-| Аукцион | Браузер | Сервер | Оба |
-| Покупатели | 15–20 (лимит) | Без ограничений | 5–8 + остальные (оптимум) |
-| Latency | Растёт с числом покупателей | −40% | Контролируемая |
-| Cookie-доступ | Полный (макс CPM) | Ограниченный (−20–40% CPM) | Полный для ключевых |
-| Лучше для | Средних паблишеров | CTV, App, AMP | Крупных паблишеров |
+<div class="fw-grid">
+  <div class="fw-card fw-card--blue">
+    <h4>Client-side</h4>
+    <div class="fw-sub">Аукцион в браузере</div>
+    <ul class="fw-list">
+      <li>Покупатели: 15–20 (лимит)</li>
+      <li>Latency: растёт с числом покупателей</li>
+      <li>Cookie-доступ: полный (макс CPM)</li>
+      <li>Лучше для: средних паблишеров</li>
+    </ul>
+  </div>
+  <div class="fw-card fw-card--purple">
+    <h4>Server-side</h4>
+    <div class="fw-sub">Аукцион на сервере (Prebid Server)</div>
+    <ul class="fw-list">
+      <li>Покупатели: без ограничений</li>
+      <li>Latency: −40%</li>
+      <li>Cookie-доступ: ограниченный (−20–40% CPM)</li>
+      <li>Лучше для: CTV, App, AMP</li>
+    </ul>
+  </div>
+  <div class="fw-card fw-card--green">
+    <h4>Гибрид (индустриальный стандарт)</h4>
+    <div class="fw-sub">Оба — оптимальный баланс</div>
+    <ul class="fw-list">
+      <li>Покупатели: 5–8 client + остальные server</li>
+      <li>Latency: контролируемая</li>
+      <li>Cookie-доступ: полный для ключевых покупателей</li>
+      <li>Лучше для: крупных паблишеров</li>
+    </ul>
+  </div>
+</div>
 
 <div class="highlight-box">
 <strong>Гибрид — индустриальный стандарт:</strong>
