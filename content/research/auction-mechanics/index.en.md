@@ -101,12 +101,40 @@ With n bidders drawing values from U[0,1], the <em>expected</em> seller revenue 
 
 **Conditions:** independent private values, risk neutrality, symmetric bidders, no collusion. In reality, every condition is violated — making format choice a critical decision.
 
-| Condition | If holds | If violated | Real example |
-|-----------|----------|-------------|--------------|
-| Independent private values | All formats equal | English yields more (less winner's curse) | Oil exploration: correlated values |
-| Risk neutrality | RE works | First-price yields more (risk-averse bidders shade less) | Government contracts |
-| Symmetric bidders | RE works | Strong bidder shades more; weak overbids | NZ 1990: incumbent vs newcomer |
-| No collusion | RE works | Second-price → floor manipulation. English → ring bidding | Header bidding SSPs |
+<div class="fw-grid">
+  <div class="fw-card">
+    <h4>Independent private values</h4>
+    <div class="fw-sub">If holds: all formats equal</div>
+    <ul class="fw-list">
+      <li>If violated: English yields more (less winner's curse)</li>
+      <li>Example: oil exploration — correlated values</li>
+    </ul>
+  </div>
+  <div class="fw-card">
+    <h4>Risk neutrality</h4>
+    <div class="fw-sub">If holds: RE works</div>
+    <ul class="fw-list">
+      <li>If violated: first-price yields more (risk-averse bidders shade less)</li>
+      <li>Example: government contracts</li>
+    </ul>
+  </div>
+  <div class="fw-card">
+    <h4>Symmetric bidders</h4>
+    <div class="fw-sub">If holds: RE works</div>
+    <ul class="fw-list">
+      <li>If violated: strong bidder shades more; weak overbids</li>
+      <li>Example: NZ 1990 — incumbent vs newcomer</li>
+    </ul>
+  </div>
+  <div class="fw-card">
+    <h4>No collusion</h4>
+    <div class="fw-sub">If holds: RE works</div>
+    <ul class="fw-list">
+      <li>If violated: second-price → floor manipulation; English → ring bidding</li>
+      <li>Example: header bidding SSPs</li>
+    </ul>
+  </div>
+</div>
 
 ## The New Zealand Disaster
 
@@ -132,15 +160,56 @@ Specific lots:
 
 ## Comprehensive Format Comparison
 
-| Parameter | English (ascending) | Dutch (descending) | First-Price (sealed) | Vickrey (second-price) |
-|-----------|--------------------|--------------------|---------------------|----------------------|
-| Strategy | Bid up to v | Bid shading | Bid shading | b(v) = v (dominant) |
-| Winner pays | ≈ 2nd valuation | Own bid | Own bid | 2nd bid |
-| Info revealed | High — see bids | Low — one price | Zero | Medium — 2 prices |
-| Speed | Slow (minutes–hours) | Very fast | One round | One round |
-| Collusion resistance | Low — visible bidding | High | High | Medium |
-| Winner's curse | Less dangerous | Dangerous | Most dangerous | Absent — pay 2nd price |
-| Used in | Christie's, eBay, FCC SMRA | Aalsmeer flowers, Google IPO, Treasury | Procurement, tenders, programmatic (2019+) | RTB (2007–2017), Google Ads (GSP variant) |
+<div class="fw-grid">
+  <div class="fw-card fw-card--green">
+    <h4>English (ascending)</h4>
+    <div class="fw-tags"><span>Christie's</span><span>eBay</span><span>FCC SMRA</span></div>
+    <ul class="fw-list">
+      <li>Strategy: bid up to true value</li>
+      <li>Pays: ≈ 2nd valuation</li>
+      <li>Info: high — see other bids</li>
+      <li>Speed: slow (minutes–hours)</li>
+      <li>Collusion resistance: low</li>
+      <li>Winner's curse: less dangerous</li>
+    </ul>
+  </div>
+  <div class="fw-card fw-card--red">
+    <h4>Dutch (descending)</h4>
+    <div class="fw-tags"><span>Aalsmeer flowers</span><span>Google IPO</span><span>Treasury</span></div>
+    <ul class="fw-list">
+      <li>Strategy: bid shading</li>
+      <li>Pays: own bid</li>
+      <li>Info: low — one price</li>
+      <li>Speed: very fast</li>
+      <li>Collusion resistance: high</li>
+      <li>Winner's curse: dangerous</li>
+    </ul>
+  </div>
+  <div class="fw-card fw-card--blue">
+    <h4>First-Price (sealed)</h4>
+    <div class="fw-tags"><span>Procurement</span><span>Tenders</span><span>Programmatic 2019+</span></div>
+    <ul class="fw-list">
+      <li>Strategy: bid shading</li>
+      <li>Pays: own bid</li>
+      <li>Info: zero</li>
+      <li>Speed: one round</li>
+      <li>Collusion resistance: high</li>
+      <li>Winner's curse: most dangerous</li>
+    </ul>
+  </div>
+  <div class="fw-card fw-card--purple">
+    <h4>Vickrey (second-price)</h4>
+    <div class="fw-tags"><span>RTB 2007–2017</span><span>Google Ads (GSP)</span></div>
+    <ul class="fw-list">
+      <li>Strategy: b(v) = v (dominant)</li>
+      <li>Pays: 2nd bid</li>
+      <li>Info: medium — 2 prices</li>
+      <li>Speed: one round</li>
+      <li>Collusion resistance: medium</li>
+      <li>Winner's curse: absent</li>
+    </ul>
+  </div>
+</div>
 
 ## Ad Auctions: 100 Milliseconds and $500 Billion
 
@@ -269,24 +338,69 @@ The same evolution repeats everywhere. Start with a pure auction (AWS Spot 2009,
 
 ## Where Auctions Are Heading
 
-| Trend | Timeframe | Description |
-|-------|-----------|-------------|
-| AI Bidding Agents | Now → 2027 | ML algorithms already do bid shading (Google, TTD). Next: autonomous agents trading without humans. Risk: algorithmic collusion. |
-| Privacy-Preserving Auctions | Now → 2028 | Apple ATT, Privacy Sandbox, EU DSA — user data disappearing. On-device bidding, federated auctions, contextual signals. |
-| Combinatorial Auctions | 2025+ | FCC Incentive Auction (2017) — first major combinatorial auction. NP-hard, solved with SAT-solvers. Next: 5G/6G shared spectrum. |
-| Dynamic Mechanism Design | 2026+ | Classical theory covers one-shot auctions. Reality: billions of repeated auctions with learning participants. |
-| Real-Time Energy Markets | 2025+ | P2P electricity auctions between households. Pilots in Australia (Power Ledger), Germany (Sonnen). |
-| Auctions → Automatic Markets | Long-term | AWS Spot is no longer an auction — it's algorithmic pricing. Pure auctions dissolve into dynamic pricing. The foundation — auction theory — remains. |
+<div class="fw-grid">
+  <div class="fw-card fw-card--red">
+    <h4>AI Bidding Agents</h4>
+    <div class="fw-sub">Now → 2027</div>
+    <ul class="fw-list">
+      <li>ML algorithms already do bid shading (Google, TTD)</li>
+      <li>Next: autonomous agents trading without humans</li>
+      <li>Risk: algorithmic collusion without explicit agreement</li>
+    </ul>
+  </div>
+  <div class="fw-card fw-card--blue">
+    <h4>Privacy-Preserving Auctions</h4>
+    <div class="fw-sub">Now → 2028</div>
+    <ul class="fw-list">
+      <li>Apple ATT, Privacy Sandbox, EU DSA — user data disappearing</li>
+      <li>On-device bidding, federated auctions, contextual signals</li>
+    </ul>
+  </div>
+  <div class="fw-card fw-card--purple">
+    <h4>Combinatorial Auctions</h4>
+    <div class="fw-sub">2025+</div>
+    <ul class="fw-list">
+      <li>FCC Incentive Auction (2017) — first major example</li>
+      <li>NP-hard, solved with SAT-solvers</li>
+      <li>Next: 5G/6G shared spectrum, multi-cloud procurement</li>
+    </ul>
+  </div>
+  <div class="fw-card fw-card--green">
+    <h4>Dynamic Mechanism Design</h4>
+    <div class="fw-sub">2026+</div>
+    <ul class="fw-list">
+      <li>Classical theory covers one-shot auctions</li>
+      <li>Reality: billions of repeated auctions with learning participants</li>
+    </ul>
+  </div>
+  <div class="fw-card fw-card--teal">
+    <h4>Real-Time Energy Markets</h4>
+    <div class="fw-sub">2025+</div>
+    <ul class="fw-list">
+      <li>P2P electricity auctions between households</li>
+      <li>Pilots: Power Ledger (Australia), Sonnen (Germany)</li>
+    </ul>
+  </div>
+  <div class="fw-card">
+    <h4>Auctions → Automatic Markets</h4>
+    <div class="fw-sub">Long-term</div>
+    <ul class="fw-list">
+      <li>AWS Spot is no longer an auction — it's algorithmic pricing</li>
+      <li>Pure auctions dissolve into dynamic pricing</li>
+      <li>The foundation — auction theory — remains</li>
+    </ul>
+  </div>
+</div>
 
 ### Evolution: From Gavel to Algorithm
 
-| Era | Mechanism | Speed | Participants | Example |
-|-----|-----------|-------|-------------|---------|
-| Pre-20th century | English, Dutch | Minutes–hours | People in a room | Christie's (1766), Aalsmeer (1911) |
-| 1960–1990 | Sealed-bid, Vickrey | Days–weeks | Companies + governments | NZ Spectrum 1990, US Treasury |
-| 1994–2010 | SMRA, combinatorial | Weeks–months | Telecoms + regulators | FCC Auctions (Milgrom/Wilson) |
-| 2007–2019 | RTB second → first-price | 100ms | DSP/SSP algorithms | Programmatic, header bidding |
-| 2020+ | ML bid agents + hybrid | Microseconds | AI vs AI | Auto-bidding, Spot pricing, EIP-1559 |
+<div class="timeline">
+  <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">Pre-20th century</div><div class="tl-title">English, Dutch — minutes to hours</div><div class="tl-desc">People in a room. Christie's (1766), Aalsmeer flower auction (1911).</div></div>
+  <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">1960–1990</div><div class="tl-title">Sealed-bid, Vickrey — days to weeks</div><div class="tl-desc">Companies + governments. NZ Spectrum 1990, US Treasury auctions.</div></div>
+  <div class="tl-item"><div class="tl-dot tl-dot--green"></div><div class="tl-year">1994–2010</div><div class="tl-title">SMRA, combinatorial — weeks to months</div><div class="tl-desc">Telecoms + regulators. FCC Auctions designed by Milgrom & Wilson (Nobel 2020).</div></div>
+  <div class="tl-item"><div class="tl-dot tl-dot--green"></div><div class="tl-year">2007–2019</div><div class="tl-title">RTB second → first-price — 100ms</div><div class="tl-desc">DSP/SSP algorithms. Programmatic advertising, header bidding revolution.</div></div>
+  <div class="tl-item"><div class="tl-dot tl-dot--red"></div><div class="tl-year">2020+</div><div class="tl-title">ML bid agents + hybrid — microseconds</div><div class="tl-desc">AI vs AI. Auto-bidding, Spot pricing, EIP-1559. Auction theory as invisible OS.</div></div>
+</div>
 
 ## One Lesson
 

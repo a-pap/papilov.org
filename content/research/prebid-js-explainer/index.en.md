@@ -112,13 +112,38 @@ For Prebid, this is a **structural tailwind**. If Google must unbundle its ad se
 
 ## Three Architectures
 
-| Parameter | Client-side | Server-side | Hybrid |
-|-----------|------------|-------------|--------|
-| Auction | Browser | Server | Both |
-| Buyers | 15–20 (limit) | Unlimited | 5–8 + rest (optimal) |
-| Latency | Grows with buyers | −40% | Controlled |
-| Cookie access | Full (max CPM) | Limited (−20–40% CPM) | Full for key buyers |
-| Best for | Mid-size publishers | CTV, App, AMP | Large publishers |
+<div class="fw-grid">
+  <div class="fw-card fw-card--blue">
+    <h4>Client-side</h4>
+    <div class="fw-sub">Auction in the browser</div>
+    <ul class="fw-list">
+      <li>Buyers: 15–20 (limit)</li>
+      <li>Latency: grows with buyers</li>
+      <li>Cookie access: full (max CPM)</li>
+      <li>Best for: mid-size publishers</li>
+    </ul>
+  </div>
+  <div class="fw-card fw-card--purple">
+    <h4>Server-side</h4>
+    <div class="fw-sub">Auction on server (Prebid Server)</div>
+    <ul class="fw-list">
+      <li>Buyers: unlimited</li>
+      <li>Latency: −40%</li>
+      <li>Cookie access: limited (−20–40% CPM)</li>
+      <li>Best for: CTV, App, AMP</li>
+    </ul>
+  </div>
+  <div class="fw-card fw-card--green">
+    <h4>Hybrid (industry standard)</h4>
+    <div class="fw-sub">Both — optimal balance</div>
+    <ul class="fw-list">
+      <li>Buyers: 5–8 client + rest server</li>
+      <li>Latency: controlled</li>
+      <li>Cookie access: full for key buyers</li>
+      <li>Best for: large publishers</li>
+    </ul>
+  </div>
+</div>
 
 <div class="highlight-box">
 <strong>Hybrid is the industry standard:</strong>
