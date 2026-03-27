@@ -48,11 +48,126 @@ Wenn nur die Kausalität zählt, müssen keine Abstände erhalten werden — nur
 
 **Minkowski — Die Raute.** Flache Raumzeit ohne Gravitation. Fünf Grenzkomponenten: zeitartige Unendlichkeiten (i⁺, i⁻), raumartige Unendlichkeit (i⁰) und Nullunendlichkeiten (I⁺, I⁻), wo Lichtstrahlen enden und beginnen. Die Energie von Gravitationswellen wird auf I⁺ definiert — ein Konzept, das erst durch Penroses konforme Grenze rigoros wird.
 
+<div style="text-align:center; margin: 2rem 0; padding: 1.5rem; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 8px;">
+<svg viewBox="0 0 460 500" xmlns="http://www.w3.org/2000/svg" style="max-width: 420px; width: 100%;">
+  <defs>
+    <marker id="arr" markerWidth="6" markerHeight="4" refX="6" refY="2" orient="auto">
+      <polygon points="0 0, 6 2, 0 4" fill="var(--text-tertiary)"/>
+    </marker>
+  </defs>
+  <polygon points="230,40 410,250 230,460 50,250" fill="var(--bg-secondary)" stroke="var(--blue-soft)" stroke-width="1.5" opacity="0.7"/>
+  <line x1="230" y1="40" x2="410" y2="250" stroke="var(--red-soft)" stroke-width="2" opacity="0.7"/>
+  <line x1="230" y1="40" x2="50" y2="250" stroke="var(--red-soft)" stroke-width="2" opacity="0.7"/>
+  <line x1="50" y1="250" x2="230" y2="460" stroke="var(--blue-soft)" stroke-width="2" opacity="0.7"/>
+  <line x1="410" y1="250" x2="230" y2="460" stroke="var(--blue-soft)" stroke-width="2" opacity="0.7"/>
+  <line x1="230" y1="450" x2="230" y2="50" stroke="var(--text-tertiary)" stroke-width="1" marker-end="url(#arr)" opacity="0.4"/>
+  <line x1="60" y1="250" x2="400" y2="250" stroke="var(--text-tertiary)" stroke-width="1" marker-end="url(#arr)" opacity="0.4"/>
+  <circle cx="230" cy="300" r="4" fill="var(--text-secondary)" opacity="0.9"/>
+  <line x1="230" y1="300" x2="310" y2="220" stroke="var(--text-secondary)" stroke-width="1.5" stroke-dasharray="5,4" opacity="0.5"/>
+  <line x1="230" y1="300" x2="150" y2="220" stroke="var(--text-secondary)" stroke-width="1.5" stroke-dasharray="5,4" opacity="0.5"/>
+  <polygon points="230,300 310,220 150,220" fill="var(--text-tertiary)" opacity="0.06" stroke="none"/>
+  <path d="M 230,420 Q 245,350 240,300 Q 235,250 230,80" fill="none" stroke="var(--text)" stroke-width="1.5" opacity="0.3" stroke-dasharray="2,3"/>
+  <circle cx="230" cy="40" r="5" fill="var(--red-soft)"/>
+  <text x="230" y="28" text-anchor="middle" font-family="var(--font-body)" font-size="14" fill="var(--red-soft)" font-style="italic">i⁺</text>
+  <text x="230" y="16" text-anchor="middle" font-family="var(--font-mono)" font-size="9" fill="var(--text-tertiary)">zeitartige Zukunfts-∞</text>
+  <circle cx="230" cy="460" r="5" fill="var(--blue-soft)"/>
+  <text x="230" y="482" text-anchor="middle" font-family="var(--font-body)" font-size="14" fill="var(--blue-soft)" font-style="italic">i⁻</text>
+  <text x="230" y="496" text-anchor="middle" font-family="var(--font-mono)" font-size="9" fill="var(--text-tertiary)">zeitartige Vergangenheits-∞</text>
+  <circle cx="410" cy="250" r="5" fill="var(--text-secondary)"/>
+  <text x="432" y="245" font-family="var(--font-body)" font-size="14" fill="var(--text-secondary)" font-style="italic">i⁰</text>
+  <text x="432" y="260" font-family="var(--font-mono)" font-size="9" fill="var(--text-tertiary)">räumliche ∞</text>
+  <circle cx="50" cy="250" r="5" fill="var(--text-secondary)"/>
+  <text x="28" y="245" text-anchor="end" font-family="var(--font-body)" font-size="14" fill="var(--text-secondary)" font-style="italic">i⁰</text>
+  <text x="340" y="135" font-family="var(--font-body)" font-size="13" fill="var(--red-soft)" font-style="italic" transform="rotate(-45,340,135)">I⁺</text>
+  <text x="120" y="135" font-family="var(--font-body)" font-size="13" fill="var(--red-soft)" font-style="italic" transform="rotate(45,120,135)">I⁺</text>
+  <text x="340" y="370" font-family="var(--font-body)" font-size="13" fill="var(--blue-soft)" font-style="italic" transform="rotate(45,340,370)">I⁻</text>
+  <text x="120" y="370" font-family="var(--font-body)" font-size="13" fill="var(--blue-soft)" font-style="italic" transform="rotate(-45,120,370)">I⁻</text>
+  <text x="316" y="216" font-family="var(--font-mono)" font-size="9" fill="var(--text-secondary)">Lichtstrahl (45°)</text>
+  <text x="245" y="314" font-family="var(--font-mono)" font-size="9" fill="var(--text-secondary)">Ereignis</text>
+  <text x="236" y="62" font-family="var(--font-mono)" font-size="9" fill="var(--text-tertiary)">t</text>
+  <text x="396" y="264" font-family="var(--font-mono)" font-size="9" fill="var(--text-tertiary)">r</text>
+  <text x="40" y="150" font-family="var(--font-mono)" font-size="9" fill="var(--text-tertiary)" transform="rotate(-90,40,150)">r = 0 (Ursprung)</text>
+</svg>
+<div style="font-size: 0.78rem; color: var(--text-tertiary); margin-top: 0.5rem;">Flache Minkowski-Raumzeit. Die Rautenform komprimiert die gesamte unendliche Raumzeit in eine endliche Figur. Lichtkegel stehen immer bei 45°. Die fünf Grenzkomponenten — i⁺, i⁻, i⁰, I⁺, I⁻ — kodieren die asymptotische Struktur.</div>
+</div>
+
 **Schwarzschild — Die Zickzack-Singularität.** Ein nicht-rotierendes schwarzes Loch. Das Diagramm enthüllt: Die Singularität bei r = 0 ist kein Punkt im Raum, sondern ein Zeitpunkt. Nach Überqueren des Ereignishorizonts (45°-Linie) liegt die Singularität in Ihrer Zukunft, egal in welche Richtung Sie sich bewegen. Die maximale Erweiterung zeigt die Einstein-Rosen-Brücke — die sich schneller schließt als Licht sie durchqueren kann.
+
+<div style="text-align:center; margin: 2rem 0; padding: 1.5rem; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 8px;">
+<svg viewBox="0 0 320 400" xmlns="http://www.w3.org/2000/svg" style="max-width: 300px; width: 100%;">
+  <polygon points="160,40 300,200 160,200 160,40" fill="var(--blue-soft)" opacity="0.05" stroke="none"/>
+  <polygon points="160,200 300,200 160,360 160,200" fill="var(--blue-soft)" opacity="0.05" stroke="none"/>
+  <polygon points="20,40 160,40 160,200 20,200" fill="var(--red-soft)" opacity="0.05" stroke="none"/>
+  <line x1="20" y1="40" x2="160" y2="40" stroke="var(--red-soft)" stroke-width="3"/>
+  <path d="M 25,40 L 35,35 L 45,45 L 55,35 L 65,45 L 75,35 L 85,45 L 95,35 L 105,45 L 115,35 L 125,45 L 135,35 L 145,45 L 155,40" fill="none" stroke="var(--red-soft)" stroke-width="1.5"/>
+  <text x="90" y="30" text-anchor="middle" font-family="var(--font-mono)" font-size="10" fill="var(--red-soft)">Singularität (r = 0)</text>
+  <line x1="160" y1="40" x2="160" y2="360" stroke="var(--text-secondary)" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <text x="172" y="120" font-family="var(--font-mono)" font-size="9" fill="var(--text-secondary)">Ereignis-</text>
+  <text x="172" y="132" font-family="var(--font-mono)" font-size="9" fill="var(--text-secondary)">horizont</text>
+  <line x1="160" y1="40" x2="300" y2="200" stroke="var(--blue-soft)" stroke-width="1" opacity="0.4"/>
+  <line x1="300" y1="200" x2="160" y2="360" stroke="var(--blue-soft)" stroke-width="1" opacity="0.4"/>
+  <line x1="20" y1="200" x2="160" y2="360" stroke="var(--blue-soft)" stroke-width="1" opacity="0.4"/>
+  <line x1="20" y1="200" x2="20" y2="40" stroke="var(--red-soft)" stroke-width="1" opacity="0.3"/>
+  <circle cx="300" cy="200" r="4" fill="var(--text-secondary)"/>
+  <text x="310" y="203" font-family="var(--font-mono)" font-size="10" fill="var(--text-secondary)">i⁰</text>
+  <circle cx="160" cy="360" r="4" fill="var(--blue-soft)"/>
+  <text x="160" y="378" text-anchor="middle" font-family="var(--font-mono)" font-size="10" fill="var(--blue-soft)">i⁻</text>
+  <text x="80" y="130" text-anchor="middle" font-family="var(--font-body)" font-size="14" fill="var(--red-soft)" font-style="italic" opacity="0.6">II</text>
+  <text x="80" y="148" text-anchor="middle" font-family="var(--font-mono)" font-size="8" fill="var(--red-soft)" opacity="0.4">im SL</text>
+  <text x="230" y="200" text-anchor="middle" font-family="var(--font-body)" font-size="14" fill="var(--blue-soft)" font-style="italic" opacity="0.6">I</text>
+  <text x="230" y="218" text-anchor="middle" font-family="var(--font-mono)" font-size="8" fill="var(--blue-soft)" opacity="0.4">Außenraum</text>
+  <path d="M 250,320 Q 200,240 120,100" fill="none" stroke="var(--text)" stroke-width="1.2" opacity="0.3" stroke-dasharray="2,3"/>
+  <text x="252" y="318" font-family="var(--font-mono)" font-size="8" fill="var(--text-tertiary)">einfallend</text>
+</svg>
+<div style="font-size: 0.78rem; color: var(--text-tertiary); margin-top: 0.5rem;">Schwarzschild-Schwarzes-Loch. Der Ereignishorizont ist eine gestrichelte 45°-Linie. Dahinter führen alle Pfade zur Zickzack-Singularität oben. Es gibt kein Entkommen — nicht weil man nicht schnell genug ist, sondern weil die Singularität in der Zukunft liegt.</div>
+</div>
 
 **De Sitter — Das quadratische Universum.** Positive kosmologische Konstante — die ungefähre Zukunft unseres Universums. Quadratisches Diagramm mit raumartigen Grenzen. Seit 1998 wissen wir: Unser Universum steuert auf eine de-Sitter-Zukunft zu (Nobelpreis 2011).
 
-**Anti-de Sitter — Der vertikale Streifen.** Negative kosmologische Konstante. Zeitartige vertikale Ränder. 1997 zeigte Maldacena, dass Quantengravitation in diesem Raum äquivalent zu einer Quantenfeldtheorie auf seiner Grenze ist — die [AdS/CFT-Korrespondenz](/research/ads-cft-holographic/), das meistzitierte Ergebnis der Hochenergiephysik (20.000+ Zitate). Die vertikalen Ränder des Penrose-Diagramms sind der Ort, wo die duale Theorie lebt.
+<div style="text-align:center; margin: 2rem 0; padding: 1.5rem; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 8px;">
+<svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" style="max-width: 300px; width: 100%;">
+  <rect x="40" y="40" width="240" height="240" fill="var(--blue-soft)" opacity="0.04" stroke="var(--blue-soft)" stroke-width="1" stroke-opacity="0.2"/>
+  <line x1="40" y1="40" x2="280" y2="40" stroke="var(--red-soft)" stroke-width="3" opacity="0.7"/>
+  <line x1="40" y1="280" x2="280" y2="280" stroke="var(--blue-soft)" stroke-width="3" opacity="0.7"/>
+  <line x1="160" y1="280" x2="160" y2="40" stroke="var(--text)" stroke-width="1.5" stroke-dasharray="4,4" opacity="0.25"/>
+  <circle cx="160" cy="160" r="4" fill="var(--text)">
+    <animate attributeName="r" values="3;5;3" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <line x1="40" y1="160" x2="160" y2="40" stroke="var(--text-secondary)" stroke-width="1" opacity="0.35"/>
+  <line x1="160" y1="40" x2="280" y2="160" stroke="var(--text-secondary)" stroke-width="1" opacity="0.35"/>
+  <line x1="40" y1="160" x2="160" y2="280" stroke="var(--text-secondary)" stroke-width="1" opacity="0.35"/>
+  <line x1="160" y1="280" x2="280" y2="160" stroke="var(--text-secondary)" stroke-width="1" opacity="0.35"/>
+  <text x="160" y="30" text-anchor="middle" font-family="var(--font-mono)" font-size="10" fill="var(--red-soft)">I⁺ (Zukunfts-∞)</text>
+  <text x="160" y="300" text-anchor="middle" font-family="var(--font-mono)" font-size="10" fill="var(--blue-soft)">I⁻ (Vergangenheits-∞)</text>
+  <text x="100" y="100" text-anchor="middle" font-family="var(--font-mono)" font-size="8" fill="var(--text-tertiary)" transform="rotate(-45,100,100)">Horizont</text>
+  <text x="160" y="155" text-anchor="middle" font-family="var(--font-mono)" font-size="9" fill="var(--text-secondary)">Beobachter</text>
+</svg>
+<div style="font-size: 0.78rem; color: var(--text-tertiary); margin-top: 0.5rem;">De-Sitter-Raumzeit. Ein Quadrat statt einer Raute. Obere und untere Grenzen sind raumartig — das Universum beginnt und endet überall gleichzeitig. Jeder Beobachter ist von einem kosmologischen Horizont umgeben.</div>
+</div>
+
+**Anti-de Sitter — Der vertikale Streifen.** Negative kosmologische Konstante. Zeitartige vertikale Ränder. Nicht unser Universum — aber wohl die wichtigste Raumzeit der heutigen theoretischen Physik.
+
+<div style="text-align:center; margin: 2rem 0; padding: 1.5rem; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 8px;">
+<svg viewBox="0 0 320 380" xmlns="http://www.w3.org/2000/svg" style="max-width: 300px; width: 100%;">
+  <rect x="80" y="30" width="160" height="320" fill="var(--blue-soft)" opacity="0.04" stroke="none"/>
+  <line x1="80" y1="30" x2="80" y2="350" stroke="var(--purple-soft)" stroke-width="2.5" opacity="0.7"/>
+  <line x1="240" y1="30" x2="240" y2="350" stroke="var(--purple-soft)" stroke-width="2.5" opacity="0.7"/>
+  <line x1="80" y1="30" x2="240" y2="30" stroke="var(--blue-soft)" stroke-width="1" opacity="0.25"/>
+  <line x1="80" y1="350" x2="240" y2="350" stroke="var(--blue-soft)" stroke-width="1" opacity="0.25"/>
+  <path d="M 160,300 L 240,220 L 160,140 L 80,60" fill="none" stroke="var(--text-secondary)" stroke-width="1.2" stroke-dasharray="4,3" opacity="0.4"/>
+  <circle cx="160" cy="300" r="3" fill="var(--text-secondary)" opacity="0.6"/>
+  <text x="60" y="190" text-anchor="middle" font-family="var(--font-body)" font-size="13" fill="var(--purple-soft)" font-style="italic" transform="rotate(-90,60,190)">Rand (CFT)</text>
+  <text x="260" y="190" text-anchor="middle" font-family="var(--font-body)" font-size="13" fill="var(--purple-soft)" font-style="italic" transform="rotate(90,260,190)">Rand (CFT)</text>
+  <text x="160" y="200" text-anchor="middle" font-family="var(--font-body)" font-size="14" fill="var(--blue-soft)" font-style="italic" opacity="0.5">AdS-Bulk</text>
+  <text x="160" y="20" text-anchor="middle" font-family="var(--font-mono)" font-size="9" fill="var(--text-tertiary)">t → +∞</text>
+  <text x="160" y="368" text-anchor="middle" font-family="var(--font-mono)" font-size="9" fill="var(--text-tertiary)">t → −∞</text>
+  <text x="248" y="218" font-family="var(--font-mono)" font-size="8" fill="var(--text-tertiary)">Licht „prallt"</text>
+  <text x="248" y="230" font-family="var(--font-mono)" font-size="8" fill="var(--text-tertiary)">am Rand ab</text>
+</svg>
+<div style="font-size: 0.78rem; color: var(--text-tertiary); margin-top: 0.5rem;">Anti-de-Sitter-Raumzeit. Ein vertikaler Streifen. Die Seitenwände sind zeitartige Ränder, auf denen die duale CFT lebt. Licht erreicht den Rand in endlicher Zeit und „prallt" zurück — der Raum wirkt wie eine Box.</div>
+</div>
+
+1997 zeigte Maldacena, dass Quantengravitation in diesem Raum äquivalent zu einer Quantenfeldtheorie auf seiner Grenze ist — die [AdS/CFT-Korrespondenz](/research/ads-cft-holographic/), das meistzitierte Ergebnis der Hochenergiephysik (20.000+ Zitate). Die vertikalen Ränder des Penrose-Diagramms sind der Ort, wo die duale Theorie lebt.
 
 ## Was diese Diagramme ermöglichten
 
