@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prebid.js: Полный разбор — papilov.org</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0a0f;--c1:#12121a;--c2:#181825;--or:#ff6b35;--or2:rgba(255,107,53,.12);--tx:#e0e0e8;--t2:#9898a8;--t3:#6a6a7a;--bd:#2a2a3a;--gn:#4ade80;--rd:#f87171;--bl:#60a5fa;--pp:#a78bfa;--yw:#fbbf24;--cy:#22d3ee;--fd:'Playfair Display',Georgia,serif;--fb:'DM Sans',system-ui,sans-serif;--fm:'JetBrains Mono',monospace}
+body{background:var(--bg);color:var(--tx);font-family:var(--fb);font-size:17px;line-height:1.72;-webkit-font-smoothing:antialiased}
+.w{max-width:860px;margin:0 auto;padding:0 20px}
+a{color:var(--or);text-decoration:none}a:hover{text-decoration:underline}
+strong{color:#fff;font-weight:600}
+p{margin-bottom:18px}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .65s,transform .65s}.rv.vis{opacity:1;transform:none}
+.hero{padding:80px 0 56px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(255,107,53,.2),transparent 70%);pointer-events:none}
+.htag{display:inline-block;font-family:var(--fm);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--or);border:1px solid rgba(255,107,53,.35);padding:5px 14px;border-radius:16px;margin-bottom:24px}
+.hero h1{font-family:var(--fd);font-size:clamp(2rem,5.5vw,3.2rem);font-weight:900;line-height:1.12;margin-bottom:18px;color:#fff}
+.hero h1 em{color:var(--or);font-style:normal}
+.hsub{font-size:17px;color:var(--t2);max-width:600px;margin:0 auto 36px;line-height:1.55}
+.hg{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;max-width:680px;margin:0 auto;background:var(--bd);border-radius:10px;overflow:hidden}
+.hg-i{background:var(--c1);padding:20px 10px;text-align:center}
+.hg-v{font-family:var(--fm);font-size:clamp(1.2rem,3vw,1.5rem);font-weight:600;color:var(--or);line-height:1;margin-bottom:3px}
+.hg-l{font-size:10px;color:var(--t3);text-transform:uppercase;letter-spacing:.6px;line-height:1.3}
+@media(max-width:480px){.hg{grid-template-columns:repeat(2,1fr)}}
+section{padding:48px 0}.alt{background:var(--c1)}
+.sn{font-family:var(--fm);font-size:12px;color:var(--or);letter-spacing:1.5px;margin-bottom:6px}
+h2{font-family:var(--fd);font-size:clamp(1.4rem,3.5vw,2rem);font-weight:700;color:#fff;margin-bottom:20px;line-height:1.22}
+h3{font-family:var(--fd);font-size:1.15rem;font-weight:600;color:#fff;margin:32px 0 12px}
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--bd);border-radius:10px;overflow:hidden;margin:24px 0}
+@media(max-width:600px){.cmp{grid-template-columns:1fr}}
+.cmp-s{background:var(--c1);padding:24px 20px}
+.cmp-s.bad{border-top:3px solid var(--rd)}.cmp-s.good{border-top:3px solid var(--gn)}
+.cmp-h{font-family:var(--fm);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px}
+.cmp-s.bad .cmp-h{color:var(--rd)}.cmp-s.good .cmp-h{color:var(--gn)}
+.cmp-r{margin-bottom:8px}
+.cmp-rl{font-size:12px;font-family:var(--fm);color:var(--t3);margin-bottom:3px}
+.cmp-t{height:24px;background:var(--c2);border:1px solid var(--bd);border-radius:3px;overflow:hidden}
+.cmp-b{height:100%;border-radius:2px;display:flex;align-items:center;padding:0 8px;font-family:var(--fm);font-size:11px;font-weight:600;color:var(--bg);transition:width 1.2s ease-out;width:0}
+.cmp-n{margin-top:14px;padding:10px 14px;border-radius:6px;font-size:13px;font-weight:500;line-height:1.45}
+.cmp-s.bad .cmp-n{background:rgba(248,113,113,.08);color:var(--rd)}
+.cmp-s.good .cmp-n{background:rgba(74,222,128,.08);color:var(--gn)}
+.fl{margin:28px 0}.fl-s{display:grid;grid-template-columns:44px 1fr;gap:14px;padding-bottom:24px;position:relative}
+.fl-s:last-child{padding-bottom:0}.fl-s:last-child .fl-ln{display:none}
+.fl-n{width:40px;height:40px;background:var(--or);color:var(--bg);font-family:var(--fm);font-weight:700;font-size:15px;display:flex;align-items:center;justify-content:center;border-radius:50%;z-index:2;flex-shrink:0}
+.fl-ln{position:absolute;top:40px;left:19px;width:2px;height:calc(100% - 40px);background:linear-gradient(var(--or),var(--bd))}
+.fl-bd{padding-top:6px}.fl-bd h4{font-weight:600;color:#fff;font-size:15px;margin-bottom:3px}
+.fl-bd p{color:var(--t2);font-size:14px;margin:0;line-height:1.5}
+.fl-tg{display:inline-block;font-family:var(--fm);font-size:11px;color:var(--or);background:var(--or2);padding:2px 8px;border-radius:8px;margin-top:4px}
+.mg{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:24px 0}
+.mg3{grid-template-columns:repeat(3,1fr)}
+@media(max-width:600px){.mg,.mg3{grid-template-columns:1fr}}
+.mc{background:var(--c1);border:1px solid var(--bd);border-radius:10px;padding:20px;transition:border-color .3s}.mc:hover{border-color:var(--or)}
+.mc-v{font-family:var(--fm);font-size:clamp(1.4rem,3vw,1.7rem);font-weight:600;color:var(--or);line-height:1;margin-bottom:5px}
+.mc-l{font-size:13px;font-weight:600;color:#fff;margin-bottom:3px}
+.mc-d{font-size:12px;color:var(--t3);line-height:1.4}
+.mc-s{font-family:var(--fm);font-size:10px;color:var(--t3);margin-top:8px;opacity:.6}
+.ch{margin:24px 0}.ch-t{font-family:var(--fd);font-size:.95rem;font-weight:600;color:#fff;margin-bottom:14px}
+.ch-r{margin-bottom:8px}
+.ch-l{font-size:12px;color:var(--t2);margin-bottom:3px;font-family:var(--fm)}
+.ch-tk{height:28px;background:var(--c2);border:1px solid var(--bd);border-radius:3px;overflow:hidden}
+.ch-b{height:100%;border-radius:2px;display:flex;align-items:center;padding:0 8px;font-family:var(--fm);font-size:11px;font-weight:600;color:var(--bg);transition:width 1.2s ease-out;width:0}
+.tb-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:24px 0}
+.tb{width:100%;border-collapse:separate;border-spacing:0;font-size:13px;border:1px solid var(--bd);border-radius:10px;overflow:hidden;min-width:480px}
+.tb thead th{background:var(--c2);padding:12px 14px;text-align:left;font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:.6px;color:var(--t2);border-bottom:1px solid var(--bd)}
+.tb tbody td{padding:12px 14px;border-bottom:1px solid var(--bd);vertical-align:top;color:var(--t2);line-height:1.45}
+.tb tbody tr:last-child td{border-bottom:none}.tb tbody tr:hover{background:rgba(255,255,255,.015)}.tb td:first-child{font-weight:600;color:#fff}
+.tg{display:inline-block;font-size:10px;padding:2px 7px;border-radius:3px;font-weight:600;white-space:nowrap}
+.tg-g{background:rgba(74,222,128,.12);color:var(--gn)}.tg-y{background:rgba(251,191,36,.12);color:var(--yw)}.tg-r{background:rgba(248,113,113,.12);color:var(--rd)}
+.co{margin:24px 0;padding:20px 22px;border-left:3px solid var(--or);background:var(--or2);border-radius:0 8px 8px 0}.co p{margin:0;font-size:14px;line-height:1.55}
+.sc{margin:28px 0;padding:24px 20px;background:var(--c1);border:1px solid var(--bd);border-radius:10px}
+.sc-t{font-family:var(--fd);font-size:1rem;font-weight:600;color:#fff;margin-bottom:3px}
+.sc-sub{font-size:12px;color:var(--t3);margin-bottom:20px}
+.sc-row{display:flex;align-items:stretch;gap:8px;flex-wrap:wrap;justify-content:center}
+.sc-node{text-align:center;flex:1;min-width:100px;max-width:180px}
+.sc-box{display:block;padding:8px 10px;border-radius:6px;font-size:11px;font-weight:600}
+.sc-amt{font-family:var(--fm);font-size:clamp(1rem,3vw,1.3rem);font-weight:700;margin-top:3px}
+.sc-note{font-size:10px;color:var(--t3);margin-top:1px;font-family:var(--fm)}
+.sc-arr{display:flex;align-items:center;font-size:20px;color:var(--t3);padding:0 2px}
+@media(max-width:500px){.sc-row{flex-direction:column;align-items:center}.sc-arr{transform:rotate(90deg);padding:4px 0}.sc-node{min-width:auto;width:80%}}
+.bdg{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0}
+.bd{display:inline-flex;align-items:center;gap:7px;padding:8px 12px;background:var(--c1);border:1px solid var(--bd);border-radius:6px;font-size:12px;color:var(--tx)}
+.bd-i{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.tl{margin:24px 0;padding-left:18px;position:relative}
+.tl::before{content:'';position:absolute;left:5px;top:0;bottom:0;width:2px;background:var(--bd)}
+.tl-i{padding:0 0 20px 22px;position:relative}.tl-i:last-child{padding-bottom:0}
+.tl-i::before{content:'';position:absolute;left:-3px;top:5px;width:12px;height:12px;border-radius:50%;background:var(--or);border:2px solid var(--bg)}
+.tl-y{font-family:var(--fm);font-size:12px;color:var(--or);margin-bottom:1px}
+.tl-t{font-size:13px;color:var(--t2);line-height:1.45}
+.qt{margin:24px 0;padding:22px 24px;background:var(--c1);border:1px solid var(--bd);border-radius:10px;position:relative}
+.qt::before{content:'❝';position:absolute;top:12px;left:16px;font-size:28px;color:var(--or);opacity:.35;line-height:1}
+.qt p{padding-left:24px;font-size:14px;font-style:italic;color:var(--t2);margin:0;line-height:1.55}
+.qt-s{padding-left:24px;margin-top:8px;font-family:var(--fm);font-size:11px;color:var(--t3)}
+.ft{padding:40px 0;text-align:center;border-top:1px solid var(--bd);margin-top:40px}.ft p{font-size:12px;color:var(--t3)}
+.src{margin-top:32px;padding:24px 20px;background:var(--c1);border:1px solid var(--bd);border-radius:10px}
+.src h3{margin-top:0;font-size:.95rem}.src ol{padding-left:18px;font-size:12px;color:var(--t3);line-height:1.7}.src li{margin-bottom:3px}
+</style>
+</head>
+<body>
+<header class="hero"><div class="w">
+<div class="htag">papilov.org · adtech research</div>
+<h1>Prebid.js: как устроен <em>стандарт</em> программатик-монетизации</h1>
+<p class="hsub">Глубокий разбор технологии, которая обрабатывает триллионы рекламных аукционов в год. Для тех, кто принимает решения.</p>
+<div class="hg">
+<div class="hg-i"><div class="hg-v">300+</div><div class="hg-l">Bid-адаптеров</div></div>
+<div class="hg-i"><div class="hg-v">~90%</div><div class="hg-l">Display = программатик</div></div>
+<div class="hg-i"><div class="hg-v">$203B</div><div class="hg-l">US programmatic 2026</div></div>
+<div class="hg-i"><div class="hg-v">10K+</div><div class="hg-l">Компаний</div></div>
+</div>
+</div></header>
+
+<section><div class="w rv">
+<div class="sn">01 — ПРОБЛЕМА</div>
+<h2>Waterfall vs. Header Bidding</h2>
+<p>Паблишеры исторически продавали инвентарь через <strong>«водопад»</strong> — рекламные сети вызывались последовательно. Первая, которая соглашалась купить показ, получала его. Остальные не участвовали — даже если были готовы заплатить больше.</p>
+<p><strong>Header bidding</strong> устранил эту неэффективность: все покупатели делают ставки одновременно, побеждает максимальная цена. Prebid.js — open-source библиотека, ставшая индустриальным стандартом.</p>
+<div class="cmp">
+<div class="cmp-s bad"><div class="cmp-h">⛔ Waterfall</div>
+<div class="cmp-r"><div class="cmp-rl">Сеть A (приоритет 1)</div><div class="cmp-t"><div class="cmp-b" data-w="40" style="background:var(--rd);opacity:.8">$2.00 ✓</div></div></div>
+<div class="cmp-r"><div class="cmp-rl">Сеть B (приоритет 2)</div><div class="cmp-t"><div class="cmp-b" data-w="0" style="background:var(--t3);opacity:.3">—</div></div></div>
+<div class="cmp-r"><div class="cmp-rl">Сеть C (приоритет 3)</div><div class="cmp-t"><div class="cmp-b" data-w="0" style="background:var(--t3);opacity:.3">—</div></div></div>
+<div class="cmp-n">Показ продан за $2.00. Сеть C готова была дать $5 — не спросили.</div></div>
+<div class="cmp-s good"><div class="cmp-h">✓ Header Bidding (Prebid)</div>
+<div class="cmp-r"><div class="cmp-rl">Сеть A</div><div class="cmp-t"><div class="cmp-b" data-w="40" style="background:var(--t3);opacity:.5">$2.00</div></div></div>
+<div class="cmp-r"><div class="cmp-rl">Сеть B</div><div class="cmp-t"><div class="cmp-b" data-w="62" style="background:var(--t3);opacity:.5">$3.10</div></div></div>
+<div class="cmp-r"><div class="cmp-rl">Сеть C</div><div class="cmp-t"><div class="cmp-b" data-w="100" style="background:var(--gn)">$5.00 ✓</div></div></div>
+<div class="cmp-n">Все ставки параллельно → побеждает $5.00. +150% к цене.</div></div>
+</div>
+<div class="mg">
+<div class="mc"><div class="mc-v">+20–50%</div><div class="mc-l">Рост программатик-дохода</div><div class="mc-d">Типичный эффект перехода с waterfall на HB</div><div class="mc-s">Digiday, AdPushup, PubPower</div></div>
+<div class="mc"><div class="mc-v">+70%</div><div class="mc-l">The Telegraph</div><div class="mc-d">Рост программатик-дохода после внедрения</div><div class="mc-s">AdPushup case study</div></div>
+<div class="mc"><div class="mc-v">+25–50%</div><div class="mc-l">CPM uplift (Future plc)</div><div class="mc-d">При переходе на first-price аукцион</div><div class="mc-s">Digiday Research, 2023</div></div>
+<div class="mc"><div class="mc-v">30–40%</div><div class="mc-l">Средний рост дохода</div><div class="mc-d">По портфелю AdPushup</div><div class="mc-s">AdPushup Analytics</div></div>
+</div>
+</div></section>
+
+<section class="alt"><div class="w rv">
+<div class="sn">02 — МЕХАНИКА</div>
+<h2>Как работает Prebid.js: 5 шагов за ~1000 мс</h2>
+<div class="fl">
+<div class="fl-s"><div><div class="fl-n">1</div><div class="fl-ln"></div></div><div class="fl-bd"><h4>Страница → аукцион стартует</h4><p>Prebid определяет слоты и отправляет bid requests всем покупателям одновременно.</p><span class="fl-tg">~0 мс</span></div></div>
+<div class="fl-s"><div><div class="fl-n">2</div><div class="fl-ln"></div></div><div class="fl-bd"><h4>Покупатели отвечают ставками</h4><p>Каждый DSP/SSP получает данные о слоте и возвращает ставку или отказ. Параллельно.</p><span class="fl-tg">200–800 мс</span></div></div>
+<div class="fl-s"><div><div class="fl-n">3</div><div class="fl-ln"></div></div><div class="fl-bd"><h4>Таймаут отсекает медленных</h4><p>Кто не успел — не участвует. Страница не зависает ради рекламы.</p><span class="fl-tg">timeout: 1000–1500 мс</span></div></div>
+<div class="fl-s"><div><div class="fl-n">4</div><div class="fl-ln"></div></div><div class="fl-bd"><h4>Лучшие ставки → ad server</h4><p>Передаются в GAM, где конкурируют с прямыми продажами и AdX.</p><span class="fl-tg">~50 мс</span></div></div>
+<div class="fl-s"><div><div class="fl-n">5</div><div class="fl-ln"></div></div><div class="fl-bd"><h4>Ad server → показ</h4><p>GAM сравнивает и отдаёт показ тому, кто платит больше.</p><span class="fl-tg">~1100 мс total</span></div></div>
+</div>
+<div class="co"><p><strong>Prebid не заменяет ad server.</strong> Он создаёт конкуренцию <em>до</em> принятия решения, увеличивая эффективную цену каждого показа.</p></div>
+</div></section>
+
+<section><div class="w rv">
+<div class="sn">03 — РЫНОК</div>
+<h2>Программатик 2025–2026: масштаб</h2>
+<div class="mg mg3">
+<div class="mc"><div class="mc-v">$1.14T</div><div class="mc-l">Глобальный ad market</div><div class="mc-d">2025, +8.8% YoY</div><div class="mc-s">WPP Media, Dec 2025</div></div>
+<div class="mc"><div class="mc-v">$595B</div><div class="mc-l">Программатик (global)</div><div class="mc-d">2024. →$779B к 2028</div><div class="mc-s">Basis Technologies</div></div>
+<div class="mc"><div class="mc-v">$203B</div><div class="mc-l">US programmatic display</div><div class="mc-d">2026, +12.5% YoY</div><div class="mc-s">Basis / eMarketer</div></div>
+</div>
+<h3>Куда уходит рекламный доллар</h3>
+<div class="sc"><div class="sc-t">Путь доллара от бюджета до паблишера</div><div class="sc-sub">ANA Supply Chain Study (2023) → Q3 2025 Benchmark</div>
+<div class="sc-row">
+<div class="sc-node"><div class="sc-box" style="background:var(--bl);color:var(--bg)">Рекламодатель</div><div class="sc-amt" style="color:var(--bl)">$1.00</div></div>
+<div class="sc-arr">→</div>
+<div class="sc-node"><div class="sc-box" style="background:var(--pp);color:var(--bg)">DSP+SSP сборы</div><div class="sc-amt" style="color:var(--pp)">−29¢</div><div class="sc-note">транзакции</div></div>
+<div class="sc-arr">→</div>
+<div class="sc-node"><div class="sc-box" style="background:var(--rd);color:var(--bg)">Потери</div><div class="sc-amt" style="color:var(--rd)">−24¢</div><div class="sc-note">IVT, MFA</div></div>
+<div class="sc-arr">→</div>
+<div class="sc-node"><div class="sc-box" style="background:var(--gn);color:var(--bg)">Паблишер</div><div class="sc-amt" style="color:var(--gn)">47¢</div><div class="sc-note">было 36¢</div></div>
+</div></div>
+<div class="mg">
+<div class="mc"><div class="mc-v">$26.8B</div><div class="mc-l">Ежегодные потери</div><div class="mc-d">Неэффективность цепочки</div><div class="mc-s">ANA Q2 2025</div></div>
+<div class="mc"><div class="mc-v">47.1%</div><div class="mc-l">Доля паблишера</div><div class="mc-d">Было 36% в 2023 (+11 п.п.)</div><div class="mc-s">ANA Q3 2025</div></div>
+<div class="mc"><div class="mc-v">0.8%</div><div class="mc-l">MFA-инвентарь</div><div class="mc-d">Снижение с 2.3%. Минимум</div><div class="mc-s">ANA Q2 2025</div></div>
+<div class="mc"><div class="mc-v">87.8%</div><div class="mc-l">PMP доля</div><div class="mc-d">Было 64.5%. Сдвиг к curated</div><div class="mc-s">ANA Q2 2025</div></div>
+</div>
+</div></section>
+
+<section class="alt"><div class="w rv">
+<div class="sn">04 — GOOGLE ANTITRUST</div>
+<h2>Контекст: почему Prebid становится важнее</h2>
+<p>Апрель 2025 — суд США признал Google виновной в незаконной монополизации рынков publisher ad server и ad exchange. Суд установил, что Google связывала DFP с AdX, ограничивая конкуренцию. ЕС параллельно назначил штраф €2.95B. DOJ требует продажу AdX.</p>
+<p>Для Prebid это <strong>структурный попутный ветер</strong>. Если Google будет вынуждена разделить ad server и биржу, neutral аукционные решения станут критически важными.</p>
+<div class="mg mg3">
+<div class="mc"><div class="mc-v">~90%</div><div class="mc-l">Доля GAM</div><div class="mc-d">Среди publisher ad servers</div><div class="mc-s">DOJ vs Google</div></div>
+<div class="mc"><div class="mc-v">€2.95B</div><div class="mc-l">Штраф ЕС</div><div class="mc-d">Adtech злоупотребление</div><div class="mc-s">EU Commission, Sep 2025</div></div>
+<div class="mc"><div class="mc-v">$1.375B</div><div class="mc-l">Texas settlement</div><div class="mc-d">Урегулирование иска</div><div class="mc-s">Texas AG, May 2025</div></div>
+</div>
+<div class="qt"><p>Google willfully engaged in a series of anticompetitive acts to acquire and maintain monopoly power in the publisher ad server and ad exchange markets.</p><div class="qt-s">— Judge Leonie Brinkema, April 17, 2025</div></div>
+</div></section>
+
+<section><div class="w rv">
+<div class="sn">05 — АРХИТЕКТУРА</div>
+<h2>Три варианта развёртывания</h2>
+<div class="tb-wrap"><table class="tb">
+<thead><tr><th>Параметр</th><th>Client-side</th><th>Server-side</th><th>Гибрид</th></tr></thead>
+<tbody>
+<tr><td>Аукцион</td><td>Браузер</td><td>Сервер</td><td>Оба</td></tr>
+<tr><td>Покупатели</td><td>15–20 <span class="tg tg-y">лимит</span></td><td>∞ <span class="tg tg-g">масштаб</span></td><td>5–8 + rest <span class="tg tg-g">оптимум</span></td></tr>
+<tr><td>Latency</td><td>Растёт</td><td>−40% <span class="tg tg-g">быстрее</span></td><td>Контролируемая</td></tr>
+<tr><td>Cookie-доступ</td><td>Полный <span class="tg tg-g">макс CPM</span></td><td>Ограничен <span class="tg tg-r">−20–40%</span></td><td>Полный для ключевых</td></tr>
+<tr><td>Подходит</td><td>Средние</td><td>CTV, App, AMP</td><td>Крупные паблишеры</td></tr>
+</tbody>
+</table></div>
+<div class="co"><p><strong>Гибрид — стандарт:</strong> 5–8 ключевых покупателей client-side + остальные server-side. PBS даёт до 40% снижения latency.</p></div>
+</div></section>
+
+<section class="alt"><div class="w rv">
+<div class="sn">06 — БИЗНЕС-РЫЧАГИ</div>
+<h2>Что определяет результат</h2>
+<h3>Таймаут: деньги vs UX</h3>
+<div class="ch"><div class="ch-t">Покрытие покупателей по таймауту</div>
+<div class="ch-r"><div class="ch-l">800 мс</div><div class="ch-tk"><div class="ch-b" data-w="55" style="background:var(--yw)">~55%</div></div></div>
+<div class="ch-r"><div class="ch-l">1000 мс ← стандарт</div><div class="ch-tk"><div class="ch-b" data-w="75" style="background:var(--or)">~75%</div></div></div>
+<div class="ch-r"><div class="ch-l">1200 мс</div><div class="ch-tk"><div class="ch-b" data-w="88" style="background:var(--gn)">~88%</div></div></div>
+<div class="ch-r"><div class="ch-l">1500 мс</div><div class="ch-tk"><div class="ch-b" data-w="95" style="background:var(--gn)">~95%</div></div></div>
+<div class="ch-r"><div class="ch-l">2000 мс ← UX↓</div><div class="ch-tk"><div class="ch-b" data-w="98" style="background:var(--rd)">~98%</div></div></div>
+</div>
+<h3>Price Granularity</h3>
+<div class="tb-wrap"><table class="tb">
+<thead><tr><th>Тип</th><th>Шаг</th><th>Lines</th><th>Потеря</th></tr></thead>
+<tbody>
+<tr><td>low</td><td>$0.50</td><td>~40</td><td>до $0.49 <span class="tg tg-r">высокая</span></td></tr>
+<tr><td>medium</td><td>$0.10</td><td>~200</td><td>до $0.09 <span class="tg tg-y">средняя</span></td></tr>
+<tr><td>high</td><td>$0.01</td><td>~2000</td><td>$0.009 <span class="tg tg-g">мин</span></td></tr>
+<tr><td>custom</td><td>перем.</td><td>оптим.</td><td>контр. <span class="tg tg-g">рекоменд.</span></td></tr>
+</tbody>
+</table></div>
+<h3>Покупатели: diminishing returns</h3>
+<div class="ch"><div class="ch-t">Маржинальная добавка к доходу</div>
+<div class="ch-r"><div class="ch-l">3</div><div class="ch-tk"><div class="ch-b" data-w="60" style="background:var(--or)">~60% uplift</div></div></div>
+<div class="ch-r"><div class="ch-l">5</div><div class="ch-tk"><div class="ch-b" data-w="80" style="background:var(--or)">~80%</div></div></div>
+<div class="ch-r"><div class="ch-l">8 ← sweet spot</div><div class="ch-tk"><div class="ch-b" data-w="92" style="background:var(--gn)">~92%</div></div></div>
+<div class="ch-r"><div class="ch-l">15</div><div class="ch-tk"><div class="ch-b" data-w="97" style="background:var(--yw)">~97%</div></div></div>
+<div class="ch-r"><div class="ch-l">20+</div><div class="ch-tk"><div class="ch-b" data-w="99" style="background:var(--rd)">~99% (latency↑)</div></div></div>
+</div>
+</div></section>
+
+<section><div class="w rv">
+<div class="sn">07 — ГЕОГРАФИЯ CPM</div>
+<h2>CPM по странам (баннеры, 2024)</h2>
+<div class="ch">
+<div class="ch-r"><div class="ch-l">🇺🇸 США</div><div class="ch-tk"><div class="ch-b" data-w="100" style="background:var(--or)">$1.43</div></div></div>
+<div class="ch-r"><div class="ch-l">🇬🇧 UK</div><div class="ch-tk"><div class="ch-b" data-w="73" style="background:var(--bl)">$1.05</div></div></div>
+<div class="ch-r"><div class="ch-l">🇩🇪 Германия</div><div class="ch-tk"><div class="ch-b" data-w="63" style="background:var(--bl)">$0.90</div></div></div>
+<div class="ch-r"><div class="ch-l">🇫🇷 Франция</div><div class="ch-tk"><div class="ch-b" data-w="56" style="background:var(--bl)">$0.80</div></div></div>
+<div class="ch-r"><div class="ch-l">🇧🇷 Бразилия</div><div class="ch-tk"><div class="ch-b" data-w="35" style="background:var(--pp)">$0.50</div></div></div>
+<div class="ch-r"><div class="ch-l">🇮🇳 Индия</div><div class="ch-tk"><div class="ch-b" data-w="17" style="background:var(--pp)">$0.25</div></div></div>
+<div class="ch-r"><div class="ch-l">🇻🇪 Венесуэла</div><div class="ch-tk"><div class="ch-b" data-w="13" style="background:var(--t3)">$0.18</div></div></div>
+</div>
+<p style="font-size:12px;color:var(--t3)">SSP-сторона, без DSP markup. AsterioBid, 2024.</p>
+<h3>CPM-тренды 2025</h3>
+<p>Q1 2025: US display CPMs −33–42% YoY (после рекордного политического 2024). К декабрю 2025: display +6.3% YoY, video +33.2% YoY. Сезонность и macro-факторы подчёркивают необходимость динамических floor prices — именно то, что Prebid Floors Module делает.</p>
+</div></section>
+
+<section class="alt"><div class="w rv">
+<div class="sn">08 — PRIVACY</div>
+<h2>Prebid в post-cookie мире</h2>
+<div class="bdg">
+<div class="bd"><span class="bd-i" style="background:var(--gn)"></span>User ID — UID2, SharedID, EUID, LiveRamp</div>
+<div class="bd"><span class="bd-i" style="background:var(--bl)"></span>First-party data</div>
+<div class="bd"><span class="bd-i" style="background:var(--pp)"></span>Topics API / Protected Audiences</div>
+<div class="bd"><span class="bd-i" style="background:var(--cy)"></span>GDPR / CCPA / GPP</div>
+<div class="bd"><span class="bd-i" style="background:var(--yw)"></span>50+ аналитических модулей</div>
+</div>
+<div class="mg">
+<div class="mc"><div class="mc-v">40%</div><div class="mc-l">1P data — primary targeting</div><div class="mc-d">US маркетологов, 2025</div><div class="mc-s">Basis Technologies</div></div>
+<div class="mc"><div class="mc-v">60–80%</div><div class="mc-l">Сохранение CPM</div><div class="mc-d">С Prebid User ID vs без</div><div class="mc-s">Industry estimates</div></div>
+</div>
+</div></section>
+
+<section><div class="w rv">
+<div class="sn">09 — ФОРМАТЫ</div>
+<h2>Больше, чем display-баннеры</h2>
+<div class="tb-wrap"><table class="tb">
+<thead><tr><th>Формат</th><th>Архитектура</th><th>Рынок</th></tr></thead>
+<tbody>
+<tr><td>Display</td><td>Client + Server</td><td>Основа программатик</td></tr>
+<tr><td>Video instream</td><td>Client + Server</td><td>Самый высокий CPM</td></tr>
+<tr><td>Mobile In-App</td><td>SDK → Server</td><td>71% programmatic</td></tr>
+<tr><td>CTV / OTT</td><td>Server only</td><td>44% доля (Q2'25), >$45B</td></tr>
+<tr><td>Retail Media</td><td>Server</td><td>$30B+ к 2026, +29% YoY</td></tr>
+<tr><td>DOOH</td><td>Server</td><td>+400% с 2019</td></tr>
+</tbody>
+</table></div>
+<div class="mg mg3">
+<div class="mc"><div class="mc-v">$110B+</div><div class="mc-l">Progr. Video US</div><div class="mc-d">2026 прогноз</div><div class="mc-s">Basis/eMarketer</div></div>
+<div class="mc"><div class="mc-v">44%</div><div class="mc-l">CTV доля</div><div class="mc-d">Q2 2025 (было 28%)</div><div class="mc-s">ANA Benchmark</div></div>
+<div class="mc"><div class="mc-v">$30B+</div><div class="mc-l">Retail Media</div><div class="mc-d">К 2026, +29% YoY</div><div class="mc-s">Basis Technologies</div></div>
+</div>
+</div></section>
+
+<section class="alt"><div class="w rv">
+<div class="sn">10 — ЭКОСИСТЕМА</div>
+<h2>Prebid.org и конкуренты</h2>
+<p>Prebid.js — проект <strong>Prebid.org</strong> (IAB Tech Lab). Запущен 2015, 300+ demand-партнёров, ~50 аналитических провайдеров.</p>
+<div class="tl">
+<div class="tl-i"><div class="tl-y">2015</div><div class="tl-t">Запуск Prebid.js (AppNexus + партнёры)</div></div>
+<div class="tl-i"><div class="tl-y">2017</div><div class="tl-t">Prebid Server + Mobile SDK</div></div>
+<div class="tl-i"><div class="tl-y">2019–20</div><div class="tl-t">95% крупных US-паблишеров на HB</div></div>
+<div class="tl-i"><div class="tl-y">2021–22</div><div class="tl-t">User ID, Floors, GDPR modules</div></div>
+<div class="tl-i"><div class="tl-y">2024–25</div><div class="tl-t">v11, CTV, 300+ адаптеров, PAAPI</div></div>
+<div class="tl-i"><div class="tl-y">2025–26</div><div class="tl-t">Google antitrust → neutral infra критичнее</div></div>
+</div>
+<div class="tb-wrap"><table class="tb">
+<thead><tr><th>Решение</th><th>Тип</th><th>Отличие</th><th>Lock-in</th></tr></thead>
+<tbody>
+<tr><td>Prebid.js</td><td>Open source</td><td>Нейтральный, аудируемый</td><td><span class="tg tg-g">нет</span></td></tr>
+<tr><td>Amazon TAM</td><td>Proprietary</td><td>Привязан к Amazon DSP</td><td><span class="tg tg-y">средний</span></td></tr>
+<tr><td>Google OB</td><td>SS в GAM</td><td>Конфликт интересов</td><td><span class="tg tg-r">высокий</span></td></tr>
+<tr><td>Index Exchange</td><td>Proprietary</td><td>Качество, но вендор</td><td><span class="tg tg-y">средний</span></td></tr>
+</tbody>
+</table></div>
+<p>Prebid работает параллельно с TAM и OB. По данным Roxot, client-side и server-side HB дают по ~22% программатик-дохода каждый, AdX — 56%.</p>
+</div></section>
+
+<section><div class="w rv">
+<div class="sn">11 — ОГРАНИЧЕНИЯ</div>
+<h2>Что Prebid НЕ делает</h2>
+<div class="mg">
+<div class="mc" style="border-left:3px solid var(--rd)"><div class="mc-l">Не оптимизирует размещения</div><div class="mc-d">Позиция и размер слотов — решение паблишера</div></div>
+<div class="mc" style="border-left:3px solid var(--rd)"><div class="mc-l">Не заменяет ad server</div><div class="mc-d">GAM нужен для прямых продаж и frequency capping</div></div>
+<div class="mc" style="border-left:3px solid var(--rd)"><div class="mc-l">Не фиксит трафик</div><div class="mc-d">Боты и low viewability — корневые проблемы</div></div>
+<div class="mc" style="border-left:3px solid var(--rd)"><div class="mc-l">Не plug-and-play</div><div class="mc-d">Инженерный инструмент с постоянной оптимизацией</div></div>
+</div>
+</div></section>
+
+<section class="alt"><div class="w rv">
+<div class="sn">12 — ИТОГ</div>
+<h2>Стратегический вывод</h2>
+<p>Prebid.js — фундаментальная инфраструктура. Без header bidding в 2026 — <strong>20–40% дохода на столе</strong>. Вопрос не «нужен ли Prebid», а какая конфигурация оптимальна. С Google antitrust и post-cookie, neutral решения критичнее чем когда-либо.</p>
+<div class="mg mg3">
+<div class="mc"><div class="mc-v">+20–50%</div><div class="mc-l">Waterfall → HB</div></div>
+<div class="mc"><div class="mc-v">+5–15%</div><div class="mc-l">+ Server-side</div></div>
+<div class="mc"><div class="mc-v">+3–10%</div><div class="mc-l">Оптимизация</div></div>
+</div>
+<div class="src"><h3>Источники (24)</h3><ol>
+<li><a href="https://prebid.org/">Prebid.org</a> — документация, blog</li>
+<li><a href="https://github.com/prebid/Prebid.js">Prebid.js GitHub</a> — 300+ bid-адаптеров</li>
+<li><a href="https://docs.prebid.org/dev-docs/pbsBidAdapter-video-overview.html">Prebid Server Docs</a></li>
+<li><a href="https://www.ana.net/content/show/id/pr-2025-08-programmatictrans">ANA Q2 2025</a> — $26.8B потерь, CTV 44%</li>
+<li><a href="https://www.ana.net/content/show/id/pr-2025-11-transparency">ANA Q3 2025</a> — 47.1% до паблишера</li>
+<li><a href="https://drupal.unglobalcompact.org/cmo-blueprint-for-sustainable-growth/resources/ana-programmatic-media-supply-chain-transparency">ANA 2023 Study</a> — 36¢/$1, $22B waste</li>
+<li><a href="https://www.dentsu.com/news-releases/global-ad-spend-set-to-surpass-one-trillion-for-the-first-time-in-2026-as-the-algorithmic-era-redefines-growth">dentsu</a> — $1T+ ad spend 2026</li>
+<li><a href="https://basis.com/blog/7-programmatic-advertising-trends-shaping-2026">Basis Technologies</a> — US $203B, 2026</li>
+<li><a href="https://www.emarketer.com/content/worldwide-programmatic-ad-spending-2025">eMarketer</a> — 90% display = programmatic</li>
+<li><a href="https://asteriobid.com/cpm_trends_banners_2024">AsterioBid</a> — CPM by country 2024</li>
+<li><a href="https://databeat.io/blog/us-programmatic-trends-december-2025/">DataBeat</a> — US CPM monthly trends</li>
+<li><a href="https://digiday.com/media/header-bidding-publishers-boosting-cpms-much-50-percent/">Digiday</a> — HB CPM +20–50%</li>
+<li><a href="https://digiday.com/media/digiday-research-header-bidding-and-first-price-auctions-boost-publisher-revenues/">Digiday Research</a> — Future plc +25–50%</li>
+<li><a href="https://www.adpushup.com/blog/header-bidding-analytics-using-data-to-optimize-your-stack/">AdPushup</a> — Telegraph +70%</li>
+<li><a href="https://enlyft.com/tech/products/prebid">Enlyft</a> — 9,130 компаний</li>
+<li><a href="https://6sense.com/tech/libraries-and-widgets/prebid-market-share">6sense</a> — 10,733 компании</li>
+<li><a href="https://www.mile.tech/blog/prebid-server">Mile.tech</a> — PBS до −40% latency</li>
+<li><a href="https://www.criteo.com/blog/header-bidding-demystified-client-side-vs-server-side/">Criteo</a> — Client vs Server</li>
+<li><a href="https://en.wikipedia.org/wiki/United_States_v._Google_LLC_(2023)">US v. Google (adtech)</a> — April 2025</li>
+<li><a href="https://www.axios.com/2025/04/17/google-ad-tech-monopoly-antitrust-ruling">Axios</a> — Google monopoly ruling</li>
+<li><a href="https://raptive.com/blog/what-the-dojs-ruling-on-google-means-for-creators-and-publishers/">Raptive</a> — Impact on publishers</li>
+<li><a href="https://legalblogs.wolterskluwer.com/competition-blog/impact-of-the-ec-decision-on-googles-adtech-stakeholder-analysis-and-remedies/">Kluwer</a> — EU €2.95B fine</li>
+<li><a href="https://www.marketingbrew.com/stories/2025/12/09/total-global-ad-revenue-grew-nearly-9-in-2025-wpp-media">Marketing Brew</a> — $1.14T global</li>
+<li><a href="https://roxot.com/report/sell-side-programmatic-us-2019">Roxot</a> — HB vs AdX revenue</li>
+</ol></div>
+</div></section>
+
+<div class="ft"><div class="w">
+<p><a href="https://papilov.org">papilov.org</a> · Artem Papilov & Claude · CC BY-NC 4.0 · March 2026</p>
+</div></div>
+
+<script>
+const ro=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('vis');ro.unobserve(x.target)}})},{threshold:.08});
+document.querySelectorAll('.rv').forEach(e=>ro.observe(e));
+const bo=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.querySelectorAll('[data-w]').forEach(b=>{setTimeout(()=>{b.style.width=b.dataset.w+'%'},150)});bo.unobserve(x.target)}})},{threshold:.15});
+document.querySelectorAll('.cmp,.ch,.cmp-s').forEach(e=>bo.observe(e));
+</script>
+</body>
+</html>
