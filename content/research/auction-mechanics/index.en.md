@@ -328,7 +328,7 @@ Financial markets are auctions with different names. Treasury, IPO, buyback — 
     <ul class="fw-list">
       <li>Pre-2021: pure first-price auction for block space</li>
       <li>Post-EIP-1559: base fee (algorithmic) + priority tip</li>
-      <li>36% reduction in fee volatility</li>
+      <li>Significant reduction in fee volatility and waiting times</li>
     </ul>
   </div>
   <div class="fw-card fw-card--green">
