@@ -253,7 +253,7 @@ In 1997, Juan Maldacena showed that quantum gravity in this space is exactly equ
 
 <div class="highlight-box">
 <strong>A visual mind across disciplines</strong>
-Roger Penrose (born 1931) proposed the impossible triangle (1954) and inspired M. C. Escher's <em>Waterfall</em> and <em>Ascending and Descending</em>. His aperiodic tilings (1974) presaged the discovery of quasicrystals. His singularity theorem used topology where others tried brute-force calculation. His conformal diagrams replaced pages of equations with a single picture. In every case, the breakthrough came from seeing structure that others described only algebraically.
+Roger Penrose (born 1931) proposed the impossible triangle (conceived 1954, published 1958) and inspired M. C. Escher's <em>Waterfall</em> and <em>Ascending and Descending</em>. His aperiodic tilings (1974) presaged the discovery of quasicrystals. His singularity theorem used topology where others tried brute-force calculation. His conformal diagrams replaced pages of equations with a single picture. In every case, the breakthrough came from seeing structure that others described only algebraically.
 </div>
 
 Kip Thorne described Penrose's approach as "overlooking the detailed geometrical structure of spacetime and instead concentrating just on the topology of the space, or at most its conformal structure, since it is the latter — as determined by the lay of the lightcones — that determines the causal relationships." He shared the 1988 Wolf Prize with Stephen Hawking and won the Nobel at 89.
