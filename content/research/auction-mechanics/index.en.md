@@ -92,6 +92,17 @@ Three bidders value a painting at $100, $80, and $50. What happens under differe
   </div>
 </div>
 
+**Bid shading by number of participants** (value = $100, first-price):
+
+<div class="bars">
+  <div class="bar-row"><div class="label">n = 2</div><div class="track"><div class="fill" style="width:50%">$50</div></div><div class="pct">$50</div></div>
+  <div class="bar-row"><div class="label">n = 3</div><div class="track"><div class="fill" style="width:67%">$67</div></div><div class="pct">$67</div></div>
+  <div class="bar-row"><div class="label">n = 5</div><div class="track"><div class="fill" style="width:80%">$80</div></div><div class="pct">$80</div></div>
+  <div class="bar-row"><div class="label">n = 10</div><div class="track"><div class="fill" style="width:90%">$90</div></div><div class="pct">$90</div></div>
+  <div class="bar-row"><div class="label">n = 20</div><div class="track"><div class="fill" style="width:95%">$95</div></div><div class="pct">$95</div></div>
+  <div class="bar-row"><div class="label">n = 100</div><div class="track"><div class="fill" style="width:99%">$99</div></div><div class="pct">$99</div></div>
+</div>
+
 ### Revenue Equivalence Theorem
 
 <div class="highlight-box">

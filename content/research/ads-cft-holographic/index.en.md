@@ -76,6 +76,32 @@ Every object in one description has a precise counterpart in the other. Mass in 
   </div>
 </div>
 
+<div style="text-align:center; margin: 2rem 0; padding: 1.5rem; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 8px;">
+<svg viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg" style="max-width: 460px; width: 100%;">
+  <defs>
+    <radialGradient id="bulkG" cx="50%" cy="50%"><stop offset="0%" stop-color="var(--blue-soft)" stop-opacity="0.12"/><stop offset="100%" stop-color="var(--blue-soft)" stop-opacity="0"/></radialGradient>
+  </defs>
+  <ellipse cx="250" cy="150" rx="180" ry="110" fill="url(#bulkG)" stroke="var(--border)" stroke-width="1" stroke-dasharray="4,4"/>
+  <path d="M 120 150 Q 250 90 380 150" fill="none" stroke="var(--border-light)" stroke-width="1"/>
+  <path d="M 120 150 Q 250 210 380 150" fill="none" stroke="var(--border-light)" stroke-width="1"/>
+  <path d="M 250 45 Q 200 150 250 255" fill="none" stroke="var(--border-light)" stroke-width="1"/>
+  <path d="M 250 45 Q 300 150 250 255" fill="none" stroke="var(--border-light)" stroke-width="1"/>
+  <ellipse cx="250" cy="150" rx="180" ry="110" fill="none" stroke="var(--blue-soft)" stroke-width="2.5"/>
+  <circle cx="200" cy="130" r="6" fill="var(--purple-soft)" opacity="0.9"/>
+  <text x="215" y="125" font-family="var(--font-mono)" font-size="9" fill="var(--purple-soft)">black hole</text>
+  <text x="215" y="137" font-family="var(--font-mono)" font-size="9" fill="var(--text-tertiary)">in bulk (d+1)</text>
+  <circle cx="400" cy="95" r="4" fill="var(--red-soft)" opacity="0.9"/>
+  <line x1="206" y1="127" x2="396" y2="95" stroke="var(--red-soft)" stroke-width="1" stroke-dasharray="3,3" opacity="0.4"/>
+  <text x="250" y="157" text-anchor="middle" font-family="var(--font-body)" font-size="14" fill="var(--text-tertiary)" font-style="italic">AdS</text>
+  <text x="250" y="173" text-anchor="middle" font-family="var(--font-mono)" font-size="8" fill="var(--text-tertiary)">gravity · d+1 dimensions</text>
+  <text x="250" y="282" text-anchor="middle" font-family="var(--font-body)" font-size="12" fill="var(--blue-soft)">CFT on boundary</text>
+  <text x="250" y="296" text-anchor="middle" font-family="var(--font-mono)" font-size="8" fill="var(--text-tertiary)">quantum field theory · d dimensions · no gravity</text>
+  <text x="410" y="88" font-family="var(--font-mono)" font-size="9" fill="var(--red-soft)">thermal state</text>
+  <text x="410" y="100" font-family="var(--font-mono)" font-size="9" fill="var(--red-soft)">in CFT</text>
+</svg>
+<div style="font-size: 0.78rem; color: var(--text-tertiary); margin-top: 0.5rem;">Bulk ↔ Boundary: a black hole in AdS volume = a thermal state in boundary quantum theory.</div>
+</div>
+
 The last row is why AdS/CFT is so powerful: when the boundary theory is strongly coupled (hard to compute), the bulk description is weakly coupled (easy to compute), and vice versa. Problems that were unsolvable on one side become tractable on the other.
 
 ## The Reaction
@@ -117,6 +143,29 @@ Einstein-Rosen bridges (wormholes connecting distant black holes) are the same t
 </div>
 
 The AdS/CFT correspondence works for spaces with a negative cosmological constant. Observations since 1998 confirm that our Universe has a positive cosmological constant — it's de Sitter-like, not anti-de Sitter. Andrew Strominger proposed a dS/CFT correspondence in 2001, but the program remains incomplete. The boundary of de Sitter space is spacelike (it's the infinite future), not timelike like in AdS. This changes the mathematical structure fundamentally.
+
+<div style="text-align:center; margin: 2rem 0; padding: 1.5rem; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 8px;">
+<svg viewBox="0 0 400 340" xmlns="http://www.w3.org/2000/svg" style="max-width: 380px; width: 100%;">
+  <polygon points="200,30 370,170 200,310 30,170" fill="var(--blue-soft)" opacity="0.04" stroke="var(--blue-soft)" stroke-width="1" stroke-opacity="0.15"/>
+  <line x1="80" y1="30" x2="320" y2="30" stroke="var(--red-soft)" stroke-width="3" opacity="0.7"/>
+  <line x1="80" y1="310" x2="320" y2="310" stroke="var(--blue-soft)" stroke-width="3" opacity="0.7"/>
+  <text x="200" y="20" text-anchor="middle" font-family="var(--font-mono)" font-size="11" fill="var(--red-soft)">I⁺ (future infinity)</text>
+  <text x="200" y="332" text-anchor="middle" font-family="var(--font-mono)" font-size="11" fill="var(--blue-soft)">I⁻ (past infinity)</text>
+  <line x1="200" y1="310" x2="200" y2="30" stroke="var(--text)" stroke-width="1.5" stroke-dasharray="4,4" opacity="0.25"/>
+  <circle cx="200" cy="170" r="4" fill="var(--text)">
+    <animate attributeName="r" values="3;5;3" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <text x="215" y="167" font-family="var(--font-mono)" font-size="10" fill="var(--text-secondary)">us</text>
+  <line x1="30" y1="170" x2="200" y2="30" stroke="var(--text-secondary)" stroke-width="1" opacity="0.35"/>
+  <line x1="200" y1="30" x2="370" y2="170" stroke="var(--text-secondary)" stroke-width="1" opacity="0.35"/>
+  <line x1="30" y1="170" x2="200" y2="310" stroke="var(--text-secondary)" stroke-width="1" opacity="0.35"/>
+  <line x1="200" y1="310" x2="370" y2="170" stroke="var(--text-secondary)" stroke-width="1" opacity="0.35"/>
+  <text x="100" y="90" text-anchor="middle" font-family="var(--font-mono)" font-size="10" fill="var(--text-tertiary)" transform="rotate(-45, 100, 90)">horizon</text>
+  <text x="200" y="55" text-anchor="middle" font-family="var(--font-body)" font-size="13" fill="var(--red-soft)" font-style="italic" opacity="0.6">CFT ?</text>
+  <text x="200" y="200" text-anchor="middle" font-family="var(--font-body)" font-size="14" fill="var(--blue-soft)" font-style="italic" opacity="0.4">dS bulk</text>
+</svg>
+<div style="font-size: 0.78rem; color: var(--text-tertiary); margin-top: 0.5rem;">Penrose diagram for de Sitter spacetime. The observer "us" sees only part of the space. A hypothetical CFT lives on I⁺ — at infinite future. Unlike AdS, this boundary is spacelike, not timelike.</div>
+</div>
 
 This is not just a technical gap — it's the central open question of the field. We have a complete holographic description of a universe that isn't ours, and no complete description of the one that is.
 
