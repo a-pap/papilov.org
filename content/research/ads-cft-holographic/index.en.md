@@ -186,7 +186,7 @@ This is not just a technical gap — it's the central open question of the field
   </div>
   <div class="tl-item">
     <div class="tl-dot"></div>
-    <div class="tl-year">1993</div>
+    <div class="tl-year">1993–95</div>
     <div class="tl-title">'t Hooft and Susskind: the holographic principle</div>
     <div class="tl-desc">The maximum information in a region of space scales with its surface area, not its volume. A bold claim — but no concrete realization yet.</div>
   </div>
