@@ -179,7 +179,7 @@ Negative kosmologische Konstante. Das Diagramm ist ein vertikaler Streifen mit z
 <div style="font-size: 0.78rem; color: var(--text-tertiary); margin-top: 0.5rem;">Anti-de-Sitter-Raumzeit. Ein vertikaler Streifen. Die Seitenwände sind zeitartige Ränder, auf denen die duale CFT lebt. Licht erreicht den Rand in endlicher Zeit und „prallt" zurück — der Raum wirkt wie eine Box.</div>
 </div>
 
-1997 zeigte Maldacena, dass Quantengravitation in diesem Raum äquivalent zu einer Quantenfeldtheorie auf seiner Grenze ist — die [AdS/CFT-Korrespondenz](/research/ads-cft-holographic/), das meistzitierte Ergebnis der Hochenergiephysik (20.000+ Zitate). Die vertikalen Ränder des Penrose-Diagramms sind der Ort, wo die duale Theorie lebt.
+1997 zeigte Juan Maldacena, dass Quantengravitation in diesem Raum exakt äquivalent zu einer Quantenfeldtheorie auf seiner Grenze ist. Diese AdS/CFT-Korrespondenz — das [meistzitierte Ergebnis](https://arxiv.org/abs/hep-th/9711200) der Hochenergiephysik (20.000+ Zitate) — bedeutet, dass die vertikalen Ränder des Penrose-Diagramms nicht nur abstrakte Grenzen sind. Sie sind der Ort, wo die duale Theorie lebt. Gravitation im Inneren, Quantenfelder am Rand. Das Penrose-Diagramm macht diese Architektur sichtbar.
 
 ## Was diese Diagramme ermöglichten
 

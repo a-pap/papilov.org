@@ -123,9 +123,19 @@ Puentes de Einstein-Rosen (agujeros de gusano) = pares Einstein-Podolsky-Rosen (
 ## El problema: nuestro Universo no es AdS
 
 <div class="psych-grid">
-  <div class="psych-card"><h4>AdS (Λ &lt; 0)</h4><p>Curvatura negativa. Tiene frontera. AdS/CFT funciona. No es nuestro Universo.</p><div class="big">✓ resuelto</div></div>
-  <div class="psych-card"><h4>dS (Λ &gt; 0)</h4><p>Curvatura positiva. Nuestro Universo. Sin frontera convencional. Holografía incierta.</p><div class="big">? abierto</div></div>
+  <div class="psych-card">
+    <h4>AdS (Λ &lt; 0)</h4>
+    <p>Curvatura negativa. Tiene frontera. AdS/CFT funciona perfectamente. No es nuestro Universo.</p>
+    <div class="big">✓ resuelto</div>
+  </div>
+  <div class="psych-card">
+    <h4>dS (Λ &gt; 0)</h4>
+    <p>Curvatura positiva. Nuestro Universo. Sin frontera en el sentido convencional. Holografía incierta.</p>
+    <div class="big">? abierto</div>
+  </div>
 </div>
+
+La correspondencia AdS/CFT funciona para espacios con constante cosmológica negativa. Las observaciones desde 1998 confirman que nuestro Universo tiene una constante cosmológica positiva — es de tipo de Sitter, no anti-de Sitter. Andrew Strominger propuso una correspondencia dS/CFT en 2001, pero el programa sigue incompleto. La frontera del espacio de Sitter es espacial (es el futuro infinito), no temporal como en AdS. Esto cambia la estructura matemática fundamentalmente.
 
 <div style="text-align:center; margin: 2rem 0; padding: 1.5rem; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 8px;">
 <svg viewBox="0 0 400 340" xmlns="http://www.w3.org/2000/svg" style="max-width: 380px; width: 100%;">
@@ -150,7 +160,7 @@ Puentes de Einstein-Rosen (agujeros de gusano) = pares Einstein-Podolsky-Rosen (
 <div style="font-size: 0.78rem; color: var(--text-tertiary); margin-top: 0.5rem;">Diagrama de Penrose del espacio-tiempo de Sitter. El observador "nosotros" ve solo parte del espacio. Una hipotética CFT vive en I⁺ — en el infinito futuro. A diferencia de AdS, esta frontera es espacial, no temporal.</div>
 </div>
 
-Tenemos una descripción holográfica completa de un universo que no es el nuestro, y ninguna del que sí lo es. Esta es la pregunta central abierta del campo.
+Esto no es solo una brecha técnica — es la pregunta central abierta del campo. Tenemos una descripción holográfica completa de un universo que no es el nuestro, y ninguna descripción completa del que sí lo es.
 
 ## Línea temporal
 

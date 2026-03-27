@@ -94,7 +94,7 @@ license: "CC BY-NC 4.0"
   <text x="250" y="282" text-anchor="middle" font-family="var(--font-body)" font-size="12" fill="var(--blue-soft)">CFT на границе</text>
   <text x="250" y="296" text-anchor="middle" font-family="var(--font-mono)" font-size="8" fill="var(--text-tertiary)">квантовая теория поля · d измерений · без гравитации</text>
   <text x="410" y="88" font-family="var(--font-mono)" font-size="9" fill="var(--red-soft)">термальное состояние</text>
-  <text x="410" y="100" font-family="var(--font-mono)" font-size="9" fill="var(--red-soft)">in CFT</text>
+  <text x="410" y="100" font-family="var(--font-mono)" font-size="9" fill="var(--red-soft)">в CFT</text>
 </svg>
 <div style="font-size: 0.78rem; color: var(--text-tertiary); margin-top: 0.5rem;">Объём ↔ Граница: чёрная дыра в объёме AdS = термальное состояние в граничной квантовой теории.</div>
 </div>
