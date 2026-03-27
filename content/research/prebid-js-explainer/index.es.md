@@ -2,7 +2,7 @@
 title: "Prebid.js: Cómo funciona el estándar de monetización programática"
 date: 2026-03-27
 lastmod: 2026-03-27
-version: "1.0"
+version: "2.0"
 status: "finished"
 confidence: "certain"
 description: "Análisis profundo de la tecnología que procesa billones de subastas publicitarias al año — de la mecánica al impacto empresarial."
@@ -64,5 +64,3 @@ Sin header bidding en 2026, un publisher deja **20–40% de los ingresos** sobre
 </div>
 
 ---
-
-**Versión interactiva** con visualizaciones: [infografía completa](/research/prebid-js-explainer/infographic.html).

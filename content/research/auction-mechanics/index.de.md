@@ -2,8 +2,8 @@
 title: "Auktionsmechanik: Von Christie's bis Google Ads"
 date: 2026-03-27
 lastmod: 2026-03-27
-version: "1.0"
-status: "in-progress"
+version: "2.0"
+status: "finished"
 confidence: "likely"
 description: "Vier Auktionsformate, zwei Nobelpreise, ein Theorem — und warum die Gebotsregeln den Preis bestimmen, nicht umgekehrt. Von Christie's und 5G-Spektrum bis programmatische Werbung und EU ETS."
 tags: ["Wirtschaft", "Auktionstheorie", "Programmatic", "Mechanismus-Design", "Spieltheorie"]
@@ -17,14 +17,6 @@ Neuseeland, 1990. Die Regierung beauftragt die Beratungsfirma NERA mit dem Desig
 Eine falsche Wahl des Auktionsformats kostete die Staatskasse NZ$214 Millionen.
 
 2019 änderte Google das Auktionsformat für den 48-Milliarden-Dollar-Markt der programmatischen Werbung. 2021 erzielte die FCC 81 Milliarden Dollar bei einer C-Band-Spektrumauktion — Weltrekord. Das EU-ETS hat seit 2013 über 245 Milliarden Euro durch die Versteigerung von Emissionsrechten generiert. In jedem Fall bestimmte nicht das Gut den Preis — **die Auktionsregeln bestimmten den Preis**.
-
-<div style="margin: 2rem 0; padding: 1.5rem; border: 1px solid var(--border-color); border-radius: 8px; background: var(--bg-secondary);">
-
-**[Interaktiven Explainer öffnen →](/research/auction-mechanics/infographic.html)**
-
-9 Abschnitte: vier Auktionstypen · Gebotsmathematik · Erlösäquivalenz · das Neuseeland-Desaster · Vergleichstabellen · Evolution der Werbeauktionen · Auktionen im Finanzwesen · Auktionen in der IT · Trends und Zukunft.
-
-</div>
 
 ## Vier grundlegende Auktionsformate
 

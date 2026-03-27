@@ -2,8 +2,8 @@
 title: "拍卖机制：从佳士得到Google Ads"
 date: 2026-03-27
 lastmod: 2026-03-27
-version: "1.0"
-status: "in-progress"
+version: "2.0"
+status: "finished"
 confidence: "likely"
 description: "四种拍卖格式、两个诺贝尔奖、一个定理——为什么竞拍规则决定价格，而非相反。从佳士得和5G频谱到程序化广告和欧盟碳排放交易。"
 tags: ["经济学", "拍卖理论", "程序化广告", "机制设计", "博弈论"]
@@ -18,14 +18,6 @@ noindex: true
 错误选择拍卖格式使国库损失了2.14亿新西兰元。
 
 2019年，Google为480亿美元的程序化广告市场更改了拍卖格式。2021年，FCC在C频段频谱拍卖中筹集810亿美元——创下世界纪录。欧盟排放交易体系自2013年以来通过拍卖排放权产生了2450亿欧元。在每种情况下，决定价格的不是商品——**拍卖规则决定价格**。
-
-<div style="margin: 2rem 0; padding: 1.5rem; border: 1px solid var(--border-color); border-radius: 8px; background: var(--bg-secondary);">
-
-**[打开互动解说 →](/research/auction-mechanics/infographic.html)**
-
-9个部分：四种拍卖类型 · 竞价数学 · 收益等价 · 新西兰灾难 · 对比表 · 广告拍卖演变 · 金融中的拍卖 · IT中的拍卖 · 趋势与未来。
-
-</div>
 
 ## 四种基本拍卖
 
