@@ -184,20 +184,70 @@ Negative kosmologische Konstante. Das Diagramm ist ein vertikaler Streifen mit z
 ## Was diese Diagramme ermöglichten
 
 <div class="timeline">
-  <div class="tl-item"><div class="tl-dot tl-dot--green"></div><div class="tl-year">1963</div><div class="tl-title">Penrose führt konforme Kompaktifizierung ein</div><div class="tl-desc">Physical Review Letters + Les Houches.</div></div>
-  <div class="tl-item"><div class="tl-dot tl-dot--green"></div><div class="tl-year">1965</div><div class="tl-title">Singularitätstheorem</div><div class="tl-desc">„Der wichtigste Beitrag zur ART seit Einstein." Nobelpreis 55 Jahre später.</div></div>
-  <div class="tl-item"><div class="tl-dot tl-dot--green"></div><div class="tl-year">1970</div><div class="tl-title">Penrose-Hawking-Theoreme</div><div class="tl-desc">Hawking erweitert die Methode auf die Kosmologie: Der Urknall enthält eine Singularität.</div></div>
-  <div class="tl-item"><div class="tl-dot tl-dot--green"></div><div class="tl-year">1973–75</div><div class="tl-title">Schwarze-Loch-Entropie und Hawking-Strahlung</div><div class="tl-desc">Bekenstein: Entropie ∝ Fläche. Wheeler: „Ihre Idee ist verrückt genug, um richtig zu sein." Hawking bestätigt: Schwarze Löcher strahlen.</div></div>
-  <div class="tl-item"><div class="tl-dot tl-dot--green"></div><div class="tl-year">1997</div><div class="tl-title">AdS/CFT-Korrespondenz</div><div class="tl-desc">Maldacena: Quantengravitation in AdS = Feldtheorie am Rand des Penrose-Diagramms.</div></div>
-  <div class="tl-item"><div class="tl-dot tl-dot--green"></div><div class="tl-year">2013</div><div class="tl-title">ER = EPR</div><div class="tl-desc">Einstein-Rosen-Brücken (sichtbar auf Penrose-Diagrammen) = Quantenverschränkung.</div></div>
-  <div class="tl-item"><div class="tl-dot tl-dot--green"></div><div class="tl-year">2015</div><div class="tl-title">LIGO detektiert Gravitationswellen</div><div class="tl-desc">Wellenenergie definiert auf I⁺ — der Grenze, die Penrose-Diagramme rigoros machten.</div></div>
-  <div class="tl-item"><div class="tl-dot tl-dot--green"></div><div class="tl-year">2020</div><div class="tl-title">Nobelpreis</div><div class="tl-desc">Penrose, 89 Jahre. 55 Jahre zwischen Entdeckung und Anerkennung.</div></div>
+  <div class="tl-item">
+    <div class="tl-dot tl-dot--green"></div>
+    <div class="tl-year">1963</div>
+    <div class="tl-title">Penrose führt konforme Kompaktifizierung ein</div>
+    <div class="tl-desc">Eine kurze Notiz in Physical Review Letters, dann drei detaillierte Vorlesungen in Les Houches. Die Methode ist etabliert.</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-dot tl-dot--green"></div>
+    <div class="tl-year">1965</div>
+    <div class="tl-title">Das Singularitätstheorem</div>
+    <div class="tl-desc">Penrose beweist, dass Singularitäten unter realistischen Bedingungen unvermeidlich sind. Das Nobelkomitee nennt es „den wichtigsten Beitrag zur allgemeinen Relativitätstheorie seit Einstein." Der Preis kommt 55 Jahre später.</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-dot tl-dot--green"></div>
+    <div class="tl-year">1970</div>
+    <div class="tl-title">Penrose-Hawking-Singularitätstheoreme</div>
+    <div class="tl-desc">Hawking erweitert die Methode auf die Kosmologie: Der Urknall selbst muss eine Singularität enthalten. Das Universum begann aus einem Punkt unendlicher Dichte.</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-dot"></div>
+    <div class="tl-year">1973</div>
+    <div class="tl-title">Hawking & Ellis veröffentlichen das Referenzwerk</div>
+    <div class="tl-desc">„The Large Scale Structure of Space-Time" etabliert Penrose-Diagramme als Standardwerkzeug. Die bis heute verwendete Notation und Konventionen stammen aus diesem Buch.</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-dot tl-dot--green"></div>
+    <div class="tl-year">1973–75</div>
+    <div class="tl-title">Schwarze-Loch-Entropie und Hawking-Strahlung</div>
+    <div class="tl-desc">Bekenstein schlägt Entropie ∝ Horizontfläche vor. Wheeler: „Ihre Idee ist verrückt genug, um richtig zu sein." Hawking beweist, dass schwarze Löcher strahlen. Das Penrose-Diagramm eines verdampfenden schwarzen Lochs — die Singularität verschwindet schließlich — erzeugt das Informationsparadoxon.</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-dot tl-dot--green"></div>
+    <div class="tl-year">1997</div>
+    <div class="tl-title">AdS/CFT-Korrespondenz</div>
+    <div class="tl-desc">Maldacena entdeckt, dass Quantengravitation im Anti-de-Sitter-Raum einer Quantenfeldtheorie auf dessen konformer Grenze entspricht — dem vertikalen Rand des Penrose-Diagramms. Bei Strings '98 sangen Hunderte von Physikern „The Maldacena" zur Melodie der Macarena.</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-dot tl-dot--green"></div>
+    <div class="tl-year">2013</div>
+    <div class="tl-title">ER = EPR</div>
+    <div class="tl-desc">Maldacena und Susskind: Einstein-Rosen-Brücken (sichtbar auf Penrose-Diagrammen) sind äquivalent zu Quantenverschränkung. Raumzeitgeometrie und Quanteninformation könnten zwei Beschreibungen derselben Sache sein.</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-dot tl-dot--green"></div>
+    <div class="tl-year">2015</div>
+    <div class="tl-title">LIGO detektiert Gravitationswellen</div>
+    <div class="tl-desc">Die Energie von Gravitationswellen ist auf der Nullunendlichkeit I⁺ definiert — der Grenze, die Penrose-Diagramme rigoros machten. Die asymptotische BMS-Symmetriegruppe, aufgebaut auf konformen Methoden, bildet das theoretische Fundament.</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-dot tl-dot--green"></div>
+    <div class="tl-year">2020</div>
+    <div class="tl-title">Nobelpreis</div>
+    <div class="tl-desc">Penrose, 89 Jahre alt, erhält die Hälfte des Nobelpreises für Physik. Die Lücke zwischen Entdeckung (1965) und Anerkennung (2020) beträgt 55 Jahre — eine der längsten in der Geschichte des Nobelpreises.</div>
+  </div>
 </div>
+
+## Die Person hinter den Diagrammen
 
 <div class="highlight-box">
 <strong>Ein visueller Denker über Disziplinen hinweg</strong>
-Roger Penrose (geb. 1931): unmögliches Dreieck (konzipiert 1954, veröffentlicht 1958) → Escher. Aperiodische Kacheln → Quasikristalle. Singularitätstheorem: Topologie statt Rechnung. Konforme Diagramme: eine Zeichnung statt Seiten voller Gleichungen. Wolf-Preis 1988 mit Hawking. Nobelpreis 2020 mit 89 Jahren.
+Roger Penrose (geb. 1931) entwarf das unmögliche Dreieck (konzipiert 1954, veröffentlicht 1958) und inspirierte M. C. Eschers <em>Wasserfall</em> und <em>Treppauf und Treppab</em>. Seine aperiodischen Kacheln (1974) nahmen die Entdeckung der Quasikristalle vorweg. Sein Singularitätstheorem nutzte Topologie, wo andere auf Brute-Force-Rechnung setzten. Seine konformen Diagramme ersetzten Seiten voller Gleichungen durch ein einziges Bild. In jedem Fall kam der Durchbruch durch das Erkennen von Strukturen, die andere nur algebraisch beschrieben.
 </div>
+
+Kip Thorne beschrieb Penroses Ansatz als „die detaillierte geometrische Struktur der Raumzeit zu übergehen und sich stattdessen nur auf die Topologie des Raums zu konzentrieren, oder höchstens auf seine konforme Struktur, da es letztere ist — bestimmt durch die Anordnung der Lichtkegel —, die die kausalen Zusammenhänge festlegt." Er teilte sich 1988 den Wolf-Preis mit Stephen Hawking und gewann den Nobelpreis mit 89 Jahren.
 
 ---
 

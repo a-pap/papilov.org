@@ -253,12 +253,15 @@ license: "CC BY-NC 4.0"
 
 ## 参考文献
 
-- R. Penrose, *Phys. Rev. Lett.* **10**, 66 (1963)
-- R. Penrose, *Phys. Rev. Lett.* **14**, 57 (1965) — 2020年诺贝尔物理学奖
-- S. W. Hawking, R. Penrose, *Proc. R. Soc. Lond. A* **314**, 529 (1970)
+- R. Penrose, *Phys. Rev. Lett.* **10**, 66 (1963) — 共形紧化
+- R. Penrose, "Conformal Treatment of Infinity," in *Relativity, Groups and Topology*, Les Houches (1964), pp. 563–584
+- R. Penrose, "Gravitational Collapse and Space-Time Singularities," *Phys. Rev. Lett.* **14**, 57 (1965) — 2020年诺贝尔物理学奖
+- S. W. Hawking, R. Penrose, *Proc. R. Soc. Lond. A* **314**, 529 (1970) — 彭罗斯-霍金定理
+- H. Bondi, M. G. J. van der Burg, A. W. K. Metzner, *Proc. R. Soc. Lond. A* **269**, 21 (1962) — BMS群
 - S. W. Hawking, G. F. R. Ellis, *The Large Scale Structure of Space-Time*, Cambridge (1973)
-- J. D. Bekenstein, *Phys. Rev. D* **7**, 2333 (1973)
-- S. W. Hawking, *Commun. Math. Phys.* **43**, 199 (1975)
+- J. D. Bekenstein, *Phys. Rev. D* **7**, 2333 (1973) — 黑洞熵
+- S. W. Hawking, *Commun. Math. Phys.* **43**, 199 (1975) — 霍金辐射
 - R. M. Wald, *General Relativity*, University of Chicago Press (1984)
 - J. M. Maldacena, *Adv. Theor. Math. Phys.* **2**, 231 (1998) — [arXiv:hep-th/9711200](https://arxiv.org/abs/hep-th/9711200)
+- J. M. Maldacena, L. Susskind, *Fortschr. Phys.* **61**, 781 (2013) — [arXiv:1306.0533](https://arxiv.org/abs/1306.0533) — ER = EPR
 - [诺贝尔物理学奖 2020](https://www.nobelprize.org/prizes/physics/2020/press-release/)

@@ -165,13 +165,66 @@ Esto no es solo una brecha técnica — es la pregunta central abierta del campo
 ## Línea temporal
 
 <div class="timeline">
-  <div class="tl-item"><div class="tl-dot tl-dot--green"></div><div class="tl-year">1973</div><div class="tl-title">Bekenstein: entropía ∝ área</div><div class="tl-desc">Un doctorando propone que la información está en la frontera. Casi todos discrepan.</div></div>
-  <div class="tl-item"><div class="tl-dot tl-dot--green"></div><div class="tl-year">1975</div><div class="tl-title">Radiación de Hawking</div><div class="tl-desc">S = A/4 establecida. Nace la paradoja de la información.</div></div>
-  <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">1993–95</div><div class="tl-title">Principio holográfico</div><div class="tl-desc">'t Hooft y Susskind: la información escala con el área, no el volumen.</div></div>
-  <div class="tl-item"><div class="tl-dot tl-dot--green"></div><div class="tl-year">1997</div><div class="tl-title">Maldacena publica AdS/CFT</div><div class="tl-desc">Primera realización concreta del principio holográfico.</div></div>
-  <div class="tl-item"><div class="tl-dot tl-dot--green"></div><div class="tl-year">2006</div><div class="tl-title">Fórmula Ryu-Takayanagi</div><div class="tl-desc">Entrelazamiento en la frontera = área en el volumen.</div></div>
-  <div class="tl-item"><div class="tl-dot tl-dot--green"></div><div class="tl-year">2010</div><div class="tl-title">Van Raamsdonk: espacio-tiempo desde entrelazamiento</div><div class="tl-desc">Sin entrelazamiento → el espacio-tiempo se desconecta.</div></div>
-  <div class="tl-item"><div class="tl-dot tl-dot--green"></div><div class="tl-year">2013</div><div class="tl-title">ER = EPR</div><div class="tl-desc">Agujeros de gusano = entrelazamiento. Geometría = información cuántica.</div></div>
+  <div class="tl-item">
+    <div class="tl-dot tl-dot--green"></div>
+    <div class="tl-year">1973</div>
+    <div class="tl-title">Bekenstein: entropía de agujero negro ∝ área</div>
+    <div class="tl-desc">Un doctorando propone que la información sobre una región del espacio está codificada en su frontera. Casi todos discrepan. Hacen falta 25 años para que emerjan todas las implicaciones.</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-dot tl-dot--green"></div>
+    <div class="tl-year">1975</div>
+    <div class="tl-title">Radiación de Hawking</div>
+    <div class="tl-desc">Hawking, que se propuso refutar a Bekenstein, en su lugar le da la razón: los agujeros negros tienen temperatura y entropía. S = A/4 queda establecida. Nace la paradoja de la información.</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-dot"></div>
+    <div class="tl-year">1993–95</div>
+    <div class="tl-title">'t Hooft y Susskind: el principio holográfico</div>
+    <div class="tl-desc">La información máxima en una región del espacio escala con su área superficial, no con su volumen. Una afirmación audaz — pero sin realización concreta aún.</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-dot tl-dot--green"></div>
+    <div class="tl-year">1997</div>
+    <div class="tl-title">Maldacena publica AdS/CFT</div>
+    <div class="tl-desc">"The Large N Limit of Superconformal Field Theories and Supergravity." La primera realización concreta del principio holográfico. Se convertirá en el artículo más citado de la física de altas energías.</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-dot tl-dot--green"></div>
+    <div class="tl-year">1998</div>
+    <div class="tl-title">Witten + Gubser-Klebanov-Polyakov</div>
+    <div class="tl-desc">Dos artículos hacen AdS/CFT computacionalmente precisa. Se establece el diccionario de la dualidad. En Strings '98, los físicos cantan "The Maldacena" en la cena de la conferencia. El campo estalla.</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-dot"></div>
+    <div class="tl-year">2001</div>
+    <div class="tl-title">Strominger propone dS/CFT</div>
+    <div class="tl-desc">Un intento de extender la holografía al espacio de Sitter — nuestro Universo. La propuesta es prometedora pero incompleta. El problema sigue abierto.</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-dot tl-dot--green"></div>
+    <div class="tl-year">2006</div>
+    <div class="tl-title">Fórmula Ryu-Takayanagi</div>
+    <div class="tl-desc">Entropía de entrelazamiento en la frontera = área de una superficie mínima en el volumen. Generalización directa de la fórmula de Bekenstein-Hawking. Geometría y entrelazamiento están vinculados.</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-dot tl-dot--green"></div>
+    <div class="tl-year">2010</div>
+    <div class="tl-title">Van Raamsdonk: espacio-tiempo desde entrelazamiento</div>
+    <div class="tl-desc">Sin entrelazamiento → el espacio-tiempo se desconecta. La conclusión radical: el espacio-tiempo es emergente, tejido por correlaciones cuánticas. Primer premio, Gravity Research Foundation.</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-dot tl-dot--green"></div>
+    <div class="tl-year">2013</div>
+    <div class="tl-title">ER = EPR</div>
+    <div class="tl-desc">Maldacena y Susskind: agujeros de gusano = entrelazamiento. Tres letras de 1935 (puente de Einstein-Rosen) equivalen a tres letras de 1935 (Einstein-Podolsky-Rosen). La geometría es información cuántica.</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-dot"></div>
+    <div class="tl-year">2019</div>
+    <div class="tl-title">La paradoja de la información del agujero negro "resuelta"</div>
+    <div class="tl-desc">Usando técnicas de AdS/CFT (superficies extremales cuánticas, islas), varios grupos demuestran que la evaporación de agujeros negros sigue una curva de Page unitaria. La información se preserva — pero cómo escapa sigue debatiéndose.</div>
+  </div>
 </div>
 
 ---
