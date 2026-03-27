@@ -57,6 +57,32 @@ Maldacena mostró que la teoría de cuerdas en AdS 5-dimensional es equivalente 
   </div>
 </div>
 
+<div style="text-align:center; margin: 2rem 0; padding: 1.5rem; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 8px;">
+<svg viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg" style="max-width: 460px; width: 100%;">
+  <defs>
+    <radialGradient id="bulkG" cx="50%" cy="50%"><stop offset="0%" stop-color="var(--blue-soft)" stop-opacity="0.12"/><stop offset="100%" stop-color="var(--blue-soft)" stop-opacity="0"/></radialGradient>
+  </defs>
+  <ellipse cx="250" cy="150" rx="180" ry="110" fill="url(#bulkG)" stroke="var(--border)" stroke-width="1" stroke-dasharray="4,4"/>
+  <path d="M 120 150 Q 250 90 380 150" fill="none" stroke="var(--border-light)" stroke-width="1"/>
+  <path d="M 120 150 Q 250 210 380 150" fill="none" stroke="var(--border-light)" stroke-width="1"/>
+  <path d="M 250 45 Q 200 150 250 255" fill="none" stroke="var(--border-light)" stroke-width="1"/>
+  <path d="M 250 45 Q 300 150 250 255" fill="none" stroke="var(--border-light)" stroke-width="1"/>
+  <ellipse cx="250" cy="150" rx="180" ry="110" fill="none" stroke="var(--blue-soft)" stroke-width="2.5"/>
+  <circle cx="200" cy="130" r="6" fill="var(--purple-soft)" opacity="0.9"/>
+  <text x="215" y="125" font-family="var(--font-mono)" font-size="9" fill="var(--purple-soft)">agujero negro</text>
+  <text x="215" y="137" font-family="var(--font-mono)" font-size="9" fill="var(--text-tertiary)">en el bulk (d+1)</text>
+  <circle cx="400" cy="95" r="4" fill="var(--red-soft)" opacity="0.9"/>
+  <line x1="206" y1="127" x2="396" y2="95" stroke="var(--red-soft)" stroke-width="1" stroke-dasharray="3,3" opacity="0.4"/>
+  <text x="250" y="157" text-anchor="middle" font-family="var(--font-body)" font-size="14" fill="var(--text-tertiary)" font-style="italic">AdS</text>
+  <text x="250" y="173" text-anchor="middle" font-family="var(--font-mono)" font-size="8" fill="var(--text-tertiary)">gravedad · d+1 dimensiones</text>
+  <text x="250" y="282" text-anchor="middle" font-family="var(--font-body)" font-size="12" fill="var(--blue-soft)">CFT en la frontera</text>
+  <text x="250" y="296" text-anchor="middle" font-family="var(--font-mono)" font-size="8" fill="var(--text-tertiary)">teoría cuántica de campos · d dimensiones · sin gravedad</text>
+  <text x="410" y="88" font-family="var(--font-mono)" font-size="9" fill="var(--red-soft)">estado térmico</text>
+  <text x="410" y="100" font-family="var(--font-mono)" font-size="9" fill="var(--red-soft)">in CFT</text>
+</svg>
+<div style="font-size: 0.78rem; color: var(--text-tertiary); margin-top: 0.5rem;">Bulk ↔ Frontera: un agujero negro en el volumen AdS = un estado térmico en la teoría cuántica de la frontera.</div>
+</div>
+
 En Strings '98, Jeff Harvey lideró a cientos de físicos cantando "The Maldacena" (parodia de la Macarena): *"You start with the brane and the brane is BPS / Then you go near the brane and the space is AdS / Ehhhh, Maldacena!"*
 
 ## Espacio-tiempo desde el entrelazamiento
@@ -73,6 +99,29 @@ Puentes de Einstein-Rosen (agujeros de gusano) = pares Einstein-Podolsky-Rosen (
 <div class="psych-grid">
   <div class="psych-card"><h4>AdS (Λ &lt; 0)</h4><p>Curvatura negativa. Tiene frontera. AdS/CFT funciona. No es nuestro Universo.</p><div class="big">✓ resuelto</div></div>
   <div class="psych-card"><h4>dS (Λ &gt; 0)</h4><p>Curvatura positiva. Nuestro Universo. Sin frontera convencional. Holografía incierta.</p><div class="big">? abierto</div></div>
+</div>
+
+<div style="text-align:center; margin: 2rem 0; padding: 1.5rem; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 8px;">
+<svg viewBox="0 0 400 340" xmlns="http://www.w3.org/2000/svg" style="max-width: 380px; width: 100%;">
+  <polygon points="200,30 370,170 200,310 30,170" fill="var(--blue-soft)" opacity="0.04" stroke="var(--blue-soft)" stroke-width="1" stroke-opacity="0.15"/>
+  <line x1="80" y1="30" x2="320" y2="30" stroke="var(--red-soft)" stroke-width="3" opacity="0.7"/>
+  <line x1="80" y1="310" x2="320" y2="310" stroke="var(--blue-soft)" stroke-width="3" opacity="0.7"/>
+  <text x="200" y="20" text-anchor="middle" font-family="var(--font-mono)" font-size="11" fill="var(--red-soft)">I⁺ (infinito futuro)</text>
+  <text x="200" y="332" text-anchor="middle" font-family="var(--font-mono)" font-size="11" fill="var(--blue-soft)">I⁻ (infinito pasado)</text>
+  <line x1="200" y1="310" x2="200" y2="30" stroke="var(--text)" stroke-width="1.5" stroke-dasharray="4,4" opacity="0.25"/>
+  <circle cx="200" cy="170" r="4" fill="var(--text)">
+    <animate attributeName="r" values="3;5;3" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <text x="215" y="167" font-family="var(--font-mono)" font-size="10" fill="var(--text-secondary)">nosotros</text>
+  <line x1="30" y1="170" x2="200" y2="30" stroke="var(--text-secondary)" stroke-width="1" opacity="0.35"/>
+  <line x1="200" y1="30" x2="370" y2="170" stroke="var(--text-secondary)" stroke-width="1" opacity="0.35"/>
+  <line x1="30" y1="170" x2="200" y2="310" stroke="var(--text-secondary)" stroke-width="1" opacity="0.35"/>
+  <line x1="200" y1="310" x2="370" y2="170" stroke="var(--text-secondary)" stroke-width="1" opacity="0.35"/>
+  <text x="100" y="90" text-anchor="middle" font-family="var(--font-mono)" font-size="10" fill="var(--text-tertiary)" transform="rotate(-45, 100, 90)">horizonte</text>
+  <text x="200" y="55" text-anchor="middle" font-family="var(--font-body)" font-size="13" fill="var(--red-soft)" font-style="italic" opacity="0.6">CFT ?</text>
+  <text x="200" y="200" text-anchor="middle" font-family="var(--font-body)" font-size="14" fill="var(--blue-soft)" font-style="italic" opacity="0.4">dS bulk</text>
+</svg>
+<div style="font-size: 0.78rem; color: var(--text-tertiary); margin-top: 0.5rem;">Diagrama de Penrose del espacio-tiempo de Sitter. El observador "nosotros" ve solo parte del espacio. Una hipotética CFT vive en I⁺ — en el infinito futuro. A diferencia de AdS, esta frontera es espacial, no temporal.</div>
 </div>
 
 Tenemos una descripción holográfica completa de un universo que no es el nuestro, y ninguna del que sí lo es. Esta es la pregunta central abierta del campo.

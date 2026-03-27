@@ -57,6 +57,32 @@ Maldacena zeigte: Stringtheorie in 5-dimensionalem AdS ist äquivalent zu einer 
   </div>
 </div>
 
+<div style="text-align:center; margin: 2rem 0; padding: 1.5rem; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 8px;">
+<svg viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg" style="max-width: 460px; width: 100%;">
+  <defs>
+    <radialGradient id="bulkG" cx="50%" cy="50%"><stop offset="0%" stop-color="var(--blue-soft)" stop-opacity="0.12"/><stop offset="100%" stop-color="var(--blue-soft)" stop-opacity="0"/></radialGradient>
+  </defs>
+  <ellipse cx="250" cy="150" rx="180" ry="110" fill="url(#bulkG)" stroke="var(--border)" stroke-width="1" stroke-dasharray="4,4"/>
+  <path d="M 120 150 Q 250 90 380 150" fill="none" stroke="var(--border-light)" stroke-width="1"/>
+  <path d="M 120 150 Q 250 210 380 150" fill="none" stroke="var(--border-light)" stroke-width="1"/>
+  <path d="M 250 45 Q 200 150 250 255" fill="none" stroke="var(--border-light)" stroke-width="1"/>
+  <path d="M 250 45 Q 300 150 250 255" fill="none" stroke="var(--border-light)" stroke-width="1"/>
+  <ellipse cx="250" cy="150" rx="180" ry="110" fill="none" stroke="var(--blue-soft)" stroke-width="2.5"/>
+  <circle cx="200" cy="130" r="6" fill="var(--purple-soft)" opacity="0.9"/>
+  <text x="215" y="125" font-family="var(--font-mono)" font-size="9" fill="var(--purple-soft)">Schwarzes Loch</text>
+  <text x="215" y="137" font-family="var(--font-mono)" font-size="9" fill="var(--text-tertiary)">im Bulk (d+1)</text>
+  <circle cx="400" cy="95" r="4" fill="var(--red-soft)" opacity="0.9"/>
+  <line x1="206" y1="127" x2="396" y2="95" stroke="var(--red-soft)" stroke-width="1" stroke-dasharray="3,3" opacity="0.4"/>
+  <text x="250" y="157" text-anchor="middle" font-family="var(--font-body)" font-size="14" fill="var(--text-tertiary)" font-style="italic">AdS</text>
+  <text x="250" y="173" text-anchor="middle" font-family="var(--font-mono)" font-size="8" fill="var(--text-tertiary)">Gravitation · d+1 Dimensionen</text>
+  <text x="250" y="282" text-anchor="middle" font-family="var(--font-body)" font-size="12" fill="var(--blue-soft)">CFT auf dem Rand</text>
+  <text x="250" y="296" text-anchor="middle" font-family="var(--font-mono)" font-size="8" fill="var(--text-tertiary)">Quantenfeldtheorie · d Dimensionen · keine Gravitation</text>
+  <text x="410" y="88" font-family="var(--font-mono)" font-size="9" fill="var(--red-soft)">thermischer Zustand</text>
+  <text x="410" y="100" font-family="var(--font-mono)" font-size="9" fill="var(--red-soft)">in CFT</text>
+</svg>
+<div style="font-size: 0.78rem; color: var(--text-tertiary); margin-top: 0.5rem;">Bulk ↔ Rand: ein Schwarzes Loch im AdS-Volumen = ein thermischer Zustand in der Quanten-Grenztheorie.</div>
+</div>
+
 Bei Strings '98 führte Jeff Harvey Hunderte von Physikern im Gesang von „The Maldacena" (Macarena-Parodie): *„You start with the brane and the brane is BPS / Then you go near the brane and the space is AdS / Ehhhh, Maldacena!"*
 
 ## Raumzeit aus Verschränkung
@@ -73,6 +99,29 @@ Einstein-Rosen-Brücken (Wurmlöcher) = Einstein-Podolsky-Rosen-Paare (verschrä
 <div class="psych-grid">
   <div class="psych-card"><h4>AdS (Λ &lt; 0)</h4><p>Negative Krümmung. Hat Grenze. AdS/CFT funktioniert. Nicht unser Universum.</p><div class="big">✓ gelöst</div></div>
   <div class="psych-card"><h4>dS (Λ &gt; 0)</h4><p>Positive Krümmung. Unser Universum. Keine konventionelle Grenze. Holographie unklar.</p><div class="big">? offen</div></div>
+</div>
+
+<div style="text-align:center; margin: 2rem 0; padding: 1.5rem; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 8px;">
+<svg viewBox="0 0 400 340" xmlns="http://www.w3.org/2000/svg" style="max-width: 380px; width: 100%;">
+  <polygon points="200,30 370,170 200,310 30,170" fill="var(--blue-soft)" opacity="0.04" stroke="var(--blue-soft)" stroke-width="1" stroke-opacity="0.15"/>
+  <line x1="80" y1="30" x2="320" y2="30" stroke="var(--red-soft)" stroke-width="3" opacity="0.7"/>
+  <line x1="80" y1="310" x2="320" y2="310" stroke="var(--blue-soft)" stroke-width="3" opacity="0.7"/>
+  <text x="200" y="20" text-anchor="middle" font-family="var(--font-mono)" font-size="11" fill="var(--red-soft)">I⁺ (Zukunftsunendlichkeit)</text>
+  <text x="200" y="332" text-anchor="middle" font-family="var(--font-mono)" font-size="11" fill="var(--blue-soft)">I⁻ (Vergangenheitsunendlichkeit)</text>
+  <line x1="200" y1="310" x2="200" y2="30" stroke="var(--text)" stroke-width="1.5" stroke-dasharray="4,4" opacity="0.25"/>
+  <circle cx="200" cy="170" r="4" fill="var(--text)">
+    <animate attributeName="r" values="3;5;3" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <text x="215" y="167" font-family="var(--font-mono)" font-size="10" fill="var(--text-secondary)">wir</text>
+  <line x1="30" y1="170" x2="200" y2="30" stroke="var(--text-secondary)" stroke-width="1" opacity="0.35"/>
+  <line x1="200" y1="30" x2="370" y2="170" stroke="var(--text-secondary)" stroke-width="1" opacity="0.35"/>
+  <line x1="30" y1="170" x2="200" y2="310" stroke="var(--text-secondary)" stroke-width="1" opacity="0.35"/>
+  <line x1="200" y1="310" x2="370" y2="170" stroke="var(--text-secondary)" stroke-width="1" opacity="0.35"/>
+  <text x="100" y="90" text-anchor="middle" font-family="var(--font-mono)" font-size="10" fill="var(--text-tertiary)" transform="rotate(-45, 100, 90)">Horizont</text>
+  <text x="200" y="55" text-anchor="middle" font-family="var(--font-body)" font-size="13" fill="var(--red-soft)" font-style="italic" opacity="0.6">CFT ?</text>
+  <text x="200" y="200" text-anchor="middle" font-family="var(--font-body)" font-size="14" fill="var(--blue-soft)" font-style="italic" opacity="0.4">dS bulk</text>
+</svg>
+<div style="font-size: 0.78rem; color: var(--text-tertiary); margin-top: 0.5rem;">Penrose-Diagramm der de-Sitter-Raumzeit. Der Beobachter „wir" sieht nur einen Teil des Raums. Eine hypothetische CFT lebt auf I⁺ — in der unendlichen Zukunft. Anders als bei AdS ist dieser Rand raumartig, nicht zeitartig.</div>
 </div>
 
 Wir haben eine vollständige holographische Beschreibung eines Universums, das nicht unseres ist, und keine des unseren.
