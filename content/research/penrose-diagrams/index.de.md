@@ -128,7 +128,9 @@ Ein nicht-rotierendes schwarzes Loch. Das Diagramm enthüllt, was Koordinaten ja
 
 Die maximal erweiterte Lösung — erstmals gefunden mithilfe der Kruskal-Szekeres-Koordinaten (1960) — enthüllt ein Weißes Loch, ein zweites Universum und eine Einstein-Rosen-Brücke, die sie verbindet. Die Brücke schließt sich schneller, als Licht sie durchqueren kann. Penrose-Diagramme fügten den entscheidenden Schritt der Kompaktifizierung der asymptotischen Regionen hinzu und machten die gesamte Kausalstruktur auf einen Blick sichtbar.
 
-### De Sitter — Das quadratische Universum Positive kosmologische Konstante — die ungefähre Zukunft unseres Universums. Quadratisches Diagramm mit raumartigen Grenzen. Seit 1998 wissen wir: Unser Universum steuert auf eine de-Sitter-Zukunft zu (Nobelpreis 2011).
+### De Sitter — Das quadratische Universum
+
+Positive kosmologische Konstante, keine Materie — die ungefähre Zukunft unseres Universums, wenn die Dunkle Energie dominiert. Das Diagramm ist ein Quadrat mit raumartigen (horizontalen) oberen und unteren Grenzen: Das Universum beginnt und endet überall gleichzeitig.
 
 <div style="text-align:center; margin: 2rem 0; padding: 1.5rem; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 8px;">
 <svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" style="max-width: 300px; width: 100%;">
@@ -151,7 +153,11 @@ Die maximal erweiterte Lösung — erstmals gefunden mithilfe der Kruskal-Szeker
 <div style="font-size: 0.78rem; color: var(--text-tertiary); margin-top: 0.5rem;">De-Sitter-Raumzeit. Ein Quadrat statt einer Raute. Obere und untere Grenzen sind raumartig — das Universum beginnt und endet überall gleichzeitig. Jeder Beobachter ist von einem kosmologischen Horizont umgeben.</div>
 </div>
 
-**Anti-de Sitter — Der vertikale Streifen.** Negative kosmologische Konstante. Zeitartige vertikale Ränder. Nicht unser Universum — aber wohl die wichtigste Raumzeit der heutigen theoretischen Physik.
+Jeder Beobachter hat einen kosmologischen Horizont: Regionen, die sich schneller als Licht entfernen, können niemals Signale senden, die Sie erreichen. Seit 1998, als Riess, Perlmutter und Schmidt die beschleunigte Expansion entdeckten (Nobelpreis 2011), wissen wir, dass unser Universum auf dieses de-Sitter-artige Schicksal zusteuert.
+
+### Anti-de Sitter — Der vertikale Streifen
+
+Negative kosmologische Konstante. Das Diagramm ist ein vertikaler Streifen mit zeitartigen (vertikalen) Rändern. Nicht unser Universum — aber wohl die wichtigste Raumzeit der heutigen theoretischen Physik.
 
 <div style="text-align:center; margin: 2rem 0; padding: 1.5rem; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 8px;">
 <svg viewBox="0 0 320 380" xmlns="http://www.w3.org/2000/svg" style="max-width: 300px; width: 100%;">

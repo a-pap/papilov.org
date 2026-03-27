@@ -95,11 +95,25 @@ Cada objeto en una descripción tiene su contraparte precisa en la otra. La masa
 <div style="font-size: 0.78rem; color: var(--text-tertiary); margin-top: 0.5rem;">Bulk ↔ Frontera: un agujero negro en el volumen AdS = un estado térmico en la teoría cuántica de la frontera.</div>
 </div>
 
-En Strings '98, Jeff Harvey lideró a cientos de físicos cantando "The Maldacena" (parodia de la Macarena): *"You start with the brane and the brane is BPS / Then you go near the brane and the space is AdS / Ehhhh, Maldacena!"*
+La última fila es la razón por la que AdS/CFT es tan poderosa: cuando la teoría de la frontera es fuertemente acoplada (difícil de calcular), la descripción del volumen es débilmente acoplada (fácil de calcular), y viceversa. Problemas irresolubles en un lado se vuelven tratables en el otro.
+
+## La reacción
+
+La emoción fue inmediata. En la conferencia Strings '98 en Santa Barbara el verano siguiente, el físico Jeff Harvey lideró a cientos de teóricos cantando "The Maldacena" — una parodia de la Macarena — en la cena de la conferencia:
+
+> *"You start with the brane and the brane is BPS / Then you go near the brane and the space is AdS / Who knows what it means? I don't, I confess / Ehhhh, Maldacena!"*
+
+El hecho de que esto llegara al New York Times da una idea del impacto. Como describió Quanta Magazine a Maldacena: Susskind lo llama "el maestro." En cuestión de meses, dos artículos — de Gubser, Klebanov y Polyakov, y de Witten — hicieron la conjetura más precisa y establecieron la maquinaria computacional que miles de físicos han utilizado desde entonces.
 
 ## Espacio-tiempo desde el entrelazamiento
 
-Ryu y Takayanagi (2006): la entropía de entrelazamiento en la frontera = área de una superficie mínima en el volumen. Van Raamsdonk (2010): eliminar entrelazamiento hace que el espacio-tiempo se desconecte. Maldacena y Susskind (2013):
+En 2006, Shinsei Ryu y Tadashi Takayanagi añadieron una pieza sorprendente al rompecabezas. Mostraron que la entropía de entrelazamiento de una región en la frontera es igual al área de una superficie mínima específica en el volumen — una generalización directa de la fórmula de Bekenstein-Hawking.
+
+Mark Van Raamsdonk fue más allá en 2010. En un ensayo que ganó el primer premio de la Gravity Research Foundation, argumentó que si se elimina sistemáticamente el entrelazamiento cuántico entre dos regiones de una teoría de frontera, las regiones correspondientes del espacio-tiempo del volumen literalmente se separan y se desconectan. Sin entrelazamiento → espacio-tiempo desconectado.
+
+Su conclusión fue radical: el espacio-tiempo no es la entidad fundamental. Está tejido por el entrelazamiento cuántico. Elimina el entrelazamiento, y el espacio-tiempo se desmorona.
+
+En 2013, Maldacena y Susskind cristalizaron esto en una conjetura con la ecuación de física más compacta desde E = mc²:
 
 <div class="highlight-box">
 <strong>ER = EPR</strong>

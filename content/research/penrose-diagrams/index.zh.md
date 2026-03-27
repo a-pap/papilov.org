@@ -126,7 +126,11 @@ license: "CC BY-NC 4.0"
 <div style="font-size: 0.78rem; color: var(--text-tertiary); margin-top: 0.5rem;">史瓦西黑洞。事件视界为虚线45°线。越过它之后，所有路径都通向顶部的锯齿奇点。无法逃脱——不是因为速度不够快，而是因为奇点在你的未来。</div>
 </div>
 
-**德西特——方形宇宙。** 正宇宙学常数——我们宇宙的大致未来。方形图表，类空边界：宇宙在所有地方同时开始和结束。自1998年以来，我们知道宇宙正朝德西特未来演化（2011年诺贝尔奖）。
+最大延拓解——最早通过Kruskal-Szekeres坐标（1960年）发现——揭示了白洞、第二宇宙以及连接它们的爱因斯坦-罗森桥。桥关闭的速度快于光。彭罗斯图增加了关键一步：对渐近区域进行紧化，使完整的因果结构一目了然。
+
+### 德西特——方形宇宙
+
+正宇宙学常数，无物质——随暗能量主导，这是我们宇宙的大致未来。图表为正方形，上下为类空（水平）边界：宇宙在所有地方同时开始和结束。
 
 <div style="text-align:center; margin: 2rem 0; padding: 1.5rem; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 8px;">
 <svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" style="max-width: 300px; width: 100%;">
@@ -149,7 +153,11 @@ license: "CC BY-NC 4.0"
 <div style="font-size: 0.78rem; color: var(--text-tertiary); margin-top: 0.5rem;">德西特时空。正方形而非菱形。上下边界为类空的——宇宙在所有地方同时开始和结束。每个观测者都被宇宙学视界包围。</div>
 </div>
 
-**反德西特——垂直条带。** 负宇宙学常数。类时垂直边界。不是我们的宇宙——但可以说是当今理论物理中最重要的时空。
+每个观测者都有宇宙学视界：以超光速远离的区域永远无法向你发送信号。自1998年里斯（Riess）、珀尔马特（Perlmutter）和施密特（Schmidt）发现加速膨胀（2011年诺贝尔奖）以来，我们知道宇宙正朝着这种类德西特命运演化。
+
+### 反德西特——垂直条带
+
+负宇宙学常数。图表为垂直条带，具有类时（垂直）边界。不是我们的宇宙——但可以说是当今理论物理中最重要的时空。
 
 <div style="text-align:center; margin: 2rem 0; padding: 1.5rem; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 8px;">
 <svg viewBox="0 0 320 380" xmlns="http://www.w3.org/2000/svg" style="max-width: 300px; width: 100%;">

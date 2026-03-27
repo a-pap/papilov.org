@@ -126,7 +126,11 @@ Agujero negro sin rotación. El diagrama revela lo que las coordenadas ocultaron
 <div style="font-size: 0.78rem; color: var(--text-tertiary); margin-top: 0.5rem;">Agujero negro de Schwarzschild. El horizonte de eventos es una línea discontinua a 45°. Más allá, todos los caminos conducen a la singularidad en zigzag de arriba. No hay escape — no porque no puedas moverte lo suficientemente rápido, sino porque la singularidad está en tu futuro.</div>
 </div>
 
-**De Sitter — El universo cuadrado.** Constante cosmológica positiva — el futuro aproximado de nuestro Universo. Diagrama cuadrado con fronteras espaciales: el universo comienza y termina en todas partes simultáneamente. Desde 1998, sabemos que nuestro Universo se dirige hacia un futuro de Sitter (Nobel 2011).
+La solución maximalmente extendida — encontrada por primera vez usando coordenadas de Kruskal-Szekeres (1960) — revela un agujero blanco, un segundo universo y un puente de Einstein-Rosen que los conecta. El puente se cierra más rápido de lo que la luz puede recorrerlo. Los diagramas de Penrose añadieron el paso crucial de compactificar las regiones asintóticas, haciendo visible de un vistazo la estructura causal completa.
+
+### De Sitter — El universo cuadrado
+
+Constante cosmológica positiva, sin materia — el futuro aproximado de nuestro Universo a medida que la energía oscura domina. El diagrama es un cuadrado con fronteras espaciales (horizontales) superior e inferior: el universo comienza y termina en todas partes simultáneamente.
 
 <div style="text-align:center; margin: 2rem 0; padding: 1.5rem; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 8px;">
 <svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" style="max-width: 300px; width: 100%;">
@@ -149,7 +153,11 @@ Agujero negro sin rotación. El diagrama revela lo que las coordenadas ocultaron
 <div style="font-size: 0.78rem; color: var(--text-tertiary); margin-top: 0.5rem;">Espacio-tiempo de Sitter. Un cuadrado en lugar de un rombo. Las fronteras superior e inferior son espaciales — el universo comienza y termina en todas partes simultáneamente. Cada observador está rodeado por un horizonte cosmológico.</div>
 </div>
 
-**Anti-de Sitter — La franja vertical.** Constante cosmológica negativa. Fronteras temporales verticales. No es nuestro Universo — pero posiblemente el espacio-tiempo más importante de la física teórica actual.
+Cada observador tiene un horizonte cosmológico: las regiones que se alejan más rápido que la luz nunca pueden enviar señales que te alcancen. Desde 1998, cuando Riess, Perlmutter y Schmidt descubrieron la expansión acelerada (Premio Nobel 2011), sabemos que nuestro Universo se dirige hacia este destino tipo de Sitter.
+
+### Anti-de Sitter — La franja vertical
+
+Constante cosmológica negativa. El diagrama es una franja vertical con fronteras temporales (verticales). No es nuestro Universo — pero posiblemente el espacio-tiempo más importante de la física teórica actual.
 
 <div style="text-align:center; margin: 2rem 0; padding: 1.5rem; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 8px;">
 <svg viewBox="0 0 320 380" xmlns="http://www.w3.org/2000/svg" style="max-width: 300px; width: 100%;">
@@ -171,7 +179,7 @@ Agujero negro sin rotación. El diagrama revela lo que las coordenadas ocultaron
 <div style="font-size: 0.78rem; color: var(--text-tertiary); margin-top: 0.5rem;">Espacio-tiempo anti-de Sitter. Una franja vertical. Las paredes laterales son fronteras temporales donde vive la CFT dual. La luz alcanza la frontera en tiempo finito y «rebota» — el espacio actúa como una caja.</div>
 </div>
 
-En 1997, Maldacena demostró que la gravedad cuántica en este espacio es equivalente a una teoría de campos cuánticos en su frontera — la [correspondencia AdS/CFT](/research/ads-cft-holographic/), el resultado más citado en la historia de la física de altas energías (20.000+ citas). Los bordes verticales del diagrama de Penrose son donde vive la teoría dual.
+En 1997, Juan Maldacena demostró que la gravedad cuántica en este espacio es exactamente equivalente a una teoría de campos cuánticos que vive en su frontera. Esta correspondencia AdS/CFT — el [resultado más citado](https://arxiv.org/abs/hep-th/9711200) en la historia de la física de altas energías (20.000+ citas) — significa que los bordes verticales del diagrama de Penrose no son solo fronteras abstractas. Son donde vive la teoría dual. Gravedad en el bulk, campos cuánticos en el borde. El diagrama de Penrose hace visible esta arquitectura.
 
 ## Línea temporal
 
