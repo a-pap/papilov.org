@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Математика аукционов — Визуальный эксплейнер</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0a0a0f;--surface:#12121a;--surface2:#1a1a28;
+  --border:#2a2a3a;--text:#e8e6e3;--dim:#8a8a9a;
+  --orange:#ff6b35;--teal:#00d4aa;--indigo:#6366f1;
+  --red:#ef4444;--yellow:#fbbf24;
+  --head:'Playfair Display',Georgia,serif;
+  --body:'DM Sans',system-ui,sans-serif;
+  --mono:'JetBrains Mono',monospace;
+}
+html{font-size:16px;scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:1.7;overflow-x:hidden}
+
+.container{max-width:900px;margin:0 auto;padding:0 1.5rem}
+
+/* HERO */
+.hero{padding:6rem 0 4rem;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:800px;height:800px;background:radial-gradient(circle,rgba(255,107,53,.06) 0%,transparent 70%);pointer-events:none}
+.hero h1{font-family:var(--head);font-size:clamp(2.2rem,5vw,3.6rem);font-weight:900;line-height:1.15;margin-bottom:1rem;letter-spacing:-.02em}
+.hero h1 span{color:var(--orange)}
+.hero .subtitle{font-size:1.15rem;color:var(--dim);max-width:600px;margin:0 auto 2rem}
+.hero .badge{display:inline-block;padding:.35rem .9rem;border:1px solid var(--border);border-radius:100px;font-family:var(--mono);font-size:.75rem;color:var(--dim);letter-spacing:.05em;text-transform:uppercase}
+
+/* SECTIONS */
+section{padding:4rem 0;opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease}
+section.visible{opacity:1;transform:translateY(0)}
+
+h2{font-family:var(--head);font-size:clamp(1.6rem,3.5vw,2.2rem);font-weight:700;margin-bottom:.5rem;line-height:1.25}
+h2 .num{color:var(--orange);font-family:var(--mono);font-weight:600;font-size:.85em;margin-right:.3rem}
+h3{font-family:var(--head);font-size:1.25rem;font-weight:600;margin:1.5rem 0 .75rem;color:var(--text)}
+.lead{color:var(--dim);font-size:1.05rem;margin-bottom:2rem;max-width:700px}
+p{margin-bottom:1rem}
+
+/* 2x2 MATRIX */
+.matrix-grid{display:grid;grid-template-columns:auto 1fr 1fr;grid-template-rows:auto 1fr 1fr;gap:0;margin:2rem 0;border-radius:12px;overflow:hidden;border:1px solid var(--border)}
+.matrix-header{background:var(--surface2);padding:.75rem 1rem;font-family:var(--mono);font-size:.8rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--dim);text-align:center;display:flex;align-items:center;justify-content:center}
+.matrix-header.corner{background:var(--bg)}
+.matrix-header.row-label{writing-mode:vertical-lr;transform:rotate(180deg);padding:.5rem}
+.matrix-cell{background:var(--surface);padding:1.25rem;border:1px solid var(--border);position:relative;transition:background .3s}
+.matrix-cell:hover{background:var(--surface2)}
+.matrix-cell .type-name{font-family:var(--head);font-size:1.1rem;font-weight:700;margin-bottom:.4rem}
+.matrix-cell .type-aka{font-family:var(--mono);font-size:.7rem;color:var(--orange);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.04em}
+.matrix-cell .type-example{font-size:.85rem;color:var(--dim);line-height:1.5}
+.matrix-cell .type-strategy{font-size:.8rem;color:var(--teal);margin-top:.5rem;font-weight:600}
+.equiv-badge{position:absolute;top:.5rem;right:.5rem;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:700;font-family:var(--mono)}
+.equiv-a{background:rgba(255,107,53,.15);color:var(--orange);border:1px solid rgba(255,107,53,.3)}
+.equiv-b{background:rgba(0,212,170,.15);color:var(--teal);border:1px solid rgba(0,212,170,.3)}
+
+/* AUCTION SIM */
+.sim-box{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:2rem;margin:2rem 0}
+.sim-title{font-family:var(--mono);font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;color:var(--orange);margin-bottom:1rem}
+.bidders{display:flex;flex-wrap:wrap;gap:1rem;margin-bottom:1.5rem}
+.bidder{flex:1;min-width:140px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:1rem;text-align:center;transition:all .4s}
+.bidder.winner{border-color:var(--orange);box-shadow:0 0 20px rgba(255,107,53,.1)}
+.bidder .name{font-family:var(--mono);font-size:.75rem;color:var(--dim);margin-bottom:.3rem;text-transform:uppercase;letter-spacing:.05em}
+.bidder .value{font-size:.8rem;color:var(--dim);margin-bottom:.4rem}
+.bidder .value em{font-style:normal;color:var(--teal);font-family:var(--mono);font-weight:600}
+.bidder .bid{font-family:var(--mono);font-size:1.6rem;font-weight:700;color:var(--text)}
+.bidder.winner .bid{color:var(--orange)}
+.bidder .pays{font-size:.8rem;color:var(--dim);margin-top:.3rem}
+.bidder .pays strong{color:var(--yellow);font-family:var(--mono);font-weight:600}
+
+.sim-result{display:flex;align-items:center;gap:1rem;padding:1rem;border-radius:8px;background:rgba(255,107,53,.06);border:1px solid rgba(255,107,53,.15)}
+.sim-result .result-label{font-family:var(--mono);font-size:.75rem;text-transform:uppercase;letter-spacing:.06em;color:var(--dim)}
+.sim-result .result-value{font-family:var(--mono);font-size:1.3rem;font-weight:700;color:var(--orange)}
+.sim-result .result-note{font-size:.85rem;color:var(--dim);margin-left:auto}
+
+/* TABS */
+.tabs{display:flex;gap:0;margin-bottom:0;border-bottom:2px solid var(--border)}
+.tab-btn{padding:.6rem 1.2rem;font-family:var(--mono);font-size:.8rem;background:transparent;border:none;color:var(--dim);cursor:pointer;letter-spacing:.04em;text-transform:uppercase;border-bottom:2px solid transparent;margin-bottom:-2px;transition:all .3s}
+.tab-btn:hover{color:var(--text)}
+.tab-btn.active{color:var(--orange);border-bottom-color:var(--orange)}
+.tab-panel{display:none}
+.tab-panel.active{display:block}
+
+/* FORMULA */
+.formula-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:2rem;margin:1.5rem 0;text-align:center}
+.formula{font-family:var(--mono);font-size:clamp(1rem,2.5vw,1.4rem);font-weight:600;color:var(--text);padding:1rem;line-height:1.8;word-break:break-word}
+.formula .var-v{color:var(--teal)}
+.formula .var-b{color:var(--orange)}
+.formula .var-n{color:var(--indigo)}
+.formula .op{color:var(--dim)}
+.formula-label{font-size:.8rem;color:var(--dim);margin-top:.75rem;font-family:var(--mono);text-transform:uppercase;letter-spacing:.05em}
+.formula-explain{font-size:.9rem;color:var(--dim);margin-top:.75rem;max-width:600px;margin-left:auto;margin-right:auto}
+
+/* NZ DISASTER */
+.disaster-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin:2rem 0}
+.disaster-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.5rem;text-align:center}
+.disaster-card .lot{font-family:var(--mono);font-size:.7rem;color:var(--dim);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+.disaster-card .high-bid{font-family:var(--mono);font-size:1.1rem;font-weight:600;color:var(--text);margin-bottom:.2rem}
+.disaster-card .paid{font-family:var(--mono);font-size:1.8rem;font-weight:700;color:var(--red);margin-bottom:.2rem}
+.disaster-card .ratio{font-size:.8rem;color:var(--dim)}
+.disaster-card .ratio strong{color:var(--yellow);font-family:var(--mono)}
+.disaster-summary{background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.2);border-radius:10px;padding:1.5rem;margin:1.5rem 0;display:flex;gap:2rem;flex-wrap:wrap;align-items:center;justify-content:center}
+.disaster-stat{text-align:center}
+.disaster-stat .label{font-size:.75rem;color:var(--dim);font-family:var(--mono);text-transform:uppercase;letter-spacing:.05em}
+.disaster-stat .val{font-family:var(--mono);font-size:1.6rem;font-weight:700;color:var(--red)}
+.disaster-stat .note{font-size:.8rem;color:var(--dim)}
+
+/* REVENUE EQUIV */
+.re-demo{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin:2rem 0}
+.re-box{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.5rem}
+.re-box .re-title{font-family:var(--mono);font-size:.75rem;text-transform:uppercase;letter-spacing:.06em;margin-bottom:1rem}
+.re-box .re-title.fp{color:var(--orange)}
+.re-box .re-title.sp{color:var(--teal)}
+.re-bar{display:flex;align-items:center;gap:.5rem;margin-bottom:.5rem}
+.re-bar .bar-label{font-family:var(--mono);font-size:.75rem;width:1.5rem;color:var(--dim)}
+.re-bar .bar-track{flex:1;height:28px;background:var(--surface2);border-radius:4px;overflow:hidden;position:relative;border:1px solid var(--border)}
+.re-bar .bar-fill{height:100%;border-radius:3px;display:flex;align-items:center;justify-content:flex-end;padding-right:.5rem;font-family:var(--mono);font-size:.7rem;font-weight:600;color:var(--bg);transition:width 1s ease}
+.re-bar .bar-fill.fp{background:var(--orange)}
+.re-bar .bar-fill.sp{background:var(--teal)}
+.re-bar .bar-fill.bid{background:var(--indigo)}
+.re-bar .bar-pay{font-family:var(--mono);font-size:.7rem;font-weight:600;position:absolute;right:.5rem;top:50%;transform:translateY(-50%);color:var(--bg)}
+.re-expected{text-align:center;padding:1rem;margin-top:.5rem}
+.re-expected .label{font-size:.75rem;color:var(--dim);font-family:var(--mono);text-transform:uppercase;letter-spacing:.05em}
+.re-expected .val{font-family:var(--mono);font-size:1.4rem;font-weight:700}
+.re-expected .val.fp{color:var(--orange)}
+.re-expected .val.sp{color:var(--teal)}
+
+/* TIMELINE */
+.timeline{position:relative;margin:2rem 0;padding-left:2rem}
+.timeline::before{content:'';position:absolute;left:.6rem;top:0;bottom:0;width:2px;background:var(--border)}
+.tl-item{position:relative;margin-bottom:2rem;padding-left:1.5rem}
+.tl-item::before{content:'';position:absolute;left:-1.65rem;top:.4rem;width:14px;height:14px;border-radius:50%;background:var(--orange);border:3px solid var(--bg);z-index:1}
+.tl-year{font-family:var(--mono);font-size:.8rem;color:var(--orange);font-weight:600;margin-bottom:.2rem}
+.tl-title{font-family:var(--head);font-size:1.05rem;font-weight:600;margin-bottom:.3rem}
+.tl-desc{font-size:.85rem;color:var(--dim);line-height:1.5}
+
+/* FOOTER */
+.footer{padding:3rem 0;text-align:center;border-top:1px solid var(--border);margin-top:3rem}
+.footer p{font-size:.8rem;color:var(--dim)}
+.footer a{color:var(--orange);text-decoration:none}
+
+/* RESPONSIVE */
+@media(max-width:700px){
+  .matrix-grid{display:flex;flex-direction:column;gap:.75rem;border:none;border-radius:0}
+  .matrix-header{display:none}
+  .matrix-cell{border-radius:10px;border:1px solid var(--border)}
+  .matrix-cell::before{content:attr(data-axes);display:block;font-family:var(--mono);font-size:.65rem;color:var(--dim);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.5rem;padding-bottom:.4rem;border-bottom:1px solid var(--border)}
+  .re-demo{grid-template-columns:1fr}
+  .disaster-grid{grid-template-columns:1fr 1fr}
+  .sim-result{flex-direction:column;text-align:center}
+  .sim-result .result-note{margin-left:0}
+  .use-grid{grid-template-columns:1fr}
+  .trend-grid{grid-template-columns:1fr}
+}
+
+/* ANNOTATIONS */
+.annotation{display:inline-block;width:18px;height:18px;border-radius:50%;background:rgba(255,107,53,.15);color:var(--orange);font-family:var(--mono);font-size:.65rem;font-weight:700;text-align:center;line-height:18px;cursor:help;margin-left:.2rem;vertical-align:super}
+.key-insight{background:rgba(0,212,170,.06);border-left:3px solid var(--teal);padding:1rem 1.25rem;border-radius:0 8px 8px 0;margin:1.5rem 0;font-size:.95rem}
+.key-insight strong{color:var(--teal)}
+
+.connector{text-align:center;padding:1.5rem 0;font-size:2rem;color:var(--border)}
+
+/* COMPARISON TABLE */
+.cmp-table{width:100%;border-collapse:collapse;margin:2rem 0;font-size:.85rem}
+.cmp-table th,.cmp-table td{padding:.65rem .8rem;border:1px solid var(--border);text-align:left;vertical-align:top}
+.cmp-table th{background:var(--surface2);font-family:var(--mono);font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;color:var(--dim);font-weight:600;white-space:nowrap}
+.cmp-table td{background:var(--surface)}
+.cmp-table tr:hover td{background:var(--surface2)}
+.cmp-table .row-head{font-family:var(--mono);font-weight:600;color:var(--orange);font-size:.75rem;white-space:nowrap;width:120px}
+.cmp-table .good{color:var(--teal)}
+.cmp-table .bad{color:var(--red)}
+.cmp-table .neutral{color:var(--yellow)}
+.cmp-table caption{font-family:var(--mono);font-size:.7rem;color:var(--dim);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.75rem;text-align:left;caption-side:top}
+@media(max-width:700px){
+  .cmp-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:1.5rem -1.5rem;padding:0 1.5rem}
+  .cmp-table{min-width:650px}
+}
+
+/* USE-CASE CARDS */
+.use-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1rem;margin:2rem 0}
+.use-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.25rem;transition:border-color .3s}
+.use-card:hover{border-color:var(--orange)}
+.use-card .use-icon{font-size:1.5rem;margin-bottom:.5rem}
+.use-card .use-domain{font-family:var(--mono);font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;color:var(--orange);margin-bottom:.4rem}
+.use-card .use-title{font-family:var(--head);font-size:1.05rem;font-weight:600;margin-bottom:.4rem}
+.use-card .use-desc{font-size:.85rem;color:var(--dim);line-height:1.5}
+.use-card .use-type{display:inline-block;margin-top:.5rem;padding:.2rem .5rem;border-radius:4px;font-family:var(--mono);font-size:.65rem;font-weight:600;letter-spacing:.04em}
+.use-card .use-type.t-fp{background:rgba(255,107,53,.12);color:var(--orange)}
+.use-card .use-type.t-sp{background:rgba(0,212,170,.12);color:var(--teal)}
+.use-card .use-type.t-dutch{background:rgba(99,102,241,.12);color:var(--indigo)}
+.use-card .use-type.t-eng{background:rgba(251,191,36,.12);color:var(--yellow)}
+.use-card .use-type.t-combo{background:rgba(239,68,68,.12);color:var(--red)}
+.use-card .use-stat{font-family:var(--mono);font-size:1.1rem;font-weight:700;color:var(--text);margin-top:.4rem}
+
+/* TREND CARDS */
+.trend-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1rem;margin:2rem 0}
+.trend-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.5rem;border-top:3px solid var(--orange)}
+.trend-card .trend-when{font-family:var(--mono);font-size:.7rem;color:var(--dim);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.4rem}
+.trend-card .trend-title{font-family:var(--head);font-size:1.05rem;font-weight:600;margin-bottom:.5rem}
+.trend-card .trend-desc{font-size:.85rem;color:var(--dim);line-height:1.5}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<!-- HERO -->
+<header class="hero">
+  <div class="badge">papilov.org · visual explainer</div>
+  <h1>Математика <span>аукционов</span></h1>
+  <p class="subtitle">Четыре формата, два Нобеля, одна теорема — и почему правила торгов определяют цену, а не наоборот</p>
+</header>
+
+<!-- ═══════════════ SECTION 1: 4 TYPES ═══════════════ -->
+<section id="types">
+  <h2><span class="num">01</span> Четыре базовых аукциона</h2>
+  <p class="lead">Все аукционы мира — комбинация двух переменных: открытые или закрытые ставки, и платит ли победитель свою цену или чужую.</p>
+
+  <div class="matrix-grid">
+    <div class="matrix-header corner"></div>
+    <div class="matrix-header">Платишь свою ставку<br><small style="color:var(--orange)">first-price</small></div>
+    <div class="matrix-header">Платишь вторую ставку<br><small style="color:var(--teal)">second-price</small></div>
+
+    <div class="matrix-header row-label">Открытый</div>
+    <div class="matrix-cell" data-axes="Открытый · First-price">
+      <span class="equiv-badge equiv-a">A</span>
+      <div class="type-name">Голландский</div>
+      <div class="type-aka">Dutch auction</div>
+      <div class="type-example">Цена падает с потолка. Первый крикнувший «стоп» побеждает и платит текущую цену.</div>
+      <div class="type-strategy">Стратегия: жди дольше → дешевле, но рискуешь проиграть</div>
+    </div>
+    <div class="matrix-cell" data-axes="Открытый · Second-price">
+      <span class="equiv-badge equiv-b">B</span>
+      <div class="type-name">Английский</div>
+      <div class="type-aka">English auction</div>
+      <div class="type-example">Кристис, Сотбис. Цена растёт. Последний оставшийся побеждает. Платит чуть больше второго.</div>
+      <div class="type-strategy">Стратегия: торгуйся до своей истинной оценки, не выше</div>
+    </div>
+
+    <div class="matrix-header row-label">Закрытый</div>
+    <div class="matrix-cell" data-axes="Закрытый · First-price">
+      <span class="equiv-badge equiv-a">A</span>
+      <div class="type-name">Закрытый first-price</div>
+      <div class="type-aka">Sealed-bid first-price</div>
+      <div class="type-example">Тендеры, госзакупки. Все подают ставки в конвертах. Побеждает наивысшая.</div>
+      <div class="type-strategy">Стратегия: bid shading — ставь ниже истинной оценки</div>
+    </div>
+    <div class="matrix-cell" data-axes="Закрытый · Second-price">
+      <span class="equiv-badge equiv-b">B</span>
+      <div class="type-name">Аукцион Викри</div>
+      <div class="type-aka">Vickrey / second-price sealed</div>
+      <div class="type-example">Нобель 1996. Побеждает наивысшая ставка, но платит вторую цену. Основа механизма eBay (proxy bidding).</div>
+      <div class="type-strategy">Dominant strategy: ставь ровно свою истинную оценку</div>
+    </div>
+  </div>
+
+  <div class="key-insight">
+    <strong>Стратегическая эквивалентность:</strong> Форматы <span class="annotation">A</span> (Голландский ≈ Sealed first-price) и <span class="annotation">B</span> (Английский ≈ Викри) дают одинаковую стратегию. Голландский — это first-price sealed-bid в реальном времени. Английский — это Викри с открытыми ставками.
+  </div>
+</section>
+
+<!-- ═══════════════ SECTION 2: SIMULATIONS ═══════════════ -->
+<section id="sims">
+  <h2><span class="num">02</span> Как это работает: один товар, четыре цены</h2>
+  <p class="lead">Три участника оценивают картину. Их истинные оценки: $100, $80 и $50. Что произойдёт при разных правилах?</p>
+
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="fp">First-Price</button>
+    <button class="tab-btn" data-tab="sp">Second-Price (Викри)</button>
+    <button class="tab-btn" data-tab="eng">Английский</button>
+  </div>
+
+  <!-- FIRST PRICE -->
+  <div class="tab-panel active" id="tab-fp">
+    <div class="sim-box">
+      <div class="sim-title">Закрытый first-price аукцион</div>
+      <p style="font-size:.9rem;color:var(--dim);margin-bottom:1.5rem">Каждый участник знает только свою оценку. Оптимальная стратегия при n=3: b(v) = v × ⅔. Bid shading встроен в равновесие — иначе нулевая прибыль при победе.</p>
+      <div class="bidders">
+        <div class="bidder winner">
+          <div class="name">Участник A</div>
+          <div class="value">Оценка: <em>$100</em></div>
+          <div class="bid">$67</div>
+          <div class="pays">Платит: <strong>$67</strong></div>
+        </div>
+        <div class="bidder">
+          <div class="name">Участник B</div>
+          <div class="value">Оценка: <em>$80</em></div>
+          <div class="bid">$53</div>
+          <div class="pays">Проиграл</div>
+        </div>
+        <div class="bidder">
+          <div class="name">Участник C</div>
+          <div class="value">Оценка: <em>$50</em></div>
+          <div class="bid">$33</div>
+          <div class="pays">Проиграл</div>
+        </div>
+      </div>
+      <div class="sim-result">
+        <div>
+          <div class="result-label">Продавец получает</div>
+          <div class="result-value">$67</div>
+        </div>
+        <div class="result-note">A победил, прибыль $33. Но продавец получил меньше, чем в Викри ($80).</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECOND PRICE -->
+  <div class="tab-panel" id="tab-sp">
+    <div class="sim-box">
+      <div class="sim-title">Аукцион Викри (second-price sealed-bid)</div>
+      <p style="font-size:.9rem;color:var(--dim);margin-bottom:1.5rem">Dominant strategy: ставь свою истинную оценку. Ты не рискуешь переплатить — платишь не свою, а вторую ставку. Занижать бессмысленно — это лишь увеличивает шанс проиграть.</p>
+      <div class="bidders">
+        <div class="bidder winner">
+          <div class="name">Участник A</div>
+          <div class="value">Оценка: <em>$100</em></div>
+          <div class="bid">$100</div>
+          <div class="pays">Платит: <strong>$80</strong></div>
+        </div>
+        <div class="bidder">
+          <div class="name">Участник B</div>
+          <div class="value">Оценка: <em>$80</em></div>
+          <div class="bid">$80</div>
+          <div class="pays">Проиграл</div>
+        </div>
+        <div class="bidder">
+          <div class="name">Участник C</div>
+          <div class="value">Оценка: <em>$50</em></div>
+          <div class="bid">$50</div>
+          <div class="pays">Проиграл</div>
+        </div>
+      </div>
+      <div class="sim-result">
+        <div>
+          <div class="result-label">Продавец получает</div>
+          <div class="result-value">$80</div>
+        </div>
+        <div class="result-note">A победил, прибыль $20 (= $100 − $80). Честно ставил — честно заплатил.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ENGLISH -->
+  <div class="tab-panel" id="tab-eng">
+    <div class="sim-box">
+      <div class="sim-title">Английский аукцион (открытый восходящий)</div>
+      <p style="font-size:.9rem;color:var(--dim);margin-bottom:1.5rem">Цена растёт. C выходит при $50, B — при $80. A побеждает и платит $81 (на один шаг выше второй оценки). Результат ≈ Викри.</p>
+      <div class="bidders">
+        <div class="bidder" style="opacity:.5">
+          <div class="name">Участник C</div>
+          <div class="value">Выходит при <em>$50</em></div>
+          <div class="bid" style="text-decoration:line-through;color:var(--dim)">$50</div>
+          <div class="pays">🚪 Вышел</div>
+        </div>
+        <div class="bidder" style="opacity:.5">
+          <div class="name">Участник B</div>
+          <div class="value">Выходит при <em>$80</em></div>
+          <div class="bid" style="text-decoration:line-through;color:var(--dim)">$80</div>
+          <div class="pays">🚪 Вышел</div>
+        </div>
+        <div class="bidder winner">
+          <div class="name">Участник A</div>
+          <div class="value">Оценка: <em>$100</em></div>
+          <div class="bid">$81</div>
+          <div class="pays">Платит: <strong>$81</strong></div>
+        </div>
+      </div>
+      <div class="sim-result">
+        <div>
+          <div class="result-label">Продавец получает</div>
+          <div class="result-value">≈ $80</div>
+        </div>
+        <div class="result-note">Та же логика, что и Викри: побеждает A, платит ≈ оценку B</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="key-insight">
+    <strong>Подождите — цены разные?</strong> Да. В этом конкретном примере: Викри = $80, Английский ≈ $80, First-price = $67. Revenue Equivalence говорит не о каждом отдельном аукционе, а об <em>ожидаемом доходе при многократных торгах</em> со случайными оценками. В среднем по тысячам аукционов — одинаково. В каждом конкретном — нет.
+  </div>
+</section>
+
+<!-- ═══════════════ SECTION 3: FORMULAS ═══════════════ -->
+<section id="math">
+  <h2><span class="num">03</span> Математика: формулы ставок</h2>
+  <p class="lead">Оптимальные стратегии в закрытых аукционах — если оценки участников равномерно распределены на отрезке [0, 1], а участников n.</p>
+
+  <div class="formula-card">
+    <div style="font-family:var(--mono);font-size:.75rem;color:var(--orange);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.75rem">Second-Price (Викри)</div>
+    <div class="formula">
+      <span class="var-b">b</span><span class="op">(</span><span class="var-v">v</span><span class="op">) = </span><span class="var-v">v</span>
+    </div>
+    <div class="formula-explain">Ставь ровно свою оценку. Всегда. Это dominant strategy — не зависит от числа участников и их поведения.</div>
+  </div>
+
+  <div class="formula-card">
+    <div style="font-family:var(--mono);font-size:.75rem;color:var(--teal);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.75rem">First-Price (закрытый)</div>
+    <div class="formula">
+      <span class="var-b">b</span><span class="op">(</span><span class="var-v">v</span><span class="op">) = </span><span class="var-v">v</span> <span class="op">× </span><span class="op">(</span><span class="var-n">n</span><span class="op"> − 1) / </span><span class="var-n">n</span>
+    </div>
+    <div class="formula-explain">
+      Bid shading встроен в формулу. При 2 участниках ставишь половину оценки. При 10 — 90%. Чем больше конкурентов, тем агрессивнее торги.
+    </div>
+  </div>
+
+  <h3>Bid shading по числу участников</h3>
+  <div class="sim-box" style="padding:1.5rem">
+    <p style="font-size:.85rem;color:var(--dim);margin-bottom:1rem">Участник с оценкой <strong style="color:var(--teal)">v = $100</strong> в first-price аукционе:</p>
+    <div id="shading-bars"></div>
+  </div>
+
+  <div class="formula-card" style="margin-top:2rem">
+    <div style="font-family:var(--mono);font-size:.75rem;color:var(--indigo);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.75rem">Revenue Equivalence Theorem</div>
+    <div class="formula" style="font-size:clamp(.85rem,2vw,1.1rem)">
+      <span class="op">E[</span>Revenue<sub>FP</sub><span class="op">] = E[</span>Revenue<sub>SP</sub><span class="op">] = </span>
+      <span class="op">(</span><span class="var-n">n</span><span class="op"> − 1) / (</span><span class="var-n">n</span><span class="op"> + 1)</span>
+    </div>
+    <div class="formula-explain">
+      При n участниках с оценками из U[0, 1] <strong style="color:var(--yellow)">ожидаемый</strong> доход продавца одинаков для всех четырёх форматов. Ключевое слово — ожидаемый: в каждом конкретном аукционе цены различаются, но в среднем по многим — сходятся. Vickrey 1961 (для 2 участников), Riley & Samuelson 1981 (общий случай) → Нобелевская премия 1996.
+    </div>
+  </div>
+
+  <div class="key-insight">
+    <strong>Условия теоремы:</strong> независимые частные оценки, нейтральность к риску, симметричные участники, нет сговора. В реальности все условия нарушаются — поэтому выбор формата критически важен.
+  </div>
+</section>
+
+<!-- ═══════════════ SECTION 4: NZ DISASTER ═══════════════ -->
+<section id="nz">
+  <h2><span class="num">04</span> Что бывает, когда теория встречает реальность</h2>
+  <p class="lead">Новая Зеландия, 1990. Правительство нанимает консалтинговую фирму NERA для дизайна аукциона радиочастот (ТВ и сотовые лицензии). NERA рекомендует аукцион Викри. Ожидаемый доход: NZ$250 млн.</p>
+
+  <div class="disaster-grid">
+    <div class="disaster-card">
+      <div class="lot">Радиочастотная лицензия</div>
+      <div class="high-bid">Ставка: NZ$100 000</div>
+      <div class="paid">Оплата: NZ$6</div>
+      <div class="ratio">Скидка: <strong>99.994%</strong></div>
+    </div>
+    <div class="disaster-card">
+      <div class="lot">Радиочастотная лицензия</div>
+      <div class="high-bid">Ставка: NZ$7 000 000</div>
+      <div class="paid">Оплата: NZ$5 000</div>
+      <div class="ratio">Скидка: <strong>99.93%</strong></div>
+    </div>
+    <div class="disaster-card">
+      <div class="lot">Национальная сотовая лицензия</div>
+      <div class="high-bid">Ставка: NZ$101 000 000</div>
+      <div class="paid">Оплата: NZ$11 000 000</div>
+      <div class="ratio">Скидка: <strong>89.1%</strong></div>
+    </div>
+    <div class="disaster-card">
+      <div class="lot">Sky Network TV, Лот 1</div>
+      <div class="high-bid">Ставка: NZ$2 371 000</div>
+      <div class="paid">Оплата: NZ$401 000</div>
+      <div class="ratio">Скидка: <strong>83.1%</strong></div>
+    </div>
+  </div>
+
+  <div class="disaster-summary">
+    <div class="disaster-stat">
+      <div class="label">Ожидали</div>
+      <div class="val">NZ$250M</div>
+    </div>
+    <div class="disaster-stat" style="font-size:2rem;color:var(--dim)">→</div>
+    <div class="disaster-stat">
+      <div class="label">Получили</div>
+      <div class="val">NZ$36M</div>
+    </div>
+    <div class="disaster-stat">
+      <div class="label">Потеряно</div>
+      <div class="val">86%</div>
+    </div>
+  </div>
+
+  <div class="key-insight">
+    <strong>Что пошло не так?</strong> Три ошибки дизайна: (1) не установили минимальную цену (reserve price) — можно ставить $6; (2) продавали идентичные лицензии отдельными Викри-аукционами вместо единого uniform-price; (3) участники были асимметричны (инкумбенты vs новички) — revenue equivalence не работает.
+  </div>
+</section>
+
+<!-- ═══════════════ SECTION 4.5: DEEP COMPARISON ═══════════════ -->
+<section id="compare">
+  <h2><span class="num">04½</span> Сравнительная таблица: всё в одном месте</h2>
+  <p class="lead">Каждый формат — это trade-off между простотой, эффективностью, устойчивостью к сговору и скоростью.</p>
+
+  <div class="cmp-scroll">
+  <table class="cmp-table">
+    <caption>Четыре базовых формата: сравнение по ключевым параметрам</caption>
+    <thead>
+      <tr>
+        <th></th>
+        <th>English<br>(открытый ↑)</th>
+        <th>Dutch<br>(открытый ↓)</th>
+        <th>First-Price<br>(закрытый)</th>
+        <th>Викри<br>(second-price)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-head">Стратегия</td>
+        <td>Торгуйся до v</td>
+        <td>Bid shading</td>
+        <td>Bid shading</td>
+        <td class="good">b(v) = v — dominant</td>
+      </tr>
+      <tr>
+        <td class="row-head">Победитель платит</td>
+        <td>≈ 2-ю оценку</td>
+        <td>Свою ставку</td>
+        <td>Свою ставку</td>
+        <td>2-ю ставку</td>
+      </tr>
+      <tr>
+        <td class="row-head">Раскрытие информации</td>
+        <td class="good">Высокое — видишь ставки</td>
+        <td class="bad">Низкое — одна цена</td>
+        <td class="bad">Нулевое</td>
+        <td class="neutral">Среднее — 2 цены</td>
+      </tr>
+      <tr>
+        <td class="row-head">Скорость</td>
+        <td class="bad">Медленно (минуты–часы)</td>
+        <td class="good">Очень быстро</td>
+        <td class="good">Один раунд</td>
+        <td class="good">Один раунд</td>
+      </tr>
+      <tr>
+        <td class="row-head">Устойчивость к сговору</td>
+        <td class="bad">Низкая — видно, кто ставит</td>
+        <td class="good">Высокая</td>
+        <td class="good">Высокая</td>
+        <td class="neutral">Средняя</td>
+      </tr>
+      <tr>
+        <td class="row-head">Winner's curse</td>
+        <td class="good">Менее опасен — видишь конкурентов</td>
+        <td class="bad">Опасен</td>
+        <td class="bad">Максимально опасен</td>
+        <td class="good">Отсутствует — платишь не свою цену</td>
+      </tr>
+      <tr>
+        <td class="row-head">Сложность для участника</td>
+        <td class="good">Низкая</td>
+        <td>Средняя</td>
+        <td class="bad">Высокая — нужна модель оценки конкурентов</td>
+        <td class="good">Низкая — просто ставь v</td>
+      </tr>
+      <tr>
+        <td class="row-head">Где применяется</td>
+        <td>Кристис, Сотбис, eBay (де-факто), FCC SMRA</td>
+        <td>Aalsmeer (цветы), IPO (Google 2004), Treasury bills</td>
+        <td>Госзакупки, тендеры, programmatic (с 2019)</td>
+        <td>RTB (2007–2017), Google Ads (search, GSP-вариант)</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>Revenue Equivalence: когда работает и когда нет</h3>
+  <div class="cmp-scroll">
+  <table class="cmp-table">
+    <caption>Условия теоремы Revenue Equivalence и что происходит при их нарушении</caption>
+    <thead>
+      <tr>
+        <th>Условие</th>
+        <th>Если выполняется</th>
+        <th>Если нарушается</th>
+        <th>Реальный пример</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-head">Независимые частные оценки</td>
+        <td class="good">Все форматы дают одинаковый доход</td>
+        <td class="bad">English auction даёт больше (меньше winner's curse)</td>
+        <td>Нефтеразведка: оценки коррелируют (общая ценность месторождения)</td>
+      </tr>
+      <tr>
+        <td class="row-head">Нейтральность к риску</td>
+        <td class="good">RE работает</td>
+        <td class="bad">First-price даёт больше (risk-averse участники bid shading меньше)</td>
+        <td>Госзакупки: подрядчики рискуют — лучше переплатить, чем проиграть</td>
+      </tr>
+      <tr>
+        <td class="row-head">Симметричные участники</td>
+        <td class="good">RE работает</td>
+        <td class="bad">Сильный участник занижает; слабый — завышает. Результат непредсказуем</td>
+        <td>NZ 1990: инкумбент vs новичок → $101M/$11M</td>
+      </tr>
+      <tr>
+        <td class="row-head">Нет сговора</td>
+        <td class="good">RE работает</td>
+        <td class="bad">Second-price → манипуляция floor price. English → ring bidding</td>
+        <td>Header bidding SSP: second-price + floor manipulation → переход на first-price</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<!-- ═══════════════ SECTION 5: ADTECH TIMELINE ═══════════════ -->
+<section id="adtech">
+  <h2><span class="num">05</span> Аукцион за 100 миллисекунд: эволюция рекламных торгов</h2>
+  <p class="lead">Рекламные аукционы — самые массовые в истории: триллионы торгов в день. Их эволюция повторяет теорию аукционов за 15 лет.</p>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-year">2007</div>
+      <div class="tl-title">RTB и second-price аукцион</div>
+      <div class="tl-desc">Рождение programmatic: SSP проводят Викри-аукционы в реальном времени. Рекламодатель с наивысшей ставкой побеждает и платит вторую цену + $0.01. Truthful bidding — каждый ставит свою оценку.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">~2012</div>
+      <div class="tl-title">Waterfall: каскад неэффективности</div>
+      <div class="tl-desc">Паблишеры обзванивают ad networks последовательно: Google первый, потом остальные. Ставка за $8 от третьего SSP не побьёт цену $5 от первого — её никогда не увидят. Потери: 20–40% дохода.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">2014–2015</div>
+      <div class="tl-title">Header bidding: одновременные торги</div>
+      <div class="tl-desc">Революция. Все SSP получают bid request одновременно. Prebid.js (2015, open source) становится стандартом. 84% топ-10K сайтов в США. RPM рост 30–40%. По сути — переход от sequential к simultaneous auction.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">2017</div>
+      <div class="tl-title">Биржи переходят на first-price</div>
+      <div class="tl-desc">OpenX, Rubicon Project и другие exchanges отказываются от second-price. Причина: в header bidding second-price создаёт непрозрачность — SSP может манипулировать floor prices. First-price проще и честнее.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">2019</div>
+      <div class="tl-title">Google Ad Manager → unified first-price</div>
+      <div class="tl-desc">Google — последний крупный exchange. Отменяет last look (привилегию видеть чужие ставки). Unified auction = одна первая цена для всех. Вся индустрия — first-price. Bid shading становится обязательным.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">2021</div>
+      <div class="tl-title">AdSense → first-price. Круг замкнулся.</div>
+      <div class="tl-desc">Последний бастион second-price в Google сдаётся. Теория аукционов: second-price → truthful. Практика: first-price + bid shading. Revenue equivalence? Формально да, но bid shading может забирать до 20% дохода паблишера.</div>
+    </div>
+  </div>
+
+  <div class="key-insight">
+    <strong>Итог:</strong> Рекламная индустрия прошла путь от Викри (2007) к first-price (2019) за 12 лет — по тем же причинам, которые Vickrey описал в 1961: когда оценки коррелируют, участники асимметричны и есть посредники, second-price создаёт возможности для манипуляций. Теория не ошиблась — ошиблись условия применения.
+  </div>
+</section>
+
+<!-- ═══════════════ SECTION 6: FINANCE ═══════════════ -->
+<section id="finance">
+  <h2><span class="num">06</span> Аукционы в финансах</h2>
+  <p class="lead">Финансовые рынки — это аукционы с другими названиями. Treasury, IPO, buyback — везде те же механизмы.</p>
+
+  <div class="use-grid">
+    <div class="use-card">
+      <div class="use-icon">🏛️</div>
+      <div class="use-domain">Государственный долг</div>
+      <div class="use-title">US Treasury Bills</div>
+      <div class="use-desc">ФРБ Нью-Йорка продаёт гособлигации через голландский аукцион. Primary dealers подают ставки с желаемой доходностью. Бумаги распределяются от наименьшей yield вверх. Все победители платят единую цену (uniform-price).</div>
+      <div class="use-type t-dutch">Dutch / Uniform-price</div>
+      <div class="use-stat">$23 трлн+ долга</div>
+    </div>
+    <div class="use-card">
+      <div class="use-icon">📈</div>
+      <div class="use-domain">IPO</div>
+      <div class="use-title">Google IPO, 2004</div>
+      <div class="use-desc">Вместо инвестбанка — модифицированный голландский аукцион. Инвесторы указывали цену и объём. Финальная цена $85 — единая для всех. В первый день +18%. Цель: минимизировать underpricing и пустить розницу.</div>
+      <div class="use-type t-dutch">Modified Dutch</div>
+      <div class="use-stat">$1.67 млрд привлечено</div>
+    </div>
+    <div class="use-card">
+      <div class="use-icon">💱</div>
+      <div class="use-domain">Фондовая биржа</div>
+      <div class="use-title">Непрерывный двойной аукцион</div>
+      <div class="use-desc">NYSE, NASDAQ, MOEX — continuous double auction. Покупатели и продавцы одновременно подают заявки. Сделка — при пересечении bid/ask. Самый массовый формат на планете: миллиарды сделок в день.</div>
+      <div class="use-type t-combo">Continuous Double</div>
+      <div class="use-stat">~$120 трлн/год объём</div>
+    </div>
+    <div class="use-card">
+      <div class="use-icon">🔄</div>
+      <div class="use-domain">Buyback</div>
+      <div class="use-title">Обратный выкуп акций</div>
+      <div class="use-desc">Компании (AIG, Raytheon) используют Dutch auction для buyback. Акционеры указывают, по какой цене готовы продать. Компания выкупает от наименьшей цены вверх. Более справедливо, чем fixed-price tender.</div>
+      <div class="use-type t-dutch">Dutch (обратный)</div>
+    </div>
+    <div class="use-card">
+      <div class="use-icon">🌍</div>
+      <div class="use-domain">Углеродный рынок</div>
+      <div class="use-title">EU ETS</div>
+      <div class="use-desc">€245 млрд с 2013 года. Еженедельные аукционы на EEX — sealed-bid uniform-price. Средняя цена 2024: €65/тCO₂. Пик в 2023: €100+. 599 млн квот продано в 2024. По сути — финансовый рынок на аукционном фундаменте.</div>
+      <div class="use-type t-fp">Sealed Uniform-Price</div>
+      <div class="use-stat">€39 млрд в 2024</div>
+    </div>
+    <div class="use-card">
+      <div class="use-icon">🔑</div>
+      <div class="use-domain">Банкротство</div>
+      <div class="use-title">Аукционы активов</div>
+      <div class="use-desc">Процедура Chapter 11 (США): активы банкрота продаются через ascending auction с reserve price. Stalking horse bid = начальная ставка от первого покупателя. Другие торгуются выше. Lehman Brothers, 2008.</div>
+      <div class="use-type t-eng">English + Stalking Horse</div>
+    </div>
+  </div>
+
+  <h3>Сравнение: как один и тот же механизм работает в разных финансовых контекстах</h3>
+  <div class="cmp-scroll">
+  <table class="cmp-table">
+    <thead>
+      <tr>
+        <th>Рынок</th>
+        <th>Формат</th>
+        <th>Товар</th>
+        <th>Частота</th>
+        <th>Участники</th>
+        <th>Объём</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="row-head">US Treasury</td><td>Dutch / uniform-price</td><td>Гособлигации</td><td>Еженедельно</td><td>Primary dealers + институционалы</td><td>$23 трлн долга</td></tr>
+      <tr><td class="row-head">EU ETS</td><td>Sealed uniform-price</td><td>Квоты CO₂</td><td>3–5 раз/нед</td><td>Промышленность + финсектор</td><td>€39 млрд/год</td></tr>
+      <tr><td class="row-head">NYSE/NASDAQ</td><td>Continuous double</td><td>Акции</td><td>Непрерывно</td><td>Все — от розницы до HFT</td><td>~$120 трлн/год</td></tr>
+      <tr><td class="row-head">Programmatic</td><td>First-price sealed</td><td>Ad impressions</td><td>Триллионы/день</td><td>DSP → SSP → Publisher</td><td>~$500 млрд/год</td></tr>
+      <tr><td class="row-head">FCC Spectrum</td><td>SMRA (Milgrom-Wilson)</td><td>Радиочастоты</td><td>Раз в 1–3 года</td><td>Телекомы</td><td>$81 млрд рекорд</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<!-- ═══════════════ SECTION 7: IT BEYOND ADS ═══════════════ -->
+<section id="it">
+  <h2><span class="num">07</span> Аукционы в IT: за пределами рекламы</h2>
+  <p class="lead">Облачные вычисления, доменные имена, электроэнергия, DNS-маршрутизация — везде, где есть ограниченный ресурс и переменный спрос, появляется аукцион.</p>
+
+  <div class="use-grid">
+    <div class="use-card">
+      <div class="use-icon">☁️</div>
+      <div class="use-domain">Cloud Computing</div>
+      <div class="use-title">AWS Spot Instances</div>
+      <div class="use-desc">С 2009: AWS продаёт неиспользуемые мощности EC2 через аукционный механизм. Скидка до 90% от on-demand. В 2017 перешли от чистого аукциона к smoothed pricing (как Google сделал в adtech). Прерывание: 30 сек — 2 мин уведомление.</div>
+      <div class="use-type t-combo">Auction → Fixed Discount</div>
+      <div class="use-stat">до −90% стоимости</div>
+    </div>
+    <div class="use-card">
+      <div class="use-icon">🖥️</div>
+      <div class="use-domain">Cloud Computing</div>
+      <div class="use-title">GPU Spot для AI/ML</div>
+      <div class="use-desc">H100 on-demand: ~$98/час (8 GPU). Spot: ~$20/час — экономия 80%. Spotify сократил ML-расходы с $8.2M до $2.4M. Рынок GPU-аренды: $3.3B → $33.9B к 2032. Аукционная логика распределяет дефицитный ресурс.</div>
+      <div class="use-type t-combo">Supply-Demand Pricing</div>
+      <div class="use-stat">−80% на H100</div>
+    </div>
+    <div class="use-card">
+      <div class="use-icon">🌐</div>
+      <div class="use-domain">Доменные имена</div>
+      <div class="use-title">Expired Domain Auctions</div>
+      <div class="use-desc">GoDaddy, NameJet, DropCatch — English auction для просроченных доменов. Premium-домены на Sedo/Afternic — sealed-bid. Домен voice.com продан за $30M (2019). Классический English auction с reserve price.</div>
+      <div class="use-type t-eng">English + Reserve</div>
+      <div class="use-stat">$30M рекорд</div>
+    </div>
+    <div class="use-card">
+      <div class="use-icon">⚡</div>
+      <div class="use-domain">Энергетика</div>
+      <div class="use-title">Энергобиржи</div>
+      <div class="use-desc">EPEX SPOT (Европа), PJM (США): генерирующие мощности подают ставки ежечасно. Merit order: от дешёвых (солнце, ветер) к дорогим (газ). Маргинальная цена = ставка последнего включённого генератора. Uniform-price auction.</div>
+      <div class="use-type t-dutch">Uniform-Price Merit Order</div>
+      <div class="use-stat">€60–300/МВт·ч</div>
+    </div>
+    <div class="use-card">
+      <div class="use-icon">🔗</div>
+      <div class="use-domain">Blockchain</div>
+      <div class="use-title">Ethereum Gas Auctions</div>
+      <div class="use-desc">До EIP-1559 (2021): чистый first-price auction за место в блоке. Проблема: gas wars, MEV-атаки. После EIP-1559: base fee (algorithmic) + priority tip. Гибрид фиксированной цены и first-price. Снижение волатильности на 36%.</div>
+      <div class="use-type t-combo">First-Price → Hybrid</div>
+    </div>
+    <div class="use-card">
+      <div class="use-icon">🎮</div>
+      <div class="use-domain">Игровая индустрия</div>
+      <div class="use-title">Steam Marketplace / CS2 Skins</div>
+      <div class="use-desc">Continuous double auction: продавцы выставляют ask, покупатели — bid. Сделка при пересечении. Рынок скинов CS2: $1B+/год. Тот же механизм, что и на фондовой бирже, только товар — виртуальный нож за $60K.</div>
+      <div class="use-type t-combo">Continuous Double</div>
+      <div class="use-stat">$1B+/год</div>
+    </div>
+  </div>
+
+  <div class="key-insight">
+    <strong>Паттерн:</strong> Везде повторяется одна и та же эволюция. Начинают с чистого аукциона (AWS Spot 2009, Ethereum pre-1559, programmatic 2007). Со временем переходят к гибриду: аукционный механизм + алгоритмическое ценообразование. Причина: чистые аукционы слишком волатильны для production-систем. Стабильность побеждает теоретическую оптимальность.
+  </div>
+</section>
+
+<!-- ═══════════════ SECTION 8: TRENDS ═══════════════ -->
+<section id="trends">
+  <h2><span class="num">08</span> Будущее: куда движутся аукционы</h2>
+  <p class="lead">AI-оптимизация ставок, privacy-preserving auctions, combinatorial mechanisms — теория догоняет практику.</p>
+
+  <div class="trend-grid">
+    <div class="trend-card">
+      <div class="trend-when">Сейчас → 2027</div>
+      <div class="trend-title">AI Bidding Agents</div>
+      <div class="trend-desc">ML-алгоритмы уже делают bid shading в programmatic (Google, The Trade Desk). Следующий шаг: автономные агенты, которые торгуются друг с другом без людей. Проблема: алгоритмический сговор — агенты «договариваются» без явного соглашения.</div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-when">Сейчас → 2028</div>
+      <div class="trend-title">Privacy-Preserving Auctions</div>
+      <div class="trend-desc">Apple ATT, Google Privacy Sandbox, EU DSA — данные о пользователях становятся недоступны. Аукционы без знания, кто на другом конце. Решение: federated auctions, on-device bidding (Google Topics), contextual signals вместо user-level data.</div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-when">2025+</div>
+      <div class="trend-title">Combinatorial Auctions</div>
+      <div class="trend-desc">FCC Incentive Auction (2017) — первый крупный combinatorial auction: покупка + перепаковка + перепродажа спектра. NP-hard задача, решённая с помощью SAT-solvers. Следующие применения: 5G/6G shared spectrum, multi-cloud procurement.</div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-when">2026+</div>
+      <div class="trend-title">Dynamic Mechanism Design</div>
+      <div class="trend-desc">Классическая теория — одноразовые аукционы. Реальность — миллиарды повторяющихся торгов. Dynamic VCG и банановые механизмы (Bergemann & Välimäki) оптимизируют для серии аукционов с обучающимися участниками.</div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-when">2025+</div>
+      <div class="trend-title">Real-Time Energy Markets</div>
+      <div class="trend-desc">Распределённые энергоресурсы (DER): домашние батареи, солнечные панели, EV. Peer-to-peer аукционы электричества между домохозяйствами. Пилоты в Австралии (Power Ledger), Германии (Sonnen). Blockchain + continuous double auction.</div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-when">Долгосрочно</div>
+      <div class="trend-title">Аукционы → Автоматические рынки</div>
+      <div class="trend-desc">Конвергенция: AWS Spot уже не аукцион, а algorithmic pricing. Google Ads — ML определяет floor и bid shading. Чистые аукционы растворяются в dynamic pricing. Но основа — auction theory — остаётся: mechanism design определяет incentives.</div>
+    </div>
+  </div>
+
+  <h3>Эволюция: от молотка к алгоритму</h3>
+  <div class="cmp-scroll">
+  <table class="cmp-table">
+    <caption>Как менялись аукционы: от людей к машинам</caption>
+    <thead>
+      <tr>
+        <th>Эпоха</th>
+        <th>Механизм</th>
+        <th>Скорость</th>
+        <th>Участники</th>
+        <th>Пример</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="row-head">До XX века</td><td>English, Dutch</td><td>Минуты–часы</td><td>Люди в зале</td><td>Кристис (1766), Aalsmeer (1911)</td></tr>
+      <tr><td class="row-head">1960–1990</td><td>Sealed-bid, Vickrey</td><td>Дни–недели</td><td>Компании + правительства</td><td>NZ Spectrum 1990, US Treasury</td></tr>
+      <tr><td class="row-head">1994–2010</td><td>SMRA, combinatorial</td><td>Недели–месяцы</td><td>Телекомы + регуляторы</td><td>FCC Auctions (Milgrom/Wilson)</td></tr>
+      <tr><td class="row-head">2007–2019</td><td>RTB second-price → first-price</td><td>100 мс</td><td>Алгоритмы DSP/SSP</td><td>Programmatic, header bidding</td></tr>
+      <tr><td class="row-head">2020+</td><td>ML bid agents + hybrid pricing</td><td>Микросекунды</td><td>AI vs AI</td><td>Auto-bidding, Spot pricing, EIP-1559</td></tr>
+      <tr><td class="row-head">2027+?</td><td>Autonomous mechanism design</td><td>Real-time</td><td>AI проектирует правила</td><td>Self-adjusting auctions, LLM agents</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="key-insight">
+    <strong>Мета-тренд:</strong> Аукционы исчезают как видимый интерфейс — но пронизывают всё. Вы не «торгуетесь» за Spot Instance или рекламный показ. Но под капотом — та же теорема Викри, тот же bid shading, тот же revenue equivalence. Аукционная теория — невидимая операционная система рынков.
+  </div>
+</section>
+
+<!-- ═══════════════ SECTION 9: KEY TAKEAWAY ═══════════════ -->
+<section id="takeaway">
+  <h2><span class="num">09</span> Один урок</h2>
+
+  <div class="formula-card" style="border-color:var(--orange);background:rgba(255,107,53,.03)">
+    <div class="formula" style="font-size:clamp(1rem,3vw,1.5rem);font-family:var(--head);font-weight:700;color:var(--text)">
+      Правила определяют поведение.<br>Поведение определяет цену.<br>
+      <span style="color:var(--orange)">Кто проектирует правила — владеет рынком.</span>
+    </div>
+    <div class="formula-explain" style="margin-top:1rem">
+      Одни и те же радиоволны стоят от $0.001 до $0.875 за MHz/pop — разница в 875×. Одна и та же реклама приносит на 30–40% больше или меньше в зависимости от формата аукциона. Один и тот же углерод стоит €5 или €100 — от правил cap-and-trade.<br><br>
+      Аукцион — это не молоток в Кристис. Это модель любого рынка с конкуренцией за ограниченный ресурс.
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <p>Арт Папилов · <a href="https://papilov.org">papilov.org</a> · Исследование проведено с Claude (Anthropic)</p>
+  <p style="margin-top:.5rem">CC BY-NC 4.0 · 2026</p>
+</footer>
+
+</div>
+
+<script>
+// Tabs
+document.querySelectorAll('.tab-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-'+btn.dataset.tab).classList.add('active');
+  });
+});
+
+// Bid shading bars
+const shadingData=[
+  {n:2,bid:50},{n:3,bid:67},{n:5,bid:80},{n:10,bid:90},{n:20,bid:95},{n:100,bid:99}
+];
+const barsContainer=document.getElementById('shading-bars');
+shadingData.forEach(d=>{
+  const row=document.createElement('div');
+  row.className='re-bar';
+  row.innerHTML=`
+    <span class="bar-label" style="width:2.5rem">${d.n===100?'100':d.n}</span>
+    <div class="bar-track">
+      <div class="bar-fill fp" style="width:${d.bid}%" data-w="${d.bid}%">$${d.bid}</div>
+    </div>
+    <span style="font-family:var(--mono);font-size:.7rem;color:var(--dim);width:4.5rem;text-align:right">n=${d.n}</span>
+  `;
+  barsContainer.appendChild(row);
+});
+
+// Intersection Observer for section reveals
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('visible');
+    }
+  });
+},{threshold:0.1,rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('section').forEach(s=>observer.observe(s));
+
+// Animate bars on visibility
+const barObserver=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.querySelectorAll('.bar-fill').forEach((bar,i)=>{
+        bar.style.width='0%';
+        setTimeout(()=>{bar.style.width=bar.dataset.w||bar.style.width},100+i*80);
+      });
+    }
+  });
+},{threshold:0.3});
+document.querySelectorAll('.sim-box').forEach(b=>barObserver.observe(b));
+</script>
+</body>
+</html>
