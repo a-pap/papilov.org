@@ -10,11 +10,10 @@ tags: ["经济学", "订阅", "定价", "行为经济学"]
 series: "信息 ≠ 理解"
 ai_disclosure: "研究由Claude（Anthropic）辅助完成。编辑方向与领域专业知识由作者提供。"
 license: "CC BY-NC 4.0"
-robots: "noindex"
 og_image: "/img/og-subscription-pricing.png"
 ---
 
-自2020年以来，订阅价格的涨幅超过通胀率3–5倍。美国消费者价格指数在此期间上涨约22%。多数主要订阅服务涨幅为50–170%。
+自2020年以来，订阅价格的涨幅超过通胀率3–5倍。美国消费者价格指数在此期间上涨约25%。多数主要订阅服务涨幅为50–170%。
 
 Disney+以172%的涨幅领先（$6.99 → $18.99），其次是Apple TV+ 160%、Netflix 125%、Xbox Game Pass Ultimate翻倍至$29.99。与此同时，《魔兽世界》自2004年11月起一直收费$14.99/月——21年零变动。
 
@@ -31,7 +30,7 @@ Disney+以172%的涨幅领先（$6.99 → $18.99），其次是Apple TV+ 160%、
   <div class="bar-row"><div class="label">Amazon Prime</div><div class="track"><div class="fill" style="width:38%">$79/年 → $139/年</div></div><div class="pct">+76%</div></div>
   <div class="bar-row"><div class="label">Microsoft 365</div><div class="track"><div class="fill" style="width:22%">$69.99 → $99.99/年</div></div><div class="pct">+43%</div></div>
   <div class="bar-row"><div class="label">Spotify</div><div class="track"><div class="fill" style="width:15%">$9.99 → $12.99</div></div><div class="pct">+30%</div></div>
-  <div class="bar-row muted"><div class="label">CPI通胀</div><div class="track"><div class="fill" style="width:11%"></div></div><div class="pct">~22%</div></div>
+  <div class="bar-row muted"><div class="label">CPI通胀</div><div class="track"><div class="fill" style="width:13%"></div></div><div class="pct">~25%</div></div>
 </div>
 
 ## 涨价者 vs. 守价者
@@ -66,8 +65,8 @@ $14.99已经21年没动过。但暴雪并没有放弃赚钱——他们移动了
   <div class="case-meta">自2004年11月起$14.99/月</div>
 
   <div class="metrics">
-    <div class="metric"><div class="val val--green">$25.22</div><div class="desc">$14.99（2004年）通胀调整后</div></div>
-    <div class="metric"><div class="val val--red">−41%</div><div class="desc">实际价格下降</div></div>
+    <div class="metric"><div class="val val--green">$25.72</div><div class="desc">$14.99（2004年）通胀调整后</div></div>
+    <div class="metric"><div class="val val--red">−42%</div><div class="desc">实际价格下降</div></div>
     <div class="metric"><div class="val val--blue">~9M</div><div class="desc">估计订阅用户（2025年）</div></div>
     <div class="metric"><div class="val val--yellow">$20</div><div class="desc">魔兽代币价格</div></div>
   </div>
@@ -103,7 +102,7 @@ Bobby Kotick（前CEO）：*"这是一群敏感的玩家。你不能过度刺激
       <li>订阅驱动关联消费</li>
       <li>价格=品牌身份</li>
       <li>每十年涨一次（如果涨的话）</li>
-      <li>Prime会员：亚马逊年消费$1,400</li>
+      <li>Prime会员：亚马逊年消费~$1,170</li>
     </ul>
   </div>
   <div class="fw-card fw-card--purple">
@@ -124,7 +123,7 @@ Bobby Kotick（前CEO）：*"这是一群敏感的玩家。你不能过度刺激
 <div class="psych-grid">
   <div class="psych-card">
     <h4>损失厌恶</h4>
-    <p>失去Netflix的痛苦感是理性节省金额的2倍。42%的用户即使不满意也会推迟取消。</p>
+    <p>失去Netflix的痛苦感是理性节省金额的2倍。失去的痛苦超过节省的理性。</p>
     <div class="big">2×</div>
   </div>
   <div class="psych-card">
@@ -148,9 +147,9 @@ Bobby Kotick（前CEO）：*"这是一群敏感的玩家。你不能过度刺激
 
 <div class="timeline">
   <div class="tl-item"><div class="tl-dot tl-dot--red"></div><div class="tl-year">2011</div><div class="tl-title">Netflix Qwikster——60%涨价</div><div class="tl-desc">流失80万订阅用户。股价暴跌77%。涨太多、太快、无附加价值。</div></div>
-  <div class="tl-item"><div class="tl-dot tl-dot--red"></div><div class="tl-year">2017–2019</div><div class="tl-title">MoviePass——相反的错误</div><div class="tl-desc">将价格降至$9.95可每天看电影。月亏$2000万。被迫涨价时92.3%流失。高管因欺诈被定罪。</div></div>
+  <div class="tl-item"><div class="tl-dot tl-dot--red"></div><div class="tl-year">2017–2019</div><div class="tl-title">MoviePass——相反的错误</div><div class="tl-desc">将价格降至$9.95可每天看电影。月亏$2700–4500万。被迫涨价时92%订阅用户流失。高管因欺诈被定罪。</div></div>
   <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2022 Q1</div><div class="tl-title">Netflix首次订阅用户下降</div><div class="tl-desc">华尔街从订阅增长转向关注单用户收入。所有流媒体开始激进涨价。</div></div>
-  <div class="tl-item"><div class="tl-dot tl-dot--red"></div><div class="tl-year">2022年5月</div><div class="tl-title">EVE Online打破18年冻价</div><div class="tl-desc">涨33%（$14.95 → $19.99）。玩家强烈反弹——进一步坚定了WoW维持原价的决定。</div></div>
+  <div class="tl-item"><div class="tl-dot tl-dot--red"></div><div class="tl-year">2022年5月</div><div class="tl-title">EVE Online打破19年冻价</div><div class="tl-desc">涨33%（$14.95 → $19.99）。玩家强烈反弹——进一步坚定了WoW维持原价的决定。</div></div>
   <div class="tl-item"><div class="tl-dot tl-dot--green"></div><div class="tl-year">2023–24</div><div class="tl-title">Netflix广告层+密码共享整治</div><div class="tl-desc">广告层达9400万用户。密码整治净增约5000万订阅。收入增长且无相应涨价之痛。</div></div>
   <div class="tl-item"><div class="tl-dot tl-dot--green"></div><div class="tl-year">2025年1月</div><div class="tl-title">Netflix所有层级涨价——无反弹</div><div class="tl-desc">所有套餐涨$1–$2.50。达到3.02亿订阅用户。温水煮蛙策略经14年完善。</div></div>
   <div class="tl-item"><div class="tl-dot tl-dot--red"></div><div class="tl-year">2025年10月</div><div class="tl-title">Xbox Game Pass——单次50%涨幅</div><div class="tl-desc">$19.99一夜涨至$29.99。退订网站崩溃。GameStop公开嘲讽微软。</div></div>

@@ -186,7 +186,7 @@ En 1997, Maldacena demostró que la gravedad cuántica en este espacio es equiva
 
 <div class="highlight-box">
 <strong>Una mente visual entre disciplinas</strong>
-Roger Penrose (n. 1931) propuso el triángulo imposible (1954) e inspiró a Escher. Sus mosaicos aperiódicos (1974) anticiparon los cuasicristales. Su teorema de singularidad usó topología donde otros intentaron cálculos directos. Sus diagramas conformes reemplazaron páginas de ecuaciones por una sola imagen. Premio Wolf 1988 con Hawking. Nobel 2020 a los 89 años.
+Roger Penrose (n. 1931) propuso el triángulo imposible (concebido en 1954, publicado en 1958) e inspiró a Escher. Sus mosaicos aperiódicos (1974) anticiparon los cuasicristales. Su teorema de singularidad usó topología donde otros intentaron cálculos directos. Sus diagramas conformes reemplazaron páginas de ecuaciones por una sola imagen. Premio Wolf 1988 con Hawking. Nobel 2020 a los 89 años.
 </div>
 
 ---

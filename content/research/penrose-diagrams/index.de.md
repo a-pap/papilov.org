@@ -184,7 +184,7 @@ Wenn nur die Kausalität zählt, müssen keine Abstände erhalten werden — nur
 
 <div class="highlight-box">
 <strong>Ein visueller Denker über Disziplinen hinweg</strong>
-Roger Penrose (geb. 1931): unmögliches Dreieck → Escher. Aperiodische Kacheln → Quasikristalle. Singularitätstheorem: Topologie statt Rechnung. Konforme Diagramme: eine Zeichnung statt Seiten voller Gleichungen. Wolf-Preis 1988 mit Hawking. Nobelpreis 2020 mit 89 Jahren.
+Roger Penrose (geb. 1931): unmögliches Dreieck (konzipiert 1954, veröffentlicht 1958) → Escher. Aperiodische Kacheln → Quasikristalle. Singularitätstheorem: Topologie statt Rechnung. Konforme Diagramme: eine Zeichnung statt Seiten voller Gleichungen. Wolf-Preis 1988 mit Hawking. Nobelpreis 2020 mit 89 Jahren.
 </div>
 
 ---

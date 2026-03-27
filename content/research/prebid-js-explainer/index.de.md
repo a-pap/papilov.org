@@ -49,7 +49,7 @@ Publisher verkauften Inventar historisch über einen **Waterfall** — Werbenetz
 <div class="metrics">
 <div class="metric"><div class="val val--green">+20–50%</div><div class="desc">Uplift Waterfall → Header Bidding</div></div>
 <div class="metric"><div class="val val--green">+70%</div><div class="desc">The Telegraph (Fallstudie)</div></div>
-<div class="metric"><div class="val val--green">+25–50%</div><div class="desc">CPM-Uplift, Future plc</div></div>
+<div class="metric"><div class="val val--green">+25–50%</div><div class="desc">CPM-Uplift (Branchenbereich)</div></div>
 <div class="metric"><div class="val val--green">30–40%</div><div class="desc">durchschn. Portfolio-Uplift (AdPushup)</div></div>
 </div>
 
@@ -76,33 +76,31 @@ Es erzeugt Wettbewerb <em>vor</em> der Entscheidung und erhöht so den effektive
 <div class="metric"><div class="val val--blue">$203B</div><div class="desc">US Programmatic Display 2026</div></div>
 </div>
 
-Die ANA Supply Chain Study (2023) ergab, dass nur **36 Cent** pro Werbedollar beim Publisher ankamen. Bis Q3 2025 verbesserte sich dies auf **47,1¢** (+11 Punkte), doch $26,8 Mrd./Jahr gehen weiterhin durch Ineffizienzen in der Lieferkette verloren.
+Die ANA Supply Chain Study (2023) ergab, dass nur **36 Cent** pro Werbedollar beim Publisher ankamen. Bis Q3 2025 verbesserte sich dies auf **47,1¢** (+11 Punkte).
 
 <div class="dollar-flow">
 <div class="dollar-node"><div class="dollar-box">Werbetreibender</div><div class="dollar-amt">$1,00</div></div>
 <div class="dollar-arr">→</div>
 <div class="dollar-node"><div class="dollar-box">DSP- + SSP-Gebühren</div><div class="dollar-amt" style="color: var(--purple-soft)">−29¢</div><div class="dollar-note">Transaktionen</div></div>
 <div class="dollar-arr">→</div>
-<div class="dollar-node"><div class="dollar-box">Verluste</div><div class="dollar-amt" style="color: var(--red-soft)">−24¢</div><div class="dollar-note">IVT, MFA</div></div>
+<div class="dollar-node"><div class="dollar-box">Verluste</div><div class="dollar-amt" style="color: var(--red-soft)">−35¢</div><div class="dollar-note">IVT, MFA (2023)</div></div>
 <div class="dollar-arr">→</div>
-<div class="dollar-node"><div class="dollar-box">Publisher</div><div class="dollar-amt" style="color: var(--green-soft)">47¢</div><div class="dollar-note">vorher 36¢</div></div>
+<div class="dollar-node"><div class="dollar-box">Publisher</div><div class="dollar-amt" style="color: var(--green-soft)">36¢</div><div class="dollar-note">→ 47¢ bis Q3 2025</div></div>
 </div>
 
 <div class="metrics">
-<div class="metric"><div class="val val--red">$26,8B</div><div class="desc">jährliche Supply-Chain-Verluste</div></div>
-<div class="metric"><div class="val val--green">47,1%</div><div class="desc">Publisher-Anteil (vorher 36%)</div></div>
-<div class="metric"><div class="val val--green">0,8%</div><div class="desc">MFA-Inventar (Rekordtief)</div></div>
-<div class="metric"><div class="val val--blue">87,8%</div><div class="desc">PMP-Anteil (vorher 64,5%)</div></div>
+<div class="metric"><div class="val val--green">47,1%</div><div class="desc">Publisher-Anteil, Q3 2025 (vorher 36% in 2023)</div></div>
+<div class="metric"><div class="val val--green">0,39%</div><div class="desc">MFA-Inventar, Q3 2025 (Rekordtief)</div></div>
+<div class="metric"><div class="val val--blue">81,6%</div><div class="desc">PMP-Anteil, Q3 2025 (vorher 64,5%)</div></div>
 </div>
 
 ## Google Antitrust: Warum Prebid wichtiger wird
 
-Im April 2025 befand ein US-Bundesgericht Google der illegalen Monopolisierung der Publisher-Ad-Server- und Ad-Exchange-Märkte für schuldig. Die EU verhängte eine Strafe von 2,95 Milliarden Euro. Texas einigte sich auf $1,375 Mrd. Das DOJ fordert die Veräußerung von AdX.
+Im April 2025 befand ein US-Bundesgericht Google der illegalen Monopolisierung der Publisher-Ad-Server- und Ad-Exchange-Märkte für schuldig. Die EU verhängte eine Strafe von 2,95 Milliarden Euro. Das DOJ fordert die Veräußerung von AdX.
 
 <div class="metrics">
 <div class="metric"><div class="val val--red">~90%</div><div class="desc">Googles Ad-Server-Anteil</div></div>
 <div class="metric"><div class="val val--red">€2,95B</div><div class="desc">EU-Strafe</div></div>
-<div class="metric"><div class="val val--red">$1,375B</div><div class="desc">Texas-Vergleich</div></div>
 </div>
 
 > „Google hat vorsätzlich eine Reihe wettbewerbswidriger Handlungen begangen, um Monopolmacht in den Märkten für Publisher-Ad-Server und Ad-Exchanges zu erlangen und aufrechtzuerhalten."

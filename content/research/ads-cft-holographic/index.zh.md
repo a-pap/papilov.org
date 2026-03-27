@@ -10,7 +10,6 @@ tags: ["物理学", "全息原理", "AdS-CFT", "量子引力", "宇宙学"]
 series: "物理学解读"
 ai_disclosure: "研究由Claude（Anthropic）辅助完成。编辑方向与领域专业知识由作者提供。"
 license: "CC BY-NC 4.0"
-robots: "noindex"
 ---
 
 1997年，胡安·马尔达塞纳——一位29岁的阿根廷物理学家，普林斯顿博士毕业一年后刚成为哈佛教授——发表了高能物理学史上被引用最多的论文。迄今超过20,000次引用，27年来平均每天约两次。该领域第二和第三被引最多的论文都关于同一发现，且都引用了他的工作。
@@ -132,7 +131,7 @@ robots: "noindex"
 <div class="timeline">
   <div class="tl-item"><div class="tl-dot tl-dot--green"></div><div class="tl-year">1973</div><div class="tl-title">贝肯斯坦：熵 ∝ 面积</div><div class="tl-desc">一个博士生提出信息在边界上。几乎所有人反对。</div></div>
   <div class="tl-item"><div class="tl-dot tl-dot--green"></div><div class="tl-year">1975</div><div class="tl-title">霍金辐射</div><div class="tl-desc">S = A/4确立。信息悖论诞生。</div></div>
-  <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">1993</div><div class="tl-title">全息原理</div><div class="tl-desc">特·胡夫特和萨斯金德：信息与面积而非体积成比例。</div></div>
+  <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">1993–95</div><div class="tl-title">全息原理</div><div class="tl-desc">特·胡夫特和萨斯金德：信息与面积而非体积成比例。</div></div>
   <div class="tl-item"><div class="tl-dot tl-dot--green"></div><div class="tl-year">1997</div><div class="tl-title">马尔达塞纳发表AdS/CFT</div><div class="tl-desc">全息原理的首个具体实现。</div></div>
   <div class="tl-item"><div class="tl-dot tl-dot--green"></div><div class="tl-year">2006</div><div class="tl-title">笠-高柳公式</div><div class="tl-desc">边界纠缠 = 体内面积。</div></div>
   <div class="tl-item"><div class="tl-dot tl-dot--green"></div><div class="tl-year">2010</div><div class="tl-title">范·拉姆斯东克：时空源于纠缠</div><div class="tl-desc">无纠缠 → 时空断裂。</div></div>

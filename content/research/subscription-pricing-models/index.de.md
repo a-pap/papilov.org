@@ -13,7 +13,7 @@ license: "CC BY-NC 4.0"
 og_image: "/img/og-subscription-pricing.png"
 ---
 
-Seit 2020 sind Abo-Preise 3–5× schneller gestiegen als die Inflation. Der US-Verbraucherpreisindex stieg in diesem Zeitraum um etwa 22%. Die meisten großen Abonnements stiegen um 50–170%.
+Seit 2020 sind Abo-Preise 3–5× schneller gestiegen als die Inflation. Der US-Verbraucherpreisindex stieg in diesem Zeitraum um etwa 25%. Die meisten großen Abonnements stiegen um 50–170%.
 
 Disney+ führt mit einer Steigerung von 172% ($6,99 → $18,99), gefolgt von Apple TV+ mit 160%, Netflix mit 125% und Xbox Game Pass Ultimate, das sich auf $29,99 verdoppelte. Währenddessen kostet World of Warcraft seit November 2004 genau $14,99/Monat — 21 Jahre ohne jede Änderung.
 
@@ -30,7 +30,7 @@ Das ist kein Zufall. Es sind drei verschiedene Preismodelle mit grundlegend unte
   <div class="bar-row"><div class="label">Amazon Prime</div><div class="track"><div class="fill" style="width:38%">$79/J. → $139/J.</div></div><div class="pct">+76%</div></div>
   <div class="bar-row"><div class="label">Microsoft 365</div><div class="track"><div class="fill" style="width:22%">$69.99 → $99.99/J.</div></div><div class="pct">+43%</div></div>
   <div class="bar-row"><div class="label">Spotify</div><div class="track"><div class="fill" style="width:15%">$9.99 → $12.99</div></div><div class="pct">+30%</div></div>
-  <div class="bar-row muted"><div class="label">VPI-Inflation</div><div class="track"><div class="fill" style="width:11%"></div></div><div class="pct">~22%</div></div>
+  <div class="bar-row muted"><div class="label">VPI-Inflation</div><div class="track"><div class="fill" style="width:13%"></div></div><div class="pct">~25%</div></div>
 </div>
 
 ## Erhöher vs. Halter
@@ -65,8 +65,8 @@ $14,99 haben sich seit 21 Jahren nicht bewegt. Aber Blizzard verschenkt kein Gel
   <div class="case-meta">$14,99/Mo. seit November 2004</div>
 
   <div class="metrics">
-    <div class="metric"><div class="val val--green">$25,22</div><div class="desc">$14,99 (2004) inflationsbereinigt</div></div>
-    <div class="metric"><div class="val val--red">−41%</div><div class="desc">Realer Preisrückgang</div></div>
+    <div class="metric"><div class="val val--green">$25,72</div><div class="desc">$14,99 (2004) inflationsbereinigt</div></div>
+    <div class="metric"><div class="val val--red">−42%</div><div class="desc">Realer Preisrückgang</div></div>
     <div class="metric"><div class="val val--blue">~9M</div><div class="desc">Geschätzte Abonnenten (2025)</div></div>
     <div class="metric"><div class="val val--yellow">$20</div><div class="desc">WoW-Token-Preis</div></div>
   </div>
@@ -102,7 +102,7 @@ Sie haben den Preis nicht erhöht. Sie haben neue Einnahmequellen um einen einge
       <li>Abo treibt angrenzende Ausgaben</li>
       <li>Preis = Markenidentität</li>
       <li>Erhöhung einmal pro Jahrzehnt (wenn überhaupt)</li>
-      <li>Prime-Mitglieder: $1.400/Jahr bei Amazon</li>
+      <li>Prime-Mitglieder: ~$1.170/Jahr bei Amazon</li>
     </ul>
   </div>
   <div class="fw-card fw-card--purple">
@@ -123,7 +123,7 @@ Sie haben den Preis nicht erhöht. Sie haben neue Einnahmequellen um einen einge
 <div class="psych-grid">
   <div class="psych-card">
     <h4>Verlustaversion</h4>
-    <p>Netflix zu verlieren fühlt sich 2× schlimmer an als die rationale Ersparnis. 42% der Nutzer verzögern die Kündigung, selbst wenn sie unzufrieden sind.</p>
+    <p>Netflix zu verlieren fühlt sich 2× schlimmer an als die rationale Ersparnis. Der Schmerz des Verlustes überwiegt die Logik der Ersparnis.</p>
     <div class="big">2×</div>
   </div>
   <div class="psych-card">
@@ -147,9 +147,9 @@ Sie haben den Preis nicht erhöht. Sie haben neue Einnahmequellen um einen einge
 
 <div class="timeline">
   <div class="tl-item"><div class="tl-dot tl-dot--red"></div><div class="tl-year">2011</div><div class="tl-title">Netflix Qwikster — 60% Preiserhöhung</div><div class="tl-desc">800K Abonnenten verloren. Aktie fiel 77%. Zu viel, zu schnell, kein Mehrwert.</div></div>
-  <div class="tl-item"><div class="tl-dot tl-dot--red"></div><div class="tl-year">2017–2019</div><div class="tl-title">MoviePass — der umgekehrte Fehler</div><div class="tl-desc">Preis auf $9,95 für tägliche Kinobesuche gesenkt. $20M/Monat Verlust. 92,3% Abwanderung bei Preiserhöhung. Geschäftsführer wegen Betrugs verurteilt.</div></div>
+  <div class="tl-item"><div class="tl-dot tl-dot--red"></div><div class="tl-year">2017–2019</div><div class="tl-title">MoviePass — der umgekehrte Fehler</div><div class="tl-desc">Preis auf $9,95 für tägliche Kinobesuche gesenkt. $27–45M/Monat Verlust. 92% Abonnentenverlust bei Preiserhöhung. Geschäftsführer wegen Betrugs verurteilt.</div></div>
   <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2022 Q1</div><div class="tl-title">Netflix' erster Abonnentenverlust</div><div class="tl-desc">Wall Street wechselte von Abonnentenwachstum zu Umsatz pro Nutzer. Jeder Streamer begann aggressive Preiserhöhungen.</div></div>
-  <div class="tl-item"><div class="tl-dot tl-dot--red"></div><div class="tl-year">2022 Mai</div><div class="tl-title">EVE Online bricht 18-Jahres-Freeze</div><div class="tl-desc">+33% ($14,95 → $19,99). Heftige Spieler-Gegenreaktion — bestärkte WoWs Entscheidung, den Preis zu halten.</div></div>
+  <div class="tl-item"><div class="tl-dot tl-dot--red"></div><div class="tl-year">2022 Mai</div><div class="tl-title">EVE Online bricht 19-Jahres-Freeze</div><div class="tl-desc">+33% ($14,95 → $19,99). Heftige Spieler-Gegenreaktion — bestärkte WoWs Entscheidung, den Preis zu halten.</div></div>
   <div class="tl-item"><div class="tl-dot tl-dot--green"></div><div class="tl-year">2023–24</div><div class="tl-title">Netflix Werbe-Stufe + Passwort-Durchgriff</div><div class="tl-desc">Werbe-Stufe erreichte 94M Nutzer. Passwort-Maßnahmen brachten ~50M Abonnenten. Umsatz wuchs ohne proportionalen Preisschmerz.</div></div>
   <div class="tl-item"><div class="tl-dot tl-dot--green"></div><div class="tl-year">2025 Jan</div><div class="tl-title">Netflix erhöht alle Stufen — keine Gegenreaktion</div><div class="tl-desc">+$1–$2,50 über alle Tarife. 302M Abonnenten erreicht. Kochender-Frosch-Strategie über 14 Jahre perfektioniert.</div></div>
   <div class="tl-item"><div class="tl-dot tl-dot--red"></div><div class="tl-year">2025 Okt</div><div class="tl-title">Xbox Game Pass — 50% Einzelerhöhung</div><div class="tl-desc">$19,99 → $29,99 über Nacht. Kündigungs-Website brach zusammen. GameStop verspottete Microsoft öffentlich.</div></div>

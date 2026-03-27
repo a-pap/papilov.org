@@ -49,7 +49,7 @@ license: "CC BY-NC 4.0"
 <div class="metrics">
 <div class="metric"><div class="val val--green">+20–50%</div><div class="desc">waterfall → header bidding uplift</div></div>
 <div class="metric"><div class="val val--green">+70%</div><div class="desc">The Telegraph (кейс)</div></div>
-<div class="metric"><div class="val val--green">+25–50%</div><div class="desc">CPM uplift, Future plc</div></div>
+<div class="metric"><div class="val val--green">+25–50%</div><div class="desc">рост CPM (по отрасли)</div></div>
 <div class="metric"><div class="val val--green">30–40%</div><div class="desc">средний uplift портфеля (AdPushup)</div></div>
 </div>
 
@@ -76,33 +76,31 @@ license: "CC BY-NC 4.0"
 <div class="metric"><div class="val val--blue">$203B</div><div class="desc">US programmatic display 2026</div></div>
 </div>
 
-По данным ANA Supply Chain Study (2023), из каждого доллара рекламодателя до паблишера доходило лишь **36 центов**. К Q3 2025 ситуация улучшилась до **47.1¢** (+11 п.п.), но $26.8 млрд в год по-прежнему теряется на неэффективности цепочки.
+По данным ANA Supply Chain Study (2023), из каждого доллара рекламодателя до паблишера доходило лишь **36 центов**. К Q3 2025 ситуация улучшилась до **47.1¢** (+11 п.п.).
 
 <div class="dollar-flow">
 <div class="dollar-node"><div class="dollar-box">Рекламодатель</div><div class="dollar-amt">$1.00</div></div>
 <div class="dollar-arr">→</div>
 <div class="dollar-node"><div class="dollar-box">DSP + SSP сборы</div><div class="dollar-amt" style="color: var(--purple-soft)">−29¢</div><div class="dollar-note">транзакции</div></div>
 <div class="dollar-arr">→</div>
-<div class="dollar-node"><div class="dollar-box">Потери</div><div class="dollar-amt" style="color: var(--red-soft)">−24¢</div><div class="dollar-note">IVT, MFA</div></div>
+<div class="dollar-node"><div class="dollar-box">Потери</div><div class="dollar-amt" style="color: var(--red-soft)">−35¢</div><div class="dollar-note">IVT, MFA (2023)</div></div>
 <div class="dollar-arr">→</div>
-<div class="dollar-node"><div class="dollar-box">Паблишер</div><div class="dollar-amt" style="color: var(--green-soft)">47¢</div><div class="dollar-note">было 36¢</div></div>
+<div class="dollar-node"><div class="dollar-box">Паблишер</div><div class="dollar-amt" style="color: var(--green-soft)">36¢</div><div class="dollar-note">→ 47¢ к Q3 2025</div></div>
 </div>
 
 <div class="metrics">
-<div class="metric"><div class="val val--red">$26.8B</div><div class="desc">годовые потери цепочки</div></div>
-<div class="metric"><div class="val val--green">47.1%</div><div class="desc">доля паблишера (было 36%)</div></div>
-<div class="metric"><div class="val val--green">0.8%</div><div class="desc">MFA-инвентарь (рекордный минимум)</div></div>
-<div class="metric"><div class="val val--blue">87.8%</div><div class="desc">доля PMP (было 64.5%)</div></div>
+<div class="metric"><div class="val val--green">47.1%</div><div class="desc">доля паблишера, Q3 2025 (было 36% в 2023)</div></div>
+<div class="metric"><div class="val val--green">0.39%</div><div class="desc">MFA-инвентарь, Q3 2025 (рекордный минимум)</div></div>
+<div class="metric"><div class="val val--blue">81.6%</div><div class="desc">доля PMP, Q3 2025 (было 64.5%)</div></div>
 </div>
 
 ## Google Antitrust: почему Prebid становится важнее
 
-В апреле 2025 федеральный суд США признал Google виновной в незаконной монополизации рынков publisher ad server и ad exchange. ЕС назначил штраф €2.95B. Техас урегулировал иск на $1.375B. DOJ требует продажу AdX.
+В апреле 2025 федеральный суд США признал Google виновной в незаконной монополизации рынков publisher ad server и ad exchange. ЕС назначил штраф €2.95B. DOJ требует продажу AdX.
 
 <div class="metrics">
 <div class="metric"><div class="val val--red">~90%</div><div class="desc">доля Google в ad server</div></div>
 <div class="metric"><div class="val val--red">€2.95B</div><div class="desc">штраф ЕС</div></div>
-<div class="metric"><div class="val val--red">$1.375B</div><div class="desc">урегулирование Техаса</div></div>
 </div>
 
 > "Google willfully engaged in a series of anticompetitive acts to acquire and maintain monopoly power in the publisher ad server and ad exchange markets."

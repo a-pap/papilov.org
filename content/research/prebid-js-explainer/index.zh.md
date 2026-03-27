@@ -10,7 +10,6 @@ tags: ["adtech", "programmatic", "header-bidding", "prebid", "monetization"]
 series: "信息 ≠ 理解"
 ai_disclosure: "Research conducted with Claude (Anthropic). Human editorial direction and domain expertise."
 license: "CC BY-NC 4.0"
-robots: "noindex"
 ---
 
 程序化广告是一个5950亿美元的市场（2024年），预计到2028年将达到7790亿美元。约90%的数字展示广告通过自动方式购买。在发布商基础设施的核心，是一个被超过10,000家公司使用的开源库：Prebid.js。
@@ -50,7 +49,7 @@ robots: "noindex"
 <div class="metrics">
 <div class="metric"><div class="val val--green">+20–50%</div><div class="desc">瀑布流 → Header Bidding提升</div></div>
 <div class="metric"><div class="val val--green">+70%</div><div class="desc">The Telegraph（案例研究）</div></div>
-<div class="metric"><div class="val val--green">+25–50%</div><div class="desc">CPM提升，Future plc</div></div>
+<div class="metric"><div class="val val--green">+25–50%</div><div class="desc">CPM提升（行业范围）</div></div>
 <div class="metric"><div class="val val--green">30–40%</div><div class="desc">平均组合提升（AdPushup）</div></div>
 </div>
 
@@ -77,33 +76,31 @@ robots: "noindex"
 <div class="metric"><div class="val val--blue">$203B</div><div class="desc">美国程序化展示广告 2026</div></div>
 </div>
 
-ANA供应链研究（2023年）发现，广告主每花费一美元，只有**36美分**到达发布商手中。到2025年第三季度，这一比例提高到**47.1美分**（+11个百分点），但每年仍有268亿美元因供应链低效而损失。
+ANA供应链研究（2023年）发现，广告主每花费一美元，只有**36美分**到达发布商手中。到2025年第三季度，这一比例提高到**47.1美分**（+11个百分点）。
 
 <div class="dollar-flow">
 <div class="dollar-node"><div class="dollar-box">广告主</div><div class="dollar-amt">$1.00</div></div>
 <div class="dollar-arr">→</div>
 <div class="dollar-node"><div class="dollar-box">DSP + SSP费用</div><div class="dollar-amt" style="color: var(--purple-soft)">−29¢</div><div class="dollar-note">交易费用</div></div>
 <div class="dollar-arr">→</div>
-<div class="dollar-node"><div class="dollar-box">浪费</div><div class="dollar-amt" style="color: var(--red-soft)">−24¢</div><div class="dollar-note">无效流量、MFA</div></div>
+<div class="dollar-node"><div class="dollar-box">浪费</div><div class="dollar-amt" style="color: var(--red-soft)">−35¢</div><div class="dollar-note">无效流量、MFA（2023）</div></div>
 <div class="dollar-arr">→</div>
-<div class="dollar-node"><div class="dollar-box">发布商</div><div class="dollar-amt" style="color: var(--green-soft)">47¢</div><div class="dollar-note">原为36¢</div></div>
+<div class="dollar-node"><div class="dollar-box">发布商</div><div class="dollar-amt" style="color: var(--green-soft)">36¢</div><div class="dollar-note">→ Q3 2025达47¢</div></div>
 </div>
 
 <div class="metrics">
-<div class="metric"><div class="val val--red">$26.8B</div><div class="desc">年度供应链损失</div></div>
-<div class="metric"><div class="val val--green">47.1%</div><div class="desc">发布商份额（原为36%）</div></div>
-<div class="metric"><div class="val val--green">0.8%</div><div class="desc">MFA库存（历史最低）</div></div>
-<div class="metric"><div class="val val--blue">87.8%</div><div class="desc">PMP份额（原为64.5%）</div></div>
+<div class="metric"><div class="val val--green">47.1%</div><div class="desc">发布商份额，Q3 2025（2023年为36%）</div></div>
+<div class="metric"><div class="val val--green">0.39%</div><div class="desc">MFA库存，Q3 2025（历史最低）</div></div>
+<div class="metric"><div class="val val--blue">81.6%</div><div class="desc">PMP份额，Q3 2025（原为64.5%）</div></div>
 </div>
 
 ## Google反垄断：Prebid为何更加重要
 
-2025年4月，美国联邦法院裁定Google非法垄断了发布商广告服务器和广告交易市场。欧盟罚款29.5亿欧元。德克萨斯州和解金额为13.75亿美元。美国司法部寻求剥离AdX。
+2025年4月，美国联邦法院裁定Google非法垄断了发布商广告服务器和广告交易市场。欧盟罚款29.5亿欧元。美国司法部寻求剥离AdX。
 
 <div class="metrics">
 <div class="metric"><div class="val val--red">~90%</div><div class="desc">Google广告服务器市场份额</div></div>
 <div class="metric"><div class="val val--red">€2.95B</div><div class="desc">欧盟罚款</div></div>
-<div class="metric"><div class="val val--red">$1.375B</div><div class="desc">德克萨斯州和解金额</div></div>
 </div>
 
 > "Google故意实施了一系列反竞争行为，以获取和维持在发布商广告服务器和广告交易市场的垄断地位。"

@@ -49,7 +49,7 @@ Históricamente, los publishers vendían inventario mediante un **waterfall** �
 <div class="metrics">
 <div class="metric"><div class="val val--green">+20–50%</div><div class="desc">incremento waterfall → header bidding</div></div>
 <div class="metric"><div class="val val--green">+70%</div><div class="desc">The Telegraph (caso de estudio)</div></div>
-<div class="metric"><div class="val val--green">+25–50%</div><div class="desc">incremento CPM, Future plc</div></div>
+<div class="metric"><div class="val val--green">+25–50%</div><div class="desc">incremento CPM (industria)</div></div>
 <div class="metric"><div class="val val--green">30–40%</div><div class="desc">incremento promedio en portafolio (AdPushup)</div></div>
 </div>
 
@@ -76,33 +76,31 @@ Crea competencia <em>antes</em> de la decisión, aumentando el precio efectivo d
 <div class="metric"><div class="val val--blue">$203B</div><div class="desc">display programático en EE.UU. 2026</div></div>
 </div>
 
-El estudio de la cadena de suministro de la ANA (2023) encontró que solo **36 centavos** de cada dólar del anunciante llegaban a los publishers. Para el Q3 2025 esto mejoró a **47.1¢** (+11 puntos), pero $26.8 mil millones/año aún se pierden por ineficiencias en la cadena de suministro.
+El estudio de la cadena de suministro de la ANA (2023) encontró que solo **36 centavos** de cada dólar del anunciante llegaban a los publishers. Para el Q3 2025 esto mejoró a **47.1¢** (+11 puntos).
 
 <div class="dollar-flow">
 <div class="dollar-node"><div class="dollar-box">Anunciante</div><div class="dollar-amt">$1.00</div></div>
 <div class="dollar-arr">→</div>
 <div class="dollar-node"><div class="dollar-box">Comisiones DSP + SSP</div><div class="dollar-amt" style="color: var(--purple-soft)">−29¢</div><div class="dollar-note">transacciones</div></div>
 <div class="dollar-arr">→</div>
-<div class="dollar-node"><div class="dollar-box">Desperdicio</div><div class="dollar-amt" style="color: var(--red-soft)">−24¢</div><div class="dollar-note">IVT, MFA</div></div>
+<div class="dollar-node"><div class="dollar-box">Desperdicio</div><div class="dollar-amt" style="color: var(--red-soft)">−35¢</div><div class="dollar-note">IVT, MFA (2023)</div></div>
 <div class="dollar-arr">→</div>
-<div class="dollar-node"><div class="dollar-box">Publisher</div><div class="dollar-amt" style="color: var(--green-soft)">47¢</div><div class="dollar-note">era 36¢</div></div>
+<div class="dollar-node"><div class="dollar-box">Publisher</div><div class="dollar-amt" style="color: var(--green-soft)">36¢</div><div class="dollar-note">→ 47¢ en Q3 2025</div></div>
 </div>
 
 <div class="metrics">
-<div class="metric"><div class="val val--red">$26.8B</div><div class="desc">pérdidas anuales en la cadena de suministro</div></div>
-<div class="metric"><div class="val val--green">47.1%</div><div class="desc">participación del publisher (era 36%)</div></div>
-<div class="metric"><div class="val val--green">0.8%</div><div class="desc">inventario MFA (mínimo histórico)</div></div>
-<div class="metric"><div class="val val--blue">87.8%</div><div class="desc">participación PMP (era 64.5%)</div></div>
+<div class="metric"><div class="val val--green">47.1%</div><div class="desc">participación del publisher, Q3 2025 (era 36% en 2023)</div></div>
+<div class="metric"><div class="val val--green">0.39%</div><div class="desc">inventario MFA, Q3 2025 (mínimo histórico)</div></div>
+<div class="metric"><div class="val val--blue">81.6%</div><div class="desc">participación PMP, Q3 2025 (era 64.5%)</div></div>
 </div>
 
 ## Google Antitrust: por qué Prebid importa más
 
-En abril de 2025, un tribunal federal de EE.UU. declaró a Google culpable de monopolizar ilegalmente los mercados de ad server y ad exchange para publishers. La UE multó a Google con €2.95B. Texas llegó a un acuerdo por $1.375B. El DOJ busca la desinversión de AdX.
+En abril de 2025, un tribunal federal de EE.UU. declaró a Google culpable de monopolizar ilegalmente los mercados de ad server y ad exchange para publishers. La UE multó a Google con €2.95B. El DOJ busca la desinversión de AdX.
 
 <div class="metrics">
 <div class="metric"><div class="val val--red">~90%</div><div class="desc">cuota de Google en ad server</div></div>
 <div class="metric"><div class="val val--red">€2.95B</div><div class="desc">multa de la UE</div></div>
-<div class="metric"><div class="val val--red">$1.375B</div><div class="desc">acuerdo con Texas</div></div>
 </div>
 
 > "Google se involucró deliberadamente en una serie de actos anticompetitivos para adquirir y mantener poder de monopolio en los mercados de ad server y ad exchange para publishers."
