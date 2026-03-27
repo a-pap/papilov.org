@@ -49,7 +49,7 @@ Publishers historically sold inventory through a **waterfall** — ad networks c
 <div class="metrics">
 <div class="metric"><div class="val val--green">+20–50%</div><div class="desc">waterfall → header bidding uplift</div></div>
 <div class="metric"><div class="val val--green">+70%</div><div class="desc">The Telegraph (case study)</div></div>
-<div class="metric"><div class="val val--green">+25–50%</div><div class="desc">CPM uplift, Future plc</div></div>
+<div class="metric"><div class="val val--green">+25–50%</div><div class="desc">CPM uplift range (industry)</div></div>
 <div class="metric"><div class="val val--green">30–40%</div><div class="desc">average portfolio uplift (AdPushup)</div></div>
 </div>
 
@@ -81,28 +81,26 @@ The ANA Supply Chain Study (2023) found only **36 cents** per advertiser dollar 
 <div class="dollar-flow">
 <div class="dollar-node"><div class="dollar-box">Advertiser</div><div class="dollar-amt">$1.00</div></div>
 <div class="dollar-arr">→</div>
-<div class="dollar-node"><div class="dollar-box">DSP + SSP fees</div><div class="dollar-amt" style="color: var(--purple-soft)">−29¢</div><div class="dollar-note">transactions</div></div>
+<div class="dollar-node"><div class="dollar-box">DSP + SSP fees</div><div class="dollar-amt" style="color: var(--purple-soft)">−29¢</div><div class="dollar-note">transactions (2023)</div></div>
 <div class="dollar-arr">→</div>
-<div class="dollar-node"><div class="dollar-box">Waste</div><div class="dollar-amt" style="color: var(--red-soft)">−24¢</div><div class="dollar-note">IVT, MFA</div></div>
+<div class="dollar-node"><div class="dollar-box">Waste</div><div class="dollar-amt" style="color: var(--red-soft)">−35¢</div><div class="dollar-note">IVT, MFA (2023)</div></div>
 <div class="dollar-arr">→</div>
-<div class="dollar-node"><div class="dollar-box">Publisher</div><div class="dollar-amt" style="color: var(--green-soft)">47¢</div><div class="dollar-note">was 36¢</div></div>
+<div class="dollar-node"><div class="dollar-box">Publisher</div><div class="dollar-amt" style="color: var(--green-soft)">36¢</div><div class="dollar-note">→ 47¢ by Q3 2025</div></div>
 </div>
 
 <div class="metrics">
-<div class="metric"><div class="val val--red">$26.8B</div><div class="desc">annual supply chain losses</div></div>
-<div class="metric"><div class="val val--green">47.1%</div><div class="desc">publisher share (was 36%)</div></div>
-<div class="metric"><div class="val val--green">0.8%</div><div class="desc">MFA inventory (record low)</div></div>
-<div class="metric"><div class="val val--blue">87.8%</div><div class="desc">PMP share (was 64.5%)</div></div>
+<div class="metric"><div class="val val--green">47.1%</div><div class="desc">publisher share, Q3 2025 (was 36% in 2023)</div></div>
+<div class="metric"><div class="val val--green">0.39%</div><div class="desc">MFA inventory, Q3 2025 (record low)</div></div>
+<div class="metric"><div class="val val--blue">81.6%</div><div class="desc">PMP share, Q3 2025 (was 64.5%)</div></div>
 </div>
 
 ## Google Antitrust: Why Prebid Matters More
 
-In April 2025, a US federal court found Google guilty of illegally monopolizing publisher ad server and ad exchange markets. The EU fined Google €2.95B. Texas settled for $1.375B. The DOJ seeks divestiture of AdX.
+In April 2025, a US federal court found Google guilty of illegally monopolizing publisher ad server and ad exchange markets. The EU fined Google €2.95B for adtech antitrust violations. The DOJ seeks divestiture of AdX.
 
 <div class="metrics">
 <div class="metric"><div class="val val--red">~90%</div><div class="desc">Google's ad server share</div></div>
-<div class="metric"><div class="val val--red">€2.95B</div><div class="desc">EU fine</div></div>
-<div class="metric"><div class="val val--red">$1.375B</div><div class="desc">Texas settlement</div></div>
+<div class="metric"><div class="val val--red">€2.95B</div><div class="desc">EU adtech fine</div></div>
 </div>
 
 > "Google willfully engaged in a series of anticompetitive acts to acquire and maintain monopoly power in the publisher ad server and ad exchange markets."
