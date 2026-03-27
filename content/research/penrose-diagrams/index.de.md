@@ -46,7 +46,9 @@ Wenn nur die Kausalität zählt, müssen keine Abstände erhalten werden — nur
 
 ## Vier fundamentale Raumzeiten
 
-**Minkowski — Die Raute.** Flache Raumzeit ohne Gravitation. Fünf Grenzkomponenten: zeitartige Unendlichkeiten (i⁺, i⁻), raumartige Unendlichkeit (i⁰) und Nullunendlichkeiten (I⁺, I⁻), wo Lichtstrahlen enden und beginnen. Die Energie von Gravitationswellen wird auf I⁺ definiert — ein Konzept, das erst durch Penroses konforme Grenze rigoros wird.
+### Minkowski — Die Raute
+
+Flache Raumzeit ohne Gravitation. Das Diagramm ist eine Raute mit fünf Grenzkomponenten: zeitartige Zukunfts- und Vergangenheitsunendlichkeit (i⁺, i⁻), wo massereiche Teilchen enden und beginnen; raumartige Unendlichkeit (i⁰) an der Taille; und Null-Zukunfts- und Vergangenheitsunendlichkeit (I⁺, I⁻) — die Flächen, auf denen Lichtstrahlen ankommen und entspringen. Die Energie von Gravitationswellen wird auf I⁺ definiert — ein Konzept, das erst durch Penroses konforme Grenze rigoros wird. Die Bondi-Metzner-Sachs-Gruppe (1962), die die asymptotischen Symmetrien an der Nullunendlichkeit beschreibt, erweist sich als unendlichdimensional — weit größer als die 10-dimensionale Poincaré-Gruppe der flachen Raumzeit. Diese überraschende Struktur wurde durch konforme Methoden entdeckt.
 
 <div style="text-align:center; margin: 2rem 0; padding: 1.5rem; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 8px;">
 <svg viewBox="0 0 460 500" xmlns="http://www.w3.org/2000/svg" style="max-width: 420px; width: 100%;">
@@ -91,7 +93,9 @@ Wenn nur die Kausalität zählt, müssen keine Abstände erhalten werden — nur
 <div style="font-size: 0.78rem; color: var(--text-tertiary); margin-top: 0.5rem;">Flache Minkowski-Raumzeit. Die Rautenform komprimiert die gesamte unendliche Raumzeit in eine endliche Figur. Lichtkegel stehen immer bei 45°. Die fünf Grenzkomponenten — i⁺, i⁻, i⁰, I⁺, I⁻ — kodieren die asymptotische Struktur.</div>
 </div>
 
-**Schwarzschild — Die Zickzack-Singularität.** Ein nicht-rotierendes schwarzes Loch. Das Diagramm enthüllt: Die Singularität bei r = 0 ist kein Punkt im Raum, sondern ein Zeitpunkt. Nach Überqueren des Ereignishorizonts (45°-Linie) liegt die Singularität in Ihrer Zukunft, egal in welche Richtung Sie sich bewegen. Die maximale Erweiterung zeigt die Einstein-Rosen-Brücke — die sich schneller schließt als Licht sie durchqueren kann.
+### Schwarzschild — Die Zickzack-Singularität
+
+Ein nicht-rotierendes schwarzes Loch. Das Diagramm enthüllt, was Koordinaten jahrzehntelang verbargen: Die Singularität bei r = 0 ist kein Punkt im Raum — sie ist ein Zeitpunkt. Sie erscheint als horizontale Zickzack-Linie, was bedeutet, dass nach dem Überqueren des Ereignishorizonts (einer 45°-Linie) die Singularität in Ihrer Zukunft liegt, egal in welche Richtung Sie sich bewegen. Man kann nicht entkommen, nicht weil man nicht schnell genug ist, sondern weil alle Raumrichtungen zur Singularität weisen.
 
 <div style="text-align:center; margin: 2rem 0; padding: 1.5rem; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 8px;">
 <svg viewBox="0 0 320 400" xmlns="http://www.w3.org/2000/svg" style="max-width: 300px; width: 100%;">
@@ -122,7 +126,9 @@ Wenn nur die Kausalität zählt, müssen keine Abstände erhalten werden — nur
 <div style="font-size: 0.78rem; color: var(--text-tertiary); margin-top: 0.5rem;">Schwarzschild-Schwarzes-Loch. Der Ereignishorizont ist eine gestrichelte 45°-Linie. Dahinter führen alle Pfade zur Zickzack-Singularität oben. Es gibt kein Entkommen — nicht weil man nicht schnell genug ist, sondern weil die Singularität in der Zukunft liegt.</div>
 </div>
 
-**De Sitter — Das quadratische Universum.** Positive kosmologische Konstante — die ungefähre Zukunft unseres Universums. Quadratisches Diagramm mit raumartigen Grenzen. Seit 1998 wissen wir: Unser Universum steuert auf eine de-Sitter-Zukunft zu (Nobelpreis 2011).
+Die maximal erweiterte Lösung — erstmals gefunden mithilfe der Kruskal-Szekeres-Koordinaten (1960) — enthüllt ein Weißes Loch, ein zweites Universum und eine Einstein-Rosen-Brücke, die sie verbindet. Die Brücke schließt sich schneller, als Licht sie durchqueren kann. Penrose-Diagramme fügten den entscheidenden Schritt der Kompaktifizierung der asymptotischen Regionen hinzu und machten die gesamte Kausalstruktur auf einen Blick sichtbar.
+
+### De Sitter — Das quadratische Universum Positive kosmologische Konstante — die ungefähre Zukunft unseres Universums. Quadratisches Diagramm mit raumartigen Grenzen. Seit 1998 wissen wir: Unser Universum steuert auf eine de-Sitter-Zukunft zu (Nobelpreis 2011).
 
 <div style="text-align:center; margin: 2rem 0; padding: 1.5rem; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 8px;">
 <svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" style="max-width: 300px; width: 100%;">

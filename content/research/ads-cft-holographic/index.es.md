@@ -12,7 +12,7 @@ ai_disclosure: "Investigación realizada con Claude (Anthropic). Dirección edit
 license: "CC BY-NC 4.0"
 ---
 
-En 1997, Juan Maldacena — un físico argentino de 29 años, un año después de su doctorado en Princeton y recién nombrado profesor en Harvard — publicó lo que se convertiría en el artículo más citado en la historia de la física de altas energías. Más de 20.000 citas hasta la fecha, aproximadamente dos por día durante más de dos décadas.
+En 1997, Juan Maldacena — un físico argentino de 29 años, un año después de su doctorado en Princeton y recién nombrado profesor en Harvard — publicó lo que se convertiría en el artículo más citado en la historia de la física de altas energías. Más de 20.000 citas hasta la fecha, aproximadamente dos por día durante más de dos décadas. El segundo y el tercer artículo más citados del campo tratan sobre el mismo descubrimiento, y ambos citan el suyo.
 
 Demostró que la gravedad cuántica en un espacio-tiempo acotado y con curvatura negativa es matemáticamente idéntica a una teoría cuántica de campos en su frontera — sin gravedad y con una dimensión menos. Todo lo que sucede en el interior está completamente codificado en el borde. Como un holograma.
 
@@ -29,9 +29,9 @@ La fórmula de Bekenstein-Hawking: la entropía de un agujero negro es un cuarto
 
 Dos años después, Hawking — que intentaba refutar a Bekenstein — demostró que los agujeros negros emiten radiación térmica. Esto confirmó la fórmula y estableció la termodinámica de agujeros negros como física real. Pero el mensaje profundo era: si la entropía máxima escala con el área y no con el volumen, la información está en la frontera. Como si el interior fuera una proyección.
 
-## El principio holográfico y AdS/CFT
+## El principio holográfico
 
-En los 1990, 't Hooft y Susskind propusieron el principio holográfico: toda la información de un volumen puede codificarse en su superficie. Pero era un principio sin prueba. Eso cambió en noviembre de 1997.
+A principios de los 1990, Gerard 't Hooft y Leonard Susskind tomaron esta implicación en serio. Propusieron el principio holográfico: toda la información necesaria para describir un volumen de espacio puede codificarse en su superficie, con una densidad máxima de un bit por área de Planck (~10⁻⁶⁶ cm²).
 
 <div class="metrics">
   <div class="metric"><div class="val val--blue">10⁻⁶⁶ cm²</div><div class="desc">Área de Planck — límite de 1 bit</div></div>
@@ -40,19 +40,31 @@ En los 1990, 't Hooft y Susskind propusieron el principio holográfico: toda la 
   <div class="metric"><div class="val val--red">~2/día</div><div class="desc">Tasa de citación, 27 años</div></div>
 </div>
 
-Maldacena mostró que la teoría de cuerdas en AdS 5-dimensional es equivalente a una teoría conforme de Yang-Mills en la frontera 4-dimensional. Cada objeto tiene su contraparte exacta. La clave: cuando la teoría frontera es fuertemente acoplada (difícil), la descripción del volumen es débilmente acoplada (fácil), y viceversa.
+Era un principio sin prueba. Nadie podía mostrar un sistema concreto donde realmente funcionara. Eso cambió en noviembre de 1997.
+
+## El descubrimiento de Maldacena
+
+Maldacena consideró una pila de D-branas — objetos en la teoría de cuerdas — y tomó un límite específico de baja energía. Visto desde lejos, la pila parece un agujero negro en un espacio anti-de Sitter (AdS). Visto de cerca, parece una teoría cuántica de campos (una teoría conforme de campos, o CFT) viviendo en las superficies de las branas. Ambas descripciones deben ser del mismo sistema. Por lo tanto: teoría de cuerdas en el volumen de AdS = teoría conforme de campos en su frontera.
+
+Específicamente: la teoría de cuerdas tipo IIB en AdS 5-dimensional × S⁵ es equivalente a la teoría N = 4 super Yang-Mills en la frontera 4-dimensional.
+
+Cada objeto en una descripción tiene su contraparte precisa en la otra. La masa en el volumen corresponde a la dimensión del operador en la frontera. La dirección radial en AdS corresponde a la escala de energía de la teoría de campos. Los agujeros negros en AdS corresponden a estados térmicos. El diccionario es exacto.
 
 <div class="compare">
   <div class="compare-col col-a">
-    <h4>Volumen (AdS)</h4>
+    <h4>Volumen (AdS, d+1 dimensiones)</h4>
     <div class="compare-item"><strong>Gravedad</strong><span>Ecuaciones de Einstein con Λ negativa</span></div>
-    <div class="compare-item"><strong>Agujero negro</strong><span>Horizonte de eventos</span></div>
-    <div class="compare-item"><strong>Acoplamiento débil</strong><span>Gravedad clásica</span></div>
+    <div class="compare-item"><strong>Agujero negro</strong><span>Objeto con horizonte de eventos</span></div>
+    <div class="compare-item"><strong>Masa de partícula</strong><span>Determinada por ecuaciones de campo</span></div>
+    <div class="compare-item"><strong>Dirección radial</strong><span>Dimensión espacial extra</span></div>
+    <div class="compare-item"><strong>Acoplamiento débil</strong><span>Régimen de gravedad clásica</span></div>
   </div>
   <div class="compare-col col-b">
-    <h4>Frontera (CFT)</h4>
-    <div class="compare-item"><strong>Sin gravedad</strong><span>Teoría cuántica de campos</span></div>
-    <div class="compare-item"><strong>Estado térmico</strong><span>Temperatura finita</span></div>
+    <h4>Frontera (CFT, d dimensiones)</h4>
+    <div class="compare-item"><strong>Sin gravedad</strong><span>Teoría cuántica de campos, espacio plano</span></div>
+    <div class="compare-item"><strong>Estado térmico</strong><span>Sistema a temperatura finita</span></div>
+    <div class="compare-item"><strong>Dimensión del operador</strong><span>Comportamiento de escala de operadores</span></div>
+    <div class="compare-item"><strong>Escala de energía</strong><span>Flujo del grupo de renormalización</span></div>
     <div class="compare-item"><strong>Acoplamiento fuerte</strong><span>Régimen no perturbativo</span></div>
   </div>
 </div>

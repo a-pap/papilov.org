@@ -46,7 +46,9 @@ license: "CC BY-NC 4.0"
 
 ## 四种基本时空
 
-**闵可夫斯基——菱形。** 平坦时空，无引力。五个边界组件：类时未来和过去无穷（i⁺, i⁻），类空无穷（i⁰），以及类光未来和过去无穷（I⁺, I⁻）——光线抵达和起源的表面。引力波能量在I⁺上定义——这个概念只有通过彭罗斯的共形边界才变得严格。
+### 闵可夫斯基——菱形
+
+平坦时空，无引力。图表为菱形，具有五个边界组件：类时未来和过去无穷（i⁺, i⁻），有质量粒子的终点和起点；类空无穷（i⁰）位于腰部；以及类光未来和过去无穷（I⁺, I⁻）——光线抵达和起源的表面。引力波能量在I⁺上精确定义——这个概念只有通过彭罗斯的共形边界才变得严格。Bondi-Metzner-Sachs群（1962年）描述了类光无穷处的渐近对称性，结果是无穷维的——远大于平坦时空的10维庞加莱群。这一令人惊讶的结构正是通过共形方法发现的。
 
 <div style="text-align:center; margin: 2rem 0; padding: 1.5rem; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 8px;">
 <svg viewBox="0 0 460 500" xmlns="http://www.w3.org/2000/svg" style="max-width: 420px; width: 100%;">
@@ -91,7 +93,9 @@ license: "CC BY-NC 4.0"
 <div style="font-size: 0.78rem; color: var(--text-tertiary); margin-top: 0.5rem;">平坦闵可夫斯基时空。菱形将整个无限时空压缩为有限图形。光锥始终为45°。五个边界组件——i⁺、i⁻、i⁰、I⁺、I⁻——编码了渐近结构。</div>
 </div>
 
-**史瓦西——锯齿奇点。** 非旋转黑洞。图表揭示了坐标掩盖了数十年的事实：r = 0处的奇点不是空间中的一个点，而是时间中的一个时刻。一旦穿过事件视界（45°线），无论朝哪个方向移动，奇点都在你的未来。最大延拓揭示了爱因斯坦-罗森桥——关闭速度快于光。
+### 史瓦西——锯齿奇点
+
+非旋转黑洞。图表揭示了坐标掩盖了数十年的事实：r = 0处的奇点不是空间中的一个点——而是时间中的一个时刻。它表现为水平锯齿线，意味着一旦穿过事件视界（45°线），无论朝哪个方向移动，奇点都在你的未来。你无法逃脱，不是因为速度不够快，而是因为所有空间方向都指向奇点。
 
 <div style="text-align:center; margin: 2rem 0; padding: 1.5rem; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 8px;">
 <svg viewBox="0 0 320 400" xmlns="http://www.w3.org/2000/svg" style="max-width: 300px; width: 100%;">

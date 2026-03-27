@@ -46,7 +46,9 @@ Si solo importa la causalidad, no es necesario preservar distancias — basta co
 
 ## Cuatro espacio-tiempos fundamentales
 
-**Minkowski — El rombo.** Espacio-tiempo plano sin gravedad. Cinco componentes de frontera: infinitos temporal futuro y pasado (i⁺, i⁻), infinito espacial (i⁰), e infinitos nulos futuro y pasado (I⁺, I⁻). La energía de las ondas gravitacionales se define en I⁺ — concepto que solo se hace riguroso a través de la frontera conforme de Penrose.
+### Minkowski — El rombo
+
+Espacio-tiempo plano sin gravedad. El diagrama es un rombo con cinco componentes de frontera: infinitos temporal futuro y pasado (i⁺, i⁻) donde las partículas masivas terminan y comienzan; infinito espacial (i⁰) en la cintura; e infinitos nulos futuro y pasado (I⁺, I⁻) — las superficies donde los rayos de luz llegan y se originan. La energía de las ondas gravitacionales se define con precisión en I⁺, un concepto que solo se hace riguroso a través de la frontera conforme de Penrose. El grupo de Bondi-Metzner-Sachs (1962), que describe las simetrías asintóticas en el infinito nulo, resulta ser de dimensión infinita — mucho mayor que el grupo de Poincaré de 10 dimensiones del espacio-tiempo plano. Esta sorprendente estructura fue descubierta mediante métodos conformes.
 
 <div style="text-align:center; margin: 2rem 0; padding: 1.5rem; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 8px;">
 <svg viewBox="0 0 460 500" xmlns="http://www.w3.org/2000/svg" style="max-width: 420px; width: 100%;">
@@ -91,7 +93,9 @@ Si solo importa la causalidad, no es necesario preservar distancias — basta co
 <div style="font-size: 0.78rem; color: var(--text-tertiary); margin-top: 0.5rem;">Espacio-tiempo plano de Minkowski. La forma de rombo comprime todo el espacio-tiempo infinito en una figura finita. Los conos de luz siempre están a 45°. Los cinco componentes de frontera — i⁺, i⁻, i⁰, I⁺, I⁻ — codifican la estructura asintótica.</div>
 </div>
 
-**Schwarzschild — La singularidad en zigzag.** Agujero negro sin rotación. El diagrama revela que la singularidad en r = 0 no es un punto en el espacio sino un momento en el tiempo. Una vez cruzado el horizonte de eventos (línea a 45°), la singularidad yace en tu futuro sin importar la dirección. La extensión máxima revela el puente de Einstein-Rosen: una conexión con una segunda región asintóticamente plana que se cierra más rápido que la luz.
+### Schwarzschild — La singularidad en zigzag
+
+Agujero negro sin rotación. El diagrama revela lo que las coordenadas ocultaron durante décadas: la singularidad en r = 0 no es un punto en el espacio — es un momento en el tiempo. Aparece como una línea horizontal en zigzag, lo que significa que una vez cruzado el horizonte de eventos (una línea a 45°), la singularidad yace en tu futuro sin importar la dirección en que te muevas. No puedes escapar, no porque no puedas correr lo suficientemente rápido, sino porque todas las direcciones espaciales apuntan hacia la singularidad.
 
 <div style="text-align:center; margin: 2rem 0; padding: 1.5rem; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 8px;">
 <svg viewBox="0 0 320 400" xmlns="http://www.w3.org/2000/svg" style="max-width: 300px; width: 100%;">
