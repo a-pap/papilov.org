@@ -49,6 +49,49 @@ robots: "noindex"
 
 **闵可夫斯基——菱形。** 平坦时空，无引力。五个边界组件：类时未来和过去无穷（i⁺, i⁻），类空无穷（i⁰），以及类光未来和过去无穷（I⁺, I⁻）——光线抵达和起源的表面。引力波能量在I⁺上定义——这个概念只有通过彭罗斯的共形边界才变得严格。
 
+<div style="text-align:center; margin: 2rem 0; padding: 1.5rem; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 8px;">
+<svg viewBox="0 0 460 500" xmlns="http://www.w3.org/2000/svg" style="max-width: 420px; width: 100%;">
+  <defs>
+    <marker id="arr" markerWidth="6" markerHeight="4" refX="6" refY="2" orient="auto">
+      <polygon points="0 0, 6 2, 0 4" fill="var(--text-tertiary)"/>
+    </marker>
+  </defs>
+  <polygon points="230,40 410,250 230,460 50,250" fill="var(--bg-secondary)" stroke="var(--blue-soft)" stroke-width="1.5" opacity="0.7"/>
+  <line x1="230" y1="40" x2="410" y2="250" stroke="var(--red-soft)" stroke-width="2" opacity="0.7"/>
+  <line x1="230" y1="40" x2="50" y2="250" stroke="var(--red-soft)" stroke-width="2" opacity="0.7"/>
+  <line x1="50" y1="250" x2="230" y2="460" stroke="var(--blue-soft)" stroke-width="2" opacity="0.7"/>
+  <line x1="410" y1="250" x2="230" y2="460" stroke="var(--blue-soft)" stroke-width="2" opacity="0.7"/>
+  <line x1="230" y1="450" x2="230" y2="50" stroke="var(--text-tertiary)" stroke-width="1" marker-end="url(#arr)" opacity="0.4"/>
+  <line x1="60" y1="250" x2="400" y2="250" stroke="var(--text-tertiary)" stroke-width="1" marker-end="url(#arr)" opacity="0.4"/>
+  <circle cx="230" cy="300" r="4" fill="var(--text-secondary)" opacity="0.9"/>
+  <line x1="230" y1="300" x2="310" y2="220" stroke="var(--text-secondary)" stroke-width="1.5" stroke-dasharray="5,4" opacity="0.5"/>
+  <line x1="230" y1="300" x2="150" y2="220" stroke="var(--text-secondary)" stroke-width="1.5" stroke-dasharray="5,4" opacity="0.5"/>
+  <polygon points="230,300 310,220 150,220" fill="var(--text-tertiary)" opacity="0.06" stroke="none"/>
+  <path d="M 230,420 Q 245,350 240,300 Q 235,250 230,80" fill="none" stroke="var(--text)" stroke-width="1.5" opacity="0.3" stroke-dasharray="2,3"/>
+  <circle cx="230" cy="40" r="5" fill="var(--red-soft)"/>
+  <text x="230" y="28" text-anchor="middle" font-family="var(--font-body)" font-size="14" fill="var(--red-soft)" font-style="italic">i⁺</text>
+  <text x="230" y="16" text-anchor="middle" font-family="var(--font-mono)" font-size="9" fill="var(--text-tertiary)">未来类时 ∞</text>
+  <circle cx="230" cy="460" r="5" fill="var(--blue-soft)"/>
+  <text x="230" y="482" text-anchor="middle" font-family="var(--font-body)" font-size="14" fill="var(--blue-soft)" font-style="italic">i⁻</text>
+  <text x="230" y="496" text-anchor="middle" font-family="var(--font-mono)" font-size="9" fill="var(--text-tertiary)">过去类时 ∞</text>
+  <circle cx="410" cy="250" r="5" fill="var(--text-secondary)"/>
+  <text x="432" y="245" font-family="var(--font-body)" font-size="14" fill="var(--text-secondary)" font-style="italic">i⁰</text>
+  <text x="432" y="260" font-family="var(--font-mono)" font-size="9" fill="var(--text-tertiary)">类空 ∞</text>
+  <circle cx="50" cy="250" r="5" fill="var(--text-secondary)"/>
+  <text x="28" y="245" text-anchor="end" font-family="var(--font-body)" font-size="14" fill="var(--text-secondary)" font-style="italic">i⁰</text>
+  <text x="340" y="135" font-family="var(--font-body)" font-size="13" fill="var(--red-soft)" font-style="italic" transform="rotate(-45,340,135)">I⁺</text>
+  <text x="120" y="135" font-family="var(--font-body)" font-size="13" fill="var(--red-soft)" font-style="italic" transform="rotate(45,120,135)">I⁺</text>
+  <text x="340" y="370" font-family="var(--font-body)" font-size="13" fill="var(--blue-soft)" font-style="italic" transform="rotate(45,340,370)">I⁻</text>
+  <text x="120" y="370" font-family="var(--font-body)" font-size="13" fill="var(--blue-soft)" font-style="italic" transform="rotate(-45,120,370)">I⁻</text>
+  <text x="316" y="216" font-family="var(--font-mono)" font-size="9" fill="var(--text-secondary)">光线 (45°)</text>
+  <text x="245" y="314" font-family="var(--font-mono)" font-size="9" fill="var(--text-secondary)">事件</text>
+  <text x="236" y="62" font-family="var(--font-mono)" font-size="9" fill="var(--text-tertiary)">t</text>
+  <text x="396" y="264" font-family="var(--font-mono)" font-size="9" fill="var(--text-tertiary)">r</text>
+  <text x="40" y="150" font-family="var(--font-mono)" font-size="9" fill="var(--text-tertiary)" transform="rotate(-90,40,150)">r = 0（原点）</text>
+</svg>
+<div style="font-size: 0.78rem; color: var(--text-tertiary); margin-top: 0.5rem;">平坦闵可夫斯基时空。菱形将整个无限时空压缩为有限图形。光锥始终为45°。五个边界组件——i⁺、i⁻、i⁰、I⁺、I⁻——编码了渐近结构。</div>
+</div>
+
 **史瓦西——锯齿奇点。** 非旋转黑洞。图表揭示了坐标掩盖了数十年的事实：r = 0处的奇点不是空间中的一个点，而是时间中的一个时刻。一旦穿过事件视界（45°线），无论朝哪个方向移动，奇点都在你的未来。最大延拓揭示了爱因斯坦-罗森桥——关闭速度快于光。
 
 **德西特——方形宇宙。** 正宇宙学常数——我们宇宙的大致未来。方形图表，类空边界：宇宙在所有地方同时开始和结束。自1998年以来，我们知道宇宙正朝德西特未来演化（2011年诺贝尔奖）。
