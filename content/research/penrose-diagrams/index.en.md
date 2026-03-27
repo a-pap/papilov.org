@@ -18,13 +18,6 @@ Roger Penrose's answer, developed in the early 1960s: conformal compactification
 
 This one idea gave physicists a tool so powerful that it now appears in virtually every major result in general relativity — from the singularity theorems to the holographic principle, from the classification of spacetimes to the proof that gravitational waves carry energy.
 
-<div style="margin: 2rem 0; padding: 1.5rem; border: 1px solid var(--border-color); border-radius: 8px; background: var(--bg-secondary);">
-
-**[Open the interactive visual guide →](/research/penrose-diagrams/infographic.html)**
-
-6 sections: the problem of infinity · how to read diagrams · interactive atlas of 4 spacetimes · what you can read off a diagram · the person behind it · cheat sheet. With annotated SVG diagrams and full references.
-
-</div>
 
 ## The Problem
 

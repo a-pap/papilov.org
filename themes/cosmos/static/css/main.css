@@ -427,6 +427,40 @@ img { max-width: 100%; height: auto; margin: 1.5rem 0; }
 .fw-list li:last-child { border-bottom: none; }
 .fw-list li::before { content: '→ '; color: var(--text-tertiary); }
 
+/* ── INLINE TABLES ── */
+.article-body table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 0.85rem; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; margin: 2rem 0; }
+.article-body thead th { background: var(--bg-secondary); padding: 0.75rem 1rem; text-align: left; font-weight: 600; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-secondary); border-bottom: 1px solid var(--border); }
+.article-body tbody td { padding: 0.75rem 1rem; border-bottom: 1px solid var(--border-light); vertical-align: top; color: var(--text-secondary); line-height: 1.5; }
+.article-body tbody tr:last-child td { border-bottom: none; }
+.article-body tbody td:first-child { font-weight: 600; color: var(--text); }
+.article-body .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 2rem 0; }
+.article-body .table-wrap table { margin: 0; }
+
+/* ── FLOW STEPS ── */
+.flow-steps { margin: 2rem 0; }
+.flow-step { display: grid; grid-template-columns: 2.5rem 1fr; gap: 0.75rem; padding-bottom: 1.25rem; position: relative; }
+.flow-step:last-child { padding-bottom: 0; }
+.flow-step:last-child .flow-line { display: none; }
+.flow-num { width: 2.25rem; height: 2.25rem; background: var(--text); color: var(--bg); font-family: var(--font-mono); font-weight: 700; font-size: 0.82rem; display: flex; align-items: center; justify-content: center; border-radius: 50%; z-index: 2; flex-shrink: 0; }
+.flow-line { position: absolute; top: 2.25rem; left: 1.06rem; width: 2px; height: calc(100% - 2.25rem); background: var(--border); }
+.flow-body h4 { font-weight: 600; font-size: 0.92rem; margin-bottom: 0.15rem; }
+.flow-body p { font-size: 0.82rem; color: var(--text-secondary); margin: 0; line-height: 1.55; }
+.flow-tag { display: inline-block; font-family: var(--font-mono); font-size: 0.68rem; color: var(--text-tertiary); background: var(--surface); padding: 0.15em 0.5em; border-radius: 4px; margin-top: 0.25rem; }
+
+/* ── DOLLAR FLOW ── */
+.dollar-flow { display: flex; align-items: stretch; gap: 0.5rem; flex-wrap: wrap; justify-content: center; margin: 2rem 0; padding: 1.5rem; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 8px; }
+.dollar-node { text-align: center; flex: 1; min-width: 90px; }
+.dollar-box { display: block; padding: 0.5rem 0.6rem; border-radius: 6px; font-size: 0.72rem; font-weight: 600; background: var(--surface); color: var(--text); }
+.dollar-amt { font-family: var(--font-mono); font-size: 1.1rem; font-weight: 700; margin-top: 0.2rem; }
+.dollar-note { font-size: 0.65rem; color: var(--text-tertiary); font-family: var(--font-mono); }
+.dollar-arr { display: flex; align-items: center; font-size: 1.1rem; color: var(--text-tertiary); padding: 0 0.15rem; }
+@media (max-width: 500px) { .dollar-flow { flex-direction: column; align-items: center; } .dollar-arr { transform: rotate(90deg); padding: 0.25rem 0; } .dollar-node { min-width: auto; width: 80%; } }
+
+/* ── BADGE LIST ── */
+.badge-list { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1.5rem 0; }
+.badge-item { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.4rem 0.75rem; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 6px; font-size: 0.78rem; }
+.badge-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+
 /* ── ARTICLE LANGUAGE SWITCHER ── */
 .article-langs {
   display: flex;

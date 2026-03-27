@@ -18,13 +18,6 @@ He showed that quantum gravity in a bounded, negatively curved spacetime is math
 
 This is the AdS/CFT correspondence. It didn't just solve a problem. It created an entire field.
 
-<div style="margin: 2rem 0; padding: 1.5rem; border: 1px solid var(--border-color); border-radius: 8px; background: var(--bg-secondary);">
-
-**[Open the interactive explainer →](/research/ads-cft-holographic/infographic.html)**
-
-7 sections: holographic principle · AdS/CFT · duality dictionary · dS/CFT and our Universe · open problems · timeline · philosophical context. With SVG diagrams, citation data table, and full reference list.
-
-</div>
 
 ## Where It Began: A PhD Student vs. Everyone
 

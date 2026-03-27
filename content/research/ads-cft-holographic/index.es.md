@@ -18,14 +18,6 @@ Demostró que la gravedad cuántica en un espacio-tiempo acotado y con curvatura
 
 Esta es la correspondencia AdS/CFT. No solo resolvió un problema. Creó un campo entero.
 
-<div style="margin: 2rem 0; padding: 1.5rem; border: 1px solid var(--border-color); border-radius: 8px; background: var(--bg-secondary);">
-
-**[Abrir el explainer interactivo →](/research/ads-cft-holographic/infographic.html)**
-
-7 secciones con diagramas SVG, tabla de citaciones y lista completa de referencias.
-
-</div>
-
 ## El origen: un doctorando contra todos
 
 La historia comienza con Jacob Bekenstein, un estudiante de doctorado en Princeton a principios de los 1970. Su asesor, John Wheeler, planteó un experimento mental: ¿qué sucede con la entropía de una taza de té si la arrojas a un agujero negro? Bekenstein respondió: los agujeros negros mismos tienen entropía, proporcional al área del horizonte de eventos — no al volumen. Publicó esto en 1973. La comunidad lo rechazó. Como escribió Kip Thorne: "Todos los expertos del mundo se alinearon con Hawking." La excepción fue Wheeler: *"Tu idea es lo bastante loca para ser correcta."*

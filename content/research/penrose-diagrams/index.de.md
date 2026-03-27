@@ -18,14 +18,6 @@ Roger Penroses Antwort aus den frühen 1960er Jahren: konforme Kompaktifizierung
 
 Dieses eine Werkzeug erwies sich als so mächtig, dass es heute in praktisch jedem bedeutenden Ergebnis der allgemeinen Relativitätstheorie vorkommt — von den Singularitätstheoremen bis zum holographischen Prinzip, von der Klassifikation der Raumzeiten bis zum Beweis, dass Gravitationswellen Energie tragen.
 
-<div style="margin: 2rem 0; padding: 1.5rem; border: 1px solid var(--border-color); border-radius: 8px; background: var(--bg-secondary);">
-
-**[Interaktiven visuellen Leitfaden öffnen →](/research/penrose-diagrams/infographic.html)**
-
-6 Abschnitte mit annotierten SVG-Diagrammen. Interaktiver Atlas von 4 Raumzeiten: Minkowski, Schwarzschild, de Sitter, Anti-de Sitter.
-
-</div>
-
 ## Das Problem
 
 Anfang der 1960er Jahre steckte die allgemeine Relativitätstheorie in einer Krise. Karl Schwarzschild fand seine Schwarze-Loch-Lösung 1916, aber sie setzte perfekte Kugelsymmetrie voraus. Die meisten Physiker, einschließlich Einstein, glaubten, dass jede reale Abweichung die Bildung einer Singularität verhindern würde. Ob schwarze Löcher tatsächlich existieren oder nur mathematische Artefakte sind, blieb fast 50 Jahre offen.

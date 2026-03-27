@@ -19,14 +19,6 @@ robots: "noindex"
 
 这一工具如此强大，以至于它现在出现在广义相对论几乎每一个重大成果中——从奇点定理到全息原理，从时空分类到引力波携带能量的证明。
 
-<div style="margin: 2rem 0; padding: 1.5rem; border: 1px solid var(--border-color); border-radius: 8px; background: var(--bg-secondary);">
-
-**[打开交互式视觉指南 →](/research/penrose-diagrams/infographic.html)**
-
-6个部分，包含注释SVG图表。4种时空的交互式图集：闵可夫斯基、史瓦西、德西特、反德西特。
-
-</div>
-
 ## 问题
 
 到1960年代初，广义相对论陷入了危机。史瓦西在1916年找到了他的黑洞解，但它假设完美的球对称——自然界中从未出现的条件。大多数物理学家，包括爱因斯坦，都认为任何实际偏差都会阻止奇点形成。黑洞是否真实存在，还是仅仅是理想化数学的产物？这个问题悬而未决近50年。

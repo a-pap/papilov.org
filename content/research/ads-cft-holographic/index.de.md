@@ -18,14 +18,6 @@ Er zeigte, dass Quantengravitation in einer begrenzten, negativ gekrümmten Raum
 
 Dies ist die AdS/CFT-Korrespondenz. Sie löste nicht nur ein Problem. Sie schuf ein ganzes Feld.
 
-<div style="margin: 2rem 0; padding: 1.5rem; border: 1px solid var(--border-color); border-radius: 8px; background: var(--bg-secondary);">
-
-**[Interaktiven Explainer öffnen →](/research/ads-cft-holographic/infographic.html)**
-
-7 Abschnitte mit SVG-Diagrammen, Zitationstabelle und vollständiger Quellenangabe.
-
-</div>
-
 ## Der Ursprung: ein Doktorand gegen alle
 
 Die Geschichte beginnt mit Jacob Bekenstein, einem Doktoranden in Princeton Anfang der 1970er. Sein Betreuer John Wheeler stellte ein Gedankenexperiment: Was passiert mit der Entropie einer Tasse Tee, wenn man sie in ein schwarzes Loch wirft? Bekensteins Antwort: Schwarze Löcher selbst tragen Entropie, proportional zur Fläche des Ereignishorizonts — nicht zum Volumen. Er veröffentlichte dies 1973. Die Gemeinschaft lehnte es ab. Wie Kip Thorne schrieb: „Alle Schwarze-Loch-Experten stellten sich auf Hawkings Seite." Die Ausnahme war Wheeler: *„Ihre Idee ist verrückt genug, um richtig zu sein."*

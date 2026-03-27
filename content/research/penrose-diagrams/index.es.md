@@ -18,14 +18,6 @@ La respuesta de Roger Penrose, desarrollada a principios de la década de 1960: 
 
 Esta única herramienta demostró ser tan poderosa que ahora aparece en prácticamente todos los grandes resultados de la relatividad general — desde los teoremas de singularidad hasta el principio holográfico, desde la clasificación de espacio-tiempos hasta la prueba de que las ondas gravitacionales transportan energía.
 
-<div style="margin: 2rem 0; padding: 1.5rem; border: 1px solid var(--border-color); border-radius: 8px; background: var(--bg-secondary);">
-
-**[Abrir la guía visual interactiva →](/research/penrose-diagrams/infographic.html)**
-
-6 secciones con diagramas SVG anotados y referencias completas. Atlas interactivo de 4 espacio-tiempos.
-
-</div>
-
 ## El problema
 
 Hacia principios de los 1960, la relatividad general estaba en crisis. Karl Schwarzschild encontró su solución de agujero negro en 1916, pero asumía simetría esférica perfecta. La mayoría de los físicos, incluido Einstein, creían que cualquier desviación de la simetría impediría la formación de singularidades. ¿Existen realmente los agujeros negros, o son solo artefactos matemáticos? La pregunta permaneció abierta durante casi 50 años.

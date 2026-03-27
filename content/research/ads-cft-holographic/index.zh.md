@@ -19,14 +19,6 @@ robots: "noindex"
 
 这就是AdS/CFT对应。它不仅解决了一个问题，还创造了一整个领域。
 
-<div style="margin: 2rem 0; padding: 1.5rem; border: 1px solid var(--border-color); border-radius: 8px; background: var(--bg-secondary);">
-
-**[打开交互式科普 →](/research/ads-cft-holographic/infographic.html)**
-
-7个部分：全息原理 · AdS/CFT · 对偶字典 · dS/CFT与我们的宇宙 · 未解决的问题 · 时间线 · 哲学背景。
-
-</div>
-
 ## 起源：一个博士生对抗所有人
 
 故事从雅各布·贝肯斯坦开始——1970年代初普林斯顿的一位博士生。他的导师约翰·惠勒提出了一个思想实验：如果把一杯茶扔进黑洞，茶的熵会怎样？贝肯斯坦的回答：黑洞本身携带熵，且与事件视界的面积成正比——不是体积。他在1973年发表了这一观点。物理学界的反应压倒性地否定。正如基普·索恩所写："世界上所有黑洞专家都站在霍金一边。"唯一的例外是惠勒，他告诉贝肯斯坦：*"你的想法疯狂到可能是对的。"*
