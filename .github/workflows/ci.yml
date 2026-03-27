@@ -1,0 +1,63 @@
+name: CI — Site Validation
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Build & Validate
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: "0.143.1"
+          extended: true
+
+      - name: Make test scripts executable
+        run: chmod +x tests/*.sh
+
+      # Pre-build tests (no Hugo build needed)
+      - name: CSS class coverage
+        run: ./tests/test-css-coverage.sh
+
+      - name: i18n completeness
+        run: ./tests/test-i18n.sh
+
+      - name: Theme CSS validation
+        run: ./tests/test-theme-css.sh
+
+      # Build
+      - name: Build site
+        run: hugo --minify
+
+      # Post-build tests
+      - name: Build output validation
+        run: |
+          # test-build.sh does its own build, so we just validate the output exists
+          test -f public/index.html
+          test -f public/sitemap.xml
+          test -f public/index.xml
+          for lang in ru es de zh; do
+            test -f "public/$lang/index.html"
+          done
+          for article in ads-cft-holographic penrose-diagrams subscription-pricing-models; do
+            test -f "public/research/$article/index.html"
+          done
+          echo "All expected build outputs present."
+
+      - name: Slug leak detection
+        run: ./tests/test-slug-leaks.sh
+
+      - name: HTML output validation
+        run: ./tests/test-html-validation.sh
