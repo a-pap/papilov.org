@@ -184,20 +184,70 @@ license: "CC BY-NC 4.0"
 ## 这些图使什么成为可能
 
 <div class="timeline">
-  <div class="tl-item"><div class="tl-dot tl-dot--green"></div><div class="tl-year">1963</div><div class="tl-title">彭罗斯引入共形紧化</div><div class="tl-desc">《物理评论快报》+ 勒乌什暑期学校。</div></div>
-  <div class="tl-item"><div class="tl-dot tl-dot--green"></div><div class="tl-year">1965</div><div class="tl-title">奇点定理</div><div class="tl-desc">"自爱因斯坦以来对广义相对论最重要的贡献。"诺贝尔奖在55年后到来。</div></div>
-  <div class="tl-item"><div class="tl-dot tl-dot--green"></div><div class="tl-year">1970</div><div class="tl-title">彭罗斯-霍金奇点定理</div><div class="tl-desc">霍金将方法扩展到宇宙学：大爆炸本身包含奇点。</div></div>
-  <div class="tl-item"><div class="tl-dot tl-dot--green"></div><div class="tl-year">1973–75</div><div class="tl-title">黑洞熵与霍金辐射</div><div class="tl-desc">贝肯斯坦：熵 ∝ 面积。惠勒："你的想法疯狂到可能是对的。"霍金证实：黑洞辐射。</div></div>
-  <div class="tl-item"><div class="tl-dot tl-dot--green"></div><div class="tl-year">1997</div><div class="tl-title">AdS/CFT对应</div><div class="tl-desc">马尔达塞纳：AdS中的量子引力 = 彭罗斯图边界上的场论。</div></div>
-  <div class="tl-item"><div class="tl-dot tl-dot--green"></div><div class="tl-year">2013</div><div class="tl-title">ER = EPR</div><div class="tl-desc">爱因斯坦-罗森桥（在彭罗斯图上可见）= 量子纠缠。</div></div>
-  <div class="tl-item"><div class="tl-dot tl-dot--green"></div><div class="tl-year">2015</div><div class="tl-title">LIGO探测到引力波</div><div class="tl-desc">波能量在I⁺上定义——彭罗斯图使其严格化的边界。</div></div>
-  <div class="tl-item"><div class="tl-dot tl-dot--green"></div><div class="tl-year">2020</div><div class="tl-title">诺贝尔奖</div><div class="tl-desc">彭罗斯，89岁。发现到获奖间隔55年。</div></div>
+  <div class="tl-item">
+    <div class="tl-dot tl-dot--green"></div>
+    <div class="tl-year">1963</div>
+    <div class="tl-title">彭罗斯引入共形紧化</div>
+    <div class="tl-desc">《物理评论快报》的一篇短文，随后在勒乌什暑期学校进行了三场详细讲座。方法就此确立。</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-dot tl-dot--green"></div>
+    <div class="tl-year">1965</div>
+    <div class="tl-title">奇点定理</div>
+    <div class="tl-desc">彭罗斯证明在现实条件下奇点不可避免。诺贝尔委员会称之为"自爱因斯坦以来对广义相对论最重要的贡献。"诺贝尔奖在55年后到来。</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-dot tl-dot--green"></div>
+    <div class="tl-year">1970</div>
+    <div class="tl-title">彭罗斯-霍金奇点定理</div>
+    <div class="tl-desc">霍金将方法扩展到宇宙学：大爆炸本身必然包含奇点。宇宙始于一个密度无穷大的点。</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-dot"></div>
+    <div class="tl-year">1973</div>
+    <div class="tl-title">霍金与埃利斯出版参考教科书</div>
+    <div class="tl-desc">《时空的大尺度结构》将彭罗斯图确立为标准工具。沿用至今的符号和约定均来自这本书。</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-dot tl-dot--green"></div>
+    <div class="tl-year">1973–75</div>
+    <div class="tl-title">黑洞熵与霍金辐射</div>
+    <div class="tl-desc">贝肯斯坦提出熵 ∝ 视界面积。惠勒："你的想法疯狂到可能是对的。"霍金证明黑洞会辐射。蒸发黑洞的彭罗斯图——奇点最终消失——由此产生了信息悖论。</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-dot tl-dot--green"></div>
+    <div class="tl-year">1997</div>
+    <div class="tl-title">AdS/CFT对应</div>
+    <div class="tl-desc">马尔达塞纳发现反德西特空间中的量子引力等价于其共形边界上的量子场论——即彭罗斯图的垂直边缘。在Strings '98会议上，数百位物理学家按照马卡雷纳的曲调高唱"The Maldacena"。</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-dot tl-dot--green"></div>
+    <div class="tl-year">2013</div>
+    <div class="tl-title">ER = EPR</div>
+    <div class="tl-desc">马尔达塞纳和萨斯坎德：爱因斯坦-罗森桥（在彭罗斯图上可见）等价于量子纠缠。时空几何与量子信息可能是同一事物的两种描述。</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-dot tl-dot--green"></div>
+    <div class="tl-year">2015</div>
+    <div class="tl-title">LIGO探测到引力波</div>
+    <div class="tl-desc">引力波能量在类光无穷I⁺上定义——彭罗斯图使其严格化的边界。BMS渐近对称群建立在共形方法之上，构成了理论框架的基础。</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-dot tl-dot--green"></div>
+    <div class="tl-year">2020</div>
+    <div class="tl-title">诺贝尔奖</div>
+    <div class="tl-desc">彭罗斯，89岁，获得诺贝尔物理学奖的一半。发现（1965年）到获奖（2020年）间隔55年——诺贝尔历史上最长间隔之一。</div>
+  </div>
 </div>
+
+## 图表背后的人
 
 <div class="highlight-box">
 <strong>跨学科的视觉思维者</strong>
-罗杰·彭罗斯（1931年生）：不可能三角（1954年构想，1958年发表）→埃舍尔。非周期铺砌→准晶体。奇点定理：用拓扑学取代蛮力计算。共形图：一幅图代替数页方程。1988年与霍金共获沃尔夫奖。2020年89岁获诺贝尔奖。
+罗杰·彭罗斯（1931年生）提出了不可能三角（1954年构想，1958年发表），启发了埃舍尔的《瀑布》和《上升与下降》。他的非周期铺砌（1974年）预示了准晶体的发现。他的奇点定理在别人尝试蛮力计算时使用了拓扑学。他的共形图用一幅图代替了数页方程。在每一个案例中，突破都来自于看到了他人仅以代数方式描述的结构。
 </div>
+
+基普·索恩这样描述彭罗斯的方法："忽略时空的详细几何结构，而是只关注空间的拓扑，或最多关注其共形结构——因为正是后者，由光锥的排列所决定，决定了因果关系。"他在1988年与斯蒂芬·霍金共获沃尔夫奖，并在89岁时获得诺贝尔奖。
 
 ---
 

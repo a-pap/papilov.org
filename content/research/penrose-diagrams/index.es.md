@@ -181,25 +181,73 @@ Constante cosmológica negativa. El diagrama es una franja vertical con frontera
 
 En 1997, Juan Maldacena demostró que la gravedad cuántica en este espacio es exactamente equivalente a una teoría de campos cuánticos que vive en su frontera. Esta correspondencia AdS/CFT — el [resultado más citado](https://arxiv.org/abs/hep-th/9711200) en la historia de la física de altas energías (20.000+ citas) — significa que los bordes verticales del diagrama de Penrose no son solo fronteras abstractas. Son donde vive la teoría dual. Gravedad en el bulk, campos cuánticos en el borde. El diagrama de Penrose hace visible esta arquitectura.
 
-## Línea temporal
+## Lo que hicieron posible estos diagramas
 
 <div class="timeline">
-  <div class="tl-item"><div class="tl-dot tl-dot--green"></div><div class="tl-year">1963</div><div class="tl-title">Penrose introduce la compactificación conforme</div><div class="tl-desc">Physical Review Letters + Les Houches.</div></div>
-  <div class="tl-item"><div class="tl-dot tl-dot--green"></div><div class="tl-year">1965</div><div class="tl-title">Teorema de singularidad</div><div class="tl-desc">"La contribución más importante a la relatividad general desde Einstein." Nobel 55 años después.</div></div>
-  <div class="tl-item"><div class="tl-dot tl-dot--green"></div><div class="tl-year">1970</div><div class="tl-title">Teoremas Penrose-Hawking</div><div class="tl-desc">Hawking extiende el método a la cosmología: el Big Bang contiene una singularidad.</div></div>
-  <div class="tl-item"><div class="tl-dot tl-dot--green"></div><div class="tl-year">1973–75</div><div class="tl-title">Entropía y radiación de Hawking</div><div class="tl-desc">Bekenstein: entropía ∝ área. Wheeler: "Tu idea es lo bastante loca para ser correcta." Hawking confirma: los agujeros negros radian.</div></div>
-  <div class="tl-item"><div class="tl-dot tl-dot--green"></div><div class="tl-year">1997</div><div class="tl-title">Correspondencia AdS/CFT</div><div class="tl-desc">Maldacena: gravedad cuántica en AdS = teoría de campos en la frontera del diagrama de Penrose.</div></div>
-  <div class="tl-item"><div class="tl-dot tl-dot--green"></div><div class="tl-year">2013</div><div class="tl-title">ER = EPR</div><div class="tl-desc">Puentes de Einstein-Rosen (visibles en diagramas de Penrose) = entrelazamiento cuántico.</div></div>
-  <div class="tl-item"><div class="tl-dot tl-dot--green"></div><div class="tl-year">2015</div><div class="tl-title">LIGO detecta ondas gravitacionales</div><div class="tl-desc">La energía de las ondas se define en I⁺ — la frontera que los diagramas de Penrose hicieron rigurosa.</div></div>
-  <div class="tl-item"><div class="tl-dot tl-dot--green"></div><div class="tl-year">2020</div><div class="tl-title">Premio Nobel</div><div class="tl-desc">Penrose, 89 años. 55 años entre descubrimiento y reconocimiento.</div></div>
+  <div class="tl-item">
+    <div class="tl-dot tl-dot--green"></div>
+    <div class="tl-year">1963</div>
+    <div class="tl-title">Penrose introduce la compactificación conforme</div>
+    <div class="tl-desc">Una breve nota en Physical Review Letters, seguida de tres conferencias detalladas en Les Houches. El método queda establecido.</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-dot tl-dot--green"></div>
+    <div class="tl-year">1965</div>
+    <div class="tl-title">El teorema de singularidad</div>
+    <div class="tl-desc">Penrose demuestra que las singularidades son inevitables bajo condiciones realistas. El Comité Nobel lo llama "la contribución más importante a la relatividad general desde Einstein." El premio llega 55 años después.</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-dot tl-dot--green"></div>
+    <div class="tl-year">1970</div>
+    <div class="tl-title">Teoremas de singularidad Penrose-Hawking</div>
+    <div class="tl-desc">Hawking extiende el método a la cosmología: el Big Bang mismo debe contener una singularidad. El universo comenzó a partir de un punto de densidad infinita.</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-dot"></div>
+    <div class="tl-year">1973</div>
+    <div class="tl-title">Hawking y Ellis publican el texto de referencia</div>
+    <div class="tl-desc">"The Large Scale Structure of Space-Time" establece los diagramas de Penrose como la herramienta estándar. La notación y las convenciones utilizadas hasta hoy provienen de este libro.</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-dot tl-dot--green"></div>
+    <div class="tl-year">1973–75</div>
+    <div class="tl-title">Entropía de agujeros negros y radiación de Hawking</div>
+    <div class="tl-desc">Bekenstein propone entropía ∝ área del horizonte. Wheeler: "Tu idea es lo bastante loca para funcionar." Hawking demuestra que los agujeros negros radian. El diagrama de Penrose de un agujero negro en evaporación — la singularidad desapareciendo eventualmente — crea la paradoja de la información.</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-dot tl-dot--green"></div>
+    <div class="tl-year">1997</div>
+    <div class="tl-title">Correspondencia AdS/CFT</div>
+    <div class="tl-desc">Maldacena descubre que la gravedad cuántica en el espacio anti-de Sitter es igual a una teoría de campos cuánticos en su frontera conforme — el borde vertical del diagrama de Penrose. En Strings '98, cientos de físicos cantaron "The Maldacena" con la melodía de la Macarena.</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-dot tl-dot--green"></div>
+    <div class="tl-year">2013</div>
+    <div class="tl-title">ER = EPR</div>
+    <div class="tl-desc">Maldacena y Susskind: los puentes de Einstein-Rosen (visibles en diagramas de Penrose) son equivalentes al entrelazamiento cuántico. La geometría del espacio-tiempo y la información cuántica podrían ser dos descripciones de lo mismo.</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-dot tl-dot--green"></div>
+    <div class="tl-year">2015</div>
+    <div class="tl-title">LIGO detecta ondas gravitacionales</div>
+    <div class="tl-desc">La energía de las ondas gravitacionales se define en el infinito nulo I⁺ — la frontera que los diagramas de Penrose hicieron rigurosa. El grupo de simetría asintótica BMS, construido sobre métodos conformes, subyace al marco teórico.</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-dot tl-dot--green"></div>
+    <div class="tl-year">2020</div>
+    <div class="tl-title">Premio Nobel</div>
+    <div class="tl-desc">Penrose, de 89 años, recibe la mitad del Premio Nobel de Física. La distancia entre descubrimiento (1965) y reconocimiento (2020) es de 55 años — una de las más largas en la historia del Nobel.</div>
+  </div>
 </div>
 
 ## La persona detrás de los diagramas
 
 <div class="highlight-box">
 <strong>Una mente visual entre disciplinas</strong>
-Roger Penrose (n. 1931) propuso el triángulo imposible (concebido en 1954, publicado en 1958) e inspiró a Escher. Sus mosaicos aperiódicos (1974) anticiparon los cuasicristales. Su teorema de singularidad usó topología donde otros intentaron cálculos directos. Sus diagramas conformes reemplazaron páginas de ecuaciones por una sola imagen. Premio Wolf 1988 con Hawking. Nobel 2020 a los 89 años.
+Roger Penrose (n. 1931) propuso el triángulo imposible (concebido en 1954, publicado en 1958) e inspiró las obras de M. C. Escher <em>Cascada</em> y <em>Subiendo y bajando</em>. Sus mosaicos aperiódicos (1974) anticiparon el descubrimiento de los cuasicristales. Su teorema de singularidad usó topología donde otros intentaron cálculos de fuerza bruta. Sus diagramas conformes reemplazaron páginas de ecuaciones por una sola imagen. En cada caso, el avance surgió de ver estructura donde otros solo describían algebraicamente.
 </div>
+
+Kip Thorne describió el enfoque de Penrose como "pasar por alto la estructura geométrica detallada del espacio-tiempo y concentrarse únicamente en la topología del espacio, o a lo sumo en su estructura conforme, ya que es esta última — determinada por la disposición de los conos de luz — la que determina las relaciones causales." Compartió el Premio Wolf 1988 con Stephen Hawking y ganó el Nobel a los 89 años.
 
 ---
 
