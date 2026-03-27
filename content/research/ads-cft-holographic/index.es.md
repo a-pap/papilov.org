@@ -227,13 +227,25 @@ Esto no es solo una brecha técnica — es la pregunta central abierta del campo
   </div>
 </div>
 
+## Lo que significa
+
+El principio holográfico, si es cierto, es la revisión más radical de nuestra imagen de la realidad desde la mecánica cuántica. Dice que el espacio tridimensional que habitamos podría ser una proyección — completa y autoconsistente, pero en última instancia codificada en una superficie bidimensional lejana.
+
+Aún no sabemos si esto aplica a nuestro Universo real. La evidencia es abrumadora para espacios-tiempo AdS, circunstancial para de Sitter. Pero la dirección de la física teórica desde 1997 es inequívoca: el espacio-tiempo no es fundamental. Emerge de algo más profundo — información cuántica, entrelazamiento, códigos. Los diagramas de Penrose nos mostraron cómo ver la estructura causal del espacio-tiempo. El principio holográfico sugiere que esta estructura misma podría calcularse a partir de una teoría de menor dimensión en la frontera.
+
 ---
 
 ## Referencias
 
-- J. D. Bekenstein, *Phys. Rev. D* **7**, 2333 (1973)
-- S. W. Hawking, *Commun. Math. Phys.* **43**, 199 (1975)
-- J. M. Maldacena, *Adv. Theor. Math. Phys.* **2**, 231 (1998) — [arXiv:hep-th/9711200](https://arxiv.org/abs/hep-th/9711200)
+- J. D. Bekenstein, "Black Holes and Entropy," *Phys. Rev. D* **7**, 2333 (1973)
+- S. W. Hawking, "Particle Creation by Black Holes," *Commun. Math. Phys.* **43**, 199 (1975)
+- G. 't Hooft, "Dimensional Reduction in Quantum Gravity," [arXiv:gr-qc/9310026](https://arxiv.org/abs/gr-qc/9310026) (1993)
+- L. Susskind, "The World as a Hologram," *J. Math. Phys.* **36**, 6377 (1995) — [arXiv:hep-th/9409089](https://arxiv.org/abs/hep-th/9409089)
+- J. M. Maldacena, "The Large N Limit of Superconformal Field Theories and Supergravity," *Adv. Theor. Math. Phys.* **2**, 231 (1998) — [arXiv:hep-th/9711200](https://arxiv.org/abs/hep-th/9711200)
+- S. S. Gubser, I. R. Klebanov, A. M. Polyakov, *Phys. Lett. B* **428**, 105 (1998) — [arXiv:hep-th/9802109](https://arxiv.org/abs/hep-th/9802109)
+- E. Witten, "Anti De Sitter Space And Holography," *Adv. Theor. Math. Phys.* **2**, 253 (1998) — [arXiv:hep-th/9802150](https://arxiv.org/abs/hep-th/9802150)
+- A. Strominger, "The dS/CFT Correspondence," *JHEP* **0110**, 034 (2001) — [arXiv:hep-th/0106113](https://arxiv.org/abs/hep-th/0106113)
 - S. Ryu, T. Takayanagi, *Phys. Rev. Lett.* **96**, 181602 (2006) — [arXiv:hep-th/0603001](https://arxiv.org/abs/hep-th/0603001)
-- M. Van Raamsdonk, *Gen. Rel. Grav.* **42**, 2323 (2010) — [arXiv:1005.3035](https://arxiv.org/abs/1005.3035)
-- J. M. Maldacena, L. Susskind, *Fortschr. Phys.* **61**, 781 (2013) — [arXiv:1306.0533](https://arxiv.org/abs/1306.0533)
+- M. Van Raamsdonk, "Building up spacetime with quantum entanglement," *Gen. Rel. Grav.* **42**, 2323 (2010) — [arXiv:1005.3035](https://arxiv.org/abs/1005.3035)
+- J. M. Maldacena, L. Susskind, "Cool Horizons for Entangled Black Holes," *Fortschr. Phys.* **61**, 781 (2013) — [arXiv:1306.0533](https://arxiv.org/abs/1306.0533)
+- V. E. Hubeny, "The AdS/CFT Correspondence," [arXiv:1501.00007](https://arxiv.org/abs/1501.00007) (2015)
