@@ -7,11 +7,10 @@ authors:
     given-names: Artem
     email: artem@papilov.org
     affiliation: "Independent Researcher"
-    orcid: ""
 repository-code: "https://github.com/a-pap/papilov.org"
 url: "https://papilov.org"
 license: CC-BY-NC-4.0
-date-released: "2026-03-03"
+date-released: "2026-03-27"
 keywords:
   - subscription economics
   - pricing models
@@ -20,7 +19,68 @@ keywords:
   - AdS-CFT correspondence
   - Penrose diagrams
   - general relativity
-  - physics explainers
+  - auction theory
+  - mechanism design
+  - programmatic advertising
+  - header bidding
+  - Prebid.js
+  - adtech
+references:
+  - type: article
+    title: "Prebid.js: How the Programmatic Monetization Standard Works"
+    authors:
+      - family-names: Papilov
+        given-names: Artem
+    url: "https://papilov.org/research/prebid-js-explainer/"
+    date-published: "2026-03-27"
+    year: 2026
+    journal: "Papilov Research"
+    license: CC-BY-NC-4.0
+    languages: [en, ru, es, de, zh]
+  - type: article
+    title: "Auction Mechanics: From Christie's to Google Ads"
+    authors:
+      - family-names: Papilov
+        given-names: Artem
+    url: "https://papilov.org/research/auction-mechanics/"
+    date-published: "2026-03-22"
+    year: 2026
+    journal: "Papilov Research"
+    license: CC-BY-NC-4.0
+    languages: [en, ru, es, de, zh]
+  - type: article
+    title: "The Price of Loyalty: Three Models of Subscription Pricing"
+    authors:
+      - family-names: Papilov
+        given-names: Artem
+    url: "https://papilov.org/research/subscription-pricing-models/"
+    date-published: "2026-03-03"
+    year: 2026
+    journal: "Papilov Research"
+    license: CC-BY-NC-4.0
+    languages: [en, ru, es, de, zh]
+  - type: article
+    title: "Penrose Diagrams: A Visual Guide to Conformal Compactification"
+    authors:
+      - family-names: Papilov
+        given-names: Artem
+    url: "https://papilov.org/research/penrose-diagrams/"
+    date-published: "2026-03-22"
+    year: 2026
+    journal: "Papilov Research"
+    license: CC-BY-NC-4.0
+    languages: [en, ru, es, de, zh]
+  - type: article
+    title: "The Universe as a Hologram: AdS/CFT Correspondence"
+    authors:
+      - family-names: Papilov
+        given-names: Artem
+    url: "https://papilov.org/research/ads-cft-holographic/"
+    date-published: "2026-03-22"
+    year: 2026
+    journal: "Papilov Research"
+    license: CC-BY-NC-4.0
+    languages: [en, ru, es, de, zh]
 preferred-citation:
   type: article
   title: "The Price of Loyalty: Three Models of Subscription Pricing"
@@ -33,9 +93,4 @@ preferred-citation:
   month: 3
   journal: "Papilov Research"
   license: CC-BY-NC-4.0
-  languages:
-    - en
-    - ru
-    - es
-    - de
-    - zh
+  languages: [en, ru, es, de, zh]

@@ -21,34 +21,36 @@ Primary writing language: Russian. All translations are human-reviewed.
 
 ## Research Articles
 
-### Penrose Diagrams (March 2026)
+### Prebid.js: How the Programmatic Monetization Standard Works (March 2026)
 
-- URL (EN): https://papilov.org/research/penrose-diagrams/
-- URL (RU): https://papilov.org/ru/research/penrose-diagrams/
-- URL (ES): https://papilov.org/es/research/penrose-diagrams/
-- URL (DE): https://papilov.org/de/research/penrose-diagrams/
-- URL (ZH): https://papilov.org/zh/research/penrose-diagrams/
-- Interactive infographic: https://papilov.org/research/penrose-diagrams/infographic.html
+- URL (EN): https://papilov.org/research/prebid-js-explainer/
+- URL (RU): https://papilov.org/ru/research/prebid-js-explainer/
+- URL (ES): https://papilov.org/es/research/prebid-js-explainer/
+- URL (DE): https://papilov.org/de/research/prebid-js-explainer/
+- URL (ZH): https://papilov.org/zh/research/prebid-js-explainer/
 - License: CC BY-NC 4.0
 
-How to fit infinite spacetime onto a finite sheet of paper. A visual guide to
-conformal diagrams: Minkowski, Schwarzschild, de Sitter, Anti-de Sitter.
-Covers Penrose's conformal compactification, the five rules for reading any diagram,
-and four fundamental spacetimes with annotated SVG diagrams.
+Deep dive into the technology processing trillions of ad auctions per year.
+Covers header bidding mechanics, three architectures (client-side, server-side,
+hybrid), business levers (timeout, price granularity, buyer selection), the ANA
+supply chain study (36c per dollar reaching publishers in 2023, improving to 47.1c
+by Q3 2025), Google antitrust implications, privacy adaptation, and competitive
+landscape. For decision-makers in adtech and publishing.
 
-### The Universe as a Hologram — AdS/CFT Correspondence (March 2026)
+### Auction Mechanics: From Christie's to Google Ads (March 2026)
 
-- URL (EN): https://papilov.org/research/ads-cft-holographic/
-- URL (RU): https://papilov.org/ru/research/ads-cft-holographic/
-- URL (ES): https://papilov.org/es/research/ads-cft-holographic/
-- URL (DE): https://papilov.org/de/research/ads-cft-holographic/
-- URL (ZH): https://papilov.org/zh/research/ads-cft-holographic/
-- Interactive infographic: https://papilov.org/research/ads-cft-holographic/infographic.html
+- URL (EN): https://papilov.org/research/auction-mechanics/
+- URL (RU): https://papilov.org/ru/research/auction-mechanics/
+- URL (ES): https://papilov.org/es/research/auction-mechanics/
+- URL (DE): https://papilov.org/de/research/auction-mechanics/
+- URL (ZH): https://papilov.org/zh/research/auction-mechanics/
 - License: CC BY-NC 4.0
 
-AdS/CFT correspondence and the holographic principle. From the Bekenstein-Hawking
-entropy formula to Maldacena's duality, Ryu-Takayanagi formula, and attempts to
-construct dS/CFT for our Universe with positive cosmological constant.
+How auction theory shapes markets worth trillions. Covers four classical auction
+types (English, Dutch, sealed first-price, Vickrey), the Revenue Equivalence
+Theorem, winner's curse, spectrum auctions ($233B+ since 1994), ad auction evolution
+(Vickrey to header bidding to first-price), Ethereum EIP-1559, carbon markets
+(EU ETS), and real-world applications in cloud computing, energy, and finance.
 
 ### The Price of Loyalty — Subscription Pricing Models (March 2026)
 
@@ -57,17 +59,57 @@ construct dS/CFT for our Universe with positive cosmological constant.
 - URL (ES): https://papilov.org/es/research/subscription-pricing-models/
 - URL (DE): https://papilov.org/de/research/subscription-pricing-models/
 - URL (ZH): https://papilov.org/zh/research/subscription-pricing-models/
-- Interactive infographic: https://papilov.org/research/subscription-pricing-models/infographic.html
 - License: CC BY-NC 4.0
 
 Why Netflix raises prices every year while World of Warcraft hasn't in 21 years.
 Analysis of three pricing archetypes: Extractive, Gateway, and Monopoly.
 Key findings:
-- Since 2020, subscription prices outpaced CPI inflation by 3-5×
+- Since 2020, subscription prices outpaced CPI inflation (~25%) by 3-5x
 - Disney+ led with +172% price increase in 6 years
-- WoW maintained $14.99/mo for 21 years by shifting to microtransactions (35% of revenue)
-- Three pricing models: Extractive (Netflix, Spotify), Gateway (WoW, Costco, Amazon Prime), Monopoly (Adobe CC, Microsoft 365)
-- Behavioral economics of subscription inertia: loss aversion, subscription blindness (72% underestimate spending), boiling frog pricing
+- WoW maintained $14.99/mo for 21 years by shifting to microtransactions (~35% revenue)
+- Three models: Extractive (Netflix, Spotify), Gateway (WoW, Costco, Prime), Monopoly (Adobe CC, M365)
+- Behavioral economics: loss aversion (2x pain), subscription blindness (72%), boiling frog (~10%)
+- MoviePass lost $27-45M/month before collapse
+
+### Penrose Diagrams (March 2026)
+
+- URL (EN): https://papilov.org/research/penrose-diagrams/
+- URL (RU): https://papilov.org/ru/research/penrose-diagrams/
+- URL (ES): https://papilov.org/es/research/penrose-diagrams/
+- URL (DE): https://papilov.org/de/research/penrose-diagrams/
+- URL (ZH): https://papilov.org/zh/research/penrose-diagrams/
+- License: CC BY-NC 4.0
+
+How to fit infinite spacetime onto a finite sheet of paper. A visual guide to
+conformal diagrams: Minkowski, Schwarzschild, de Sitter, Anti-de Sitter.
+Covers Penrose's conformal compactification, the five rules for reading any diagram,
+four fundamental spacetimes with annotated SVG diagrams, the BMS group at null
+infinity, Kruskal-Szekeres maximal extension, and the connection between conformal
+boundaries and holography.
+
+### The Universe as a Hologram — AdS/CFT Correspondence (March 2026)
+
+- URL (EN): https://papilov.org/research/ads-cft-holographic/
+- URL (RU): https://papilov.org/ru/research/ads-cft-holographic/
+- URL (ES): https://papilov.org/es/research/ads-cft-holographic/
+- URL (DE): https://papilov.org/de/research/ads-cft-holographic/
+- URL (ZH): https://papilov.org/zh/research/ads-cft-holographic/
+- License: CC BY-NC 4.0
+
+AdS/CFT correspondence and the holographic principle. From the Bekenstein-Hawking
+entropy formula (S = A/4) to Maldacena's duality (20,000+ citations), Ryu-Takayanagi
+formula, Van Raamsdonk's spacetime-from-entanglement, ER=EPR conjecture, and the
+open problem of constructing dS/CFT for our Universe with positive cosmological
+constant. Includes bulk-boundary duality dictionary and de Sitter Penrose diagram.
+
+## Machine-Readable Resources
+
+- Full article text: https://papilov.org/llms-full.txt
+- Sitemap: https://papilov.org/sitemap.xml
+- RSS feed: https://papilov.org/index.xml
+- Citation metadata: https://github.com/a-pap/papilov.org/blob/main/CITATION.cff
+- Source code: https://github.com/a-pap/papilov.org (MIT license for code)
+- AI plugin: https://papilov.org/.well-known/ai-plugin.json
 
 ## Consulting
 
@@ -76,7 +118,7 @@ Contact: https://papilov.org/work-with-me/
 
 ## Technical
 
-- Source: https://github.com/a-pap/papilov.org (MIT license for code)
-- Built with: Hugo + Cloudflare Pages
-- Citation: CITATION.cff in repository root
-- Full details: https://papilov.org/colophon/
+- Built with: Hugo 0.143.1 + Cloudflare Pages
+- All articles include JSON-LD (ScholarlyArticle), Dublin Core, Highwire Press citation tags
+- Content license: CC BY-NC 4.0 (free to cite with attribution, no commercial use)
+- Code license: MIT

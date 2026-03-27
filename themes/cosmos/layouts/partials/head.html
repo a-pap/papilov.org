@@ -162,10 +162,26 @@
   "inLanguage": "{{ .Language.LanguageCode }}",
   {{ with .Params.tags }}"keywords": [{{ range $i, $t := . }}{{ if $i }},{{ end }}"{{ $t }}"{{ end }}],{{ end }}
   {{ with .Params.version }}"version": "{{ . }}",{{ end }}
+  {{ with .Params.status }}"creativeWorkStatus": "{{ . }}",{{ end }}
+  {{ with .Params.confidence }}"assesses": "{{ . }}",{{ end }}
   "license": "https://creativecommons.org/licenses/by-nc/4.0/",
+  "conditionsOfAccess": "Free and open access",
   "isAccessibleForFree": true,
+  "usageInfo": "https://creativecommons.org/licenses/by-nc/4.0/",
+  {{ with .Params.ai_disclosure }}"funder": { "@type": "Note", "text": "{{ . }}" },{{ end }}
   {{ with .Params.og_image }}"image": "https://papilov.org{{ . }}",{{ end }}
-  "wordCount": {{ .WordCount }}
+  "wordCount": {{ .WordCount }},
+  "isPartOf": {
+    "@type": "WebSite",
+    "@id": "https://papilov.org/#website"
+  }{{ if .IsTranslated }},
+  "workTranslation": [{{ $first := true }}{{ range .Translations }}{{ if not $first }},{{ end }}{{ $first = false }}
+    {
+      "@type": "ScholarlyArticle",
+      "url": "{{ .Permalink }}",
+      "inLanguage": "{{ .Language.LanguageCode }}"
+    }{{ end }}
+  ]{{ end }}
 }
 </script>
 {{ end }}

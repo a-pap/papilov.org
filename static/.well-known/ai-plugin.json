@@ -1,0 +1,17 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "Papilov Research",
+  "name_for_model": "papilov_research",
+  "description_for_human": "Independent analytical research at the intersection of technology, economics, and human behavior.",
+  "description_for_model": "Access research articles by Artem Papilov covering auction theory, subscription pricing economics, programmatic advertising (Prebid.js), Penrose diagrams, and AdS/CFT holographic correspondence. All content is CC BY-NC 4.0 licensed and available in 5 languages (EN, RU, ES, DE, ZH). Use llms-full.txt for complete article text.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://papilov.org/llms.txt"
+  },
+  "logo_url": "https://papilov.org/apple-touch-icon.png",
+  "contact_email": "artem@papilov.org",
+  "legal_info_url": "https://papilov.org/colophon/"
+}

@@ -8,196 +8,844 @@
 
 ---
 
-## The Universe as a Hologram
+## Prebid.js: How the Programmatic Monetization Standard Works
 
-URL: https://papilov.org/research/ads-cft-holographic/
+URL: https://papilov.org/research/prebid-js-explainer/
 Also available in: RU, ES, DE, ZH
 
-In 1997, Juan Maldacena — a 29-year-old Argentine physicist, one year out of his Princeton PhD and newly a professor at Harvard — published what would become the most cited paper in the history of high-energy physics. Over 20,000 citations to date, roughly two per day for over two decades. The second and third most cited papers in the field are both about the same discovery, and both cite his.
 
-He showed that quantum gravity in a bounded, negatively curved spacetime is mathematically identical to a quantum field theory living on its boundary — with no gravity and one fewer dimension. Everything happening in the interior, including the bending of space and the formation of black holes, is fully encoded on the edge. Like a hologram.
+Programmatic advertising is a $595B market (2024), projected to reach $779B by 2028. Roughly 90% of digital display is bought automatically. At the center of publisher-side infrastructure sits an open-source library used by over 10,000 companies: Prebid.js.
 
-This is the AdS/CFT correspondence. It didn't just solve a problem. It created an entire field.
-
-<div style="margin: 2rem 0; padding: 1.5rem; border: 1px solid var(--border-color); border-radius: 8px; background: var(--bg-secondary);">
-
-**[Open the interactive explainer →](/research/ads-cft-holographic/infographic.html)**
-
-7 sections: holographic principle · AdS/CFT · duality dictionary · dS/CFT and our Universe · open problems · timeline · philosophical context. With SVG diagrams, citation data table, and full reference list.
-
-</div>
-
-## Where It Began: A PhD Student vs. Everyone
-
-The story starts not with Maldacena, but with Jacob Bekenstein — a graduate student at Princeton in the early 1970s.
-
-His advisor, John Wheeler, posed a thought experiment: what happens to the entropy of a cup of tea if you drop it into a black hole? The tea has thermodynamic entropy — a measure of its internal disorder. But a black hole, described by the no-hair theorem, has only three properties: mass, charge, and spin. No temperature. No disorder. So when the tea crosses the event horizon, its entropy seems to vanish. The second law of thermodynamics — entropy never decreases — appears to be violated.
-
-Bekenstein's answer was radical: black holes themselves carry entropy, and that entropy is proportional to the area of the event horizon — not the volume of the interior. He published this in 1973. The response from the physics community was overwhelmingly negative. As Kip Thorne wrote: "All the world's black hole experts lined up on Hawking's side." The sole exception was Wheeler, who told Bekenstein: *"Your idea is just crazy enough that it might be right."*
-
-<div class="highlight-box">
-<strong>S = A / 4</strong>
-The Bekenstein-Hawking entropy formula: the entropy of a black hole equals one quarter of its event horizon area, measured in Planck units. This is the most concise equation in physics connecting gravity, quantum mechanics, and thermodynamics — three theories that otherwise refuse to cooperate.
-</div>
-
-Two years later, Hawking — who had been trying to prove Bekenstein wrong — instead proved him right. By applying quantum field theory to curved spacetime, Hawking showed in 1975 that black holes emit thermal radiation at a specific temperature. This fixed the constant in Bekenstein's formula and established black hole thermodynamics as real physics, not analogy.
-
-But there was a deeper message in the formula S = A/4. If the maximum entropy in a region of space is proportional to its surface area rather than its volume, then the number of degrees of freedom needed to describe the physics inside is somehow determined by the boundary. As if the interior were a projection.
-
-## The Holographic Principle
-
-In the early 1990s, Gerard 't Hooft and Leonard Susskind took this implication seriously. They proposed the holographic principle: all the information needed to describe a volume of space can be encoded on its boundary, with a density of at most one bit per Planck area (~10⁻⁶⁶ cm²).
+This analysis is for decision-makers: what Prebid does, how it works, why it became the standard, and which levers determine business results.
 
 <div class="metrics">
-  <div class="metric"><div class="val val--blue">10⁻⁶⁶ cm²</div><div class="desc">Planck area — 1 bit limit</div></div>
-  <div class="metric"><div class="val val--green">S = A/4</div><div class="desc">Entropy = quarter of horizon area</div></div>
-  <div class="metric"><div class="val val--yellow">20,000+</div><div class="desc">Citations of Maldacena's paper</div></div>
-  <div class="metric"><div class="val val--red">~2/day</div><div class="desc">Citation rate, 27 years running</div></div>
+<div class="metric"><div class="val">300+</div><div class="desc">bid adapters</div></div>
+<div class="metric"><div class="val">~90%</div><div class="desc">display = programmatic</div></div>
+<div class="metric"><div class="val">$203B</div><div class="desc">US programmatic 2026</div></div>
+<div class="metric"><div class="val">10K+</div><div class="desc">companies using Prebid</div></div>
 </div>
 
-This was a principle without a proof. Nobody could show a concrete system where it actually worked. That changed in November 1997.
+## The Problem: Waterfall Leaves Money on the Table
 
-## Maldacena's Discovery
+Publishers historically sold inventory through a **waterfall** — ad networks called sequentially by priority. The first one that accepted the price got the impression. Others never competed, even if they would have paid far more.
 
-Maldacena considered a stack of D-branes — objects in string theory — and took a specific low-energy limit. Viewed from far away, the stack looks like a black hole in anti-de Sitter space (AdS). Viewed up close, it looks like a quantum field theory (a conformal field theory, or CFT) living on the brane surfaces. Both descriptions must be of the same system. Therefore: string theory in the bulk of AdS = conformal field theory on its boundary.
-
-Specifically: type IIB string theory on 5-dimensional AdS × S⁵ is equivalent to N = 4 super Yang-Mills theory on the 4-dimensional boundary.
-
-Every object in one description has a precise counterpart in the other. Mass in the bulk corresponds to operator dimension on the boundary. The radial direction in AdS corresponds to the energy scale of the field theory. Black holes in AdS correspond to thermal states. The dictionary is exact.
+**Header bidding** fixed this: all buyers bid simultaneously, highest price wins. Prebid.js is the open-source library that became the industry standard for browser-side header bidding.
 
 <div class="compare">
   <div class="compare-col col-a">
-    <h4>Bulk (AdS, d+1 dimensions)</h4>
-    <div class="compare-item"><strong>Gravity</strong><span>Einstein's equations with negative Λ</span></div>
-    <div class="compare-item"><strong>Black hole</strong><span>Object with event horizon</span></div>
-    <div class="compare-item"><strong>Particle mass</strong><span>Determined by field equations</span></div>
-    <div class="compare-item"><strong>Radial direction</strong><span>Extra spatial dimension</span></div>
-    <div class="compare-item"><strong>Weak coupling</strong><span>Classical gravity regime</span></div>
+    <h4>Waterfall</h4>
+    <div class="compare-item"><strong>Network A (priority 1)</strong><span>$2.00 — wins by default</span></div>
+    <div class="compare-item"><strong>Network B (priority 2)</strong><span>Never asked</span></div>
+    <div class="compare-item"><strong>Network C (priority 3)</strong><span>Would have paid $5.00 — never asked</span></div>
+    <div class="compare-item"><strong>Result</strong><span>Impression sold for $2.00</span></div>
   </div>
   <div class="compare-col col-b">
-    <h4>Boundary (CFT, d dimensions)</h4>
-    <div class="compare-item"><strong>No gravity</strong><span>Quantum field theory, flat space</span></div>
-    <div class="compare-item"><strong>Thermal state</strong><span>System at finite temperature</span></div>
-    <div class="compare-item"><strong>Operator dimension</strong><span>Scaling behavior of operators</span></div>
-    <div class="compare-item"><strong>Energy scale</strong><span>Renormalization group flow</span></div>
-    <div class="compare-item"><strong>Strong coupling</strong><span>Non-perturbative regime</span></div>
+    <h4>Header Bidding (Prebid)</h4>
+    <div class="compare-item"><strong>Network A</strong><span>$2.00</span></div>
+    <div class="compare-item"><strong>Network B</strong><span>$3.10</span></div>
+    <div class="compare-item"><strong>Network C</strong><span>$5.00 — wins</span></div>
+    <div class="compare-item"><strong>Result</strong><span>All bid in parallel → $5.00 wins (+150%)</span></div>
   </div>
 </div>
 
-The last row is why AdS/CFT is so powerful: when the boundary theory is strongly coupled (hard to compute), the bulk description is weakly coupled (easy to compute), and vice versa. Problems that were unsolvable on one side become tractable on the other.
-
-## The Reaction
-
-The excitement was immediate. At the Strings '98 conference in Santa Barbara the following summer, physicist Jeff Harvey led hundreds of theorists in singing "The Maldacena" — a parody of the Macarena — at the conference dinner:
-
-> *"You start with the brane and the brane is BPS / Then you go near the brane and the space is AdS / Who knows what it means? I don't, I confess / Ehhhh, Maldacena!"*
-
-The fact that this made the New York Times gives some sense of the impact. As Quanta Magazine described Maldacena: Susskind calls him "the master." Within months, two papers — by Gubser, Klebanov and Polyakov, and by Witten — made the conjecture more precise and laid out the computational machinery that thousands of physicists have used since.
-
-## Spacetime from Entanglement
-
-In 2006, Shinsei Ryu and Tadashi Takayanagi added a startling piece to the puzzle. They showed that the entanglement entropy of a region on the boundary equals the area of a specific minimal surface in the bulk — a direct generalization of the Bekenstein-Hawking formula.
-
-Mark Van Raamsdonk took this further in 2010. In an essay that won first prize from the Gravity Research Foundation, he argued that if you systematically remove quantum entanglement between two regions of a boundary theory, the corresponding regions of the bulk spacetime literally pull apart and pinch off. Entanglement gone → spacetime disconnected.
-
-His conclusion was radical: spacetime is not the fundamental entity. It is woven together from quantum entanglement. Remove the entanglement, and spacetime falls apart.
-
-In 2013, Maldacena and Susskind crystallized this into a conjecture with the most compact physics equation since E = mc²:
-
-<div class="highlight-box">
-<strong>ER = EPR</strong>
-Einstein-Rosen bridges (wormholes connecting distant black holes) are the same thing as Einstein-Podolsky-Rosen pairs (quantum-entangled particles). Geometry = entanglement. Two frameworks that seemed completely unrelated — general relativity and quantum mechanics — may be two descriptions of the same underlying reality.
+<div class="metrics">
+<div class="metric"><div class="val val--green">+20–50%</div><div class="desc">waterfall → header bidding uplift</div></div>
+<div class="metric"><div class="val val--green">+70%</div><div class="desc">The Telegraph (case study)</div></div>
+<div class="metric"><div class="val val--green">+25–50%</div><div class="desc">CPM uplift range (industry)</div></div>
+<div class="metric"><div class="val val--green">30–40%</div><div class="desc">average portfolio uplift (AdPushup)</div></div>
 </div>
 
-## The Problem: Our Universe Isn't AdS
+## How It Works: 5 Steps in ~1000ms
+
+<div class="flow-steps">
+<div class="flow-step"><div><div class="flow-num">1</div><div class="flow-line"></div></div><div class="flow-body"><h4>Page loads → auction starts</h4><p>Prebid.js identifies ad slots and simultaneously sends bid requests to all connected buyers.</p><span class="flow-tag">~0ms</span></div></div>
+<div class="flow-step"><div><div class="flow-num">2</div><div class="flow-line"></div></div><div class="flow-body"><h4>Buyers respond with bids</h4><p>Each DSP/SSP receives slot data and returns a bid or pass. All in parallel.</p><span class="flow-tag">200–800ms</span></div></div>
+<div class="flow-step"><div><div class="flow-num">3</div><div class="flow-line"></div></div><div class="flow-body"><h4>Timeout cuts slow responders</h4><p>Those who didn't respond are excluded. UX protection.</p><span class="flow-tag">timeout: 1000–1500ms</span></div></div>
+<div class="flow-step"><div><div class="flow-num">4</div><div class="flow-line"></div></div><div class="flow-body"><h4>Best bids → ad server</h4><p>Winning bids sent to Google Ad Manager to compete with direct deals and AdX.</p><span class="flow-tag">~50ms</span></div></div>
+<div class="flow-step"><div><div class="flow-num">5</div><div class="flow-line"></div></div><div class="flow-body"><h4>Ad server picks winner → ad shown</h4><p>GAM compares all sources and serves the highest-paying creative.</p><span class="flow-tag">~1100ms total</span></div></div>
+</div>
+
+<div class="highlight-box">
+<strong>Prebid doesn't replace the ad server.</strong>
+It creates competition <em>before</em> the decision, increasing the effective price of every impression.
+</div>
+
+## Market Context
+
+<div class="metrics">
+<div class="metric"><div class="val val--blue">$1.14T</div><div class="desc">global ad market 2025</div></div>
+<div class="metric"><div class="val val--blue">$595B</div><div class="desc">programmatic (global) 2024</div></div>
+<div class="metric"><div class="val val--blue">$203B</div><div class="desc">US programmatic display 2026</div></div>
+</div>
+
+The ANA Supply Chain Study (2023) found only **36 cents** per advertiser dollar reached publishers. By Q3 2025 this improved to **47.1¢** (+11 points), but $26.8B/year is still lost to supply chain inefficiency.
+
+<div class="dollar-flow">
+<div class="dollar-node"><div class="dollar-box">Advertiser</div><div class="dollar-amt">$1.00</div></div>
+<div class="dollar-arr">→</div>
+<div class="dollar-node"><div class="dollar-box">DSP + SSP fees</div><div class="dollar-amt" style="color: var(--purple-soft)">−29¢</div><div class="dollar-note">transactions (2023)</div></div>
+<div class="dollar-arr">→</div>
+<div class="dollar-node"><div class="dollar-box">Waste</div><div class="dollar-amt" style="color: var(--red-soft)">−35¢</div><div class="dollar-note">IVT, MFA (2023)</div></div>
+<div class="dollar-arr">→</div>
+<div class="dollar-node"><div class="dollar-box">Publisher</div><div class="dollar-amt" style="color: var(--green-soft)">36¢</div><div class="dollar-note">→ 47¢ by Q3 2025</div></div>
+</div>
+
+<div class="metrics">
+<div class="metric"><div class="val val--green">47.1%</div><div class="desc">publisher share, Q3 2025 (was 36% in 2023)</div></div>
+<div class="metric"><div class="val val--green">0.39%</div><div class="desc">MFA inventory, Q3 2025 (record low)</div></div>
+<div class="metric"><div class="val val--blue">81.6%</div><div class="desc">PMP share, Q3 2025 (was 64.5%)</div></div>
+</div>
+
+## Google Antitrust: Why Prebid Matters More
+
+In April 2025, a US federal court found Google guilty of illegally monopolizing publisher ad server and ad exchange markets. The EU fined Google €2.95B for adtech antitrust violations. The DOJ seeks divestiture of AdX.
+
+<div class="metrics">
+<div class="metric"><div class="val val--red">~90%</div><div class="desc">Google's ad server share</div></div>
+<div class="metric"><div class="val val--red">€2.95B</div><div class="desc">EU adtech fine</div></div>
+</div>
+
+> "Google willfully engaged in a series of anticompetitive acts to acquire and maintain monopoly power in the publisher ad server and ad exchange markets."
+> — Judge Leonie Brinkema, April 17, 2025
+
+For Prebid, this is a **structural tailwind**. If Google must unbundle its ad server from its exchange, vendor-neutral auction solutions become critical infrastructure.
+
+## Three Architectures
+
+<div class="fw-grid">
+  <div class="fw-card fw-card--blue">
+    <h4>Client-side</h4>
+    <div class="fw-sub">Auction in the browser</div>
+    <ul class="fw-list">
+      <li>Buyers: 15–20 (limit)</li>
+      <li>Latency: grows with buyers</li>
+      <li>Cookie access: full (max CPM)</li>
+      <li>Best for: mid-size publishers</li>
+    </ul>
+  </div>
+  <div class="fw-card fw-card--purple">
+    <h4>Server-side</h4>
+    <div class="fw-sub">Auction on server (Prebid Server)</div>
+    <ul class="fw-list">
+      <li>Buyers: unlimited</li>
+      <li>Latency: −40%</li>
+      <li>Cookie access: limited (−20–40% CPM)</li>
+      <li>Best for: CTV, App, AMP</li>
+    </ul>
+  </div>
+  <div class="fw-card fw-card--green">
+    <h4>Hybrid (industry standard)</h4>
+    <div class="fw-sub">Both — optimal balance</div>
+    <ul class="fw-list">
+      <li>Buyers: 5–8 client + rest server</li>
+      <li>Latency: controlled</li>
+      <li>Cookie access: full for key buyers</li>
+      <li>Best for: large publishers</li>
+    </ul>
+  </div>
+</div>
+
+<div class="highlight-box">
+<strong>Hybrid is the industry standard:</strong>
+5–8 key buyers client-side + rest server-side. Prebid Server delivers up to 40% latency reduction.
+</div>
+
+## Business Levers
+
+### Timeout: Revenue vs. UX
+
+<div class="bars">
+  <div class="bar-row"><div class="label">800ms</div><div class="track"><div class="fill" style="width:55%">~55%</div></div><div class="pct">~55%</div></div>
+  <div class="bar-row"><div class="label">1000ms ←</div><div class="track"><div class="fill" style="width:75%">~75%</div></div><div class="pct">~75%</div></div>
+  <div class="bar-row"><div class="label">1200ms</div><div class="track"><div class="fill" style="width:88%">~88%</div></div><div class="pct">~88%</div></div>
+  <div class="bar-row"><div class="label">1500ms</div><div class="track"><div class="fill" style="width:95%">~95%</div></div><div class="pct">~95%</div></div>
+</div>
+
+### Price Granularity
+
+| Type | Step | GAM Lines | Revenue Loss |
+|------|------|-----------|--------------|
+| Low | $0.50 | ~40 | up to $0.49 (high) |
+| Medium | $0.10 | ~200 | up to $0.09 (moderate) |
+| High | $0.01 | ~2,000 | $0.009 (minimal) |
+| Custom | Variable | Optimized | Controlled (recommended) |
+
+### Buyer Selection: Diminishing Returns
+
+<div class="bars">
+  <div class="bar-row"><div class="label">3 buyers</div><div class="track"><div class="fill" style="width:60%">~60%</div></div><div class="pct">~60%</div></div>
+  <div class="bar-row"><div class="label">5 buyers</div><div class="track"><div class="fill" style="width:80%">~80%</div></div><div class="pct">~80%</div></div>
+  <div class="bar-row"><div class="label">8 buyers ←</div><div class="track"><div class="fill" style="width:92%">~92%</div></div><div class="pct">~92%</div></div>
+  <div class="bar-row"><div class="label">15 buyers</div><div class="track"><div class="fill" style="width:97%">~97%</div></div><div class="pct">~97%</div></div>
+  <div class="bar-row muted"><div class="label">20+ buyers</div><div class="track"><div class="fill" style="width:99%">~99%</div></div><div class="pct">latency↑</div></div>
+</div>
+
+80% of incremental revenue comes from the first 5–7 buyers. Sweet spot: ~8 client-side.
+
+## CPM by Geography
+
+Average banner CPMs (SSP-side, 2024):
+
+<div class="bars">
+  <div class="bar-row"><div class="label">US</div><div class="track"><div class="fill" style="width:100%">$1.43</div></div><div class="pct">$1.43</div></div>
+  <div class="bar-row"><div class="label">UK</div><div class="track"><div class="fill" style="width:73%">$1.05</div></div><div class="pct">$1.05</div></div>
+  <div class="bar-row"><div class="label">Germany</div><div class="track"><div class="fill" style="width:63%">$0.90</div></div><div class="pct">$0.90</div></div>
+  <div class="bar-row"><div class="label">France</div><div class="track"><div class="fill" style="width:56%">$0.80</div></div><div class="pct">$0.80</div></div>
+  <div class="bar-row"><div class="label">Brazil</div><div class="track"><div class="fill" style="width:35%">$0.50</div></div><div class="pct">$0.50</div></div>
+  <div class="bar-row"><div class="label">India</div><div class="track"><div class="fill" style="width:17%">$0.25</div></div><div class="pct">$0.25</div></div>
+</div>
+
+An 8× spread that defines monetization economics. Q1 2025: US display CPMs fell −33–42% YoY after a record political ad year. By December 2025: display +6.3% YoY, video +33.2% YoY. This volatility underscores the need for dynamic floor prices — exactly what Prebid's Floors Module does.
+
+## Privacy: Post-Cookie Adaptation
+
+<div class="badge-list">
+<div class="badge-item"><span class="badge-dot" style="background: var(--green-soft)"></span>User ID — UID2, SharedID, EUID, LiveRamp</div>
+<div class="badge-item"><span class="badge-dot" style="background: var(--blue-soft)"></span>First-party data</div>
+<div class="badge-item"><span class="badge-dot" style="background: var(--purple-soft)"></span>Topics API / Protected Audiences</div>
+<div class="badge-item"><span class="badge-dot" style="background: var(--yellow-soft)"></span>GDPR / CCPA / GPP consent</div>
+</div>
+
+<div class="metrics">
+<div class="metric"><div class="val val--blue">40%</div><div class="desc">US marketers using 1P data as primary targeting (2025)</div></div>
+<div class="metric"><div class="val val--green">60–80%</div><div class="desc">CPM preserved with Prebid User ID vs. no identity</div></div>
+</div>
+
+## Beyond Display
+
+| Format | Architecture | Market |
+|--------|-------------|--------|
+| Display | Client + Server | Core programmatic |
+| Video (instream) | Client + Server | Highest CPM |
+| Mobile in-app | SDK → Server | 71% programmatic |
+| CTV / OTT | Server only | 44% share (Q2 2025), >$45B |
+| Retail Media | Server | $30B+ by 2026, +29% YoY |
+| DOOH | Server | +400% since 2019 |
+
+<div class="metrics">
+<div class="metric"><div class="val val--blue">$110B+</div><div class="desc">US programmatic video 2026</div></div>
+<div class="metric"><div class="val val--blue">44%</div><div class="desc">CTV share (Q2 2025, was 28%)</div></div>
+<div class="metric"><div class="val val--blue">$30B+</div><div class="desc">retail media by 2026</div></div>
+</div>
+
+## Ecosystem and Competitors
+
+<div class="timeline">
+  <div class="tl-item"><div class="tl-dot tl-dot--green"></div><div class="tl-year">2015</div><div class="tl-title">Prebid.js launched (AppNexus + partners)</div><div class="tl-desc">Open-source header bidding library released.</div></div>
+  <div class="tl-item"><div class="tl-dot tl-dot--green"></div><div class="tl-year">2017</div><div class="tl-title">Prebid Server + Mobile SDK</div><div class="tl-desc">Server-side auction and mobile support added.</div></div>
+  <div class="tl-item"><div class="tl-dot tl-dot--green"></div><div class="tl-year">2019–20</div><div class="tl-title">95% of top US publishers on header bidding</div><div class="tl-desc">Header bidding becomes the industry norm.</div></div>
+  <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2021–22</div><div class="tl-title">User ID, Floors, GDPR modules</div><div class="tl-desc">Privacy-era modules expand the platform.</div></div>
+  <div class="tl-item"><div class="tl-dot tl-dot--green"></div><div class="tl-year">2024–25</div><div class="tl-title">v11, CTV, 300+ adapters, PAAPI</div><div class="tl-desc">Multi-format expansion and post-cookie readiness.</div></div>
+  <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2025–26</div><div class="tl-title">Google antitrust → neutral infra more critical</div><div class="tl-desc">Court ruling accelerates shift to vendor-neutral solutions.</div></div>
+</div>
+
+| Solution | Type | Differentiation | Lock-in |
+|----------|------|-----------------|---------|
+| Prebid.js | Open source | Neutral, auditable | None |
+| Amazon TAM | Proprietary | Tied to Amazon DSP | Medium |
+| Google Open Bidding | Server-side in GAM | Conflict of interest | High |
+| Index Exchange | Proprietary | Quality, but vendor-dependent | Medium |
+
+Prebid runs in parallel with TAM and Open Bidding. Per Roxot data, client-side and server-side header bidding generate ~22% of programmatic revenue each, while AdX accounts for ~56%.
+
+## What Prebid Doesn't Do
 
 <div class="psych-grid">
   <div class="psych-card">
-    <h4>AdS (Λ &lt; 0)</h4>
-    <p>Negatively curved. Has a boundary. AdS/CFT works beautifully. Not our Universe.</p>
-    <div class="big">✓ solved</div>
+    <h4>Doesn't optimize placement</h4>
+    <p>Ad slot position and size are publisher decisions — Prebid handles demand, not supply-side layout.</p>
   </div>
   <div class="psych-card">
-    <h4>dS (Λ &gt; 0)</h4>
-    <p>Positively curved. Our Universe. No boundary in the conventional sense. Holography unclear.</p>
-    <div class="big">? open</div>
+    <h4>Doesn't replace the ad server</h4>
+    <p>GAM is still needed for direct deals, frequency capping, and final decisioning.</p>
+  </div>
+  <div class="psych-card">
+    <h4>Doesn't fix traffic quality</h4>
+    <p>Bots, low viewability, and invalid traffic are root-level problems outside Prebid's scope.</p>
+  </div>
+  <div class="psych-card">
+    <h4>Not plug-and-play</h4>
+    <p>An engineering tool requiring ongoing configuration optimization and monitoring.</p>
   </div>
 </div>
 
-The AdS/CFT correspondence works for spaces with a negative cosmological constant. Observations since 1998 confirm that our Universe has a positive cosmological constant — it's de Sitter-like, not anti-de Sitter. Andrew Strominger proposed a dS/CFT correspondence in 2001, but the program remains incomplete. The boundary of de Sitter space is spacelike (it's the infinite future), not timelike like in AdS. This changes the mathematical structure fundamentally.
+## Bottom Line
 
-This is not just a technical gap — it's the central open question of the field. We have a complete holographic description of a universe that isn't ours, and no complete description of the one that is.
+Working without header bidding in 2026 means leaving **20–40% of programmatic revenue** on the table. The strategic question isn't "do we need Prebid" but **which configuration is optimal**. With Google antitrust and the post-cookie transition, vendor-neutral solutions are more critical than ever.
 
-## Timeline
+<div class="metrics">
+<div class="metric"><div class="val val--green">+20–50%</div><div class="desc">waterfall → header bidding</div></div>
+<div class="metric"><div class="val val--green">+5–15%</div><div class="desc">+ server-side</div></div>
+<div class="metric"><div class="val val--green">+3–10%</div><div class="desc">config optimization</div></div>
+</div>
+
+
+---
+
+## Auction Mechanics: From Christie's to Google Ads
+
+URL: https://papilov.org/research/auction-mechanics/
+Also available in: RU, ES, DE, ZH
+
+
+New Zealand, 1990. The government hires consulting firm NERA to design a radio spectrum auction. NERA recommends the Vickrey auction — a format whose theoretical foundations would earn a Nobel Prize six years later. Expected revenue: NZ$250 million. Actual revenue: NZ$36 million. One bidder offered NZ$100,000 and paid NZ$6. Another bid NZ$7 million and paid NZ$5,000.
+
+One wrong choice of auction format cost the treasury NZ$214 million.
+
+In 2019, Google changed the auction format for the $48 billion programmatic advertising market. In 2021, the FCC raised $81 billion in a C-band spectrum auction — a world record. The EU ETS has generated €245 billion from auctioning the right to pollute since 2013. In every case, it wasn't the good that determined the price — **the auction rules determined the price**.
+
+## Four Basic Auctions
+
+Every auction in the world is a combination of two variables: open or sealed bids, and whether the winner pays their own price or someone else's.
+
+<div class="compare">
+  <div class="compare-col col-a">
+    <h4>First-Price (pay your bid)</h4>
+    <div class="compare-item"><strong>Dutch (open, descending)</strong><span>Price falls from ceiling. First to say "stop" wins and pays current price. Strategy: wait longer = cheaper, but risk losing.</span></div>
+    <div class="compare-item"><strong>Sealed first-price (closed)</strong><span>Tenders, government procurement, programmatic ads since 2019. All submit bids in sealed envelopes. Highest wins. Strategy: bid shading — bid below true value.</span></div>
+  </div>
+  <div class="compare-col col-b">
+    <h4>Second-Price (pay 2nd bid)</h4>
+    <div class="compare-item"><strong>English (open, ascending)</strong><span>Christie's, Sotheby's. Price rises. Last bidder standing wins and pays just above second-highest. Strategy: bid up to your true valuation, no higher.</span></div>
+    <div class="compare-item"><strong>Vickrey (sealed second-price)</strong><span>Nobel Prize 1996. Highest bid wins, but pays second price. eBay's proxy bidding. Dominant strategy: bid exactly your true valuation.</span></div>
+  </div>
+</div>
+
+<div class="highlight-box">
+<strong>Strategic equivalence:</strong>
+Dutch ≈ Sealed first-price (same strategy, different pacing). English ≈ Vickrey (same outcome — winner pays ~second valuation). Two pairs that look different but are strategically identical.
+</div>
+
+## How It Works: One Item, Three Prices
+
+Three bidders value a painting at $100, $80, and $50. What happens under different rules?
+
+<div class="fw-grid">
+  <div class="fw-card fw-card--red">
+    <h4>First-Price Sealed</h4>
+    <div class="fw-sub">Optimal bid with n=3: b(v) = v × ⅔</div>
+    <ul class="fw-list">
+      <li>Bidder A: values $100, bids $67 — wins</li>
+      <li>Bidder B: values $80, bids $53</li>
+      <li>Bidder C: values $50, bids $33</li>
+      <li>Seller receives: $67</li>
+    </ul>
+  </div>
+  <div class="fw-card fw-card--green">
+    <h4>Vickrey (Second-Price)</h4>
+    <div class="fw-sub">Dominant strategy: bid your true value</div>
+    <ul class="fw-list">
+      <li>Bidder A: values $100, bids $100 — wins</li>
+      <li>Bidder B: values $80, bids $80</li>
+      <li>Bidder C: values $50, bids $50</li>
+      <li>Seller receives: $80 (second bid)</li>
+    </ul>
+  </div>
+  <div class="fw-card fw-card--blue">
+    <h4>English (Open Ascending)</h4>
+    <div class="fw-sub">Price rises until one bidder remains</div>
+    <ul class="fw-list">
+      <li>C drops out at $50</li>
+      <li>B drops out at $80</li>
+      <li>A wins, pays $81 (one step above B)</li>
+      <li>Seller receives: ≈$80</li>
+    </ul>
+  </div>
+</div>
+
+### Bidding Formulas
+
+<div class="psych-grid">
+  <div class="psych-card">
+    <h4>Second-Price (Vickrey)</h4>
+    <p>b(v) = v. Bid your true value. Always. Dominant strategy — independent of number of participants and their behavior.</p>
+    <div class="big">b(v) = v</div>
+  </div>
+  <div class="psych-card">
+    <h4>First-Price (Sealed)</h4>
+    <p>b(v) = v × (n−1)/n. With 2 bidders: shade 50%. With 10: shade 10%. More competition → more aggressive bids.</p>
+    <div class="big">b = v·(n−1)/n</div>
+  </div>
+</div>
+
+**Bid shading by number of participants** (value = $100, first-price):
+
+<div class="bars">
+  <div class="bar-row"><div class="label">n = 2</div><div class="track"><div class="fill" style="width:50%">$50</div></div><div class="pct">$50</div></div>
+  <div class="bar-row"><div class="label">n = 3</div><div class="track"><div class="fill" style="width:67%">$67</div></div><div class="pct">$67</div></div>
+  <div class="bar-row"><div class="label">n = 5</div><div class="track"><div class="fill" style="width:80%">$80</div></div><div class="pct">$80</div></div>
+  <div class="bar-row"><div class="label">n = 10</div><div class="track"><div class="fill" style="width:90%">$90</div></div><div class="pct">$90</div></div>
+  <div class="bar-row"><div class="label">n = 20</div><div class="track"><div class="fill" style="width:95%">$95</div></div><div class="pct">$95</div></div>
+  <div class="bar-row"><div class="label">n = 100</div><div class="track"><div class="fill" style="width:99%">$99</div></div><div class="pct">$99</div></div>
+</div>
+
+### Revenue Equivalence Theorem
+
+<div class="highlight-box">
+<strong>E[Revenue<sub>FP</sub>] = E[Revenue<sub>SP</sub>] = (n−1)/(n+1)</strong>
+With n bidders drawing values from U[0,1], the <em>expected</em> seller revenue is identical across all four formats. The key word is expected: in any single auction prices differ, but across many they converge. Vickrey 1961 (2 bidders), Riley & Samuelson 1981 (general case) → Nobel Prize 1996.
+</div>
+
+**Conditions:** independent private values, risk neutrality, symmetric bidders, no collusion. In reality, every condition is violated — making format choice a critical decision.
+
+<div class="fw-grid">
+  <div class="fw-card">
+    <h4>Independent private values</h4>
+    <div class="fw-sub">If holds: all formats equal</div>
+    <ul class="fw-list">
+      <li>If violated: English yields more (less winner's curse)</li>
+      <li>Example: oil exploration — correlated values</li>
+    </ul>
+  </div>
+  <div class="fw-card">
+    <h4>Risk neutrality</h4>
+    <div class="fw-sub">If holds: RE works</div>
+    <ul class="fw-list">
+      <li>If violated: first-price yields more (risk-averse bidders shade less)</li>
+      <li>Example: government contracts</li>
+    </ul>
+  </div>
+  <div class="fw-card">
+    <h4>Symmetric bidders</h4>
+    <div class="fw-sub">If holds: RE works</div>
+    <ul class="fw-list">
+      <li>If violated: strong bidder shades more; weak overbids</li>
+      <li>Example: NZ 1990 — incumbent vs newcomer</li>
+    </ul>
+  </div>
+  <div class="fw-card">
+    <h4>No collusion</h4>
+    <div class="fw-sub">If holds: RE works</div>
+    <ul class="fw-list">
+      <li>If violated: second-price → floor manipulation; English → ring bidding</li>
+      <li>Example: header bidding SSPs</li>
+    </ul>
+  </div>
+</div>
+
+## The New Zealand Disaster
+
+<div class="metrics">
+<div class="metric"><div class="val val--red">NZ$250M</div><div class="desc">expected revenue</div></div>
+<div class="metric"><div class="val val--red">NZ$36M</div><div class="desc">actual revenue</div></div>
+<div class="metric"><div class="val val--red">86%</div><div class="desc">revenue lost</div></div>
+</div>
+
+Specific lots:
+
+| Lot | Bid | Paid | Discount |
+|-----|-----|------|----------|
+| Radio frequency license | NZ$100,000 | NZ$6 | 99.994% |
+| Radio frequency license | NZ$7,000,000 | NZ$5,000 | 99.93% |
+| National cellular license | NZ$101,000,000 | NZ$11,000,000 | 89.1% |
+| Sky Network TV, Lot 1 | NZ$2,371,000 | NZ$401,000 | 83.1% |
+
+<div class="highlight-box">
+<strong>Three design errors:</strong>
+(1) No minimum price (reserve price) — you could bid $6. (2) Sold identical licenses through separate Vickrey auctions instead of a unified uniform-price auction. (3) Asymmetric participants (incumbents vs newcomers) — revenue equivalence breaks down.
+</div>
+
+## Comprehensive Format Comparison
+
+<div class="fw-grid">
+  <div class="fw-card fw-card--green">
+    <h4>English (ascending)</h4>
+    <div class="fw-tags"><span>Christie's</span><span>eBay</span><span>FCC SMRA</span></div>
+    <ul class="fw-list">
+      <li>Strategy: bid up to true value</li>
+      <li>Pays: ≈ 2nd valuation</li>
+      <li>Info: high — see other bids</li>
+      <li>Speed: slow (minutes–hours)</li>
+      <li>Collusion resistance: low</li>
+      <li>Winner's curse: less dangerous</li>
+    </ul>
+  </div>
+  <div class="fw-card fw-card--red">
+    <h4>Dutch (descending)</h4>
+    <div class="fw-tags"><span>Aalsmeer flowers</span><span>Google IPO</span><span>Treasury</span></div>
+    <ul class="fw-list">
+      <li>Strategy: bid shading</li>
+      <li>Pays: own bid</li>
+      <li>Info: low — one price</li>
+      <li>Speed: very fast</li>
+      <li>Collusion resistance: high</li>
+      <li>Winner's curse: dangerous</li>
+    </ul>
+  </div>
+  <div class="fw-card fw-card--blue">
+    <h4>First-Price (sealed)</h4>
+    <div class="fw-tags"><span>Procurement</span><span>Tenders</span><span>Programmatic 2019+</span></div>
+    <ul class="fw-list">
+      <li>Strategy: bid shading</li>
+      <li>Pays: own bid</li>
+      <li>Info: zero</li>
+      <li>Speed: one round</li>
+      <li>Collusion resistance: high</li>
+      <li>Winner's curse: most dangerous</li>
+    </ul>
+  </div>
+  <div class="fw-card fw-card--purple">
+    <h4>Vickrey (second-price)</h4>
+    <div class="fw-tags"><span>RTB 2007–2017</span><span>Google Ads (GSP)</span></div>
+    <ul class="fw-list">
+      <li>Strategy: b(v) = v (dominant)</li>
+      <li>Pays: 2nd bid</li>
+      <li>Info: medium — 2 prices</li>
+      <li>Speed: one round</li>
+      <li>Collusion resistance: medium</li>
+      <li>Winner's curse: absent</li>
+    </ul>
+  </div>
+</div>
+
+## Ad Auctions: 100 Milliseconds and $500 Billion
+
+Advertising auctions are the most massive in history: trillions of auctions per day. Their 12-year evolution recapitulated the path auction theory traveled over 50 years.
 
 <div class="timeline">
-  <div class="tl-item">
-    <div class="tl-dot tl-dot--green"></div>
-    <div class="tl-year">1973</div>
-    <div class="tl-title">Bekenstein: black hole entropy ∝ area</div>
-    <div class="tl-desc">A PhD student proposes that information about a region of space is encoded on its boundary. Nearly everyone disagrees. It takes 25 years for the full implications to emerge.</div>
+  <div class="tl-item"><div class="tl-dot tl-dot--green"></div><div class="tl-year">2007</div><div class="tl-title">RTB and second-price auctions</div><div class="tl-desc">Birth of programmatic: SSPs run real-time Vickrey auctions. Highest bidder wins and pays second price + $0.01. Truthful bidding — everyone bids their true value.</div></div>
+  <div class="tl-item"><div class="tl-dot tl-dot--red"></div><div class="tl-year">~2012</div><div class="tl-title">Waterfall: cascade of inefficiency</div><div class="tl-desc">Publishers call ad networks sequentially: Google first, then rest. An $8 bid from the third SSP never beats the $5 price from the first — it's never seen. Loss: 20–40% of revenue.</div></div>
+  <div class="tl-item"><div class="tl-dot tl-dot--green"></div><div class="tl-year">2014–15</div><div class="tl-title">Header bidding: simultaneous auctions</div><div class="tl-desc">Revolution. All SSPs receive bid requests simultaneously. Prebid.js (2015, open source) becomes the standard. 84% of top 10K US sites. RPM growth 30–40%. Sequential → simultaneous auction.</div></div>
+  <div class="tl-item"><div class="tl-dot tl-dot--green"></div><div class="tl-year">2017</div><div class="tl-title">Exchanges switch to first-price</div><div class="tl-desc">OpenX, Rubicon Project and others drop second-price. Reason: in header bidding, second-price enables SSP floor-price manipulation. First-price is simpler and more transparent.</div></div>
+  <div class="tl-item"><div class="tl-dot tl-dot--green"></div><div class="tl-year">2019</div><div class="tl-title">Google Ad Manager → unified first-price</div><div class="tl-desc">Google — the last major exchange. Eliminates "last look" privilege. Unified auction = one first price for all. Bid shading becomes mandatory. The $48B market shifts overnight.</div></div>
+  <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2021</div><div class="tl-title">AdSense → first-price. Full circle.</div><div class="tl-desc">The last second-price bastion in Google falls. Theory said second-price → truthful. Practice: first-price + bid shading. Bid shading can take up to 20% of publisher revenue.</div></div>
+</div>
+
+<div class="highlight-box">
+<strong>Summary:</strong>
+Ad industry traveled from Vickrey (2007) to first-price (2019) in 12 years — for the same reasons Vickrey described in 1961: when values correlate, bidders are asymmetric, and intermediaries exist, second-price creates manipulation opportunities. The theory wasn't wrong — the conditions of application were.
+</div>
+
+## Auctions in Finance
+
+Financial markets are auctions with different names. Treasury, IPO, buyback — the same mechanisms everywhere.
+
+<div class="fw-grid">
+  <div class="fw-card fw-card--blue">
+    <h4>US Treasury Bills</h4>
+    <div class="fw-sub">Dutch / uniform-price auction</div>
+    <div class="fw-tags"><span>$23T+ debt</span></div>
+    <ul class="fw-list">
+      <li>Fed NY sells government bonds via Dutch auction</li>
+      <li>Primary dealers bid with desired yield</li>
+      <li>All winners pay a single price</li>
+    </ul>
   </div>
-  <div class="tl-item">
-    <div class="tl-dot tl-dot--green"></div>
-    <div class="tl-year">1975</div>
-    <div class="tl-title">Hawking radiation</div>
-    <div class="tl-desc">Hawking, who set out to disprove Bekenstein, instead proves him right: black holes have temperature and entropy. S = A/4 is established. The information paradox is born.</div>
+  <div class="fw-card fw-card--green">
+    <h4>Google IPO, 2004</h4>
+    <div class="fw-sub">Modified Dutch auction</div>
+    <div class="fw-tags"><span>$1.67B raised</span></div>
+    <ul class="fw-list">
+      <li>Investors specified price and volume</li>
+      <li>Final price $85 — uniform for all</li>
+      <li>First day: +18%. Goal: minimize underpricing</li>
+    </ul>
   </div>
-  <div class="tl-item">
-    <div class="tl-dot"></div>
-    <div class="tl-year">1993</div>
-    <div class="tl-title">'t Hooft and Susskind: the holographic principle</div>
-    <div class="tl-desc">The maximum information in a region of space scales with its surface area, not its volume. A bold claim — but no concrete realization yet.</div>
-  </div>
-  <div class="tl-item">
-    <div class="tl-dot tl-dot--green"></div>
-    <div class="tl-year">1997</div>
-    <div class="tl-title">Maldacena publishes AdS/CFT</div>
-    <div class="tl-desc">"The Large N Limit of Superconformal Field Theories and Supergravity." The first concrete realization of the holographic principle. Will become the most cited paper in high-energy physics.</div>
-  </div>
-  <div class="tl-item">
-    <div class="tl-dot tl-dot--green"></div>
-    <div class="tl-year">1998</div>
-    <div class="tl-title">Witten + Gubser-Klebanov-Polyakov</div>
-    <div class="tl-desc">Two papers make AdS/CFT computationally precise. The duality dictionary is established. At Strings '98, physicists sing "The Maldacena" at the conference dinner. The field erupts.</div>
-  </div>
-  <div class="tl-item">
-    <div class="tl-dot"></div>
-    <div class="tl-year">2001</div>
-    <div class="tl-title">Strominger proposes dS/CFT</div>
-    <div class="tl-desc">An attempt to extend holography to de Sitter space — our Universe. The proposal is promising but incomplete. The problem remains open.</div>
-  </div>
-  <div class="tl-item">
-    <div class="tl-dot tl-dot--green"></div>
-    <div class="tl-year">2006</div>
-    <div class="tl-title">Ryu-Takayanagi formula</div>
-    <div class="tl-desc">Entanglement entropy on the boundary = area of a minimal surface in the bulk. A direct generalization of the Bekenstein-Hawking formula. Geometry and entanglement are linked.</div>
-  </div>
-  <div class="tl-item">
-    <div class="tl-dot tl-dot--green"></div>
-    <div class="tl-year">2010</div>
-    <div class="tl-title">Van Raamsdonk: spacetime from entanglement</div>
-    <div class="tl-desc">Remove entanglement → spacetime disconnects. The radical conclusion: spacetime is emergent, stitched together by quantum correlations. First prize, Gravity Research Foundation.</div>
-  </div>
-  <div class="tl-item">
-    <div class="tl-dot tl-dot--green"></div>
-    <div class="tl-year">2013</div>
-    <div class="tl-title">ER = EPR</div>
-    <div class="tl-desc">Maldacena and Susskind: wormholes = entanglement. Three letters from 1935 (Einstein-Rosen bridge) equal three letters from 1935 (Einstein-Podolsky-Rosen). Geometry is quantum information.</div>
-  </div>
-  <div class="tl-item">
-    <div class="tl-dot"></div>
-    <div class="tl-year">2019</div>
-    <div class="tl-title">The black hole information paradox "resolved"</div>
-    <div class="tl-desc">Using AdS/CFT techniques (quantum extremal surfaces, islands), several groups show that black hole evaporation follows a unitary Page curve. Information is preserved — but how it escapes remains debated.</div>
+  <div class="fw-card fw-card--purple">
+    <h4>Stock Exchanges</h4>
+    <div class="fw-sub">Continuous double auction</div>
+    <div class="fw-tags"><span>~$120T/year</span></div>
+    <ul class="fw-list">
+      <li>NYSE, NASDAQ — buyers and sellers bid simultaneously</li>
+      <li>Trade on bid/ask intersection</li>
+      <li>Billions of trades daily</li>
+    </ul>
   </div>
 </div>
 
-## What It Means
+<div class="fw-grid">
+  <div class="fw-card fw-card--red">
+    <h4>EU ETS Carbon Market</h4>
+    <div class="fw-sub">Sealed uniform-price</div>
+    <div class="fw-tags"><span>€245B since 2013</span><span>€39B/year</span></div>
+    <ul class="fw-list">
+      <li>Weekly auctions on EEX exchange</li>
+      <li>Average 2024 price: €65/tCO₂ (peak 2023: €100+)</li>
+      <li>599M allowances sold in 2024</li>
+    </ul>
+  </div>
+  <div class="fw-card fw-card--blue">
+    <h4>Energy Markets</h4>
+    <div class="fw-sub">Uniform-price merit order</div>
+    <div class="fw-tags"><span>€60–300/MWh</span></div>
+    <ul class="fw-list">
+      <li>EPEX SPOT (Europe), PJM (US): hourly bids</li>
+      <li>Cheapest sources (solar, wind) first, then expensive (gas)</li>
+      <li>Marginal price = last generator activated</li>
+    </ul>
+  </div>
+  <div class="fw-card fw-card--green">
+    <h4>FCC Spectrum Auctions</h4>
+    <div class="fw-sub">SMRA (Milgrom-Wilson design)</div>
+    <div class="fw-tags"><span>$81B record</span></div>
+    <ul class="fw-list">
+      <li>C-band auction 2021 — world record</li>
+      <li>Nobel Prize 2020 for auction design</li>
+      <li>Simultaneous multiple round auction</li>
+    </ul>
+  </div>
+</div>
 
-The holographic principle, if true, is the most radical revision of our picture of reality since quantum mechanics. It says that the three-dimensional space we inhabit may be a projection — complete and self-consistent, but ultimately encoded on a distant two-dimensional surface.
+## Auctions in Technology
 
-We don't yet know if this applies to our actual Universe. The evidence is overwhelming for AdS spacetimes, circumstantial for de Sitter. But the direction of theoretical physics since 1997 is unambiguous: spacetime is not fundamental. It emerges from something deeper — quantum information, entanglement, codes. Penrose diagrams showed us how to see the causal structure of spacetime. The holographic principle suggests that this structure itself may be computed from a lower-dimensional theory on the boundary.
+<div class="fw-grid">
+  <div class="fw-card fw-card--blue">
+    <h4>AWS Spot Instances</h4>
+    <div class="fw-sub">Up to 90% discount on idle EC2 capacity</div>
+    <ul class="fw-list">
+      <li>Since 2009: auction for unused compute</li>
+      <li>In 2017 switched from pure auction to smoothed pricing</li>
+      <li>Interruption: 30 sec – 2 min notice</li>
+    </ul>
+  </div>
+  <div class="fw-card fw-card--purple">
+    <h4>Ethereum Gas (EIP-1559)</h4>
+    <div class="fw-sub">First-price → hybrid mechanism</div>
+    <ul class="fw-list">
+      <li>Pre-2021: pure first-price auction for block space</li>
+      <li>Post-EIP-1559: base fee (algorithmic) + priority tip</li>
+      <li>Significant reduction in fee volatility and waiting times</li>
+    </ul>
+  </div>
+  <div class="fw-card fw-card--green">
+    <h4>Domain Auctions</h4>
+    <div class="fw-sub">English auction + reserve price</div>
+    <ul class="fw-list">
+      <li>GoDaddy, NameJet, DropCatch for expired domains</li>
+      <li>voice.com sold for $30M (2019)</li>
+      <li>Premium domains via sealed-bid on Sedo/Afternic</li>
+    </ul>
+  </div>
+</div>
+
+<div class="highlight-box">
+<strong>Pattern:</strong>
+The same evolution repeats everywhere. Start with a pure auction (AWS Spot 2009, Ethereum pre-1559, programmatic 2007). Over time, transition to a hybrid: auction mechanism + algorithmic pricing. Pure auctions are too volatile for production systems. Stability beats theoretical optimality.
+</div>
+
+## Where Auctions Are Heading
+
+<div class="fw-grid">
+  <div class="fw-card fw-card--red">
+    <h4>AI Bidding Agents</h4>
+    <div class="fw-sub">Now → 2027</div>
+    <ul class="fw-list">
+      <li>ML algorithms already do bid shading (Google, TTD)</li>
+      <li>Next: autonomous agents trading without humans</li>
+      <li>Risk: algorithmic collusion without explicit agreement</li>
+    </ul>
+  </div>
+  <div class="fw-card fw-card--blue">
+    <h4>Privacy-Preserving Auctions</h4>
+    <div class="fw-sub">Now → 2028</div>
+    <ul class="fw-list">
+      <li>Apple ATT, Privacy Sandbox, EU DSA — user data disappearing</li>
+      <li>On-device bidding, federated auctions, contextual signals</li>
+    </ul>
+  </div>
+  <div class="fw-card fw-card--purple">
+    <h4>Combinatorial Auctions</h4>
+    <div class="fw-sub">2025+</div>
+    <ul class="fw-list">
+      <li>FCC Incentive Auction (2017) — first major example</li>
+      <li>NP-hard, solved with SAT-solvers</li>
+      <li>Next: 5G/6G shared spectrum, multi-cloud procurement</li>
+    </ul>
+  </div>
+  <div class="fw-card fw-card--green">
+    <h4>Dynamic Mechanism Design</h4>
+    <div class="fw-sub">2026+</div>
+    <ul class="fw-list">
+      <li>Classical theory covers one-shot auctions</li>
+      <li>Reality: billions of repeated auctions with learning participants</li>
+    </ul>
+  </div>
+  <div class="fw-card fw-card--teal">
+    <h4>Real-Time Energy Markets</h4>
+    <div class="fw-sub">2025+</div>
+    <ul class="fw-list">
+      <li>P2P electricity auctions between households</li>
+      <li>Pilots: Power Ledger (Australia), Sonnen (Germany)</li>
+    </ul>
+  </div>
+  <div class="fw-card">
+    <h4>Auctions → Automatic Markets</h4>
+    <div class="fw-sub">Long-term</div>
+    <ul class="fw-list">
+      <li>AWS Spot is no longer an auction — it's algorithmic pricing</li>
+      <li>Pure auctions dissolve into dynamic pricing</li>
+      <li>The foundation — auction theory — remains</li>
+    </ul>
+  </div>
+</div>
+
+### Evolution: From Gavel to Algorithm
+
+<div class="timeline">
+  <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">Pre-20th century</div><div class="tl-title">English, Dutch — minutes to hours</div><div class="tl-desc">People in a room. Christie's (1766), Aalsmeer flower auction (1911).</div></div>
+  <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">1960–1990</div><div class="tl-title">Sealed-bid, Vickrey — days to weeks</div><div class="tl-desc">Companies + governments. NZ Spectrum 1990, US Treasury auctions.</div></div>
+  <div class="tl-item"><div class="tl-dot tl-dot--green"></div><div class="tl-year">1994–2010</div><div class="tl-title">SMRA, combinatorial — weeks to months</div><div class="tl-desc">Telecoms + regulators. FCC Auctions designed by Milgrom & Wilson (Nobel 2020).</div></div>
+  <div class="tl-item"><div class="tl-dot tl-dot--green"></div><div class="tl-year">2007–2019</div><div class="tl-title">RTB second → first-price — 100ms</div><div class="tl-desc">DSP/SSP algorithms. Programmatic advertising, header bidding revolution.</div></div>
+  <div class="tl-item"><div class="tl-dot tl-dot--red"></div><div class="tl-year">2020+</div><div class="tl-title">ML bid agents + hybrid — microseconds</div><div class="tl-desc">AI vs AI. Auto-bidding, Spot pricing, EIP-1559. Auction theory as invisible OS.</div></div>
+</div>
+
+## One Lesson
+
+Rules determine behavior. Behavior determines price. **Whoever designs the rules owns the market.**
+
+The same radio waves cost between $0.001 and $0.875 per MHz/pop — an 875× difference. The same ad generates 30–40% more or less revenue depending on the auction format. The same carbon costs €5 or €100 — depending on cap-and-trade rules.
+
+An auction is not a gavel at Christie's. It's a model of any market with competition for a scarce resource.
+
+---
+
+## The Price of Loyalty
+
+URL: https://papilov.org/research/subscription-pricing-models/
+Also available in: RU, ES, DE, ZH
+
+
+Since 2020, subscription prices have outpaced inflation by 3–5×. The US Consumer Price Index rose roughly 25% over this period. Most major subscriptions rose 50–170%.
+
+Disney+ leads the pack with a 172% increase ($6.99 → $18.99), followed by Apple TV+ at 160%, Netflix at 125%, and Xbox Game Pass Ultimate doubling to $29.99. Meanwhile, World of Warcraft has charged exactly $14.99/month since November 2004 — 21 years with zero change.
+
+This isn't random. It's three distinct pricing models operating on fundamentally different economic logic.
+
+## Who Raised Prices — and by How Much
+
+<div class="bars">
+  <div class="bar-row"><div class="label">Disney+</div><div class="track"><div class="fill" style="width:86%">$6.99 → $18.99</div></div><div class="pct">+172%</div></div>
+  <div class="bar-row"><div class="label">Apple TV+</div><div class="track"><div class="fill" style="width:80%">$4.99 → $12.99</div></div><div class="pct">+160%</div></div>
+  <div class="bar-row"><div class="label">Netflix</div><div class="track"><div class="fill" style="width:63%">$7.99 → $17.99</div></div><div class="pct">+125%</div></div>
+  <div class="bar-row"><div class="label">Peacock</div><div class="track"><div class="fill" style="width:60%">$4.99 → $10.99</div></div><div class="pct">+120%</div></div>
+  <div class="bar-row"><div class="label">Xbox Game Pass</div><div class="track"><div class="fill" style="width:50%">$14.99 → $29.99</div></div><div class="pct">+100%</div></div>
+  <div class="bar-row"><div class="label">Amazon Prime</div><div class="track"><div class="fill" style="width:38%">$79/yr → $139/yr</div></div><div class="pct">+76%</div></div>
+  <div class="bar-row"><div class="label">Microsoft 365</div><div class="track"><div class="fill" style="width:22%">$69.99 → $99.99/yr</div></div><div class="pct">+43%</div></div>
+  <div class="bar-row"><div class="label">Spotify</div><div class="track"><div class="fill" style="width:15%">$9.99 → $12.99</div></div><div class="pct">+30%</div></div>
+  <div class="bar-row muted"><div class="label">CPI Inflation</div><div class="track"><div class="fill" style="width:13%"></div></div><div class="pct">~25%</div></div>
+</div>
+
+## Raisers vs. Holders
+
+The key question: is the subscription the product, or the gateway to other spending?
+
+<div class="compare">
+  <div class="compare-col col-a">
+    <h4>Price Raisers ↑</h4>
+    <div class="compare-item"><strong>Netflix</strong><span>7 increases in 15 yrs. Standard: $7.99 → $17.99</span></div>
+    <div class="compare-item"><strong>Disney+</strong><span>+172% in 6 years. Fastest riser in history</span></div>
+    <div class="compare-item"><strong>Spotify</strong><span>12 yrs frozen, then 3 hikes in 30 months</span></div>
+    <div class="compare-item"><strong>Adobe CC</strong><span>Perpetual → subscription → steady increases</span></div>
+    <div class="compare-item"><strong>Xbox Game Pass</strong><span>Ultimate doubled: $14.99 → $29.99</span></div>
+  </div>
+  <div class="compare-col col-b">
+    <h4>Price Holders ↓</h4>
+    <div class="compare-item"><strong>World of Warcraft</strong><span>$14.99/mo since Nov 2004. 21 years, $0 change</span></div>
+    <div class="compare-item"><strong>Planet Fitness</strong><span>$10/mo from 1998 to 2024. 26 years frozen</span></div>
+    <div class="compare-item"><strong>EA Play</strong><span>$4.99/mo since Aug 2014. 11 years unchanged</span></div>
+    <div class="compare-item"><strong>Nintendo Switch Online</strong><span>$19.99/yr since Sep 2018. 7+ years</span></div>
+    <div class="compare-item"><strong>Costco</strong><span>$5 increase every 5–7 yrs. $60 → $65 in 2024</span></div>
+  </div>
+</div>
+
+## The WoW Paradox
+
+$14.99 hasn't moved in 21 years. But Blizzard isn't leaving money on the table — they moved the table.
+
+<div class="case-box">
+  <h4>World of Warcraft</h4>
+  <div class="case-meta">$14.99/mo since November 2004</div>
+
+  <div class="metrics">
+    <div class="metric"><div class="val val--green">$25.72</div><div class="desc">$14.99 (2004) adjusted for inflation</div></div>
+    <div class="metric"><div class="val val--red">−42%</div><div class="desc">Real price decline</div></div>
+    <div class="metric"><div class="val val--blue">~9M</div><div class="desc">Estimated subscribers (2025)</div></div>
+    <div class="metric"><div class="val val--yellow">$20</div><div class="desc">WoW Token price</div></div>
+  </div>
+
+Bobby Kotick (ex-CEO): *"It's a prickly audience. You don't wanna do too much to agitate them. Even a dollar increase would've been a problem."*
+
+**2004–2010:** Subscription was 85% of revenue. Expansions 15%. Microtransactions: zero.
+
+**2020–2026:** Subscription dropped to ~50%. Microtransactions and tokens grew to ~35%. Expansions stayed at 15%.
+
+They didn't raise the price. They built new revenue streams around a frozen anchor.
+</div>
+
+## Three Pricing Models
+
+<div class="fw-grid">
+  <div class="fw-card fw-card--red">
+    <h4>Extractive</h4>
+    <div class="fw-sub">Subscription = the product. Raise as fast as churn allows.</div>
+    <div class="fw-tags"><span>Netflix</span><span>Disney+</span><span>Spotify</span><span>HBO Max</span></div>
+    <ul class="fw-list">
+      <li>Revenue comes from subscriptions</li>
+      <li>Moderate switching costs</li>
+      <li>Ad tiers as pressure release</li>
+      <li>Churn elasticity ~1.8–5.5%</li>
+    </ul>
+  </div>
+  <div class="fw-card fw-card--green">
+    <h4>Gateway</h4>
+    <div class="fw-sub">Subscription = acquisition tool. Hold price, monetize elsewhere.</div>
+    <div class="fw-tags"><span>WoW</span><span>Costco</span><span>Planet Fitness</span><span>Amazon Prime</span></div>
+    <ul class="fw-list">
+      <li>Sub drives adjacent spending</li>
+      <li>Price = brand identity</li>
+      <li>Raise once per decade (if ever)</li>
+      <li>Prime members: ~$1,170/yr on Amazon</li>
+    </ul>
+  </div>
+  <div class="fw-card fw-card--purple">
+    <h4>Monopoly</h4>
+    <div class="fw-sub">No real alternatives. Raise freely, cite AI/features.</div>
+    <div class="fw-tags"><span>Adobe CC</span><span>Microsoft 365</span><span>Google Workspace</span></div>
+    <ul class="fw-list">
+      <li>Extreme switching costs</li>
+      <li>Proprietary format lock-in</li>
+      <li>AI features justify +30–43%</li>
+      <li>Minimal churn regardless</li>
+    </ul>
+  </div>
+</div>
+
+## Why We Keep Paying
+
+<div class="psych-grid">
+  <div class="psych-card">
+    <h4>Loss Aversion</h4>
+    <p>Losing Netflix feels 2× worse than the rational savings of canceling. The pain of loss outweighs the logic of savings.</p>
+    <div class="big">2×</div>
+  </div>
+  <div class="psych-card">
+    <h4>Subscription Blindness</h4>
+    <p>72% of consumers underestimate their total subscription spending by ~40%. 55% maintain at least one unused sub.</p>
+    <div class="big">72%</div>
+  </div>
+  <div class="psych-card">
+    <h4>Boiling Frog</h4>
+    <p>Small ~10% increases stay below the pain threshold. Netflix: $1–2.50 every 12–24 months — too little to trigger action.</p>
+    <div class="big">~10%</div>
+  </div>
+  <div class="psych-card">
+    <h4>Moral Fairness</h4>
+    <p>Consumers judge prices morally, not economically. Netflix's 2011 60% hike felt like betrayal. The same increase over 5 years felt normal.</p>
+    <div class="big">60% ≠ 5×12%</div>
+  </div>
+</div>
+
+## Pricing Disasters & Wins
+
+<div class="timeline">
+  <div class="tl-item"><div class="tl-dot tl-dot--red"></div><div class="tl-year">2011</div><div class="tl-title">Netflix Qwikster — 60% price hike</div><div class="tl-desc">800K subscribers lost. Stock dropped 77%. Too much, too fast, no added value.</div></div>
+  <div class="tl-item"><div class="tl-dot tl-dot--red"></div><div class="tl-year">2017–2019</div><div class="tl-title">MoviePass — the opposite error</div><div class="tl-desc">Slashed price to $9.95 for daily movies. Lost $27–45M/month. 92% subscriber loss when forced to raise. Execs convicted of fraud.</div></div>
+  <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2022 Q1</div><div class="tl-title">Netflix's first subscriber loss</div><div class="tl-desc">Wall Street shifted from subscriber growth to revenue per user. Every streamer began aggressive price increases.</div></div>
+  <div class="tl-item"><div class="tl-dot tl-dot--red"></div><div class="tl-year">2022 May</div><div class="tl-title">EVE Online breaks 19-year freeze</div><div class="tl-desc">+33% ($14.95 → $19.99). Severe player backlash — reinforced WoW's decision to hold.</div></div>
+  <div class="tl-item"><div class="tl-dot tl-dot--green"></div><div class="tl-year">2023–24</div><div class="tl-title">Netflix ad-tier + password crackdown</div><div class="tl-desc">Ad tier hit 94M users. Password crackdown added ~50M subscribers. Revenue grew without proportional price pain.</div></div>
+  <div class="tl-item"><div class="tl-dot tl-dot--green"></div><div class="tl-year">2025 Jan</div><div class="tl-title">Netflix raises all tiers — no backlash</div><div class="tl-desc">+$1–$2.50 across all plans. Reached 302M subscribers. Boiling frog strategy perfected over 14 years.</div></div>
+  <div class="tl-item"><div class="tl-dot tl-dot--red"></div><div class="tl-year">2025 Oct</div><div class="tl-title">Xbox Game Pass — 50% single hike</div><div class="tl-desc">$19.99 → $29.99 overnight. Cancellation website crashed. GameStop publicly mocked Microsoft.</div></div>
+</div>
 
 
 ---
@@ -207,19 +855,13 @@ We don't yet know if this applies to our actual Universe. The evidence is overwh
 URL: https://papilov.org/research/penrose-diagrams/
 Also available in: RU, ES, DE, ZH
 
+
 Spacetime is infinite. Light can travel forever. A black hole crushes a point to zero. How do you draw all of this on a finite sheet?
 
 Roger Penrose's answer, developed in the early 1960s: conformal compactification. A mathematical transformation that squeezes infinity into finite points and lines while preserving the one thing that matters for the physics of causality — the structure of light cones.
 
 This one idea gave physicists a tool so powerful that it now appears in virtually every major result in general relativity — from the singularity theorems to the holographic principle, from the classification of spacetimes to the proof that gravitational waves carry energy.
 
-<div style="margin: 2rem 0; padding: 1.5rem; border: 1px solid var(--border-color); border-radius: 8px; background: var(--bg-secondary);">
-
-**[Open the interactive visual guide →](/research/penrose-diagrams/infographic.html)**
-
-6 sections: the problem of infinity · how to read diagrams · interactive atlas of 4 spacetimes · what you can read off a diagram · the person behind it · cheat sheet. With annotated SVG diagrams and full references.
-
-</div>
 
 ## The Problem
 
@@ -261,9 +903,81 @@ With these five rules, you can read any Penrose diagram — from flat spacetime 
 
 Flat spacetime, no gravity. The diagram is a diamond with five boundary components: future and past timelike infinity (i⁺, i⁻) where massive particles end and begin; spatial infinity (i⁰) at the waist; and future and past null infinity (I⁺, I⁻) — the surfaces where light rays arrive and originate. Gravitational wave energy is defined precisely at I⁺, a concept that only becomes rigorous through Penrose's conformal boundary. The Bondi-Metzner-Sachs group (1962), which describes asymptotic symmetries at null infinity, turns out to be infinite-dimensional — much larger than the 10-dimensional Poincaré group of flat spacetime. This surprising structure was discovered through conformal methods.
 
+<div style="text-align:center; margin: 2rem 0; padding: 1.5rem; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 8px;">
+<svg viewBox="0 0 460 500" xmlns="http://www.w3.org/2000/svg" style="max-width: 420px; width: 100%;">
+  <defs>
+    <marker id="arr" markerWidth="6" markerHeight="4" refX="6" refY="2" orient="auto">
+      <polygon points="0 0, 6 2, 0 4" fill="var(--text-tertiary)"/>
+    </marker>
+  </defs>
+  <polygon points="230,40 410,250 230,460 50,250" fill="var(--bg-secondary)" stroke="var(--blue-soft)" stroke-width="1.5" opacity="0.7"/>
+  <line x1="230" y1="40" x2="410" y2="250" stroke="var(--red-soft)" stroke-width="2" opacity="0.7"/>
+  <line x1="230" y1="40" x2="50" y2="250" stroke="var(--red-soft)" stroke-width="2" opacity="0.7"/>
+  <line x1="50" y1="250" x2="230" y2="460" stroke="var(--blue-soft)" stroke-width="2" opacity="0.7"/>
+  <line x1="410" y1="250" x2="230" y2="460" stroke="var(--blue-soft)" stroke-width="2" opacity="0.7"/>
+  <line x1="230" y1="450" x2="230" y2="50" stroke="var(--text-tertiary)" stroke-width="1" marker-end="url(#arr)" opacity="0.4"/>
+  <line x1="60" y1="250" x2="400" y2="250" stroke="var(--text-tertiary)" stroke-width="1" marker-end="url(#arr)" opacity="0.4"/>
+  <circle cx="230" cy="300" r="4" fill="var(--text-secondary)" opacity="0.9"/>
+  <line x1="230" y1="300" x2="310" y2="220" stroke="var(--text-secondary)" stroke-width="1.5" stroke-dasharray="5,4" opacity="0.5"/>
+  <line x1="230" y1="300" x2="150" y2="220" stroke="var(--text-secondary)" stroke-width="1.5" stroke-dasharray="5,4" opacity="0.5"/>
+  <polygon points="230,300 310,220 150,220" fill="var(--text-tertiary)" opacity="0.06" stroke="none"/>
+  <path d="M 230,420 Q 245,350 240,300 Q 235,250 230,80" fill="none" stroke="var(--text)" stroke-width="1.5" opacity="0.3" stroke-dasharray="2,3"/>
+  <circle cx="230" cy="40" r="5" fill="var(--red-soft)"/>
+  <text x="230" y="28" text-anchor="middle" font-family="var(--font-body)" font-size="14" fill="var(--red-soft)" font-style="italic">i⁺</text>
+  <text x="230" y="16" text-anchor="middle" font-family="var(--font-mono)" font-size="9" fill="var(--text-tertiary)">future timelike ∞</text>
+  <circle cx="230" cy="460" r="5" fill="var(--blue-soft)"/>
+  <text x="230" y="482" text-anchor="middle" font-family="var(--font-body)" font-size="14" fill="var(--blue-soft)" font-style="italic">i⁻</text>
+  <text x="230" y="496" text-anchor="middle" font-family="var(--font-mono)" font-size="9" fill="var(--text-tertiary)">past timelike ∞</text>
+  <circle cx="410" cy="250" r="5" fill="var(--text-secondary)"/>
+  <text x="432" y="245" font-family="var(--font-body)" font-size="14" fill="var(--text-secondary)" font-style="italic">i⁰</text>
+  <text x="432" y="260" font-family="var(--font-mono)" font-size="9" fill="var(--text-tertiary)">spatial ∞</text>
+  <circle cx="50" cy="250" r="5" fill="var(--text-secondary)"/>
+  <text x="28" y="245" text-anchor="end" font-family="var(--font-body)" font-size="14" fill="var(--text-secondary)" font-style="italic">i⁰</text>
+  <text x="340" y="135" font-family="var(--font-body)" font-size="13" fill="var(--red-soft)" font-style="italic" transform="rotate(-45,340,135)">I⁺</text>
+  <text x="120" y="135" font-family="var(--font-body)" font-size="13" fill="var(--red-soft)" font-style="italic" transform="rotate(45,120,135)">I⁺</text>
+  <text x="340" y="370" font-family="var(--font-body)" font-size="13" fill="var(--blue-soft)" font-style="italic" transform="rotate(45,340,370)">I⁻</text>
+  <text x="120" y="370" font-family="var(--font-body)" font-size="13" fill="var(--blue-soft)" font-style="italic" transform="rotate(-45,120,370)">I⁻</text>
+  <text x="316" y="216" font-family="var(--font-mono)" font-size="9" fill="var(--text-secondary)">light ray (45°)</text>
+  <text x="245" y="314" font-family="var(--font-mono)" font-size="9" fill="var(--text-secondary)">event</text>
+  <text x="236" y="62" font-family="var(--font-mono)" font-size="9" fill="var(--text-tertiary)">t</text>
+  <text x="396" y="264" font-family="var(--font-mono)" font-size="9" fill="var(--text-tertiary)">r</text>
+  <text x="40" y="150" font-family="var(--font-mono)" font-size="9" fill="var(--text-tertiary)" transform="rotate(-90,40,150)">r = 0 (origin)</text>
+</svg>
+<div style="font-size: 0.78rem; color: var(--text-tertiary); margin-top: 0.5rem;">Flat Minkowski spacetime. The diamond shape compresses all of infinite spacetime to a finite figure. Light cones are always at 45°. The five boundary components — i⁺, i⁻, i⁰, I⁺, I⁻ — encode the asymptotic structure.</div>
+</div>
+
 ### Schwarzschild — The Zigzag Singularity
 
 A non-rotating black hole. The diagram reveals what coordinates obscured for decades: the singularity at r = 0 is not a point in space — it's a moment in time. It appears as a horizontal zigzag line, meaning that once you cross the event horizon (a 45° line), the singularity lies in your future no matter which direction you move. You can't escape not because you can't run fast enough, but because all spatial directions point toward the singularity.
+
+<div style="text-align:center; margin: 2rem 0; padding: 1.5rem; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 8px;">
+<svg viewBox="0 0 320 400" xmlns="http://www.w3.org/2000/svg" style="max-width: 300px; width: 100%;">
+  <polygon points="160,40 300,200 160,200 160,40" fill="var(--blue-soft)" opacity="0.05" stroke="none"/>
+  <polygon points="160,200 300,200 160,360 160,200" fill="var(--blue-soft)" opacity="0.05" stroke="none"/>
+  <polygon points="20,40 160,40 160,200 20,200" fill="var(--red-soft)" opacity="0.05" stroke="none"/>
+  <line x1="20" y1="40" x2="160" y2="40" stroke="var(--red-soft)" stroke-width="3"/>
+  <path d="M 25,40 L 35,35 L 45,45 L 55,35 L 65,45 L 75,35 L 85,45 L 95,35 L 105,45 L 115,35 L 125,45 L 135,35 L 145,45 L 155,40" fill="none" stroke="var(--red-soft)" stroke-width="1.5"/>
+  <text x="90" y="30" text-anchor="middle" font-family="var(--font-mono)" font-size="10" fill="var(--red-soft)">singularity (r = 0)</text>
+  <line x1="160" y1="40" x2="160" y2="360" stroke="var(--text-secondary)" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <text x="172" y="120" font-family="var(--font-mono)" font-size="9" fill="var(--text-secondary)">event</text>
+  <text x="172" y="132" font-family="var(--font-mono)" font-size="9" fill="var(--text-secondary)">horizon</text>
+  <line x1="160" y1="40" x2="300" y2="200" stroke="var(--blue-soft)" stroke-width="1" opacity="0.4"/>
+  <line x1="300" y1="200" x2="160" y2="360" stroke="var(--blue-soft)" stroke-width="1" opacity="0.4"/>
+  <line x1="20" y1="200" x2="160" y2="360" stroke="var(--blue-soft)" stroke-width="1" opacity="0.4"/>
+  <line x1="20" y1="200" x2="20" y2="40" stroke="var(--red-soft)" stroke-width="1" opacity="0.3"/>
+  <circle cx="300" cy="200" r="4" fill="var(--text-secondary)"/>
+  <text x="310" y="203" font-family="var(--font-mono)" font-size="10" fill="var(--text-secondary)">i⁰</text>
+  <circle cx="160" cy="360" r="4" fill="var(--blue-soft)"/>
+  <text x="160" y="378" text-anchor="middle" font-family="var(--font-mono)" font-size="10" fill="var(--blue-soft)">i⁻</text>
+  <text x="80" y="130" text-anchor="middle" font-family="var(--font-body)" font-size="14" fill="var(--red-soft)" font-style="italic" opacity="0.6">II</text>
+  <text x="80" y="148" text-anchor="middle" font-family="var(--font-mono)" font-size="8" fill="var(--red-soft)" opacity="0.4">inside BH</text>
+  <text x="230" y="200" text-anchor="middle" font-family="var(--font-body)" font-size="14" fill="var(--blue-soft)" font-style="italic" opacity="0.6">I</text>
+  <text x="230" y="218" text-anchor="middle" font-family="var(--font-mono)" font-size="8" fill="var(--blue-soft)" opacity="0.4">exterior</text>
+  <path d="M 250,320 Q 200,240 120,100" fill="none" stroke="var(--text)" stroke-width="1.2" opacity="0.3" stroke-dasharray="2,3"/>
+  <text x="252" y="318" font-family="var(--font-mono)" font-size="8" fill="var(--text-tertiary)">infalling</text>
+</svg>
+<div style="font-size: 0.78rem; color: var(--text-tertiary); margin-top: 0.5rem;">Schwarzschild black hole. The event horizon is a dashed 45° line. Beyond it, all paths lead to the zigzag singularity at the top. There is no escape — not because you can't move fast enough, but because the singularity is in your future.</div>
+</div>
 
 The maximally extended solution — first found using Kruskal-Szekeres coordinates (1960) — reveals a white hole, a second universe, and an Einstein-Rosen bridge connecting them. The bridge closes faster than light can traverse it. Penrose diagrams added the crucial step of compactifying the asymptotic regions, making the full causal structure visible at a glance.
 
@@ -271,11 +985,52 @@ The maximally extended solution — first found using Kruskal-Szekeres coordinat
 
 Positive cosmological constant, no matter — our Universe's approximate future as dark energy dominates. The diagram is a square with spacelike (horizontal) top and bottom boundaries: the universe begins and ends everywhere at once.
 
+<div style="text-align:center; margin: 2rem 0; padding: 1.5rem; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 8px;">
+<svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" style="max-width: 300px; width: 100%;">
+  <rect x="40" y="40" width="240" height="240" fill="var(--blue-soft)" opacity="0.04" stroke="var(--blue-soft)" stroke-width="1" stroke-opacity="0.2"/>
+  <line x1="40" y1="40" x2="280" y2="40" stroke="var(--red-soft)" stroke-width="3" opacity="0.7"/>
+  <line x1="40" y1="280" x2="280" y2="280" stroke="var(--blue-soft)" stroke-width="3" opacity="0.7"/>
+  <line x1="160" y1="280" x2="160" y2="40" stroke="var(--text)" stroke-width="1.5" stroke-dasharray="4,4" opacity="0.25"/>
+  <circle cx="160" cy="160" r="4" fill="var(--text)">
+    <animate attributeName="r" values="3;5;3" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <line x1="40" y1="160" x2="160" y2="40" stroke="var(--text-secondary)" stroke-width="1" opacity="0.35"/>
+  <line x1="160" y1="40" x2="280" y2="160" stroke="var(--text-secondary)" stroke-width="1" opacity="0.35"/>
+  <line x1="40" y1="160" x2="160" y2="280" stroke="var(--text-secondary)" stroke-width="1" opacity="0.35"/>
+  <line x1="160" y1="280" x2="280" y2="160" stroke="var(--text-secondary)" stroke-width="1" opacity="0.35"/>
+  <text x="160" y="30" text-anchor="middle" font-family="var(--font-mono)" font-size="10" fill="var(--red-soft)">I⁺ (future ∞)</text>
+  <text x="160" y="300" text-anchor="middle" font-family="var(--font-mono)" font-size="10" fill="var(--blue-soft)">I⁻ (past ∞)</text>
+  <text x="100" y="100" text-anchor="middle" font-family="var(--font-mono)" font-size="8" fill="var(--text-tertiary)" transform="rotate(-45,100,100)">horizon</text>
+  <text x="160" y="155" text-anchor="middle" font-family="var(--font-mono)" font-size="9" fill="var(--text-secondary)">observer</text>
+</svg>
+<div style="font-size: 0.78rem; color: var(--text-tertiary); margin-top: 0.5rem;">De Sitter spacetime. A square instead of a diamond. Top and bottom boundaries are spacelike — the universe begins and ends everywhere at once. Each observer is surrounded by a cosmological horizon.</div>
+</div>
+
 Every observer has a cosmological horizon: regions receding faster than light can never send signals that reach you. Since 1998, when Riess, Perlmutter, and Schmidt discovered the accelerating expansion (Nobel Prize 2011), we know our Universe is heading toward this de Sitter-like fate.
 
 ### Anti-de Sitter — The Vertical Strip
 
 Negative cosmological constant. The diagram is a vertical strip with timelike (vertical) boundaries. Not our Universe — but arguably the most important spacetime in theoretical physics today.
+
+<div style="text-align:center; margin: 2rem 0; padding: 1.5rem; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 8px;">
+<svg viewBox="0 0 320 380" xmlns="http://www.w3.org/2000/svg" style="max-width: 300px; width: 100%;">
+  <rect x="80" y="30" width="160" height="320" fill="var(--blue-soft)" opacity="0.04" stroke="none"/>
+  <line x1="80" y1="30" x2="80" y2="350" stroke="var(--purple-soft)" stroke-width="2.5" opacity="0.7"/>
+  <line x1="240" y1="30" x2="240" y2="350" stroke="var(--purple-soft)" stroke-width="2.5" opacity="0.7"/>
+  <line x1="80" y1="30" x2="240" y2="30" stroke="var(--blue-soft)" stroke-width="1" opacity="0.25"/>
+  <line x1="80" y1="350" x2="240" y2="350" stroke="var(--blue-soft)" stroke-width="1" opacity="0.25"/>
+  <path d="M 160,300 L 240,220 L 160,140 L 80,60" fill="none" stroke="var(--text-secondary)" stroke-width="1.2" stroke-dasharray="4,3" opacity="0.4"/>
+  <circle cx="160" cy="300" r="3" fill="var(--text-secondary)" opacity="0.6"/>
+  <text x="60" y="190" text-anchor="middle" font-family="var(--font-body)" font-size="13" fill="var(--purple-soft)" font-style="italic" transform="rotate(-90,60,190)">boundary (CFT)</text>
+  <text x="260" y="190" text-anchor="middle" font-family="var(--font-body)" font-size="13" fill="var(--purple-soft)" font-style="italic" transform="rotate(90,260,190)">boundary (CFT)</text>
+  <text x="160" y="200" text-anchor="middle" font-family="var(--font-body)" font-size="14" fill="var(--blue-soft)" font-style="italic" opacity="0.5">AdS bulk</text>
+  <text x="160" y="20" text-anchor="middle" font-family="var(--font-mono)" font-size="9" fill="var(--text-tertiary)">t → +∞</text>
+  <text x="160" y="368" text-anchor="middle" font-family="var(--font-mono)" font-size="9" fill="var(--text-tertiary)">t → −∞</text>
+  <text x="248" y="218" font-family="var(--font-mono)" font-size="8" fill="var(--text-tertiary)">light "bounces"</text>
+  <text x="248" y="230" font-family="var(--font-mono)" font-size="8" fill="var(--text-tertiary)">off boundary</text>
+</svg>
+<div style="font-size: 0.78rem; color: var(--text-tertiary); margin-top: 0.5rem;">Anti-de Sitter spacetime. A vertical strip. The sidewalls are timelike boundaries where the dual CFT lives. Light reaches the boundary in finite time and "bounces" back — the space acts like a box.</div>
+</div>
 
 In 1997, Juan Maldacena showed that quantum gravity in this space is exactly equivalent to a quantum field theory living on its boundary. This AdS/CFT correspondence — the [most cited result](https://arxiv.org/abs/hep-th/9711200) in high-energy physics history (20,000+ citations) — means that the vertical edges of the Penrose diagram are not just abstract boundaries. They are where the dual theory lives. Gravity in the bulk, quantum fields on the edge. The Penrose diagram makes this architecture visible.
 
@@ -342,7 +1097,7 @@ In 1997, Juan Maldacena showed that quantum gravity in this space is exactly equ
 
 <div class="highlight-box">
 <strong>A visual mind across disciplines</strong>
-Roger Penrose (born 1931) proposed the impossible triangle (1954) and inspired M. C. Escher's <em>Waterfall</em> and <em>Ascending and Descending</em>. His aperiodic tilings (1974) presaged the discovery of quasicrystals. His singularity theorem used topology where others tried brute-force calculation. His conformal diagrams replaced pages of equations with a single picture. In every case, the breakthrough came from seeing structure that others described only algebraically.
+Roger Penrose (born 1931) proposed the impossible triangle (conceived 1954, published 1958) and inspired M. C. Escher's <em>Waterfall</em> and <em>Ascending and Descending</em>. His aperiodic tilings (1974) presaged the discovery of quasicrystals. His singularity theorem used topology where others tried brute-force calculation. His conformal diagrams replaced pages of equations with a single picture. In every case, the breakthrough came from seeing structure that others described only algebraically.
 </div>
 
 Kip Thorne described Penrose's approach as "overlooking the detailed geometrical structure of spacetime and instead concentrating just on the topology of the space, or at most its conformal structure, since it is the latter — as determined by the lay of the lightcones — that determines the causal relationships." He shared the 1988 Wolf Prize with Stephen Hawking and won the Nobel at 89.
@@ -350,153 +1105,238 @@ Kip Thorne described Penrose's approach as "overlooking the detailed geometrical
 
 ---
 
-## The Price of Loyalty
+## The Universe as a Hologram
 
-URL: https://papilov.org/research/subscription-pricing-models/
+URL: https://papilov.org/research/ads-cft-holographic/
 Also available in: RU, ES, DE, ZH
 
-Since 2020, subscription prices have outpaced inflation by 3–5×. The US Consumer Price Index rose roughly 22% over this period. Most major subscriptions rose 50–170%.
 
-Disney+ leads the pack with a 172% increase ($6.99 → $18.99), followed by Apple TV+ at 160%, Netflix at 125%, and Xbox Game Pass Ultimate doubling to $29.99. Meanwhile, World of Warcraft has charged exactly $14.99/month since November 2004 — 21 years with zero change.
+In 1997, Juan Maldacena — a 29-year-old Argentine physicist, one year out of his Princeton PhD and newly a professor at Harvard — published what would become the most cited paper in the history of high-energy physics. Over 20,000 citations to date, roughly two per day for over two decades. The second and third most cited papers in the field are both about the same discovery, and both cite his.
 
-This isn't random. It's three distinct pricing models operating on fundamentally different economic logic.
+He showed that quantum gravity in a bounded, negatively curved spacetime is mathematically identical to a quantum field theory living on its boundary — with no gravity and one fewer dimension. Everything happening in the interior, including the bending of space and the formation of black holes, is fully encoded on the edge. Like a hologram.
 
-## Who Raised Prices — and by How Much
+This is the AdS/CFT correspondence. It didn't just solve a problem. It created an entire field.
 
-<div class="bars">
-  <div class="bar-row"><div class="label">Disney+</div><div class="track"><div class="fill" style="width:86%">$6.99 → $18.99</div></div><div class="pct">+172%</div></div>
-  <div class="bar-row"><div class="label">Apple TV+</div><div class="track"><div class="fill" style="width:80%">$4.99 → $12.99</div></div><div class="pct">+160%</div></div>
-  <div class="bar-row"><div class="label">Netflix</div><div class="track"><div class="fill" style="width:63%">$7.99 → $17.99</div></div><div class="pct">+125%</div></div>
-  <div class="bar-row"><div class="label">Peacock</div><div class="track"><div class="fill" style="width:60%">$4.99 → $10.99</div></div><div class="pct">+120%</div></div>
-  <div class="bar-row"><div class="label">Xbox Game Pass</div><div class="track"><div class="fill" style="width:50%">$14.99 → $29.99</div></div><div class="pct">+100%</div></div>
-  <div class="bar-row"><div class="label">Amazon Prime</div><div class="track"><div class="fill" style="width:38%">$79/yr → $139/yr</div></div><div class="pct">+76%</div></div>
-  <div class="bar-row"><div class="label">Microsoft 365</div><div class="track"><div class="fill" style="width:22%">$69.99 → $99.99/yr</div></div><div class="pct">+43%</div></div>
-  <div class="bar-row"><div class="label">Spotify</div><div class="track"><div class="fill" style="width:15%">$9.99 → $12.99</div></div><div class="pct">+30%</div></div>
-  <div class="bar-row muted"><div class="label">CPI Inflation</div><div class="track"><div class="fill" style="width:11%"></div></div><div class="pct">~22%</div></div>
+
+## Where It Began: A PhD Student vs. Everyone
+
+The story starts not with Maldacena, but with Jacob Bekenstein — a graduate student at Princeton in the early 1970s.
+
+His advisor, John Wheeler, posed a thought experiment: what happens to the entropy of a cup of tea if you drop it into a black hole? The tea has thermodynamic entropy — a measure of its internal disorder. But a black hole, described by the no-hair theorem, has only three properties: mass, charge, and spin. No temperature. No disorder. So when the tea crosses the event horizon, its entropy seems to vanish. The second law of thermodynamics — entropy never decreases — appears to be violated.
+
+Bekenstein's answer was radical: black holes themselves carry entropy, and that entropy is proportional to the area of the event horizon — not the volume of the interior. He published this in 1973. The response from the physics community was overwhelmingly negative. As Kip Thorne wrote: "All the world's black hole experts lined up on Hawking's side." The sole exception was Wheeler, who told Bekenstein: *"Your idea is just crazy enough that it might be right."*
+
+<div class="highlight-box">
+<strong>S = A / 4</strong>
+The Bekenstein-Hawking entropy formula: the entropy of a black hole equals one quarter of its event horizon area, measured in Planck units. This is the most concise equation in physics connecting gravity, quantum mechanics, and thermodynamics — three theories that otherwise refuse to cooperate.
 </div>
 
-## Raisers vs. Holders
+Two years later, Hawking — who had been trying to prove Bekenstein wrong — instead proved him right. By applying quantum field theory to curved spacetime, Hawking showed in 1975 that black holes emit thermal radiation at a specific temperature. This fixed the constant in Bekenstein's formula and established black hole thermodynamics as real physics, not analogy.
 
-The key question: is the subscription the product, or the gateway to other spending?
+But there was a deeper message in the formula S = A/4. If the maximum entropy in a region of space is proportional to its surface area rather than its volume, then the number of degrees of freedom needed to describe the physics inside is somehow determined by the boundary. As if the interior were a projection.
+
+## The Holographic Principle
+
+In the early 1990s, Gerard 't Hooft and Leonard Susskind took this implication seriously. They proposed the holographic principle: all the information needed to describe a volume of space can be encoded on its boundary, with a density of at most one bit per Planck area (~10⁻⁶⁶ cm²).
+
+<div class="metrics">
+  <div class="metric"><div class="val val--blue">10⁻⁶⁶ cm²</div><div class="desc">Planck area — 1 bit limit</div></div>
+  <div class="metric"><div class="val val--green">S = A/4</div><div class="desc">Entropy = quarter of horizon area</div></div>
+  <div class="metric"><div class="val val--yellow">20,000+</div><div class="desc">Citations of Maldacena's paper</div></div>
+  <div class="metric"><div class="val val--red">~2/day</div><div class="desc">Citation rate, 27 years running</div></div>
+</div>
+
+This was a principle without a proof. Nobody could show a concrete system where it actually worked. That changed in November 1997.
+
+## Maldacena's Discovery
+
+Maldacena considered a stack of D-branes — objects in string theory — and took a specific low-energy limit. Viewed from far away, the stack looks like a black hole in anti-de Sitter space (AdS). Viewed up close, it looks like a quantum field theory (a conformal field theory, or CFT) living on the brane surfaces. Both descriptions must be of the same system. Therefore: string theory in the bulk of AdS = conformal field theory on its boundary.
+
+Specifically: type IIB string theory on 5-dimensional AdS × S⁵ is equivalent to N = 4 super Yang-Mills theory on the 4-dimensional boundary.
+
+Every object in one description has a precise counterpart in the other. Mass in the bulk corresponds to operator dimension on the boundary. The radial direction in AdS corresponds to the energy scale of the field theory. Black holes in AdS correspond to thermal states. The dictionary is exact.
 
 <div class="compare">
   <div class="compare-col col-a">
-    <h4>Price Raisers ↑</h4>
-    <div class="compare-item"><strong>Netflix</strong><span>7 increases in 15 yrs. Standard: $7.99 → $17.99</span></div>
-    <div class="compare-item"><strong>Disney+</strong><span>+172% in 6 years. Fastest riser in history</span></div>
-    <div class="compare-item"><strong>Spotify</strong><span>12 yrs frozen, then 3 hikes in 30 months</span></div>
-    <div class="compare-item"><strong>Adobe CC</strong><span>Perpetual → subscription → steady increases</span></div>
-    <div class="compare-item"><strong>Xbox Game Pass</strong><span>Ultimate doubled: $14.99 → $29.99</span></div>
+    <h4>Bulk (AdS, d+1 dimensions)</h4>
+    <div class="compare-item"><strong>Gravity</strong><span>Einstein's equations with negative Λ</span></div>
+    <div class="compare-item"><strong>Black hole</strong><span>Object with event horizon</span></div>
+    <div class="compare-item"><strong>Particle mass</strong><span>Determined by field equations</span></div>
+    <div class="compare-item"><strong>Radial direction</strong><span>Extra spatial dimension</span></div>
+    <div class="compare-item"><strong>Weak coupling</strong><span>Classical gravity regime</span></div>
   </div>
   <div class="compare-col col-b">
-    <h4>Price Holders ↓</h4>
-    <div class="compare-item"><strong>World of Warcraft</strong><span>$14.99/mo since Nov 2004. 21 years, $0 change</span></div>
-    <div class="compare-item"><strong>Planet Fitness</strong><span>$10/mo from 1998 to 2024. 26 years frozen</span></div>
-    <div class="compare-item"><strong>EA Play</strong><span>$4.99/mo since Aug 2014. 11 years unchanged</span></div>
-    <div class="compare-item"><strong>Nintendo Switch Online</strong><span>$19.99/yr since Sep 2018. 7+ years</span></div>
-    <div class="compare-item"><strong>Costco</strong><span>$5 increase every 5–7 yrs. $60 → $65 in 2024</span></div>
+    <h4>Boundary (CFT, d dimensions)</h4>
+    <div class="compare-item"><strong>No gravity</strong><span>Quantum field theory, flat space</span></div>
+    <div class="compare-item"><strong>Thermal state</strong><span>System at finite temperature</span></div>
+    <div class="compare-item"><strong>Operator dimension</strong><span>Scaling behavior of operators</span></div>
+    <div class="compare-item"><strong>Energy scale</strong><span>Renormalization group flow</span></div>
+    <div class="compare-item"><strong>Strong coupling</strong><span>Non-perturbative regime</span></div>
   </div>
 </div>
 
-## The WoW Paradox
-
-$14.99 hasn't moved in 21 years. But Blizzard isn't leaving money on the table — they moved the table.
-
-<div class="case-box">
-  <h4>World of Warcraft</h4>
-  <div class="case-meta">$14.99/mo since November 2004</div>
-
-  <div class="metrics">
-    <div class="metric"><div class="val val--green">$25.22</div><div class="desc">$14.99 (2004) adjusted for inflation</div></div>
-    <div class="metric"><div class="val val--red">−41%</div><div class="desc">Real price decline</div></div>
-    <div class="metric"><div class="val val--blue">~9M</div><div class="desc">Estimated subscribers (2025)</div></div>
-    <div class="metric"><div class="val val--yellow">$20</div><div class="desc">WoW Token price</div></div>
-  </div>
-
-Bobby Kotick (ex-CEO): *"It's a prickly audience. You don't wanna do too much to agitate them. Even a dollar increase would've been a problem."*
-
-**2004–2010:** Subscription was 85% of revenue. Expansions 15%. Microtransactions: zero.
-
-**2020–2026:** Subscription dropped to ~50%. Microtransactions and tokens grew to ~35%. Expansions stayed at 15%.
-
-They didn't raise the price. They built new revenue streams around a frozen anchor.
+<div style="text-align:center; margin: 2rem 0; padding: 1.5rem; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 8px;">
+<svg viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg" style="max-width: 460px; width: 100%;">
+  <defs>
+    <radialGradient id="bulkG" cx="50%" cy="50%"><stop offset="0%" stop-color="var(--blue-soft)" stop-opacity="0.12"/><stop offset="100%" stop-color="var(--blue-soft)" stop-opacity="0"/></radialGradient>
+  </defs>
+  <ellipse cx="250" cy="150" rx="180" ry="110" fill="url(#bulkG)" stroke="var(--border)" stroke-width="1" stroke-dasharray="4,4"/>
+  <path d="M 120 150 Q 250 90 380 150" fill="none" stroke="var(--border-light)" stroke-width="1"/>
+  <path d="M 120 150 Q 250 210 380 150" fill="none" stroke="var(--border-light)" stroke-width="1"/>
+  <path d="M 250 45 Q 200 150 250 255" fill="none" stroke="var(--border-light)" stroke-width="1"/>
+  <path d="M 250 45 Q 300 150 250 255" fill="none" stroke="var(--border-light)" stroke-width="1"/>
+  <ellipse cx="250" cy="150" rx="180" ry="110" fill="none" stroke="var(--blue-soft)" stroke-width="2.5"/>
+  <circle cx="200" cy="130" r="6" fill="var(--purple-soft)" opacity="0.9"/>
+  <text x="215" y="125" font-family="var(--font-mono)" font-size="9" fill="var(--purple-soft)">black hole</text>
+  <text x="215" y="137" font-family="var(--font-mono)" font-size="9" fill="var(--text-tertiary)">in bulk (d+1)</text>
+  <circle cx="400" cy="95" r="4" fill="var(--red-soft)" opacity="0.9"/>
+  <line x1="206" y1="127" x2="396" y2="95" stroke="var(--red-soft)" stroke-width="1" stroke-dasharray="3,3" opacity="0.4"/>
+  <text x="250" y="157" text-anchor="middle" font-family="var(--font-body)" font-size="14" fill="var(--text-tertiary)" font-style="italic">AdS</text>
+  <text x="250" y="173" text-anchor="middle" font-family="var(--font-mono)" font-size="8" fill="var(--text-tertiary)">gravity · d+1 dimensions</text>
+  <text x="250" y="282" text-anchor="middle" font-family="var(--font-body)" font-size="12" fill="var(--blue-soft)">CFT on boundary</text>
+  <text x="250" y="296" text-anchor="middle" font-family="var(--font-mono)" font-size="8" fill="var(--text-tertiary)">quantum field theory · d dimensions · no gravity</text>
+  <text x="410" y="88" font-family="var(--font-mono)" font-size="9" fill="var(--red-soft)">thermal state</text>
+  <text x="410" y="100" font-family="var(--font-mono)" font-size="9" fill="var(--red-soft)">in CFT</text>
+</svg>
+<div style="font-size: 0.78rem; color: var(--text-tertiary); margin-top: 0.5rem;">Bulk ↔ Boundary: a black hole in AdS volume = a thermal state in boundary quantum theory.</div>
 </div>
 
-## Three Pricing Models
+The last row is why AdS/CFT is so powerful: when the boundary theory is strongly coupled (hard to compute), the bulk description is weakly coupled (easy to compute), and vice versa. Problems that were unsolvable on one side become tractable on the other.
 
-<div class="fw-grid">
-  <div class="fw-card fw-card--red">
-    <h4>Extractive</h4>
-    <div class="fw-sub">Subscription = the product. Raise as fast as churn allows.</div>
-    <div class="fw-tags"><span>Netflix</span><span>Disney+</span><span>Spotify</span><span>HBO Max</span></div>
-    <ul class="fw-list">
-      <li>Revenue comes from subscriptions</li>
-      <li>Moderate switching costs</li>
-      <li>Ad tiers as pressure release</li>
-      <li>Churn elasticity ~1.8–5.5%</li>
-    </ul>
-  </div>
-  <div class="fw-card fw-card--green">
-    <h4>Gateway</h4>
-    <div class="fw-sub">Subscription = acquisition tool. Hold price, monetize elsewhere.</div>
-    <div class="fw-tags"><span>WoW</span><span>Costco</span><span>Planet Fitness</span><span>Amazon Prime</span></div>
-    <ul class="fw-list">
-      <li>Sub drives adjacent spending</li>
-      <li>Price = brand identity</li>
-      <li>Raise once per decade (if ever)</li>
-      <li>Prime members: $1,400/yr on Amazon</li>
-    </ul>
-  </div>
-  <div class="fw-card fw-card--purple">
-    <h4>Monopoly</h4>
-    <div class="fw-sub">No real alternatives. Raise freely, cite AI/features.</div>
-    <div class="fw-tags"><span>Adobe CC</span><span>Microsoft 365</span><span>Google Workspace</span></div>
-    <ul class="fw-list">
-      <li>Extreme switching costs</li>
-      <li>Proprietary format lock-in</li>
-      <li>AI features justify +30–43%</li>
-      <li>Minimal churn regardless</li>
-    </ul>
-  </div>
+## The Reaction
+
+The excitement was immediate. At the Strings '98 conference in Santa Barbara the following summer, physicist Jeff Harvey led hundreds of theorists in singing "The Maldacena" — a parody of the Macarena — at the conference dinner:
+
+> *"You start with the brane and the brane is BPS / Then you go near the brane and the space is AdS / Who knows what it means? I don't, I confess / Ehhhh, Maldacena!"*
+
+The fact that this made the New York Times gives some sense of the impact. As Quanta Magazine described Maldacena: Susskind calls him "the master." Within months, two papers — by Gubser, Klebanov and Polyakov, and by Witten — made the conjecture more precise and laid out the computational machinery that thousands of physicists have used since.
+
+## Spacetime from Entanglement
+
+In 2006, Shinsei Ryu and Tadashi Takayanagi added a startling piece to the puzzle. They showed that the entanglement entropy of a region on the boundary equals the area of a specific minimal surface in the bulk — a direct generalization of the Bekenstein-Hawking formula.
+
+Mark Van Raamsdonk took this further in 2010. In an essay that won first prize from the Gravity Research Foundation, he argued that if you systematically remove quantum entanglement between two regions of a boundary theory, the corresponding regions of the bulk spacetime literally pull apart and pinch off. Entanglement gone → spacetime disconnected.
+
+His conclusion was radical: spacetime is not the fundamental entity. It is woven together from quantum entanglement. Remove the entanglement, and spacetime falls apart.
+
+In 2013, Maldacena and Susskind crystallized this into a conjecture with the most compact physics equation since E = mc²:
+
+<div class="highlight-box">
+<strong>ER = EPR</strong>
+Einstein-Rosen bridges (wormholes connecting distant black holes) are the same thing as Einstein-Podolsky-Rosen pairs (quantum-entangled particles). Geometry = entanglement. Two frameworks that seemed completely unrelated — general relativity and quantum mechanics — may be two descriptions of the same underlying reality.
 </div>
 
-## Why We Keep Paying
+## The Problem: Our Universe Isn't AdS
 
 <div class="psych-grid">
   <div class="psych-card">
-    <h4>Loss Aversion</h4>
-    <p>Losing Netflix feels 2× worse than the rational savings of canceling. 42% of users delay cancellation even when dissatisfied.</p>
-    <div class="big">2×</div>
+    <h4>AdS (Λ &lt; 0)</h4>
+    <p>Negatively curved. Has a boundary. AdS/CFT works beautifully. Not our Universe.</p>
+    <div class="big">✓ solved</div>
   </div>
   <div class="psych-card">
-    <h4>Subscription Blindness</h4>
-    <p>72% of consumers underestimate their total subscription spending by ~40%. 55% maintain at least one unused sub.</p>
-    <div class="big">72%</div>
-  </div>
-  <div class="psych-card">
-    <h4>Boiling Frog</h4>
-    <p>Small ~10% increases stay below the pain threshold. Netflix: $1–2.50 every 12–24 months — too little to trigger action.</p>
-    <div class="big">~10%</div>
-  </div>
-  <div class="psych-card">
-    <h4>Moral Fairness</h4>
-    <p>Consumers judge prices morally, not economically. Netflix's 2011 60% hike felt like betrayal. The same increase over 5 years felt normal.</p>
-    <div class="big">60% ≠ 5×12%</div>
+    <h4>dS (Λ &gt; 0)</h4>
+    <p>Positively curved. Our Universe. No boundary in the conventional sense. Holography unclear.</p>
+    <div class="big">? open</div>
   </div>
 </div>
 
-## Pricing Disasters & Wins
+The AdS/CFT correspondence works for spaces with a negative cosmological constant. Observations since 1998 confirm that our Universe has a positive cosmological constant — it's de Sitter-like, not anti-de Sitter. Andrew Strominger proposed a dS/CFT correspondence in 2001, but the program remains incomplete. The boundary of de Sitter space is spacelike (it's the infinite future), not timelike like in AdS. This changes the mathematical structure fundamentally.
+
+<div style="text-align:center; margin: 2rem 0; padding: 1.5rem; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 8px;">
+<svg viewBox="0 0 400 340" xmlns="http://www.w3.org/2000/svg" style="max-width: 380px; width: 100%;">
+  <polygon points="200,30 370,170 200,310 30,170" fill="var(--blue-soft)" opacity="0.04" stroke="var(--blue-soft)" stroke-width="1" stroke-opacity="0.15"/>
+  <line x1="80" y1="30" x2="320" y2="30" stroke="var(--red-soft)" stroke-width="3" opacity="0.7"/>
+  <line x1="80" y1="310" x2="320" y2="310" stroke="var(--blue-soft)" stroke-width="3" opacity="0.7"/>
+  <text x="200" y="20" text-anchor="middle" font-family="var(--font-mono)" font-size="11" fill="var(--red-soft)">I⁺ (future infinity)</text>
+  <text x="200" y="332" text-anchor="middle" font-family="var(--font-mono)" font-size="11" fill="var(--blue-soft)">I⁻ (past infinity)</text>
+  <line x1="200" y1="310" x2="200" y2="30" stroke="var(--text)" stroke-width="1.5" stroke-dasharray="4,4" opacity="0.25"/>
+  <circle cx="200" cy="170" r="4" fill="var(--text)">
+    <animate attributeName="r" values="3;5;3" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <text x="215" y="167" font-family="var(--font-mono)" font-size="10" fill="var(--text-secondary)">us</text>
+  <line x1="30" y1="170" x2="200" y2="30" stroke="var(--text-secondary)" stroke-width="1" opacity="0.35"/>
+  <line x1="200" y1="30" x2="370" y2="170" stroke="var(--text-secondary)" stroke-width="1" opacity="0.35"/>
+  <line x1="30" y1="170" x2="200" y2="310" stroke="var(--text-secondary)" stroke-width="1" opacity="0.35"/>
+  <line x1="200" y1="310" x2="370" y2="170" stroke="var(--text-secondary)" stroke-width="1" opacity="0.35"/>
+  <text x="100" y="90" text-anchor="middle" font-family="var(--font-mono)" font-size="10" fill="var(--text-tertiary)" transform="rotate(-45, 100, 90)">horizon</text>
+  <text x="200" y="55" text-anchor="middle" font-family="var(--font-body)" font-size="13" fill="var(--red-soft)" font-style="italic" opacity="0.6">CFT ?</text>
+  <text x="200" y="200" text-anchor="middle" font-family="var(--font-body)" font-size="14" fill="var(--blue-soft)" font-style="italic" opacity="0.4">dS bulk</text>
+</svg>
+<div style="font-size: 0.78rem; color: var(--text-tertiary); margin-top: 0.5rem;">Penrose diagram for de Sitter spacetime. The observer "us" sees only part of the space. A hypothetical CFT lives on I⁺ — at infinite future. Unlike AdS, this boundary is spacelike, not timelike.</div>
+</div>
+
+This is not just a technical gap — it's the central open question of the field. We have a complete holographic description of a universe that isn't ours, and no complete description of the one that is.
+
+## Timeline
 
 <div class="timeline">
-  <div class="tl-item"><div class="tl-dot tl-dot--red"></div><div class="tl-year">2011</div><div class="tl-title">Netflix Qwikster — 60% price hike</div><div class="tl-desc">800K subscribers lost. Stock dropped 77%. Too much, too fast, no added value.</div></div>
-  <div class="tl-item"><div class="tl-dot tl-dot--red"></div><div class="tl-year">2017–2019</div><div class="tl-title">MoviePass — the opposite error</div><div class="tl-desc">Slashed price to $9.95 for daily movies. Lost $20M/month. 92.3% churn when forced to raise. Execs convicted of fraud.</div></div>
-  <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2022 Q1</div><div class="tl-title">Netflix's first subscriber loss</div><div class="tl-desc">Wall Street shifted from subscriber growth to revenue per user. Every streamer began aggressive price increases.</div></div>
-  <div class="tl-item"><div class="tl-dot tl-dot--red"></div><div class="tl-year">2022 May</div><div class="tl-title">EVE Online breaks 18-year freeze</div><div class="tl-desc">+33% ($14.95 → $19.99). Severe player backlash — reinforced WoW's decision to hold.</div></div>
-  <div class="tl-item"><div class="tl-dot tl-dot--green"></div><div class="tl-year">2023–24</div><div class="tl-title">Netflix ad-tier + password crackdown</div><div class="tl-desc">Ad tier hit 94M users. Password crackdown added ~50M subscribers. Revenue grew without proportional price pain.</div></div>
-  <div class="tl-item"><div class="tl-dot tl-dot--green"></div><div class="tl-year">2025 Jan</div><div class="tl-title">Netflix raises all tiers — no backlash</div><div class="tl-desc">+$1–$2.50 across all plans. Reached 302M subscribers. Boiling frog strategy perfected over 14 years.</div></div>
-  <div class="tl-item"><div class="tl-dot tl-dot--red"></div><div class="tl-year">2025 Oct</div><div class="tl-title">Xbox Game Pass — 50% single hike</div><div class="tl-desc">$19.99 → $29.99 overnight. Cancellation website crashed. GameStop publicly mocked Microsoft.</div></div>
+  <div class="tl-item">
+    <div class="tl-dot tl-dot--green"></div>
+    <div class="tl-year">1973</div>
+    <div class="tl-title">Bekenstein: black hole entropy ∝ area</div>
+    <div class="tl-desc">A PhD student proposes that information about a region of space is encoded on its boundary. Nearly everyone disagrees. It takes 25 years for the full implications to emerge.</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-dot tl-dot--green"></div>
+    <div class="tl-year">1975</div>
+    <div class="tl-title">Hawking radiation</div>
+    <div class="tl-desc">Hawking, who set out to disprove Bekenstein, instead proves him right: black holes have temperature and entropy. S = A/4 is established. The information paradox is born.</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-dot"></div>
+    <div class="tl-year">1993–95</div>
+    <div class="tl-title">'t Hooft and Susskind: the holographic principle</div>
+    <div class="tl-desc">The maximum information in a region of space scales with its surface area, not its volume. A bold claim — but no concrete realization yet.</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-dot tl-dot--green"></div>
+    <div class="tl-year">1997</div>
+    <div class="tl-title">Maldacena publishes AdS/CFT</div>
+    <div class="tl-desc">"The Large N Limit of Superconformal Field Theories and Supergravity." The first concrete realization of the holographic principle. Will become the most cited paper in high-energy physics.</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-dot tl-dot--green"></div>
+    <div class="tl-year">1998</div>
+    <div class="tl-title">Witten + Gubser-Klebanov-Polyakov</div>
+    <div class="tl-desc">Two papers make AdS/CFT computationally precise. The duality dictionary is established. At Strings '98, physicists sing "The Maldacena" at the conference dinner. The field erupts.</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-dot"></div>
+    <div class="tl-year">2001</div>
+    <div class="tl-title">Strominger proposes dS/CFT</div>
+    <div class="tl-desc">An attempt to extend holography to de Sitter space — our Universe. The proposal is promising but incomplete. The problem remains open.</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-dot tl-dot--green"></div>
+    <div class="tl-year">2006</div>
+    <div class="tl-title">Ryu-Takayanagi formula</div>
+    <div class="tl-desc">Entanglement entropy on the boundary = area of a minimal surface in the bulk. A direct generalization of the Bekenstein-Hawking formula. Geometry and entanglement are linked.</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-dot tl-dot--green"></div>
+    <div class="tl-year">2010</div>
+    <div class="tl-title">Van Raamsdonk: spacetime from entanglement</div>
+    <div class="tl-desc">Remove entanglement → spacetime disconnects. The radical conclusion: spacetime is emergent, stitched together by quantum correlations. First prize, Gravity Research Foundation.</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-dot tl-dot--green"></div>
+    <div class="tl-year">2013</div>
+    <div class="tl-title">ER = EPR</div>
+    <div class="tl-desc">Maldacena and Susskind: wormholes = entanglement. Three letters from 1935 (Einstein-Rosen bridge) equal three letters from 1935 (Einstein-Podolsky-Rosen). Geometry is quantum information.</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-dot"></div>
+    <div class="tl-year">2019</div>
+    <div class="tl-title">The black hole information paradox "resolved"</div>
+    <div class="tl-desc">Using AdS/CFT techniques (quantum extremal surfaces, islands), several groups show that black hole evaporation follows a unitary Page curve. Information is preserved — but how it escapes remains debated.</div>
+  </div>
 </div>
 
+## What It Means
 
----
+The holographic principle, if true, is the most radical revision of our picture of reality since quantum mechanics. It says that the three-dimensional space we inhabit may be a projection — complete and self-consistent, but ultimately encoded on a distant two-dimensional surface.
+
+We don't yet know if this applies to our actual Universe. The evidence is overwhelming for AdS spacetimes, circumstantial for de Sitter. But the direction of theoretical physics since 1997 is unambiguous: spacetime is not fundamental. It emerges from something deeper — quantum information, entanglement, codes. Penrose diagrams showed us how to see the causal structure of spacetime. The holographic principle suggests that this structure itself may be computed from a lower-dimensional theory on the boundary.
+
 
