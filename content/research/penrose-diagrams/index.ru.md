@@ -140,11 +140,52 @@ license: "CC BY-NC 4.0"
 
 Положительная космологическая постоянная, нет материи — приближение будущего нашей Вселенной, когда тёмная энергия доминирует. Диаграмма — квадрат с пространственноподобными (горизонтальными) верхней и нижней границами: вселенная начинается и заканчивается везде одновременно.
 
+<div style="text-align:center; margin: 2rem 0; padding: 1.5rem; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 8px;">
+<svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" style="max-width: 300px; width: 100%;">
+  <rect x="40" y="40" width="240" height="240" fill="var(--blue-soft)" opacity="0.04" stroke="var(--blue-soft)" stroke-width="1" stroke-opacity="0.2"/>
+  <line x1="40" y1="40" x2="280" y2="40" stroke="var(--red-soft)" stroke-width="3" opacity="0.7"/>
+  <line x1="40" y1="280" x2="280" y2="280" stroke="var(--blue-soft)" stroke-width="3" opacity="0.7"/>
+  <line x1="160" y1="280" x2="160" y2="40" stroke="var(--text)" stroke-width="1.5" stroke-dasharray="4,4" opacity="0.25"/>
+  <circle cx="160" cy="160" r="4" fill="var(--text)">
+    <animate attributeName="r" values="3;5;3" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <line x1="40" y1="160" x2="160" y2="40" stroke="var(--text-secondary)" stroke-width="1" opacity="0.35"/>
+  <line x1="160" y1="40" x2="280" y2="160" stroke="var(--text-secondary)" stroke-width="1" opacity="0.35"/>
+  <line x1="40" y1="160" x2="160" y2="280" stroke="var(--text-secondary)" stroke-width="1" opacity="0.35"/>
+  <line x1="160" y1="280" x2="280" y2="160" stroke="var(--text-secondary)" stroke-width="1" opacity="0.35"/>
+  <text x="160" y="30" text-anchor="middle" font-family="var(--font-mono)" font-size="10" fill="var(--red-soft)">I⁺ (будущая ∞)</text>
+  <text x="160" y="300" text-anchor="middle" font-family="var(--font-mono)" font-size="10" fill="var(--blue-soft)">I⁻ (прошлая ∞)</text>
+  <text x="100" y="100" text-anchor="middle" font-family="var(--font-mono)" font-size="8" fill="var(--text-tertiary)" transform="rotate(-45,100,100)">горизонт</text>
+  <text x="160" y="155" text-anchor="middle" font-family="var(--font-mono)" font-size="9" fill="var(--text-secondary)">наблюдатель</text>
+</svg>
+<div style="font-size: 0.78rem; color: var(--text-tertiary); margin-top: 0.5rem;">Пространство-время де Ситтера. Квадрат вместо ромба. Верхняя и нижняя границы пространственноподобны — вселенная начинается и заканчивается везде одновременно. Каждого наблюдателя окружает космологический горизонт.</div>
+</div>
+
 Каждый наблюдатель имеет космологический горизонт: области, удаляющиеся быстрее света, никогда не смогут послать вам сигнал. С 1998 года, когда Рисс, Перлмуттер и Шмидт обнаружили ускоренное расширение (Нобелевская премия 2011), мы знаем, что наша Вселенная движется к де-Ситтеровскому будущему.
 
 ### Анти-де Ситтер — Вертикальная полоса
 
 Отрицательная космологическая постоянная. Диаграмма — вертикальная полоса с времениподобными (вертикальными) границами. Не наша Вселенная — но, возможно, самое важное пространство-время в теоретической физике сегодня.
+
+<div style="text-align:center; margin: 2rem 0; padding: 1.5rem; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 8px;">
+<svg viewBox="0 0 320 380" xmlns="http://www.w3.org/2000/svg" style="max-width: 300px; width: 100%;">
+  <rect x="80" y="30" width="160" height="320" fill="var(--blue-soft)" opacity="0.04" stroke="none"/>
+  <line x1="80" y1="30" x2="80" y2="350" stroke="var(--purple-soft)" stroke-width="2.5" opacity="0.7"/>
+  <line x1="240" y1="30" x2="240" y2="350" stroke="var(--purple-soft)" stroke-width="2.5" opacity="0.7"/>
+  <line x1="80" y1="30" x2="240" y2="30" stroke="var(--blue-soft)" stroke-width="1" opacity="0.25"/>
+  <line x1="80" y1="350" x2="240" y2="350" stroke="var(--blue-soft)" stroke-width="1" opacity="0.25"/>
+  <path d="M 160,300 L 240,220 L 160,140 L 80,60" fill="none" stroke="var(--text-secondary)" stroke-width="1.2" stroke-dasharray="4,3" opacity="0.4"/>
+  <circle cx="160" cy="300" r="3" fill="var(--text-secondary)" opacity="0.6"/>
+  <text x="60" y="190" text-anchor="middle" font-family="var(--font-body)" font-size="13" fill="var(--purple-soft)" font-style="italic" transform="rotate(-90,60,190)">граница (КТП)</text>
+  <text x="260" y="190" text-anchor="middle" font-family="var(--font-body)" font-size="13" fill="var(--purple-soft)" font-style="italic" transform="rotate(90,260,190)">граница (КТП)</text>
+  <text x="160" y="200" text-anchor="middle" font-family="var(--font-body)" font-size="14" fill="var(--blue-soft)" font-style="italic" opacity="0.5">объём AdS</text>
+  <text x="160" y="20" text-anchor="middle" font-family="var(--font-mono)" font-size="9" fill="var(--text-tertiary)">t → +∞</text>
+  <text x="160" y="368" text-anchor="middle" font-family="var(--font-mono)" font-size="9" fill="var(--text-tertiary)">t → −∞</text>
+  <text x="248" y="218" font-family="var(--font-mono)" font-size="8" fill="var(--text-tertiary)">свет «отражается»</text>
+  <text x="248" y="230" font-family="var(--font-mono)" font-size="8" fill="var(--text-tertiary)">от границы</text>
+</svg>
+<div style="font-size: 0.78rem; color: var(--text-tertiary); margin-top: 0.5rem;">Пространство-время анти-де Ситтера. Вертикальная полоса. Боковые стенки — времениподобные границы, на которых живёт дуальная КТП. Свет достигает границы за конечное время и «отражается» обратно — пространство действует как ящик.</div>
+</div>
 
 В 1997 году Хуан Малдасена показал, что квантовая гравитация в этом пространстве точно эквивалентна квантовой теории поля на его границе. Это AdS/CFT-соответствие — [самый цитируемый результат](https://arxiv.org/abs/hep-th/9711200) в истории физики высоких энергий (20 000+ цитирований) — означает, что вертикальные края диаграммы Пенроуза — не просто абстрактные границы. На них живёт дуальная теория. Гравитация внутри, квантовые поля на краю.
 
