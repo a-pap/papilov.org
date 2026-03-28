@@ -85,13 +85,13 @@ ANA供应链研究（2023年）发现，广告主每花费一美元，只有**36
 <div class="dollar-arr">→</div>
 <div class="dollar-node"><div class="dollar-box">浪费</div><div class="dollar-amt" style="color: var(--red-soft)">−35¢</div><div class="dollar-note">无效流量、MFA（2023）</div></div>
 <div class="dollar-arr">→</div>
-<div class="dollar-node"><div class="dollar-box">发布商</div><div class="dollar-amt" style="color: var(--green-soft)">36¢</div><div class="dollar-note">→ Q3 2025达47¢</div></div>
+<div class="dollar-node"><div class="dollar-box">发布商</div><div class="dollar-amt" style="color: var(--green-soft)">47¢</div><div class="dollar-note">原为36¢</div></div>
 </div>
 
 <div class="metrics">
-<div class="metric"><div class="val val--green">47.1%</div><div class="desc">发布商份额，Q3 2025（2023年为36%）</div></div>
-<div class="metric"><div class="val val--green">0.39%</div><div class="desc">MFA库存，Q3 2025（历史最低）</div></div>
-<div class="metric"><div class="val val--blue">81.6%</div><div class="desc">PMP份额，Q3 2025（原为64.5%）</div></div>
+<div class="metric"><div class="val val--green">47.1%</div><div class="desc">发布商份额（原为36%）</div></div>
+<div class="metric"><div class="val val--green">0.8%</div><div class="desc">MFA库存（历史最低）</div></div>
+<div class="metric"><div class="val val--blue">87.8%</div><div class="desc">PMP份额（原为64.5%）</div></div>
 </div>
 
 ## Google反垄断：Prebid为何更加重要

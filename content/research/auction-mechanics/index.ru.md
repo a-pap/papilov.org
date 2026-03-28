@@ -1,6 +1,7 @@
 ---
 title: "Аукционы: от Кристис до Google Ads"
 date: 2026-03-27
+draft: true
 lastmod: 2026-03-27
 version: "2.0"
 status: "finished"

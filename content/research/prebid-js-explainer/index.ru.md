@@ -85,13 +85,13 @@ license: "CC BY-NC 4.0"
 <div class="dollar-arr">→</div>
 <div class="dollar-node"><div class="dollar-box">Потери</div><div class="dollar-amt" style="color: var(--red-soft)">−35¢</div><div class="dollar-note">IVT, MFA (2023)</div></div>
 <div class="dollar-arr">→</div>
-<div class="dollar-node"><div class="dollar-box">Паблишер</div><div class="dollar-amt" style="color: var(--green-soft)">36¢</div><div class="dollar-note">→ 47¢ к Q3 2025</div></div>
+<div class="dollar-node"><div class="dollar-box">Паблишер</div><div class="dollar-amt" style="color: var(--green-soft)">47¢</div><div class="dollar-note">было 36¢</div></div>
 </div>
 
 <div class="metrics">
-<div class="metric"><div class="val val--green">47.1%</div><div class="desc">доля паблишера, Q3 2025 (было 36% в 2023)</div></div>
-<div class="metric"><div class="val val--green">0.39%</div><div class="desc">MFA-инвентарь, Q3 2025 (рекордный минимум)</div></div>
-<div class="metric"><div class="val val--blue">81.6%</div><div class="desc">доля PMP, Q3 2025 (было 64.5%)</div></div>
+<div class="metric"><div class="val val--green">47.1%</div><div class="desc">доля паблишера (было 36%)</div></div>
+<div class="metric"><div class="val val--green">0.8%</div><div class="desc">MFA-инвентарь (рекордный минимум)</div></div>
+<div class="metric"><div class="val val--blue">87.8%</div><div class="desc">доля PMP (было 64.5%)</div></div>
 </div>
 
 ## Google Antitrust: почему Prebid становится важнее

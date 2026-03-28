@@ -85,13 +85,13 @@ El estudio de la cadena de suministro de la ANA (2023) encontró que solo **36 c
 <div class="dollar-arr">→</div>
 <div class="dollar-node"><div class="dollar-box">Desperdicio</div><div class="dollar-amt" style="color: var(--red-soft)">−35¢</div><div class="dollar-note">IVT, MFA (2023)</div></div>
 <div class="dollar-arr">→</div>
-<div class="dollar-node"><div class="dollar-box">Publisher</div><div class="dollar-amt" style="color: var(--green-soft)">36¢</div><div class="dollar-note">→ 47¢ en Q3 2025</div></div>
+<div class="dollar-node"><div class="dollar-box">Publisher</div><div class="dollar-amt" style="color: var(--green-soft)">47¢</div><div class="dollar-note">era 36¢</div></div>
 </div>
 
 <div class="metrics">
-<div class="metric"><div class="val val--green">47.1%</div><div class="desc">participación del publisher, Q3 2025 (era 36% en 2023)</div></div>
-<div class="metric"><div class="val val--green">0.39%</div><div class="desc">inventario MFA, Q3 2025 (mínimo histórico)</div></div>
-<div class="metric"><div class="val val--blue">81.6%</div><div class="desc">participación PMP, Q3 2025 (era 64.5%)</div></div>
+<div class="metric"><div class="val val--green">47.1%</div><div class="desc">participación del publisher (era 36%)</div></div>
+<div class="metric"><div class="val val--green">0.8%</div><div class="desc">inventario MFA (mínimo histórico)</div></div>
+<div class="metric"><div class="val val--blue">87.8%</div><div class="desc">participación PMP (era 64.5%)</div></div>
 </div>
 
 ## Google Antitrust: por qué Prebid importa más

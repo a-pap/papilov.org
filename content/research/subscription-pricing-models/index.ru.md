@@ -13,7 +13,7 @@ license: "CC BY-NC 4.0"
 og_image: "/img/og-subscription-pricing.png"
 ---
 
-Подписочная экономика достигла [$492 млрд в 2024 году](https://www.grandviewresearch.com/horizon/outlook/subscription-economy-market/europe) и движется к $1.2 трлн к 2030. С 2020 года цены на подписки обогнали инфляцию в 3–5 раз. CPI в США вырос на ~25%. Стриминговые сервисы подорожали на 50–172%.
+Подписочная экономика достигла [$492 млрд в 2024 году](https://www.grandviewresearch.com/horizon/outlook/subscription-economy-market/europe) и движется к $1.2 трлн к 2030. С 2020 года цены на подписки обогнали инфляцию в 3–5 раз. CPI в США вырос на ~22%. Стриминговые сервисы подорожали на 50–172%.
 
 Но это только видимая часть. Невидимая — в том, что подписка устроена принципиально по-разному на разных континентах. В том, что $0.87 за JioHotstar в Индии и $18.99 за Disney+ — это разные ответы на разный вопрос. В том, что Amazon заплатил [$2.5 млрд штрафа](https://fortune.com/2025/09/25/amazon-ftc-settlement-prime-automatic-renewal-lina-khan-dark-patterns/) за то, как именно подписывал людей. И в том, что все эти модели одновременно врезаются в потолок: 24 часа в сутках, 47 секунд фокуса, и мозг, который физически не может потребить всё, за что платит.
 
@@ -31,7 +31,7 @@ og_image: "/img/og-subscription-pricing.png"
   <div class="bar-row"><div class="label">Amazon Prime</div><div class="track"><div class="fill" style="width:38%">$79/год → $139/год</div></div><div class="pct">+76%</div></div>
   <div class="bar-row"><div class="label">Microsoft 365</div><div class="track"><div class="fill" style="width:22%">$69.99 → $99.99/год</div></div><div class="pct">+43%</div></div>
   <div class="bar-row"><div class="label">Spotify</div><div class="track"><div class="fill" style="width:17%">$9.99 → $12.99</div></div><div class="pct">+30%</div></div>
-  <div class="bar-row muted"><div class="label">Инфляция CPI</div><div class="track"><div class="fill" style="width:13%"></div></div><div class="pct">~25%</div></div>
+  <div class="bar-row muted"><div class="label">Инфляция CPI</div><div class="track"><div class="fill" style="width:11%"></div></div><div class="pct">~22%</div></div>
 </div>
 
 Spotify — особый случай. Двенадцать лет цена не двигалась: $9.99. Потом три повышения за три года: $10.99, $11.99, $12.99. Каждое — ровно доллар. Каждое — ниже порога, при котором человек открывает настройки и нажимает «отменить». Классическая стратегия [инкрементального повышения](https://en.wikipedia.org/wiki/Weber%E2%80%93Fechner_law) ниже Just Noticeable Difference.
@@ -64,7 +64,7 @@ Spotify — особый случай. Двенадцать лет цена не
 </div>
 
 <div class="highlight-box">
-<strong>Ключевой вопрос:</strong> подписка — это продукт или ворота к другим тратам? Netflix — продукт (единственный путь роста: цены или реклама). Costco и WoW — ворота (членство стимулирует $1,170/год на маркетплейсе или микротранзакции в игре). В экономике это называется <strong>two-part tariff</strong> — двухчастный тариф. Первая часть (подписка) низкая или фиксированная, вторая (покупки внутри) — переменная и прибыльная. Amusement park: входной билет + аттракционы. Costco: членство $65/год + товары со скидкой. Amazon Prime: $139/год + $1,170 покупок. WoW: $14.99/мес + токены и косметика.
+<strong>Ключевой вопрос:</strong> подписка — это продукт или ворота к другим тратам? Netflix — продукт (единственный путь роста: цены или реклама). Costco и WoW — ворота (членство стимулирует $1,400/год на маркетплейсе или микротранзакции в игре). В экономике это называется <strong>two-part tariff</strong> — двухчастный тариф. Первая часть (подписка) низкая или фиксированная, вторая (покупки внутри) — переменная и прибыльная. Amusement park: входной билет + аттракционы. Costco: членство $65/год + товары со скидкой. Amazon Prime: $139/год + $1,400 покупок. WoW: $14.99/мес + токены и косметика.
 </div>
 
 ---
@@ -117,11 +117,11 @@ Spotify — особый случай. Двенадцать лет цена не
 
 ## Amazon: машина с маховиком
 
-Amazon Prime — самая успешная gateway-подписка в истории. Не потому что контент великолепен (Amazon тратит [$22.4 млрд/год на контент](https://www.fanbolt.com/168164/amazon-spent-22-4-billion-on-content-last-year-and-that-number-changes-the-netflix-conversation/) — больше, чем Netflix). А потому что подписка делает покупателя «своим»: Prime-участники тратят [$1,170/год на Amazon](https://capitaloneshopping.com/research/amazon-prime-statistics/) vs $570 у неподписанных. Соотношение 2:1 стабильно годами.
+Amazon Prime — самая успешная gateway-подписка в истории. Не потому что контент великолепен (Amazon тратит [$22.4 млрд/год на контент](https://www.fanbolt.com/168164/amazon-spent-22-4-billion-on-content-last-year-and-that-number-changes-the-netflix-conversation/) — больше, чем Netflix). А потому что подписка делает покупателя «своим»: Prime-участники тратят [$1,400/год на Amazon](https://capitaloneshopping.com/research/amazon-prime-statistics/) vs $570 у неподписанных. Соотношение 2:1 стабильно годами.
 
 <div class="metrics">
   <div class="metric"><div class="val val--green">200M+</div><div class="desc">Участников Prime глобально (оценка 2025)</div></div>
-  <div class="metric"><div class="val val--blue">$1,170</div><div class="desc">Средний годовой расход Prime-участника</div></div>
+  <div class="metric"><div class="val val--blue">$1,400</div><div class="desc">Средний годовой расход Prime-участника</div></div>
   <div class="metric"><div class="val val--yellow">$69B</div><div class="desc">Рекламная выручка Amazon, 2025</div></div>
   <div class="metric"><div class="val val--red">2%</div><div class="desc">Отток Prime в США за 2024</div></div>
 </div>
@@ -323,7 +323,7 @@ M-Pesa: 40M активных пользователей только в Кени
     <div class="fw-sub">Подписка = привлечение. Монетизируй рядом.</div>
     <div class="fw-tags"><span>Amazon Prime</span><span>Costco</span><span>WoW</span></div>
     <ul class="fw-list">
-      <li>Prime: $1,170/год на маркетплейсе</li>
+      <li>Prime: $1,400/год на маркетплейсе</li>
       <li>WoW: MTX 35% выручки при $14.99/мес</li>
       <li>Costco: +$5 раз в 5–7 лет</li>
     </ul>
@@ -369,8 +369,8 @@ M-Pesa: 40M активных пользователей только в Кени
   <div class="case-meta">$14.99/мес с ноября 2004 — 21 год без единого изменения</div>
 
   <div class="metrics">
-    <div class="metric"><div class="val val--green">$25.72</div><div class="desc">$14.99 (2004) с учётом инфляции</div></div>
-    <div class="metric"><div class="val val--red">−42%</div><div class="desc">Реальное снижение цены</div></div>
+    <div class="metric"><div class="val val--green">$25.22</div><div class="desc">$14.99 (2004) с учётом инфляции</div></div>
+    <div class="metric"><div class="val val--red">−41%</div><div class="desc">Реальное снижение цены</div></div>
     <div class="metric"><div class="val val--blue">~9M</div><div class="desc">Подписчиков (оценка 2025)</div></div>
     <div class="metric"><div class="val val--yellow">$20</div><div class="desc">WoW Token — на $5 дороже самой подписки</div></div>
   </div>
@@ -426,7 +426,7 @@ Subscription fatigue: [41% потребителей](https://www.worldfinance.co
 
 <div class="timeline">
   <div class="tl-item"><div class="tl-dot tl-dot--red"></div><div class="tl-year">2011</div><div class="tl-title">Netflix Qwikster — +60%</div><div class="tl-desc">−800K подписчиков, акции −77%. Травма, определившая стратегию на 14 лет.</div></div>
-  <div class="tl-item"><div class="tl-dot tl-dot--red"></div><div class="tl-year">2017–19</div><div class="tl-title">MoviePass — $9.95 за кино каждый день</div><div class="tl-desc">−$27–45M/мес. Churn >90%. Trip wires для блокировки активных. DOJ: fraud.</div></div>
+  <div class="tl-item"><div class="tl-dot tl-dot--red"></div><div class="tl-year">2017–19</div><div class="tl-title">MoviePass — $9.95 за кино каждый день</div><div class="tl-desc">−$20M/мес. Churn >90%. Trip wires для блокировки активных. DOJ: fraud.</div></div>
   <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2022 Q1</div><div class="tl-title">Netflix: первая потеря подписчиков</div><div class="tl-desc">Wall Street перешёл от growth к ARPU. Все стримеры начали повышать цены.</div></div>
   <div class="tl-item"><div class="tl-dot tl-dot--red"></div><div class="tl-year">2023 июн</div><div class="tl-title">FTC vs Amazon: «Project Iliad»</div><div class="tl-desc">35M нежелательных подписок. $2.5B урегулирование. Крупнейшее в истории FTC.</div></div>
   <div class="tl-item"><div class="tl-dot tl-dot--green"></div><div class="tl-year">2024 янв</div><div class="tl-title">Amazon вставил рекламу в Prime Video</div><div class="tl-desc">По умолчанию. 85% приняли. Мгновенно — крупнейшая рекламная аудитория в стриминге.</div></div>

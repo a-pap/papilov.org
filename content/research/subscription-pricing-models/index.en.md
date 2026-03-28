@@ -13,7 +13,7 @@ license: "CC BY-NC 4.0"
 og_image: "/img/og-subscription-pricing.png"
 ---
 
-Since 2020, subscription prices have outpaced inflation by 3–5×. The US Consumer Price Index rose roughly 25% over this period. Most major subscriptions rose 50–170%.
+Since 2020, subscription prices have outpaced inflation by 3–5×. The US Consumer Price Index rose roughly 22% over this period. Most major subscriptions rose 50–170%.
 
 Disney+ leads the pack with a 172% increase ($6.99 → $18.99), followed by Apple TV+ at 160%, Netflix at 125%, and Xbox Game Pass Ultimate doubling to $29.99. Meanwhile, World of Warcraft has charged exactly $14.99/month since November 2004 — 21 years with zero change.
 
@@ -30,7 +30,7 @@ This isn't random. It's three distinct pricing models operating on fundamentally
   <div class="bar-row"><div class="label">Amazon Prime</div><div class="track"><div class="fill" style="width:38%">$79/yr → $139/yr</div></div><div class="pct">+76%</div></div>
   <div class="bar-row"><div class="label">Microsoft 365</div><div class="track"><div class="fill" style="width:22%">$69.99 → $99.99/yr</div></div><div class="pct">+43%</div></div>
   <div class="bar-row"><div class="label">Spotify</div><div class="track"><div class="fill" style="width:15%">$9.99 → $12.99</div></div><div class="pct">+30%</div></div>
-  <div class="bar-row muted"><div class="label">CPI Inflation</div><div class="track"><div class="fill" style="width:13%"></div></div><div class="pct">~25%</div></div>
+  <div class="bar-row muted"><div class="label">CPI Inflation</div><div class="track"><div class="fill" style="width:11%"></div></div><div class="pct">~22%</div></div>
 </div>
 
 ## Raisers vs. Holders
@@ -65,8 +65,8 @@ $14.99 hasn't moved in 21 years. But Blizzard isn't leaving money on the table �
   <div class="case-meta">$14.99/mo since November 2004</div>
 
   <div class="metrics">
-    <div class="metric"><div class="val val--green">$25.72</div><div class="desc">$14.99 (2004) adjusted for inflation</div></div>
-    <div class="metric"><div class="val val--red">−42%</div><div class="desc">Real price decline</div></div>
+    <div class="metric"><div class="val val--green">$25.22</div><div class="desc">$14.99 (2004) adjusted for inflation</div></div>
+    <div class="metric"><div class="val val--red">−41%</div><div class="desc">Real price decline</div></div>
     <div class="metric"><div class="val val--blue">~9M</div><div class="desc">Estimated subscribers (2025)</div></div>
     <div class="metric"><div class="val val--yellow">$20</div><div class="desc">WoW Token price</div></div>
   </div>
@@ -102,7 +102,7 @@ They didn't raise the price. They built new revenue streams around a frozen anch
       <li>Sub drives adjacent spending</li>
       <li>Price = brand identity</li>
       <li>Raise once per decade (if ever)</li>
-      <li>Prime members: ~$1,170/yr on Amazon</li>
+      <li>Prime members: $1,400/yr on Amazon</li>
     </ul>
   </div>
   <div class="fw-card fw-card--purple">
@@ -123,7 +123,7 @@ They didn't raise the price. They built new revenue streams around a frozen anch
 <div class="psych-grid">
   <div class="psych-card">
     <h4>Loss Aversion</h4>
-    <p>Losing Netflix feels 2× worse than the rational savings of canceling. The pain of loss outweighs the logic of savings.</p>
+    <p>Losing Netflix feels 2× worse than the rational savings of canceling. 42% of users delay cancellation even when dissatisfied.</p>
     <div class="big">2×</div>
   </div>
   <div class="psych-card">
@@ -147,9 +147,9 @@ They didn't raise the price. They built new revenue streams around a frozen anch
 
 <div class="timeline">
   <div class="tl-item"><div class="tl-dot tl-dot--red"></div><div class="tl-year">2011</div><div class="tl-title">Netflix Qwikster — 60% price hike</div><div class="tl-desc">800K subscribers lost. Stock dropped 77%. Too much, too fast, no added value.</div></div>
-  <div class="tl-item"><div class="tl-dot tl-dot--red"></div><div class="tl-year">2017–2019</div><div class="tl-title">MoviePass — the opposite error</div><div class="tl-desc">Slashed price to $9.95 for daily movies. Lost $27–45M/month. 92% subscriber loss when forced to raise. Execs convicted of fraud.</div></div>
+  <div class="tl-item"><div class="tl-dot tl-dot--red"></div><div class="tl-year">2017–2019</div><div class="tl-title">MoviePass — the opposite error</div><div class="tl-desc">Slashed price to $9.95 for daily movies. Lost $20M/month. 92.3% churn when forced to raise. Execs convicted of fraud.</div></div>
   <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2022 Q1</div><div class="tl-title">Netflix's first subscriber loss</div><div class="tl-desc">Wall Street shifted from subscriber growth to revenue per user. Every streamer began aggressive price increases.</div></div>
-  <div class="tl-item"><div class="tl-dot tl-dot--red"></div><div class="tl-year">2022 May</div><div class="tl-title">EVE Online breaks 19-year freeze</div><div class="tl-desc">+33% ($14.95 → $19.99). Severe player backlash — reinforced WoW's decision to hold.</div></div>
+  <div class="tl-item"><div class="tl-dot tl-dot--red"></div><div class="tl-year">2022 May</div><div class="tl-title">EVE Online breaks 18-year freeze</div><div class="tl-desc">+33% ($14.95 → $19.99). Severe player backlash — reinforced WoW's decision to hold.</div></div>
   <div class="tl-item"><div class="tl-dot tl-dot--green"></div><div class="tl-year">2023–24</div><div class="tl-title">Netflix ad-tier + password crackdown</div><div class="tl-desc">Ad tier hit 94M users. Password crackdown added ~50M subscribers. Revenue grew without proportional price pain.</div></div>
   <div class="tl-item"><div class="tl-dot tl-dot--green"></div><div class="tl-year">2025 Jan</div><div class="tl-title">Netflix raises all tiers — no backlash</div><div class="tl-desc">+$1–$2.50 across all plans. Reached 302M subscribers. Boiling frog strategy perfected over 14 years.</div></div>
   <div class="tl-item"><div class="tl-dot tl-dot--red"></div><div class="tl-year">2025 Oct</div><div class="tl-title">Xbox Game Pass — 50% single hike</div><div class="tl-desc">$19.99 → $29.99 overnight. Cancellation website crashed. GameStop publicly mocked Microsoft.</div></div>

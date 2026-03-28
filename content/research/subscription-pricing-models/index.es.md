@@ -13,7 +13,7 @@ license: "CC BY-NC 4.0"
 og_image: "/img/og-subscription-pricing.png"
 ---
 
-Desde 2020, los precios de suscripción han superado la inflación entre 3 y 5 veces. El Índice de Precios al Consumo en EE.UU. subió aproximadamente un 25% en este período. La mayoría de las suscripciones importantes subieron entre un 50% y un 170%.
+Desde 2020, los precios de suscripción han superado la inflación entre 3 y 5 veces. El Índice de Precios al Consumo en EE.UU. subió aproximadamente un 22% en este período. La mayoría de las suscripciones importantes subieron entre un 50% y un 170%.
 
 Disney+ lidera con un aumento del 172% ($6.99 → $18.99), seguido por Apple TV+ con 160%, Netflix con 125%, y Xbox Game Pass Ultimate duplicándose a $29.99. Mientras tanto, World of Warcraft ha costado exactamente $14.99/mes desde noviembre de 2004 — 21 años sin un solo cambio.
 
@@ -30,7 +30,7 @@ Esto no es casualidad. Son tres modelos de precios distintos que operan con lóg
   <div class="bar-row"><div class="label">Amazon Prime</div><div class="track"><div class="fill" style="width:38%">$79/año → $139/año</div></div><div class="pct">+76%</div></div>
   <div class="bar-row"><div class="label">Microsoft 365</div><div class="track"><div class="fill" style="width:22%">$69.99 → $99.99/año</div></div><div class="pct">+43%</div></div>
   <div class="bar-row"><div class="label">Spotify</div><div class="track"><div class="fill" style="width:15%">$9.99 → $12.99</div></div><div class="pct">+30%</div></div>
-  <div class="bar-row muted"><div class="label">Inflación IPC</div><div class="track"><div class="fill" style="width:13%"></div></div><div class="pct">~25%</div></div>
+  <div class="bar-row muted"><div class="label">Inflación IPC</div><div class="track"><div class="fill" style="width:11%"></div></div><div class="pct">~22%</div></div>
 </div>
 
 ## Los que suben vs. los que mantienen
@@ -65,8 +65,8 @@ $14.99 no se ha movido en 21 años. Pero Blizzard no deja dinero sobre la mesa �
   <div class="case-meta">$14.99/mes desde noviembre de 2004</div>
 
   <div class="metrics">
-    <div class="metric"><div class="val val--green">$25.72</div><div class="desc">$14.99 (2004) ajustado por inflación</div></div>
-    <div class="metric"><div class="val val--red">−42%</div><div class="desc">Caída real del precio</div></div>
+    <div class="metric"><div class="val val--green">$25.22</div><div class="desc">$14.99 (2004) ajustado por inflación</div></div>
+    <div class="metric"><div class="val val--red">−41%</div><div class="desc">Caída real del precio</div></div>
     <div class="metric"><div class="val val--blue">~9M</div><div class="desc">Suscriptores estimados (2025)</div></div>
     <div class="metric"><div class="val val--yellow">$20</div><div class="desc">Precio del WoW Token</div></div>
   </div>
@@ -102,7 +102,7 @@ No subieron el precio. Construyeron nuevas fuentes de ingreso alrededor de un an
       <li>La suscripción impulsa gastos adyacentes</li>
       <li>Precio = identidad de marca</li>
       <li>Subida una vez por década (si acaso)</li>
-      <li>Miembros Prime: ~$1,170/año en Amazon</li>
+      <li>Miembros Prime: $1,400/año en Amazon</li>
     </ul>
   </div>
   <div class="fw-card fw-card--purple">
@@ -147,9 +147,9 @@ No subieron el precio. Construyeron nuevas fuentes de ingreso alrededor de un an
 
 <div class="timeline">
   <div class="tl-item"><div class="tl-dot tl-dot--red"></div><div class="tl-year">2011</div><div class="tl-title">Netflix Qwikster — subida del 60%</div><div class="tl-desc">800 mil suscriptores perdidos. Las acciones cayeron un 77%. Demasiado, demasiado rápido, sin valor añadido.</div></div>
-  <div class="tl-item"><div class="tl-dot tl-dot--red"></div><div class="tl-year">2017–2019</div><div class="tl-title">MoviePass — el error opuesto</div><div class="tl-desc">Bajó el precio a $9.95 por películas diarias. Perdía $27–45M/mes. 92% de pérdida de suscriptores al subir. Ejecutivos condenados por fraude.</div></div>
+  <div class="tl-item"><div class="tl-dot tl-dot--red"></div><div class="tl-year">2017–2019</div><div class="tl-title">MoviePass — el error opuesto</div><div class="tl-desc">Bajó el precio a $9.95 por películas diarias. Perdía $20M/mes. 92.3% de abandono al subir. Ejecutivos condenados por fraude.</div></div>
   <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2022 Q1</div><div class="tl-title">Primera pérdida de suscriptores de Netflix</div><div class="tl-desc">Wall Street cambió de crecimiento de suscriptores a ingreso por usuario. Todos los streamers iniciaron subidas agresivas.</div></div>
-  <div class="tl-item"><div class="tl-dot tl-dot--red"></div><div class="tl-year">2022 mayo</div><div class="tl-title">EVE Online rompe congelación de 19 años</div><div class="tl-desc">+33% ($14.95 → $19.99). Reacción severa de jugadores — reforzó la decisión de WoW de mantener.</div></div>
+  <div class="tl-item"><div class="tl-dot tl-dot--red"></div><div class="tl-year">2022 mayo</div><div class="tl-title">EVE Online rompe congelación de 18 años</div><div class="tl-desc">+33% ($14.95 → $19.99). Reacción severa de jugadores — reforzó la decisión de WoW de mantener.</div></div>
   <div class="tl-item"><div class="tl-dot tl-dot--green"></div><div class="tl-year">2023–24</div><div class="tl-title">Netflix: plan con anuncios + control de contraseñas</div><div class="tl-desc">Plan con anuncios alcanzó 94M de usuarios. Control de contraseñas añadió ~50M de suscriptores. Ingresos crecieron sin dolor proporcional.</div></div>
   <div class="tl-item"><div class="tl-dot tl-dot--green"></div><div class="tl-year">2025 ene</div><div class="tl-title">Netflix sube todos los planes — sin reacción negativa</div><div class="tl-desc">+$1–$2.50 en todos los planes. 302M de suscriptores. Estrategia de rana hervida perfeccionada en 14 años.</div></div>
   <div class="tl-item"><div class="tl-dot tl-dot--red"></div><div class="tl-year">2025 oct</div><div class="tl-title">Xbox Game Pass — subida del 50% de golpe</div><div class="tl-desc">$19.99 → $29.99 de la noche a la mañana. La web de cancelación se cayó. GameStop se burló públicamente de Microsoft.</div></div>
