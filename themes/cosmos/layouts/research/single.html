@@ -1,5 +1,5 @@
 {{ define "main" }}
-<div class="container">
+<div class="container article--{{ .File.Dir | path.Base }}">
   <div class="article-header">
     <a href="{{ .Site.Home.RelPermalink }}" class="back-link">{{ i18n "back_to_research" }}</a>
     <div class="label">{{ i18n "research_label" }}{{ with .Params.series }} · {{ . }}{{ end }}</div>
