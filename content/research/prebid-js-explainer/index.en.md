@@ -97,7 +97,7 @@ The ANA Supply Chain Study (2023) found only **36 cents** per advertiser dollar 
 
 ## Google Antitrust: Why Prebid Matters More
 
-In April 2025, a US federal court found Google guilty of illegally monopolizing publisher ad server and ad exchange markets. The EU fined Google €2.95B. Texas settled for $1.375B. The DOJ seeks divestiture of AdX.
+In April 2025, a US federal court found Google guilty of illegally monopolizing publisher ad server and ad exchange markets. Texas settled for $1.375B in May. The EU followed in September with a €2.95B adtech antitrust fine. The DOJ seeks divestiture of AdX.
 
 <div class="metrics">
 <div class="metric"><div class="val val--red">~90%</div><div class="desc">Google's ad server share</div></div>
