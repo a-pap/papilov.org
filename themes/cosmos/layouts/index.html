@@ -11,20 +11,39 @@
     </div>
   </div>
 
+  {{ with (.Site.GetPage "/memex") }}
+  <section class="featured-project">
+    <div class="featured-project-label">{{ i18n "featured_project_label" }}</div>
+    <h2 class="featured-project-title">
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+    </h2>
+    {{ with .Params.tagline }}<p class="featured-project-tagline">{{ . }}</p>{{ end }}
+    {{ with .Params.summary }}<p class="featured-project-summary">{{ . }}</p>{{ end }}
+    {{ with .Params.meta }}<p class="featured-project-meta">{{ . }}</p>{{ end }}
+    <p class="featured-project-cta">
+      <a href="{{ .RelPermalink }}" class="featured-project-cta-primary">{{ i18n "memex_cta_read" }} →</a>
+      <a href="https://github.com/a-pap/memex" class="featured-project-cta-secondary" rel="noopener">{{ i18n "memex_cta_github" }}</a>
+    </p>
+  </section>
+  {{ end }}
+
   {{ $research := where .Site.RegularPages "Section" "research" }}
   {{ with $research }}
-  <nav class="article-list">
-    {{ range . }}
-    <a href="{{ .Permalink }}" class="article-list-item">
-      <span class="article-list-title">{{ .Title }}</span>
-      <span class="article-list-meta">
-        {{ with .Params.series }}<span class="series-tag">{{ . }}</span>{{ end }}
-        <span>{{ i18n (printf "month_%d" (int .Date.Month)) }} {{ .Date.Year }}</span>
-        <span>{{ .ReadingTime }} {{ i18n "min_read" }}</span>
-      </span>
-    </a>
-    {{ end }}
-  </nav>
+  <section class="writing-section">
+    <h2 class="writing-section-title">{{ i18n "writing_section" }}</h2>
+    <nav class="article-list">
+      {{ range . }}
+      <a href="{{ .Permalink }}" class="article-list-item">
+        <span class="article-list-title">{{ .Title }}</span>
+        <span class="article-list-meta">
+          {{ with .Params.series }}<span class="series-tag">{{ . }}</span>{{ end }}
+          <span>{{ i18n (printf "month_%d" (int .Date.Month)) }} {{ .Date.Year }}</span>
+          <span>{{ .ReadingTime }} {{ i18n "min_read" }}</span>
+        </span>
+      </a>
+      {{ end }}
+    </nav>
+  </section>
   {{ end }}
 </div>
 {{ end }}

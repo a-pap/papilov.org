@@ -1,5 +1,7 @@
 # BLUEPRINT — Build a Research Site Like This One
 
+> **See also:** [Memex blueprint](https://github.com/a-pap/memex) — the persistent memory system that keeps Claude on the same page across every session on this site. Same author, same philosophy (git-native, markdown-first, openly licensed), complementary artifact.
+
 > **What this is:** A complete blueprint for deploying a multilingual, AI-co-authored research site using Hugo + Cloudflare Pages + GitHub. Cost: ~$10/year (domain only). Build time with Claude: one evening.
 >
 > **What this is NOT:** A step-by-step tutorial. This document is designed to be fed directly to [Claude](https://claude.ai) (or any capable LLM) as a prompt. Give it this file and your domain name — it will build everything.

@@ -2,4 +2,4 @@
 title: "Artem Papilov"
 ---
 
-Independent analytical research at the intersection of technology, economics, and human behavior. Data-dense, openly licensed, AI-co-authored with [Claude](https://claude.ai).
+Independent research and open tools. I build [Memex](/memex/) — persistent memory for Claude — and write data-dense, openly licensed articles on technology, economics, physics, and human behavior. All of it AI-co-authored with [Claude](https://claude.ai).

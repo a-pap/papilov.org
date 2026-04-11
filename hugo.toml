@@ -6,7 +6,7 @@ defaultContentLanguageInSubdir = false
 hasCJKLanguage = true
 
 [params]
-  description = "Independent analytical research: subscription economics, behavioral science, physics explainers. Data-driven, AI-co-authored, openly licensed."
+  description = "Independent research and open tools: Memex (persistent memory for Claude) and data-driven articles on economics, behavioral science, and physics. Openly licensed, AI-co-authored."
   author = "Artem Papilov"
   twitter = "papilov"
   github = "a-pap"
@@ -36,75 +36,95 @@ hasCJKLanguage = true
     languageName = "EN"
     weight = 1
     [languages.en.params]
-      description = "Independent analytical research: subscription economics, behavioral science, physics explainers. Data-driven, AI-co-authored, openly licensed."
+      description = "Independent research and open tools: Memex (persistent memory for Claude) and data-driven articles on economics, behavioral science, and physics. Openly licensed, AI-co-authored."
+    [[languages.en.menu.main]]
+      name = "Memex"
+      url = "/memex/"
+      weight = 1
     [[languages.en.menu.main]]
       name = "Research"
       url = "/research/"
-      weight = 1
+      weight = 2
     [[languages.en.menu.main]]
       name = "Colophon"
       url = "/colophon/"
-      weight = 2
+      weight = 3
 
   [languages.ru]
     languageCode = "ru"
     languageName = "RU"
     weight = 2
     [languages.ru.params]
-      description = "Аналитические исследования: подписочная экономика, поведенческая наука, физика. С данными, ИИ-соавторством и открытой лицензией."
+      description = "Независимые исследования и открытые инструменты: Memex (постоянная память для Claude) и плотные статьи по экономике, поведенческой науке и физике. Открытая лицензия, AI-соавторство."
+    [[languages.ru.menu.main]]
+      name = "Memex"
+      url = "/ru/memex/"
+      weight = 1
     [[languages.ru.menu.main]]
       name = "Исследования"
       url = "/ru/research/"
-      weight = 1
+      weight = 2
     [[languages.ru.menu.main]]
       name = "Колофон"
       url = "/ru/colophon/"
-      weight = 2
+      weight = 3
 
   [languages.es]
     languageCode = "es"
     languageName = "ES"
     weight = 3
     [languages.es.params]
-      description = "Investigación analítica: economía de suscripciones, ciencia del comportamiento, física. Basada en datos, co-escrita con IA, licencia abierta."
+      description = "Investigación independiente y herramientas abiertas: Memex (memoria persistente para Claude) y artículos densos en datos sobre economía, ciencia del comportamiento y física. Licencia abierta, co-autoría con IA."
+    [[languages.es.menu.main]]
+      name = "Memex"
+      url = "/es/memex/"
+      weight = 1
     [[languages.es.menu.main]]
       name = "Investigación"
       url = "/es/research/"
-      weight = 1
+      weight = 2
     [[languages.es.menu.main]]
       name = "Colofón"
       url = "/es/colophon/"
-      weight = 2
+      weight = 3
 
   [languages.de]
     languageCode = "de"
     languageName = "DE"
     weight = 4
     [languages.de.params]
-      description = "Analytische Forschung: Abo-Ökonomie, Verhaltensforschung, Physik-Erklärungen. Datenbasiert, KI-unterstützt, offen lizenziert."
+      description = "Unabhängige Forschung und offene Werkzeuge: Memex (persistenter Speicher für Claude) und datenintensive Artikel zu Wirtschaft, Verhaltensforschung und Physik. Offen lizenziert, KI-ko-verfasst."
+    [[languages.de.menu.main]]
+      name = "Memex"
+      url = "/de/memex/"
+      weight = 1
     [[languages.de.menu.main]]
       name = "Forschung"
       url = "/de/research/"
-      weight = 1
+      weight = 2
     [[languages.de.menu.main]]
       name = "Kolophon"
       url = "/de/colophon/"
-      weight = 2
+      weight = 3
 
   [languages.zh]
     languageCode = "zh"
     languageName = "中文"
     weight = 5
     [languages.zh.params]
-      description = "独立分析研究：订阅经济学、行为科学、物理学。数据驱动，AI协作，开放许可。"
+      description = "独立研究与开放工具：Memex（面向 Claude 的持久化记忆）以及经济学、行为科学与物理学的数据密集文章。开放许可，AI协作。"
+    [[languages.zh.menu.main]]
+      name = "Memex"
+      url = "/zh/memex/"
+      weight = 1
     [[languages.zh.menu.main]]
       name = "研究"
       url = "/zh/research/"
-      weight = 1
+      weight = 2
     [[languages.zh.menu.main]]
       name = "关于本站"
       url = "/zh/colophon/"
-      weight = 2
+      weight = 3
 
 [taxonomies]
   tag = "tags"

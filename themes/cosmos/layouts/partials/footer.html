@@ -8,6 +8,13 @@
           <a href="{{ .Site.Home.RelPermalink }}" class="footer-name">Artem Papilov</a>
         {{ end }}
         <span class="footer-sep">&middot;</span>
+        {{ $isMemex := findRE "/memex" .RelPermalink }}
+        {{ if $isMemex }}
+          <span class="footer-colophon-current">{{ i18n "nav_memex" }}</span>
+        {{ else }}
+          <a href="{{ "memex" | relLangURL }}/">{{ i18n "nav_memex" }}</a>
+        {{ end }}
+        <span class="footer-sep">&middot;</span>
         {{ $isColophon := findRE "colophon" .RelPermalink }}
         {{ if $isColophon }}
           <span class="footer-colophon-current">{{ i18n "footer_how" }}</span>
