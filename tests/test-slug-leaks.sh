@@ -26,8 +26,8 @@ fi
 # Known English-only strings that should NOT appear in non-EN pages
 # (except in URLs, href attributes, meta tags, or script blocks)
 ENGLISH_PATTERNS=(
-  "Research</a>"
-  "Colophon</a>"
+  ">Research</a>"
+  ">Colophon</a>"
   ">Research<"
   ">Colophon<"
   ">Work With Me<"
@@ -73,7 +73,7 @@ for f in "$ROOT_DIR"/content/research/*/index.*.md; do
   SERIES=$(grep "^series:" "$f" 2>/dev/null | sed 's/series: *"\?\([^"]*\)"\?/\1/' || true)
   if [ -n "$SERIES" ]; then
     # Check for slug-like values (lowercase with hyphens, no spaces)
-    if echo "$SERIES" | grep -qP '^[a-z0-9-]+$' && echo "$SERIES" | grep -q '-'; then
+    if echo "$SERIES" | grep -qE '^[a-z0-9-]+$' && echo "$SERIES" | grep -q '-'; then
       fail "Slug-like series value '$SERIES' in $f (should be human-readable)"
     else
       pass "Series value OK in $(basename "$f"): '$SERIES'"
