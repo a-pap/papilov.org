@@ -37,43 +37,43 @@ check_meta() {
     fail "$label missing <title>"
   fi
 
-  # Meta description
-  if grep -q 'name="description"' "$file"; then
+  # Meta description (Hugo --minify may strip quotes from attribute values)
+  if grep -qE 'name="?description"?' "$file"; then
     pass "$label has meta description"
   else
     fail "$label missing meta description"
   fi
 
   # OG title
-  if grep -q 'property="og:title"' "$file"; then
+  if grep -qE 'property="?og:title"?' "$file"; then
     pass "$label has og:title"
   else
     fail "$label missing og:title"
   fi
 
   # OG description
-  if grep -q 'property="og:description"' "$file"; then
+  if grep -qE 'property="?og:description"?' "$file"; then
     pass "$label has og:description"
   else
     fail "$label missing og:description"
   fi
 
   # OG image
-  if grep -q 'property="og:image"' "$file"; then
+  if grep -qE 'property="?og:image"?' "$file"; then
     pass "$label has og:image"
   else
     fail "$label missing og:image"
   fi
 
   # Canonical URL
-  if grep -q 'rel="canonical"' "$file"; then
+  if grep -qE 'rel="?canonical"?' "$file"; then
     pass "$label has canonical URL"
   else
     fail "$label missing canonical URL"
   fi
 
   # Twitter card
-  if grep -q 'name="twitter:card"' "$file"; then
+  if grep -qE 'name="?twitter:card"?' "$file"; then
     pass "$label has twitter:card"
   else
     fail "$label missing twitter:card"
@@ -99,7 +99,7 @@ check_hreflang() {
   local label="$2"
 
   for lang in en ru es de zh; do
-    if grep -q "hreflang=\"$lang\"" "$file"; then
+    if grep -qE "hreflang=\"?${lang}\"?" "$file"; then
       pass "$label has hreflang=$lang"
     else
       fail "$label missing hreflang=$lang"
@@ -107,7 +107,7 @@ check_hreflang() {
   done
 
   # x-default
-  if grep -q 'hreflang="x-default"' "$file"; then
+  if grep -qE 'hreflang="?x-default"?' "$file"; then
     pass "$label has hreflang=x-default"
   else
     fail "$label missing hreflang=x-default"
@@ -126,13 +126,13 @@ echo ""
 echo "--- JSON-LD structured data ---"
 
 # Homepage should have WebSite + Person schema
-if grep -q '"@type": "WebSite"' "$PUBLIC_DIR/index.html"; then
+if grep -qE '"@type":\s*"WebSite"' "$PUBLIC_DIR/index.html"; then
   pass "Homepage has WebSite schema"
 else
   fail "Homepage missing WebSite schema"
 fi
 
-if grep -q '"@type": "Person"' "$PUBLIC_DIR/index.html"; then
+if grep -qE '"@type":\s*"Person"' "$PUBLIC_DIR/index.html"; then
   pass "Homepage has Person schema"
 else
   fail "Homepage missing Person schema"
@@ -143,7 +143,7 @@ for article in ads-cft-holographic penrose-diagrams subscription-pricing-models;
   FILE="$PUBLIC_DIR/research/$article/index.html"
   [ -f "$FILE" ] || continue
 
-  if grep -q '"ScholarlyArticle"' "$FILE"; then
+  if grep -q 'ScholarlyArticle' "$FILE"; then
     pass "research/$article has ScholarlyArticle schema"
   else
     fail "research/$article missing ScholarlyArticle schema"
@@ -173,11 +173,11 @@ for file in $(find "$PUBLIC_DIR" -name "*.html" -type f); do
   # Skip nav/footer links, focus on article body content
   while IFS= read -r line; do
     EXT_LINKS_TOTAL=$((EXT_LINKS_TOTAL + 1))
-    if ! echo "$line" | grep -q 'target="_blank"'; then
+    if ! echo "$line" | grep -qE 'target="?_blank"?'; then
       # Only flag if it's in article body (has common content patterns)
       EXT_LINKS_MISSING_TARGET=$((EXT_LINKS_MISSING_TARGET + 1))
     fi
-  done < <(grep -oP '<a\s+href="https?://[^"]*"[^>]*>' "$file" 2>/dev/null | \
+  done < <(grep -oE '<a [^>]*href="https?://[^"]*"[^>]*>' "$file" 2>/dev/null | \
     grep -v 'fonts.googleapis' | \
     grep -v 'fonts.gstatic' | \
     grep -v 'creativecommons.org' | \
@@ -203,7 +203,7 @@ for article in ads-cft-holographic penrose-diagrams subscription-pricing-models;
   [ -f "$FILE" ] || continue
 
   for meta in citation_title citation_author citation_publication_date citation_language; do
-    if grep -q "name=\"$meta\"" "$FILE"; then
+    if grep -qE "name=\"?${meta}\"?" "$FILE"; then
       pass "research/$article has $meta"
     else
       fail "research/$article missing $meta"
@@ -220,7 +220,7 @@ for article in ads-cft-holographic; do
   [ -f "$FILE" ] || continue
 
   for meta in DC.title DC.creator DC.date DC.language DC.rights; do
-    if grep -q "name=\"$meta\"" "$FILE"; then
+    if grep -qE "name=\"?${meta}\"?" "$FILE"; then
       pass "research/$article has $meta"
     else
       fail "research/$article missing $meta"
