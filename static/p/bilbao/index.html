@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Бильбао 15–19 апреля 2026</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#f5f5f0;--card:#fff;--accent:#c0392b;--gold:#d4830a;--green:#1a8a4a;--text:#1a1a1a;--muted:#666;--blue:#1a73e8;--border:#e0e0e0;--shadow:0 2px 8px rgba(0,0,0,.08)}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;padding-bottom:56px}
+a{color:var(--blue);text-decoration:none}
+a:hover{text-decoration:underline}
+
+.hero{background:linear-gradient(135deg,#2d5016,#4a7c26);padding:28px 20px 22px;text-align:center;color:#fff}
+.hero h1{font-size:30px;font-weight:800;letter-spacing:-0.5px}
+.hero .dates{color:#ffd54f;font-size:18px;margin-top:2px;font-weight:600}
+.hero .sub{color:#ffffffbb;font-size:14px;margin-top:6px}
+
+.home-banner{background:#fff3e0;border:1px solid #ffe0b2;margin:12px 16px;padding:12px 14px;border-radius:10px;font-size:13px;display:flex;gap:10px;align-items:center}
+.home-banner .home-icon{font-size:22px;flex-shrink:0}
+.home-banner strong{color:var(--text)}
+.home-banner a{font-weight:600}
+
+.urgent{background:#fff5f5;border:1px solid #ffcdd2;border-left:4px solid var(--accent);margin:0 16px 12px;padding:14px;border-radius:8px}
+.urgent h3{color:var(--accent);font-size:14px;font-weight:700;margin-bottom:10px}
+.urgent-item{display:flex;gap:10px;align-items:flex-start;margin-bottom:8px;font-size:13px}
+.urgent-item:last-child{margin-bottom:0}
+.urgent-item .num{background:var(--accent);color:#fff;min-width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0}
+
+#map{height:400px;margin:12px 16px;border-radius:12px;z-index:1;border:1px solid var(--border);box-shadow:var(--shadow)}
+
+.tabs{display:flex;overflow-x:auto;gap:4px;padding:0 16px;margin-top:12px;-webkit-overflow-scrolling:touch}
+.tabs::-webkit-scrollbar{display:none}
+.tab{padding:10px 14px;background:var(--card);border-radius:10px 10px 0 0;cursor:pointer;white-space:nowrap;font-size:13px;font-weight:600;border:1px solid var(--border);border-bottom:none;transition:all .2s;flex-shrink:0;color:var(--muted)}
+.tab.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.tab:hover:not(.active){background:#f0f0f0}
+
+.day-content{display:none;padding:16px;animation:fadeIn .3s}
+.day-content.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+.day-header{font-size:20px;font-weight:800;margin-bottom:2px;color:var(--text)}
+.day-vibe{color:var(--muted);font-size:13px;margin-bottom:14px;font-style:italic}
+
+.time-block{display:flex;gap:12px;margin-bottom:12px;padding:14px;background:var(--card);border-radius:10px;border:1px solid var(--border);box-shadow:var(--shadow)}
+.time-label{color:var(--gold);font-size:12px;font-weight:700;min-width:50px;flex-shrink:0;padding-top:2px}
+.time-body h4{font-size:15px;font-weight:700;margin-bottom:3px}
+.time-body p{font-size:13px;color:var(--muted)}
+.time-body .link{display:inline-block;margin-top:6px;margin-right:4px;font-size:11px;background:var(--blue);color:#fff;padding:4px 10px;border-radius:6px;font-weight:600;text-decoration:none}
+.time-body .link:hover{opacity:0.85;text-decoration:none}
+.time-body .link.green{background:var(--green)}
+.time-body .link.orange{background:var(--gold)}
+.time-body .price{color:var(--green);font-weight:700}
+.time-body .tip{color:var(--gold);font-size:12px;margin-top:4px;font-weight:500}
+.time-body .dist{font-size:11px;color:var(--blue);font-weight:600;margin-top:3px}
+
+.section{margin:12px 16px;padding:14px;background:var(--card);border-radius:12px;border:1px solid var(--border);box-shadow:var(--shadow)}
+.section h3{font-size:15px;font-weight:700;margin-bottom:10px;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+.section h3::after{content:'▾';color:var(--muted);font-size:13px;transition:transform .2s}
+.section.collapsed h3::after{transform:rotate(-90deg)}
+.section.collapsed .section-body{display:none}
+
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.info-card{background:#f8f8f8;padding:10px;border-radius:8px;border:1px solid #eee}
+.info-card .label{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;font-weight:600}
+.info-card .value{font-size:15px;font-weight:700;margin-top:2px}
+.info-card .sub{font-size:11px;color:var(--muted);margin-top:1px}
+
+.food-item{padding:8px 0;border-bottom:1px solid #f0f0f0;font-size:13px}
+.food-item:last-child{border-bottom:none}
+.food-item .name{font-weight:700;font-size:14px}
+.food-item .desc{color:var(--muted);font-size:12px;margin-top:1px}
+.food-item .meta{font-size:11px;color:var(--green);margin-top:2px;font-weight:600}
+.food-item a{font-size:11px}
+
+.app-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:6px}
+.app-badge{background:#f8f8f8;padding:8px;border-radius:8px;text-align:center;font-size:12px;font-weight:700;border:1px solid #eee}
+.app-badge .app-cat{font-size:10px;color:var(--muted);font-weight:400}
+
+.phrase-table{width:100%;font-size:13px;border-collapse:collapse}
+.phrase-table td{padding:6px;border-bottom:1px solid #f0f0f0}
+.phrase-table td:first-child{color:var(--gold);font-weight:700;width:38%}
+
+.legend{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--border);padding:6px 16px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;z-index:1000;font-size:11px;font-weight:600;box-shadow:0 -2px 8px rgba(0,0,0,.06)}
+.legend-dot{width:10px;height:10px;border-radius:50%;display:inline-block;margin-right:3px;vertical-align:middle}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>Бильбао</h1>
+  <div class="dates">15 – 19 апреля 2026</div>
+  <div class="sub">Spannabis + pintxos + побережье + txotx + сидр</div>
+</div>
+
+<div class="home-banner">
+  <div class="home-icon">🏠</div>
+  <div>
+    <strong>Bilbao Heart 2BDR</strong> — Tristan De Leguizamon Kalea 2, Uribarri<br>
+    Check-in сразу по прилёту · Check-out до 12:00 · <a href="https://www.google.com/maps/search/?api=1&query=43.268776,-2.928995" target="_blank">Карта</a> · <a href="https://www.booking.com/hotel/es/bilbao-heart-2bdr-apartment.html" target="_blank">Booking</a><br>
+    <span style="color:var(--muted)">5 мин до metro Matiko · 9 мин до Guggenheim · 3 мин до фуникулёра Artxanda</span>
+  </div>
+</div>
+
+<div class="urgent">
+  <h3>Забронировать до вылета</h3>
+  <div class="urgent-item">
+    <span class="num">1</span>
+    <div>Билеты Spannabis (1 день, пт 17 апр) — <a href="https://spannabis.es/bilbao/en/home/" target="_blank">spannabis.es</a> ~€19 онлайн</div>
+  </div>
+  <div class="urgent-item">
+    <span class="num">2</span>
+    <div>Ужин Bascook (пт ~20:30) — <a href="https://www.bascook.com/reservas" target="_blank">bascook.com</a> или <a href="tel:+34944009977">+34 944 009 977</a></div>
+  </div>
+  <div class="urgent-item">
+    <span class="num">3</span>
+    <div>Gaztelugatxe (сб 18 апр, бронь обязательна) — <a href="https://www.tiketa.eus/gaztelugatxe/" target="_blank">tiketa.eus</a></div>
+  </div>
+  <div class="urgent-item">
+    <span class="num">4</span>
+    <div>Guggenheim (чт 16 апр) — <a href="https://www.guggenheim-bilbao.eus/en/hours-and-admission" target="_blank">guggenheim-bilbao.eus</a> €15</div>
+  </div>
+</div>
+
+<div id="map"></div>
+
+<div class="tabs">
+  <div class="tab active" onclick="showDay(1)">Ср 15</div>
+  <div class="tab" onclick="showDay(2)">Чт 16</div>
+  <div class="tab" onclick="showDay(3)">Пт 17</div>
+  <div class="tab" onclick="showDay(4)">Сб 18</div>
+  <div class="tab" onclick="showDay(5)">Вс 19</div>
+</div>
+
+<!-- DAY 1 -->
+<div class="day-content active" id="day1">
+  <div class="day-header">Среда — Прилёт</div>
+  <div class="day-vibe">Добраться, разместиться, первый pintxos-вечер. Без плана</div>
+
+  <div class="time-block">
+    <div class="time-label">Прилёт</div>
+    <div class="time-body">
+      <h4>Аэропорт → Bilbao Heart</h4>
+      <p>Автобус <strong>A3247</strong> каждые 15 мин → остановка Gran Vía → 10 мин пешком до квартиры.<br><span class="price">€1.16 с Barik</span> (€3 без). Купить Barik (€3) в автомате при выходе.</p>
+      <p class="tip">Одной Barik картой можно платить за до 10 человек!</p>
+      <a class="link" href="https://www.google.com/maps/dir/Bilbao+Airport/43.268776,-2.928995/" target="_blank">Маршрут до квартиры</a>
+    </div>
+  </div>
+
+  <div class="time-block">
+    <div class="time-label">~16:00</div>
+    <div class="time-body">
+      <h4>Casco Viejo — Старый город</h4>
+      <p>Siete Calles (7 средневековых улиц), Собор Сантьяго, площадь Plaza Nueva. Можно подняться по лестницам Маллона → панорама.</p>
+      <p class="dist">🚶 20 мин от квартиры | metro Matiko → Casco Viejo (5 мин)</p>
+      <a class="link" href="https://www.google.com/maps/dir/43.268776,-2.928995/43.2569823,-2.9226478/" target="_blank">Маршрут</a>
+      <a class="link green" href="https://www.google.com/maps/search/?api=1&query=43.2569823,-2.9226478" target="_blank">Район на карте</a>
+    </div>
+  </div>
+
+  <div class="time-block">
+    <div class="time-label">~17:30</div>
+    <div class="time-body">
+      <h4>Mercado de la Ribera</h4>
+      <p>Крупнейший крытый рынок Европы (10,000 м²). Свежие продукты внизу, гастро-бары наверху до 22:00. Попробовать gilda — олива + анчоус + перец.</p>
+      <a class="link" href="https://www.google.com/maps/place/?q=place_id:ChIJ329u8cxPTg0RX7XirbQve-0" target="_blank">На карте</a>
+    </div>
+  </div>
+
+  <div class="time-block">
+    <div class="time-label">~19:30</div>
+    <div class="time-body">
+      <h4>Txikiteo — pintxos-крол</h4>
+      <p>Маршрут по Plaza Nueva: <strong>Gure Toki</strong> (крокеты из хвоста быка) → <strong>Café Bar Bilbao</strong> (bacalao с 1911) → <strong>Sorginzulo</strong> (кальмары). В каждом: 1-2 pintxos + txakoli → идём дальше.</p>
+      <p class="tip">~€15-25 на человека за 4-5 баров. Txakoli €2-3, pintxos €2-5</p>
+      <a class="link" href="https://www.google.com/maps/search/pintxos+bars+plaza+nueva+bilbao/" target="_blank">Бары на карте</a>
+    </div>
+  </div>
+</div>
+
+<!-- DAY 2 -->
+<div class="day-content" id="day2">
+  <div class="day-header">Четверг — Guggenheim и закат</div>
+  <div class="day-vibe">Музей без спешки, долгий обед, фуникулёр рядом с домом на закат</div>
+
+  <div class="time-block">
+    <div class="time-label">~10:30</div>
+    <div class="time-body">
+      <h4>Guggenheim Museum</h4>
+      <p>Serra (зал 104 — огромные стальные скульптуры), Kusama Infinity Room (QR-очередь!), Puppy + паук Maman снаружи. <span class="price">€15</span>, до 18 бесплатно. ~2.5-3 часа.</p>
+      <p class="dist">🚶 9 мин от квартиры — спуститься по холму к реке</p>
+      <a class="link" href="https://www.guggenheim-bilbao.eus/en/hours-and-admission" target="_blank">Купить билет</a>
+      <a class="link green" href="https://www.google.com/maps/dir/43.268776,-2.928995/Guggenheim+Museum+Bilbao/" target="_blank">Маршрут от дома</a>
+    </div>
+  </div>
+
+  <div class="time-block">
+    <div class="time-label">~14:00</div>
+    <div class="time-body">
+      <h4>Обед — на выбор</h4>
+      <p><strong>La Viña del Ensanche</strong> — хамон ибёрико сэндвичи, фуа-гра · <a href="https://www.google.com/maps/search/?api=1&query=La+Viña+del+Ensanche+Bilbao" target="_blank">карта</a><br>
+      <strong>Café Iruña</strong> (1903) — мавританский интерьер, pintxos morunos · <a href="https://www.google.com/maps/search/?api=1&query=Café+Iruña+Bilbao" target="_blank">карта</a><br>
+      <strong>Markina</strong> — menú del día <span class="price">€17.50</span> (3 блюда + вино + кофе) · <a href="https://www.google.com/maps/search/?api=1&query=Restaurante+Markina+Bilbao" target="_blank">карта</a></p>
+    </div>
+  </div>
+
+  <div class="time-block">
+    <div class="time-label">~16:30</div>
+    <div class="time-body">
+      <h4>Прогулка по набережной</h4>
+      <p>Мост Zubizuri (Калатрава, белый стеклянный) → парк Doña Casilda → <strong>Azkuna Zentroa</strong> (43 колонны Starck, бесплатно).</p>
+      <a class="link" href="https://www.google.com/maps/dir/Guggenheim+Museum+Bilbao/Zubizuri/Azkuna+Zentroa/" target="_blank">Маршрут прогулки</a>
+    </div>
+  </div>
+
+  <div class="time-block">
+    <div class="time-label">~20:00</div>
+    <div class="time-body">
+      <h4>Фуникулёр Artxanda → закат</h4>
+      <p>Панорама всего Бильбао. Закат ~20:30. Знак BILBAO = фото. <span class="price">€0.65 с Barik</span>.</p>
+      <p class="dist">🚶 3 мин от квартиры! Фуникулёр прямо рядом</p>
+      <a class="link" href="https://funicularartxanda.bilbao.eus/en/opening-hours-and-prices/" target="_blank">Расписание</a>
+      <a class="link green" href="https://www.google.com/maps/dir/43.268776,-2.928995/Funicular+de+Artxanda/" target="_blank">Маршрут</a>
+    </div>
+  </div>
+
+  <div class="time-block">
+    <div class="time-label">~21:00</div>
+    <div class="time-body">
+      <h4>Вечер — Indautxu</h4>
+      <p><strong>Nashville</strong> — лучшая тортилья · <a href="https://www.google.com/maps/search/?api=1&query=Nashville+Bar+Bilbao" target="_blank">карта</a><br>
+      <strong>Basquery Brewery</strong> — 7+ кранов крафта · <a href="https://www.google.com/maps/place/?q=place_id:ChIJdSeb9M9PTg0RGe9cvrCUPmA" target="_blank">карта</a><br>
+      Calle Licenciado Poza = главная pintxos-улица.</p>
+      <a class="link" href="https://www.google.com/maps/search/pintxos+bars+licenciado+poza+bilbao/" target="_blank">Бары на карте</a>
+    </div>
+  </div>
+</div>
+
+<!-- DAY 3 -->
+<div class="day-content" id="day3">
+  <div class="day-header">Пятница — Spannabis</div>
+  <div class="day-vibe">Выставка в своём темпе. Champions Cup вечером. Ужин в Bascook</div>
+
+  <div class="time-block">
+    <div class="time-label">~10:30</div>
+    <div class="time-body">
+      <h4>BEC — Spannabis 2026</h4>
+      <p>Metro Matiko → L2 → Ansio (~20 мин). Касса 10:30, двери 11:00. 500+ стендов, World Cannabis Conference — панели весь день. 1-дневный билет = один вход.</p>
+      <p class="tip">Совет: берите перекус, внутри еда дорогая. Вода с собой</p>
+      <a class="link" href="https://spannabis.es/bilbao/en/home/" target="_blank">Купить билеты</a>
+      <a class="link green" href="https://www.google.com/maps/dir/43.268776,-2.928995/BEC+Bilbao+Exhibition+Centre/" target="_blank">Маршрут от дома</a>
+      <a class="link orange" href="https://www.google.com/maps/place/?q=place_id:ChIJ97ux2XdaTg0RmCLfs_Ro6xo" target="_blank">BEC на карте</a>
+    </div>
+  </div>
+
+  <div class="time-block">
+    <div class="time-label">19:00</div>
+    <div class="time-body">
+      <h4>Champions Cup</h4>
+      <p>Церемония награждения — главное шоу. Живая музыка: reggae, dub, drum'n'bass. Можно уйти раньше если устали.</p>
+    </div>
+  </div>
+
+  <div class="time-block">
+    <div class="time-label">~20:30</div>
+    <div class="time-body">
+      <h4>Ужин — Bascook</h4>
+      <p>Баскско-азиатский фьюжн. Cod maki, leek nigiri, txuleta. Сет <span class="price">~€38.50 с вином</span>. Кухня 20:30-23:00.</p>
+      <p class="dist">🚶 12 мин от квартиры | 5 мин от metro Abando</p>
+      <a class="link" href="https://www.bascook.com/reservas" target="_blank">Бронь</a>
+      <a class="link green" href="https://www.google.com/maps/dir/43.268776,-2.928995/Bascook+Bilbao/" target="_blank">Маршрут от дома</a>
+      <a class="link orange" href="tel:+34944009977">Позвонить</a>
+    </div>
+  </div>
+</div>
+
+<!-- DAY 4 -->
+<div class="day-content" id="day4">
+  <div class="day-header">Суббота — Побережье или чилл</div>
+  <div class="day-vibe">Выбирай по настроению и погоде. Вечером — сидр из бочки</div>
+
+  <div class="time-block">
+    <div class="time-label">~09:30</div>
+    <div class="time-body">
+      <h4>Вариант A: Gaztelugatxe</h4>
+      <p>Автобус <strong>A3518</strong> из Moyúa → Bakio (~1ч). Пешком 2.5 км → островок. <strong>241 ступень</strong> до эрмитажа (Dragonstone, GoT). 2-3 часа. Бесплатно!</p>
+      <p>Обратно: автобус до Bermeo → <strong>EuskoTren</strong> домой. Или аренда авто <span class="price">€30-60/день</span>.</p>
+      <p class="tip">Обувь с нескользящей подошвой! Ступени мокрые в дождь</p>
+      <a class="link" href="https://www.tiketa.eus/gaztelugatxe/" target="_blank">Забронировать слот</a>
+      <a class="link green" href="https://www.google.com/maps/dir/43.268776,-2.928995/San+Juan+de+Gaztelugatxe/" target="_blank">Маршрут</a>
+      <a class="link orange" href="https://www.bidaide.eus/en/route/map/Bizkaibus/3518" target="_blank">Расписание A3518</a>
+    </div>
+  </div>
+
+  <div class="time-block">
+    <div class="time-label">или</div>
+    <div class="time-body">
+      <h4>Вариант B: Пляж Getxo</h4>
+      <p>Metro L1 → Neguri (23 мин). Пляж Ereaga + набережная с особняками. Рядом — <strong>Puente de Vizcaya</strong> (UNESCO, гондола <span class="price">€0.40</span>).</p>
+      <a class="link" href="https://www.google.com/maps/dir/43.268776,-2.928995/Playa+de+Ereaga/" target="_blank">Маршрут</a>
+      <a class="link green" href="https://puente-colgante.com/en/tarifas-y-horarios/" target="_blank">Puente de Vizcaya</a>
+    </div>
+  </div>
+
+  <div class="time-block">
+    <div class="time-label">или</div>
+    <div class="time-body">
+      <h4>Вариант C: Сан-Себастьян</h4>
+      <p>Автобус ALSA из Intermodal (~1ч 20мин, <span class="price">€7-10</span>). La Concha + pintxos Parte Vieja (Ganbara, La Cuchara de San Telmo). Обратно ~19-20:00.</p>
+      <a class="link" href="https://www.alsa.com" target="_blank">ALSA билеты</a>
+      <a class="link green" href="https://www.google.com/maps/dir/Bilbao+Intermodal/San+Sebastian/" target="_blank">Маршрут</a>
+    </div>
+  </div>
+
+  <div class="time-block">
+    <div class="time-label">~19:00</div>
+    <div class="time-body">
+      <h4>Sidreria Galtzagorri — TXOTX!</h4>
+      <p>Крикнут <strong>"TXOTX!"</strong> — беги к бочке ловить сидр в стакан! Меню: чоризо в сидре, треска, <strong>txuleta</strong> (огромный стейк), сыр Idiazábal. <span class="price">€19-32 + безлимитный сидр</span>.</p>
+      <p class="dist">Metro L3 → Santutxu · Позвонить: <a href="tel:+34944116111">+34 944 116 111</a></p>
+      <a class="link" href="https://www.google.com/maps/dir/43.268776,-2.928995/Sidreria+Galtzagorri+Bilbao/" target="_blank">Маршрут от дома</a>
+    </div>
+  </div>
+</div>
+
+<!-- DAY 5 -->
+<div class="day-content" id="day5">
+  <div class="day-header">Воскресенье — Вылет</div>
+  <div class="day-vibe">Без спешки: бранч, последние точки, аэропорт</div>
+
+  <div class="time-block">
+    <div class="time-label">~11:00</div>
+    <div class="time-body">
+      <h4>Puente de Vizcaya (если не были в сб)</h4>
+      <p>Мост-паром 1893 года, UNESCO. Гондола <span class="price">€0.40 с Barik</span>. Верхний мостик <span class="price">€11</span> — вид потрясающий.</p>
+      <p class="dist">Metro L1/L2 → Areeta или Portugalete (~25 мин)</p>
+      <a class="link" href="https://puente-colgante.com/en/tarifas-y-horarios/" target="_blank">Часы и цены</a>
+      <a class="link green" href="https://www.google.com/maps/dir/43.268776,-2.928995/Puente+de+Vizcaya/" target="_blank">Маршрут</a>
+    </div>
+  </div>
+
+  <div class="time-block">
+    <div class="time-label">~12:30</div>
+    <div class="time-body">
+      <h4>Финальный бранч</h4>
+      <p>Mercado de la Ribera (бары с 11:00 по вс) или Casco Viejo на прощание. <strong>Too Good To Go</strong> — дешёвые коробки из кафе/пекарен.</p>
+      <a class="link" href="https://www.google.com/maps/dir/43.268776,-2.928995/Mercado+de+la+Ribera+Bilbao/" target="_blank">Маршрут</a>
+    </div>
+  </div>
+
+  <div class="time-block">
+    <div class="time-label">опция</div>
+    <div class="time-body">
+      <h4>Spannabis — последний день</h4>
+      <p>Работает до 19:30. Нужен 3-дневный билет для повторного входа.</p>
+      <a class="link" href="https://spannabis.es/bilbao/en/home/" target="_blank">Билеты</a>
+    </div>
+  </div>
+
+  <div class="time-block">
+    <div class="time-label">Вылет</div>
+    <div class="time-body">
+      <h4>Аэропорт BIO</h4>
+      <p>Автобус <strong>A3247</strong> каждые 15 мин, последний 00:00. ~20 мин. <span class="price">€1.16 с Barik</span>.</p>
+      <a class="link" href="https://www.google.com/maps/dir/43.268776,-2.928995/Bilbao+Airport/" target="_blank">Маршрут в аэропорт</a>
+    </div>
+  </div>
+</div>
+
+<!-- TRANSPORT -->
+<div class="section">
+  <h3 onclick="toggleSection(this)">Транспорт</h3>
+  <div class="section-body">
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="label">Barik карта</div>
+        <div class="value">€3 + €10</div>
+        <div class="sub">Автомат на метро. Скидка ~50%</div>
+      </div>
+      <div class="info-card">
+        <div class="label">Ближайшее metro</div>
+        <div class="value">Matiko (5 мин)</div>
+        <div class="sub">Линии L1, L2</div>
+      </div>
+      <div class="info-card">
+        <div class="label">Аэропорт ↔ центр</div>
+        <div class="value">A3247 · 20 мин</div>
+        <div class="sub">Каждые 15 мин · €1.16</div>
+      </div>
+      <div class="info-card">
+        <div class="label">Metro часы</div>
+        <div class="value">до 02:00 пт</div>
+        <div class="sub">Всю ночь сб! Пн-чт до 23:15</div>
+      </div>
+    </div>
+    <div style="margin-top:10px;font-size:12px;color:var(--muted)">
+      <strong>Uber / Cabify</strong> — работают · <strong>TaxiBilbao</strong> — муниц. такси · Пересадка 45 мин (город) / 90 мин (пригород) = скидка<br>
+      <a href="https://www.metrobilbao.eus/en" target="_blank">metrobilbao.eus</a> · <a href="https://www.euskotren.eus/en" target="_blank">euskotren.eus</a> · <a href="https://www.bidaide.eus/en" target="_blank">bidaide.eus (автобусы)</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOD -->
+<div class="section">
+  <h3 onclick="toggleSection(this)">Еда и напитки</h3>
+  <div class="section-body">
+    <div class="food-item"><div class="name">Pintxos</div><div class="desc">Тапас по-баскски. 1-2 шт + напиток → следующий бар. Салфетки на пол = нормально</div><div class="meta">€2-5 шт · пик: 13:30-15:30 и 19:00-21:00</div></div>
+    <div class="food-item"><div class="name">Menú del día</div><div class="desc">3 блюда + хлеб + вино/пиво + кофе. Лучшая сделка</div><div class="meta">€13-25 · обед 13:30-15:30</div></div>
+    <div class="food-item"><div class="name">Txakoli</div><div class="desc">Игристое белое. Бармен льёт с высоты — шоу</div><div class="meta">€2-3</div></div>
+    <div class="food-item"><div class="name">Zurito</div><div class="desc">Мини-пиво ~150 мл, идеально для pintxos-крола</div><div class="meta">€1.50-2.50</div></div>
+    <div class="food-item"><div class="name">Marianito</div><div class="desc">Баскский негрони: вермут + джин + Campari</div><div class="meta">€4-6</div></div>
+    <div class="food-item"><div class="name">Kalimotxo</div><div class="desc">Вино + кола. Звучит странно — вкусно</div><div class="meta">€2-3</div></div>
+  </div>
+</div>
+
+<!-- TOP BARS -->
+<div class="section">
+  <h3 onclick="toggleSection(this)">Топ pintxos-баров</h3>
+  <div class="section-body">
+    <div class="food-item"><div class="name">Gure Toki ★</div><div class="desc">Plaza Nueva. Michelin. Крокеты из хвоста быка, суп Idiazábal</div><a href="https://www.google.com/maps/search/?api=1&query=Gure+Toki+Bilbao" target="_blank">карта</a></div>
+    <div class="food-item"><div class="name">Café Bar Bilbao</div><div class="desc">С 1911. Bacalao al pil-pil, gildas</div><a href="https://www.google.com/maps/search/?api=1&query=Café+Bar+Bilbao+Plaza+Nueva" target="_blank">карта</a></div>
+    <div class="food-item"><div class="name">Sorginzulo</div><div class="desc">Best Pintxo de Bizkaia 2021. Кальмары по выходным</div><a href="https://www.google.com/maps/search/?api=1&query=Sorginzulo+Bilbao" target="_blank">карта</a></div>
+    <div class="food-item"><div class="name">Víctor Montes</div><div class="desc">С 1849. Гери подписал чертежи Guggenheim здесь</div><a href="https://www.google.com/maps/search/?api=1&query=Victor+Montes+Bilbao" target="_blank">карта</a></div>
+    <div class="food-item"><div class="name">La Viña del Ensanche</div><div class="desc">Хамон ибёрико мини-сэндвичи, фуа-гра</div><a href="https://www.google.com/maps/search/?api=1&query=La+Viña+del+Ensanche+Bilbao" target="_blank">карта</a></div>
+    <div class="food-item"><div class="name">El Globo</div><div class="desc">Txangurro (краб) gratinado</div><a href="https://www.google.com/maps/search/?api=1&query=El+Globo+Bilbao+pintxos" target="_blank">карта</a></div>
+    <div class="food-item"><div class="name">Nashville</div><div class="desc">Лучшая тортилья города. Indautxu</div><a href="https://www.google.com/maps/search/?api=1&query=Nashville+Bar+Bilbao" target="_blank">карта</a></div>
+    <div class="food-item"><div class="name">Basquery</div><div class="desc">Крафт-пивоварня. 7+ кранов, эли и IPA</div><a href="https://www.google.com/maps/place/?q=place_id:ChIJdSeb9M9PTg0RGe9cvrCUPmA" target="_blank">карта</a></div>
+  </div>
+</div>
+
+<!-- WEATHER -->
+<div class="section">
+  <h3 onclick="toggleSection(this)">Погода</h3>
+  <div class="section-body">
+    <div class="info-grid">
+      <div class="info-card"><div class="label">Днём</div><div class="value">15–17°C</div></div>
+      <div class="info-card"><div class="label">Ночью</div><div class="value">8–11°C</div></div>
+      <div class="info-card"><div class="label">Дождь</div><div class="value">~50% дней</div><div class="sub">Короткие ливни</div></div>
+      <div class="info-card"><div class="label">Светло до</div><div class="value">20:45</div></div>
+    </div>
+    <div style="margin-top:8px;font-size:12px;color:var(--muted)"><strong>Взять:</strong> непромокаемая куртка, зонт, слои, нескользящая обувь</div>
+  </div>
+</div>
+
+<!-- BUDGET -->
+<div class="section">
+  <h3 onclick="toggleSection(this)">Бюджет (без перелёта и жилья)</h3>
+  <div class="section-body">
+    <div class="info-grid">
+      <div class="info-card"><div class="label">Еда</div><div class="value">€50-75/день</div></div>
+      <div class="info-card"><div class="label">Транспорт</div><div class="value">€3-5/день</div></div>
+      <div class="info-card"><div class="label">Активности</div><div class="value">€10-15/день</div></div>
+      <div class="info-card" style="border:2px solid var(--gold)"><div class="label">Итого ~4 дня</div><div class="value" style="color:var(--gold)">€260-380</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- APPS -->
+<div class="section">
+  <h3 onclick="toggleSection(this)">Приложения</h3>
+  <div class="section-body">
+    <div class="app-grid">
+      <div class="app-badge">Barik NFC<br><span class="app-cat">пополнение карты</span></div>
+      <div class="app-badge">Citymapper<br><span class="app-cat">маршруты</span></div>
+      <div class="app-badge">Uber<br><span class="app-cat">такси</span></div>
+      <div class="app-badge">Cabify<br><span class="app-cat">такси</span></div>
+      <div class="app-badge">Metro Bilbao<br><span class="app-cat">расписание</span></div>
+      <div class="app-badge">Bizkaibus<br><span class="app-cat">автобусы</span></div>
+      <div class="app-badge">Glovo<br><span class="app-cat">доставка еды</span></div>
+      <div class="app-badge">TheFork<br><span class="app-cat">бронь столиков</span></div>
+      <div class="app-badge">Too Good To Go<br><span class="app-cat">дешёвая еда</span></div>
+      <div class="app-badge">Google Maps<br><span class="app-cat">навигация</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- PHRASES -->
+<div class="section">
+  <h3 onclick="toggleSection(this)">Фразы</h3>
+  <div class="section-body">
+    <table class="phrase-table">
+      <tr><td>Kaixo</td><td>Привет (баскский)</td></tr>
+      <tr><td>Eskerrik asko</td><td>Спасибо (баскский)</td></tr>
+      <tr><td>Agur</td><td>Пока (баскский)</td></tr>
+      <tr><td>Txotx!</td><td>«Чотч!» — клич в сидрерии</td></tr>
+      <tr><td>Gilda, mesedez</td><td>Гильду, пожалуйста</td></tr>
+      <tr><td>Un zurito</td><td>Маленькое пиво</td></tr>
+      <tr><td>La cuenta</td><td>Счёт</td></tr>
+      <tr><td>¿Dónde está...?</td><td>Где находится...?</td></tr>
+    </table>
+    <div style="margin-top:8px;font-size:12px;color:var(--muted)">Чаевые не обязательны — округлить или мелочь</div>
+  </div>
+</div>
+
+<!-- LINKS -->
+<div class="section">
+  <h3 onclick="toggleSection(this)">Полезные ссылки</h3>
+  <div class="section-body" style="font-size:13px">
+    <p><strong>Бронирование:</strong><br>
+    <a href="https://spannabis.es/bilbao/en/home/" target="_blank">Spannabis билеты</a> · <a href="https://www.guggenheim-bilbao.eus/en/hours-and-admission" target="_blank">Guggenheim билеты</a> · <a href="https://www.tiketa.eus/gaztelugatxe/" target="_blank">Gaztelugatxe бронь</a> · <a href="https://www.bascook.com/reservas" target="_blank">Bascook ресторан</a></p>
+    <p style="margin-top:8px"><strong>Транспорт:</strong><br>
+    <a href="https://www.metrobilbao.eus/en" target="_blank">Metro Bilbao</a> · <a href="https://www.euskotren.eus/en" target="_blank">EuskoTren</a> · <a href="https://www.bidaide.eus/en" target="_blank">Bizkaibus расписание</a> · <a href="https://funicularartxanda.bilbao.eus/en/" target="_blank">Фуникулёр Artxanda</a> · <a href="https://puente-colgante.com/en/" target="_blank">Puente de Vizcaya</a></p>
+    <p style="margin-top:8px"><strong>Инфо:</strong><br>
+    <a href="https://www.bilbaoturismo.net/BilbaoTurismo/en/" target="_blank">Bilbao Turismo</a> · <a href="https://www.booking.com/hotel/es/bilbao-heart-2bdr-apartment.html" target="_blank">Наша квартира</a> · <a href="https://www.google.com/maps/search/?api=1&query=43.268776,-2.928995" target="_blank">Квартира на карте</a></p>
+  </div>
+</div>
+
+<div class="legend">
+  <span><span class="legend-dot" style="background:#333"></span>Дом</span>
+  <span><span class="legend-dot" style="background:#e74c3c"></span>Ср</span>
+  <span><span class="legend-dot" style="background:#3498db"></span>Чт</span>
+  <span><span class="legend-dot" style="background:#9b59b6"></span>Пт</span>
+  <span><span class="legend-dot" style="background:#2ecc71"></span>Сб</span>
+  <span><span class="legend-dot" style="background:#f39c12"></span>Вс</span>
+</div>
+
+<script>
+const map = L.map('map',{scrollWheelZoom:false}).setView([43.272, -2.940], 13);
+L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+  attribution: '&copy; <a href="https://carto.com/">CARTO</a> &copy; <a href="https://osm.org/">OSM</a>',
+  maxZoom: 18
+}).addTo(map);
+
+const C={1:'#e74c3c',2:'#3498db',3:'#9b59b6',4:'#2ecc71',5:'#f39c12'};
+
+// Home marker
+const homeIcon = L.divIcon({
+  className:'',
+  html:'<div style="background:#333;width:32px;height:32px;border-radius:50%;border:3px solid #fff;display:flex;align-items:center;justify-content:center;font-size:16px;box-shadow:0 2px 10px rgba(0,0,0,.3)">🏠</div>',
+  iconSize:[32,32],iconAnchor:[16,16]
+});
+L.marker([43.268776,-2.928995],{icon:homeIcon,zIndexOffset:1000}).addTo(map)
+  .bindPopup('<div style="font-size:13px"><strong>🏠 Bilbao Heart 2BDR</strong><br>Tristan De Leguizamon 2, Uribarri<br>Check-in сразу по прилёту<br><a href="https://www.google.com/maps/search/?api=1&query=43.268776,-2.928995" target="_blank">Google Maps</a></div>');
+
+function pin(lat,lng,day,label,title,desc,link){
+  const icon=L.divIcon({
+    className:'',
+    html:`<div style="background:${C[day]};width:26px;height:26px;border-radius:50%;border:2.5px solid #fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;box-shadow:0 2px 6px rgba(0,0,0,.25)">${label}</div>`,
+    iconSize:[26,26],iconAnchor:[13,13]
+  });
+  const popup=`<div style="font-size:13px;max-width:220px"><strong>${title}</strong><br><span style="color:#666">${desc}</span>${link?'<br><a href="'+link+'" target="_blank">Подробнее →</a>':''}</div>`;
+  L.marker([lat,lng],{icon}).addTo(map).bindPopup(popup);
+}
+
+// Day 1 — red
+pin(43.2570,-2.9226,1,'1','Casco Viejo','Старый город, Plaza Nueva, pintxos','https://www.google.com/maps/search/?api=1&query=43.2569823,-2.9226478');
+pin(43.2558,-2.9230,1,'2','Mercado de la Ribera','Рынок + гастро-бары до 22:00','https://www.google.com/maps/place/?q=place_id:ChIJ329u8cxPTg0RX7XirbQve-0');
+
+// Day 2 — blue
+pin(43.2687,-2.9340,2,'3','Guggenheim','€15 · Serra, Kusama, Puppy','https://www.guggenheim-bilbao.eus/en/hours-and-admission');
+pin(43.2646,-2.9383,2,'4','Funicular Artxanda','Панорама · €0.65','https://funicularartxanda.bilbao.eus/en/opening-hours-and-prices/');
+pin(43.2617,-2.9345,2,'5','Azkuna Zentroa','43 колонны Starck · бесплатно','https://www.google.com/maps/place/?q=place_id:ChIJJYqLR9ZPTg0R2UlNKtzlO4s');
+pin(43.2640,-2.9335,2,'6','Basquery','Крафт, 7+ кранов','https://www.google.com/maps/place/?q=place_id:ChIJdSeb9M9PTg0RGe9cvrCUPmA');
+
+// Day 3 — purple
+pin(43.2878,-2.9593,3,'7','BEC Spannabis','17-19 апр · Metro L2 Ansio','https://spannabis.es/bilbao/en/home/');
+pin(43.2629,-2.9324,3,'8','Bascook','Ужин ~€38.50 · бронь!','https://www.bascook.com/reservas');
+
+// Day 4 — green
+pin(43.4478,-2.7833,4,'9','Gaztelugatxe','241 ступень · бронь tiketa.eus','https://www.tiketa.eus/gaztelugatxe/');
+pin(43.2576,-2.9079,4,'10','Sidreria Galtzagorri','TXOTX! · €19-32','https://www.google.com/maps/place/?q=place_id:ChIJPe8JgEtOTg0RXRpJB5fUNpw');
+
+// Day 5 — orange
+pin(43.3231,-3.0170,5,'11','Puente de Vizcaya','UNESCO · гондола €0.40','https://puente-colgante.com/en/tarifas-y-horarios/');
+
+function showDay(n){
+  document.querySelectorAll('.day-content').forEach(d=>d.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('day'+n).classList.add('active');
+  document.querySelectorAll('.tab')[n-1].classList.add('active');
+}
+function toggleSection(el){el.parentElement.classList.toggle('collapsed')}
+</script>
+</body>
+</html>
