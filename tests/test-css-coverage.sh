@@ -20,11 +20,18 @@ echo "=== CSS Class Coverage ==="
 echo ""
 
 # Extract all class names from templates (class="foo bar")
+# Filter out Hugo template expressions ({{ }}, pipes, Go template variables like .File.Dir)
 TEMPLATE_CLASSES=$(grep -roh 'class="[^"]*"' "$LAYOUTS_DIR" | \
   sed 's/class="//;s/"//' | \
   tr ' ' '\n' | \
   grep -v '^$' | \
   grep -v '{{' | \
+  grep -v '}}' | \
+  grep -v '^|$' | \
+  grep -v '^\.' | \
+  grep -v '^if$\|^else$\|^end$\|^range$\|^with$\|^define$\|^block$\|^partial$\|^path$' | \
+  grep -vE '[{}|]' | \
+  grep -vE '^[a-zA-Z]+\.[A-Z]' | \
   sort -u)
 
 MISSING_COUNT=0
@@ -52,7 +59,7 @@ echo ""
 # Reverse check: find potentially unused CSS classes (informational only)
 echo "--- Informational: Potentially unused CSS classes ---"
 UNUSED_COUNT=0
-CSS_CLASSES=$(grep -oP '\.\K[a-zA-Z_-][a-zA-Z0-9_-]*' "$CSS_FILE" | sort -u)
+CSS_CLASSES=$(grep -oE '\.[a-zA-Z_-][a-zA-Z0-9_-]*' "$CSS_FILE" | sed 's/^\.//' | sort -u)
 
 for cls in $CSS_CLASSES; do
   # Skip pseudo-classes, common CSS patterns, and element-based selectors
