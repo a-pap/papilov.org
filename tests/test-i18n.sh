@@ -34,13 +34,13 @@ done
 # 2. Check all keys from en.yaml exist in every other language file
 echo ""
 echo "--- Translation key coverage ---"
-EN_KEYS=$(grep -oP '^[a-zA-Z_0-9]+(?=:)' "$I18N_DIR/en.yaml" | sort)
+EN_KEYS=$(grep -oE '^[a-zA-Z_0-9]+:' "$I18N_DIR/en.yaml" | sed 's/:$//' | sort)
 
 for lang in ru es de zh; do
   LANG_FILE="$I18N_DIR/$lang.yaml"
   [ -f "$LANG_FILE" ] || continue
 
-  LANG_KEYS=$(grep -oP '^[a-zA-Z_0-9]+(?=:)' "$LANG_FILE" | sort)
+  LANG_KEYS=$(grep -oE '^[a-zA-Z_0-9]+:' "$LANG_FILE" | sed 's/:$//' | sort)
   MISSING=""
 
   for key in $EN_KEYS; do
@@ -63,7 +63,7 @@ for lang in ru es de zh; do
   LANG_FILE="$I18N_DIR/$lang.yaml"
   [ -f "$LANG_FILE" ] || continue
 
-  LANG_KEYS=$(grep -oP '^[a-zA-Z_0-9]+(?=:)' "$LANG_FILE" | sort)
+  LANG_KEYS=$(grep -oE '^[a-zA-Z_0-9]+:' "$LANG_FILE" | sed 's/:$//' | sort)
   EXTRA=""
 
   for key in $LANG_KEYS; do

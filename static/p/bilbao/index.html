@@ -446,8 +446,23 @@ a:hover{text-decoration:underline}
 <div class="section">
   <h3 onclick="toggleSection(this)">Кофе (specialty)</h3>
   <div class="section-body">
-    <div class="food-item"><div class="name">Siembra Coffee Roasters</div><div class="desc">Главные спешелти-обжарщики Бильбао. Фильтр. 10 мин от квартиры</div><a href="https://www.google.com/maps/search/?api=1&query=Siembra+Coffee+Roasters+Bilbao" target="_blank">карта</a></div>
-    <div class="food-item"><div class="name">ARVO Specialty Coffee</div><div class="desc">V60, австралийский вайб. У Гуггенхайма, через мост. Eng-friendly</div><a href="https://www.google.com/maps/search/?api=1&query=ARVO+Specialty+Coffee+Bilbao" target="_blank">карта</a></div>
+    <div style="font-size:12px;color:var(--muted);margin-bottom:8px">Бильбао — маленькая, но живая specialty-сцена. Фильтр дешевле Барселоны/Мадрида. Эспрессо €2-2.50, flat white €3.50-4.50, V60 €3.50-5</div>
+
+    <div class="food-item"><div class="name">Siembra Coffee Roasters ⭐</div><div class="desc">Колумбийская обжарка на месте — главный ростер Бильбао. Фильтр, эспрессо, кортадо. <strong>Продают зерно</strong> домой (250 г ~€10-15). Две точки: Henao 16 (Ensanche) + Plaza Moyua</div><div class="meta">Henao Kalea 16 · пн-сб ~8:30-19:00 · <a href="https://siembracoffee.com" target="_blank">siembracoffee.com</a></div><a href="https://www.google.com/maps/search/?api=1&query=Siembra+Coffee+Roasters+Bilbao+Henao" target="_blank">карта</a></div>
+
+    <div class="food-item"><div class="name">ARVO Specialty Coffee ⭐</div><div class="desc">Австралийский вайб, испано-венгерская пара. V60 (когда не rush hour), flat white, матча. Зерно от Old Town Coffee (Сан-Себастьян). <strong>В списке лучших кофеен Испании</strong> 3 года подряд. Laptop-friendly</div><div class="meta">Barrainkua 9 (Guggenheim) · пн-пт 8:30-16:00, сб 8:30-19:00, вс 8:30-16:00</div><a href="https://www.google.com/maps/search/?api=1&query=ARVO+Specialty+Coffee+Bilbao" target="_blank">карта</a> · <a href="https://arvobilbao.es" target="_blank" style="font-size:11px">сайт</a></div>
+
+    <div class="food-item"><div class="name">Nokora Coffee</div><div class="desc">Кофе-тастинг-рум на площади Гуггенхайма. Бариста объясняют происхождение, ноты. V60, альтернативные методы. Продают зерно + аксессуары. ★4.9 (239 отзывов)</div><div class="meta">Plaza del Museo 1 · <a href="https://nokora.coffee" target="_blank">nokora.coffee</a></div><a href="https://www.google.com/maps/search/?api=1&query=Nokora+Coffee+Plaza+del+Museo+Bilbao" target="_blank">карта</a></div>
+
+    <div class="food-item"><div class="name">Bihotz Café</div><div class="desc">Specialty + крафтовое пиво (редкая комба). Right Side Coffee (эспрессо) + Sakona (фильтр). La Marzocco. Район Bilbao La Vieja — стрит-арт, галереи</div><div class="meta">Arechaga Kalea 6 · вт-чт 16-22, пт 13-23, сб 11-23, вс 11-22 · <strong>пн закрыт, утром нет!</strong></div><a href="https://www.google.com/maps/search/?api=1&query=Bihotz+Café+Bilbao" target="_blank">карта</a></div>
+
+    <div class="food-item"><div class="name">Barista's Club</div><div class="desc">В самом сердце Casco Viejo. Идеально совместить с pintxos-кролом (День 1). Кухня до 15:00</div><div class="meta">Tenderia 30 · пн-сб 9:00-20:00, вс 9:00-15:00</div><a href="https://www.google.com/maps/search/?api=1&query=Barista's+Club+Tenderia+Bilbao" target="_blank">карта</a></div>
+
+    <div class="food-item"><div class="name">Café Originale</div><div class="desc">Зерно от BBs Café (баскский ростер). Сезонные завтраки, здоровые обеды. Laptop-friendly</div><div class="meta">Ercilla Kalea 19 · пн-сб 8:30-19:00, вс 8:30-16:00</div><a href="https://www.google.com/maps/search/?api=1&query=Café+Originale+Ercilla+Bilbao" target="_blank">карта</a></div>
+
+    <div class="food-item"><div class="name">Cokooncafé</div><div class="desc">Копенгагенский ростер + домашняя выпечка. Безглютеновые опции. Маленькое, камерное</div><div class="meta">Iparraguirre 5 · вт-вс 9:00-14:00 · <strong>пн закрыт, только утро!</strong></div><a href="https://www.google.com/maps/search/?api=1&query=Cokooncafe+Iparraguirre+Bilbao" target="_blank">карта</a></div>
+
+    <div style="margin-top:8px;font-size:12px;color:var(--muted)"><strong>По районам:</strong> Casco Viejo → Barista's Club, Bihotz · Guggenheim → ARVO, Nokora, Cokooncafé · Ensanche → Siembra, Originale · Uribarri/Matiko → ничего, ближайшее Ensanche (10 мин пешком)</div>
   </div>
 </div>
 
@@ -475,36 +490,46 @@ a:hover{text-decoration:underline}
       <strong style="color:var(--green)">Как это работает:</strong> Клубы (asociaciones cannábicas) — легальная серая зона. Некоммерческие ассоциации, выращивают для членов. Потребление <strong>только внутри клуба</strong>. Страна Басков — самая лояльная автономия (~200 клубов). Туристов принимают не все — уточнять заранее.
     </div>
 
-    <div class="food-item"><div class="name">Как вступить (туристу)</div><div class="desc">1) Найти клуб заранее (ShivaMap, Weedmaps) или через контакты на Spannabis. 2) Прийти с <strong>паспортом</strong> + адрес жилья (Airbnb ок). 3) Заполнить анкету, оплатить членство <strong>€20-50/год</strong> (только наличные!). 4) Получить доступ к меню и зонам. Некоторые клубы требуют рекомендацию (sponsor) от действующего члена</div></div>
+    <div style="padding:10px;background:#fff5f5;border-radius:8px;font-size:12px;border:1px solid #ffcdd2;margin-bottom:10px">
+      <strong style="color:var(--accent)">⚠ Обязательно до поездки:</strong> Написать email/WhatsApp/Instagram СЕЙЧАС (мин. за 2 дня). Указать даты, что на Spannabis, страну паспорта. Некоторые клубы долго отвечают — писать во все каналы сразу. Паспорт + наличные с собой!
+    </div>
 
-    <div style="font-size:12px;font-weight:700;color:var(--green);margin:12px 0 6px;text-transform:uppercase">Клубы Бильбао</div>
+    <div class="food-item"><div class="name">Как вступить (туристу)</div><div class="desc">1) Написать заранее (email/WA/IG). 2) Прийти с <strong>паспортом</strong> + адрес жилья (Airbnb ок). 3) Заполнить анкету, оплатить членство <strong>€20/год</strong> (наличные!). 4) Лимит: ~5 г/день, 60 г/месяц. Не все клубы отвечают быстро — писать во все каналы</div></div>
+
+    <div style="font-size:12px;font-weight:700;color:var(--green);margin:12px 0 6px;text-transform:uppercase">Клубы Бильбао (от ближнего к дальнему от квартиры)</div>
 
     <div class="food-item">
-      <div class="name">Culcanna ⭐</div>
-      <div class="desc">Самый популярный. Bilbao La Vieja (рядом с Casco Viejo). 15-20 сортов, гашиш, росин, BHO, эдиблы. Зоны отдыха с подушками. Принимают паспорт + адрес отеля</div>
-      <div class="meta">Zamakola Kalea 11 · вход рядом с кондитерской, звонок</div>
-      <a href="https://www.google.com/maps/search/?api=1&query=Zamakola+11+Bilbao" target="_blank">карта</a>
+      <div class="name">El Botxo 📍 ~15 мин</div>
+      <div class="desc">Ближайший к квартире! Рекомендация с Reddit (r/Bilbao, февр. 2026). Мало публичной инфы — искать контакт на месте или через Spannabis</div>
+      <div class="meta">Monte Arno Kalea 6</div>
+      <a href="https://www.google.com/maps/search/?api=1&query=Monte+Arno+6+Bilbao" target="_blank">карта</a>
     </div>
     <div class="food-item">
-      <div class="name">The Roots Club</div>
-      <div class="desc">Высокое качество, дружелюбный стафф. Нужен sponsor или обоснование — написать заранее на email. Не принимают walk-in</div>
-      <div class="meta">Lamana Kalea 3 · 12:00-21:00</div>
+      <div class="name">The Roots Club 📍 ~19 мин</div>
+      <div class="desc">Центр Casco Viejo. Дружелюбный стафф, красивый интерьер. <strong>⚠ В феврале 2026 был на ремонте</strong> — проверить статус. Писать заранее на ВСЕ каналы (отвечают нестабильно)</div>
+      <div class="meta">Lamana Kalea 3 · пн-сб 16:30-22:00, вс закрыт · <a href="mailto:asociaciontheroots@gmail.com">email</a> · <a href="tel:+34692221922">+34 692 221 922</a> · IG: @therootsclub</div>
       <a href="https://www.google.com/maps/search/?api=1&query=Lamana+Kalea+3+Bilbao" target="_blank">карта</a>
     </div>
     <div class="food-item">
-      <div class="name">Greengirlsberria</div>
-      <div class="desc">Большое пространство, несколько комнат, проектор для кино. Отличные экстракты. Семейная атмосфера</div>
-      <div class="meta">Eretza Mendiaren Kalea 29 · <a href="tel:+34602822893">+34 602 822 893</a></div>
+      <div class="name">Greengirlsberria ⭐ 📍 ~20 мин</div>
+      <div class="desc"><strong>★5.0 (16 отзывов) — лучший рейтинг в Бильбао.</strong> Большое пространство, несколько комнат, проектор. Отличные экстракты. Семейная атмосфера. Работает и в воскресенье!</div>
+      <div class="meta">Eretza Mendiaren Kalea 29 · пн-сб 10:00-22:00, вс 16:00-22:00 · <a href="mailto:greengirlsberria@gmail.com">email</a> · <a href="tel:+34631615137">+34 631 615 137</a></div>
       <a href="https://www.google.com/maps/search/?api=1&query=Eretza+Mendiaren+Kalea+29+Bilbao" target="_blank">карта</a>
     </div>
     <div class="food-item">
-      <div class="name">Green Bilbi</div>
-      <div class="desc">Арт-вход с большим глазом на двери. Тихая обстановка, мероприятия и лекции. Цветы, эдиблы, концентраты</div>
+      <div class="name">Culcanna ⭐ 📍 ~22 мин</div>
+      <div class="desc">С 2015, самый известный. 15-20 сортов, гашиш, росин, BHO, эдиблы. Зоны отдыха с подушками. «Good prices and quality, lovely staff» (Weedmaps)</div>
+      <div class="meta">Zamakola Kalea 11 · ежедн. 11:30-22:00 · <a href="mailto:culcanna.asoc@gmail.com">email</a> · <a href="tel:+34946539299">+34 946 539 299</a></div>
+      <a href="https://www.google.com/maps/search/?api=1&query=Zamakola+11+Bilbao" target="_blank">карта</a>
+    </div>
+    <div class="food-item">
+      <div class="name">Green Bilbi 📍 ~20 мин</div>
+      <div class="desc">Арт-вход с большим глазом на двери. Тихая обстановка, мероприятия и лекции. Цветы, эдиблы, концентраты. Точный адрес не публикуется — связываться через платформы</div>
       <a href="https://www.google.com/maps/search/?api=1&query=Green+Bilbi+cannabis+club+Bilbao" target="_blank">карта</a>
     </div>
     <div class="food-item">
-      <div class="name">CoconutCoffee CSC</div>
-      <div class="desc">Новый клуб, район Basurto-Zorrotza. Муралы, камерная атмосфера</div>
+      <div class="name">CoconutCoffee CSC 📍 ~31 мин</div>
+      <div class="desc">Самый дальний. Район Basurto-Zorrotza. Муралы, камерная атмосфера. Новый клуб</div>
       <div class="meta">Пн/ср-вс 11:00-14:30, 16:30-21:00 · вт закрыт</div>
     </div>
 
@@ -516,8 +541,8 @@ a:hover{text-decoration:underline}
       <div class="info-card"><div class="label">Эдиблы</div><div class="value">€5-15</div><div class="sub">Шоколад, леденцы, печенье</div></div>
     </div>
 
-    <div style="font-size:12px;font-weight:700;color:var(--blue);margin:12px 0 6px;text-transform:uppercase">Spannabis → клубы</div>
-    <div class="food-item"><div class="desc">Spannabis — ярмарка, не клуб. Но на стендах ассоциаций раздают визитки и приглашения. Лучшее место для контактов — зона отдыха (2000 м², фудтраки, сцена) и afterparties. CDays (16 апр, университет UPV/EHU) — профессиональный трек, нетворкинг</div></div>
+    <div style="font-size:12px;font-weight:700;color:var(--blue);margin:12px 0 6px;text-transform:uppercase">Spannabis 2026 → клубы</div>
+    <div class="food-item"><div class="desc"><strong>Первый Spannabis в Бильбао</strong> (из Барселоны). Сцена меньше и приватнее — меньше выбора, но атмосфера аутентичнее. На стендах ассоциаций раздают визитки — лучшее место для контактов. Зона отдыха (2000 м², фудтраки, музыка: reggae/dub/dnb/soul). <strong>1-дневный билет = один вход, без re-entry!</strong> Часы: пт-сб 11-20, вс 11-19:30. CDays (16 апр, UPV/EHU) — профессиональный нетворкинг</div></div>
 
     <div style="font-size:12px;font-weight:700;color:var(--accent);margin:12px 0 6px;text-transform:uppercase">Правила и закон</div>
     <table class="phrase-table">
@@ -682,6 +707,39 @@ a:hover{text-decoration:underline}
     <div class="food-item"><div class="name">Sal de Añana</div><div class="desc">Древняя баскская соль из соляной долины. Красивая упаковка, €5-8</div></div>
     <div class="food-item"><div class="name">Boina vasca</div><div class="desc">Баскский берет. Традиционный сувенир. €15-30 в магазинах Casco Viejo</div></div>
     <div style="margin-top:8px;font-size:12px;color:var(--muted)"><strong>Где:</strong> Mercado de la Ribera (рынок), Casco Viejo (сувениры), Eroski/BM (супермаркеты, txakoli дешевле). Вс магазины закрыты — покупать в пт-сб!</div>
+  </div>
+</div>
+
+<!-- SUPERMARKETS -->
+<div class="section">
+  <h3 onclick="toggleSection(this)">Супермаркеты и магазины</h3>
+  <div class="section-body">
+    <div style="font-size:12px;font-weight:700;color:var(--green);margin-bottom:6px;text-transform:uppercase">Рядом с квартирой (Uribarri/Matiko)</div>
+    <div class="food-item"><div class="name">Eroski Uribarri</div><div class="desc">Главная сеть Страны Басков. Лучший выбор местных продуктов: txakoli (эксклюзивы Zeruko, Mendigorri, Bayarri €5-10), Idiazábal, bonito del norte</div><div class="meta">Grupo Begoñalde 3 · пн-сб 9:00-21:00 · вс закрыт</div><a href="https://www.google.com/maps/search/?api=1&query=Eroski+Grupo+Begoñalde+Bilbao" target="_blank">карта</a></div>
+    <div class="food-item"><div class="name">Eroski City Zurbaranbarri</div><div class="desc">Компактный формат, ближе к Matiko</div><div class="meta">Barrio Zurbaranbarri 1 · пн-сб 9:00-21:00</div><a href="https://www.google.com/maps/search/?api=1&query=Eroski+City+Zurbaranbarri+Bilbao" target="_blank">карта</a></div>
+    <div class="food-item"><div class="name">BM Shop</div><div class="desc">Баскская сеть, чуть премиальнее Eroski. Хорошее качество свежих продуктов</div><div class="meta">Zamakola Kalea 47 · пн-сб ~9:00-21:00</div><a href="https://www.google.com/maps/search/?api=1&query=BM+Supermercados+Zamakola+Bilbao" target="_blank">карта</a></div>
+
+    <div style="font-size:12px;font-weight:700;color:var(--blue);margin:12px 0 6px;text-transform:uppercase">В центре (Casco Viejo / Ensanche)</div>
+    <div class="food-item"><div class="name">BM Urban</div><div class="desc">Прямо в Casco Viejo. Удобно после pintxos-крола</div><div class="meta">Banco de España 3</div><a href="https://www.google.com/maps/search/?api=1&query=BM+Urban+Banco+de+España+Bilbao" target="_blank">карта</a></div>
+    <div class="food-item"><div class="name">Eroski Casco Viejo</div><div class="desc">В старом городе</div><div class="meta">Orixe Kalea 40</div><a href="https://www.google.com/maps/search/?api=1&query=Eroski+Orixe+Bilbao" target="_blank">карта</a></div>
+    <div class="food-item"><div class="name">El Corte Inglés</div><div class="desc">Универмаг на Gran Vía. Продуктовый супермаркет на верхнем этаже — премиум, широкий выбор, дороже</div><div class="meta">Gran Vía 7-9</div><a href="https://www.google.com/maps/search/?api=1&query=El+Corte+Inglés+Gran+Via+Bilbao" target="_blank">карта</a></div>
+
+    <div style="font-size:12px;font-weight:700;color:var(--accent);margin:12px 0 6px;text-transform:uppercase">Воскресенье — всё закрыто!</div>
+    <div class="food-item"><div class="desc"><strong>Единственный вариант:</strong> OpenCor (Alameda de Recalde 27) — 18ч/день, работает в вс и праздники. Мелкие лавки (alimentación) в Casco Viejo — некоторые открыты, без гарантий. Glovo/Uber Eats для доставки</div><a href="https://www.google.com/maps/search/?api=1&query=OpenCor+Alameda+Recalde+Bilbao" target="_blank">OpenCor на карте</a></div>
+
+    <div style="font-size:12px;font-weight:700;color:var(--gold);margin:12px 0 6px;text-transform:uppercase">Что искать в супермаркете</div>
+    <div class="info-grid">
+      <div class="info-card"><div class="label">Txakoli</div><div class="value">€5-10</div><div class="sub">3 DO: Bizkaiko, Getariako, Arabako</div></div>
+      <div class="info-card"><div class="label">Idiazábal</div><div class="value">€8-15</div><div class="sub">Ahumado (копч.) / natural</div></div>
+      <div class="info-card"><div class="label">Bonito del norte</div><div class="value">€4-8</div><div class="sub">Белый тунец в масле. Банки</div></div>
+      <div class="info-card"><div class="label">Sidra natural</div><div class="value">€2-4</div><div class="sub">Бутылки для дома</div></div>
+    </div>
+
+    <div style="margin-top:10px;font-size:12px;color:var(--muted)">
+      <strong>Гурмэ-магазины:</strong> Mercado de la Ribera (60+ прилавков, фермерские продукты) · La Bendita (Casco Viejo, анчоусы, txakoli) · Delicatessen López Oleaga (эксклюзивные баскские продукты)<br>
+      <strong>Крафтовое пиво:</strong> в супермаркетах выбор слабый → Basquery Brewery, La Muga (11 кранов, Casco Viejo), Penguin (20+ кранов), Morrocotuda. Местные пивоварни: <strong>Laugar</strong>, Boga, La Txika<br>
+      <strong>Нет в центре:</strong> Mercadona (только Deusto), Lidl (пригороды), Carrefour (мелкие Express)
+    </div>
   </div>
 </div>
 

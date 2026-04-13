@@ -46,12 +46,16 @@ REQUIRED_VARS=(
   "--purple-soft"
 )
 
+# Extract theme blocks once using sed (portable, no grep -P)
+LIGHT_BLOCK=$(sed -n '/^:root/,/^}/p' "$CSS_FILE" | head -50)
+DARK_BLOCK=$(sed -n '/\[data-theme="dark"\] {/,/^}/p' "$CSS_FILE" | head -50)
+SYSDARK_BLOCK=$(sed -n '/@media (prefers-color-scheme: dark)/,/^}/p' "$CSS_FILE" | head -50)
+
 # Check light theme (defined in :root)
 echo ""
 echo "Light theme (:root):"
-# Extract the :root block
 for var in "${REQUIRED_VARS[@]}"; do
-  if grep -P '^\s*:root' "$CSS_FILE" -A 100 | grep -qF -- "$var:"; then
+  if echo "$LIGHT_BLOCK" | grep -qF -- "$var:"; then
     pass "Light theme defines $var"
   else
     fail "Light theme missing $var"
@@ -62,7 +66,7 @@ done
 echo ""
 echo "Dark theme ([data-theme=\"dark\"]):"
 for var in "${REQUIRED_VARS[@]}"; do
-  if grep -P '\[data-theme="dark"\]' "$CSS_FILE" -A 100 | head -60 | grep -qF -- "$var:"; then
+  if echo "$DARK_BLOCK" | grep -qF -- "$var:"; then
     pass "Dark theme defines $var"
   else
     fail "Dark theme missing $var"
@@ -73,7 +77,7 @@ done
 echo ""
 echo "System dark (prefers-color-scheme):"
 for var in "${REQUIRED_VARS[@]}"; do
-  if grep 'prefers-color-scheme: dark' "$CSS_FILE" -A 100 | head -60 | grep -qF -- "$var:"; then
+  if echo "$SYSDARK_BLOCK" | grep -qF -- "$var:"; then
     pass "System dark defines $var"
   else
     fail "System dark missing $var"
@@ -86,7 +90,7 @@ echo "--- Hardcoded color detection ---"
 
 # Look for color properties that use literal hex/rgb values instead of var()
 # Exclude: :root variables definitions, [data-theme] definitions, media queries, comments, print styles
-HARDCODED=$(grep -nP '(?<!-)(color|background|border-color|background-color|border)\s*:.*#[0-9a-fA-F]{3,8}' "$CSS_FILE" | \
+HARDCODED=$(grep -nE '(^|[^-])(color|background|border-color|background-color|border)\s*:.*#[0-9a-fA-F]{3,8}' "$CSS_FILE" | \
   grep -v ':root' | \
   grep -v 'data-theme' | \
   grep -v 'prefers-color-scheme' | \
