@@ -104,30 +104,29 @@ All styles in `themes/cosmos/static/css/main.css`. Use CSS variables, never hard
 
 ## Cloudflare Infrastructure
 
-### Credentials (scoped token)
+### Credentials
 
-```
-Token: 81Shka0WopPUSiDyMHuhpj0fxjuEVLJhLP5XWQWz
-Zone ID: ff4fccc07f94931bf783b5fa988c272c
-Account ID: 591f28ffddda0db48e961f1427310923
-```
+**NEVER commit tokens to this repo (public).** Use environment variables:
+- `CF_API_TOKEN` — scoped token (DNS R/W, Pages R/W, Workers R/W)
+- `CF_ZONE_ID` — papilov.org zone
+- `CF_ACCOUNT_ID` — Cloudflare account
 
-Permissions: DNS Read/Write, Pages Read/Write, Workers Scripts Read/Write.
+Store in `~/.env.papilov-org` (gitignored) or export in shell profile.
 
 ### Common API Calls
 
 ```bash
 # List DNS records
-curl -s "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/dns_records" \
-  -H "Authorization: Bearer $TOKEN"
+curl -s "https://api.cloudflare.com/client/v4/zones/$CF_ZONE_ID/dns_records" \
+  -H "Authorization: Bearer $CF_API_TOKEN"
 
 # Trigger Pages deployment
-curl -s -X POST "https://api.cloudflare.com/client/v4/accounts/$ACCOUNT_ID/pages/projects/papilov-org/deployments" \
-  -H "Authorization: Bearer $TOKEN"
+curl -s -X POST "https://api.cloudflare.com/client/v4/accounts/$CF_ACCOUNT_ID/pages/projects/papilov-org/deployments" \
+  -H "Authorization: Bearer $CF_API_TOKEN"
 
 # Purge cache (after content changes)
-curl -s -X POST "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/purge_cache" \
-  -H "Authorization: Bearer $TOKEN" \
+curl -s -X POST "https://api.cloudflare.com/client/v4/zones/$CF_ZONE_ID/purge_cache" \
+  -H "Authorization: Bearer $CF_API_TOKEN" \
   -H "Content-Type: application/json" \
   --data '{"purge_everything":true}'
 ```
