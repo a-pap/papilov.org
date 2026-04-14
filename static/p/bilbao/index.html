@@ -106,13 +106,20 @@ a:hover{text-decoration:underline}
 </div>
 
 <div class="section" style="margin:12px 16px;border-left:4px solid var(--blue)">
-  <h3 onclick="toggleSection(this)">Рейсы — Lufthansa via MUC</h3>
+  <h3 onclick="toggleSection(this)">Рейсы — все 4 прилетаем в разные дни</h3>
   <div class="section-body">
-    <div class="info-grid">
-      <div class="info-card"><div class="label">Туда · Ср 15 апр</div><div class="value">BEG→MUC→BIO</div><div class="sub">06:15→07:50 | 08:55→11:10 · стыковка 1ч 05м</div></div>
-      <div class="info-card"><div class="label">Обратно · Вс 19 апр</div><div class="value">BIO→MUC→BEG</div><div class="sub">07:40→09:55 | 10:50→12:20 · стыковка 55м</div></div>
+    <div style="padding:10px;background:#fff5f5;border-radius:8px;font-size:12px;border:1px solid #ffcdd2;margin-bottom:10px">
+      <strong style="color:var(--accent)">⚠ LH BEG→MUC→BIO отменён 14 апр.</strong> Через Kiwi оформлен instant refund €200 на Kiwi-счёт (вместо полного refund+EC261). Перемаршрут куплен отдельно: Иван Vueling, Артём+Валера Air Serbia+поезд, Дина Vueling.
     </div>
-    <div style="margin-top:8px;font-size:12px;color:var(--accent);font-weight:600">⚠ Только единый PNR (lufthansa.com)! 55м стыковка раздельными билетами невозможна — багаж не пройдёт</div>
+    <div class="info-grid">
+      <div class="info-card"><div class="label">Иван · Ср 15 апр</div><div class="value">BCN→BIO</div><div class="sub">Vueling VY1422 · 09:00→10:15 · в квартире ~11:30</div></div>
+      <div class="info-card"><div class="label">Артём + Валера · Чт 16 апр</div><div class="value">BEG→BCN→поезд</div><div class="sub">Air Serbia 15.04 17:10→19:50 · ночь Barcelona · Renfe Alvia 08:50→15:53 · в квартире ~16:30</div></div>
+      <div class="info-card"><div class="label">Дина · Пт 17 апр</div><div class="value">BCN→BIO</div><div class="sub">Vueling · 09:00→10:15 · в квартире ~10:30</div></div>
+      <div class="info-card" style="border:2px dashed var(--muted)"><div class="label">Обратно · Вс 19 апр</div><div class="value">TBD</div><div class="sub">После refund LH — перемаршрут планируется</div></div>
+    </div>
+    <div style="margin-top:8px;font-size:12px;color:var(--muted)">
+      <strong>Хост Фернандо</strong> · <a href="tel:+34667948746">+34 667 94 87 46</a> (WhatsApp). Проживает 4 чел, регистрируется 3 (без Дины — договорено с хостом).
+    </div>
   </div>
 </div>
 
@@ -148,16 +155,25 @@ a:hover{text-decoration:underline}
 
 <!-- DAY 1 -->
 <div class="day-content active" id="day1">
-  <div class="day-header">Среда — Прилёт</div>
-  <div class="day-vibe">Добраться, разместиться, первый pintxos-вечер. Без плана</div>
+  <div class="day-header">Среда — Иван прилетает</div>
+  <div class="day-vibe">Иван один в Бильбао. Артём+Валера летят BEG→BCN вечером (ночь в Барсе). Дина дома</div>
 
   <div class="time-block">
-    <div class="time-label">Прилёт</div>
+    <div class="time-label">10:15</div>
     <div class="time-body">
-      <h4>Аэропорт → Bilbao Heart</h4>
-      <p>Автобус <strong>A3247</strong> каждые 15 мин → Gran Vía → 10 мин пешком. <span class="price">€1.16 с Barik</span> (€4.50 без). Купить Barik (€3) в автомате при выходе.<br>Или <strong>такси</strong> ~15 мин, <span class="price">~€15</span>.</p>
-      <p class="tip">Одной Barik картой можно платить за до 10 человек!</p>
+      <h4>Иван: прилёт BIO (Vueling VY1422)</h4>
+      <p>Прилёт из Барселоны в 10:15. Автобус <strong>A3247</strong> каждые 15 мин → Gran Vía → 10 мин пешком. <span class="price">€1.16 с Barik</span> (€4.50 без). Купить Barik (€3) в автомате при выходе.<br>Или <strong>такси</strong> ~15 мин, <span class="price">~€15</span>. В квартире к ~11:30.</p>
+      <p class="tip">Одной Barik картой можно платить за до 10 человек — купи сразу, пригодится всем</p>
+      <p class="tip">Фернандо в курсе, WhatsApp заранее с ETA: +34 667 94 87 46</p>
       <a class="link" href="https://www.google.com/maps/dir/Bilbao+Airport/43.268776,-2.928995/" target="_blank">Маршрут до квартиры</a>
+    </div>
+  </div>
+
+  <div class="time-block">
+    <div class="time-label">17:10</div>
+    <div class="time-body">
+      <h4>Артём + Валера: вылет BEG→BCN</h4>
+      <p>Air Serbia (A220, operated AirBaltic), прямой, 17:10 → 19:50 BCN T1. Ночь в <strong>Hotel Transit</strong> (Rector Triado 82, Sants) — 200 м от вокзала Barcelona-Sants. Из аэропорта: такси €35-40 (рекомендую) или shuttle T1→T2 + Renfe R2 Nord до Sants €4.90 (40 мин).</p>
     </div>
   </div>
 
@@ -194,13 +210,22 @@ a:hover{text-decoration:underline}
 
 <!-- DAY 2 -->
 <div class="day-content" id="day2">
-  <div class="day-header">Четверг — Guggenheim и закат</div>
-  <div class="day-vibe">Музей без спешки, долгий обед, фуникулёр рядом с домом на закат</div>
+  <div class="day-header">Четверг — Guggenheim · Артём+Валера приезжают днём</div>
+  <div class="day-vibe">Иван утром в музей. Артём+Валера на поезде из Барсы, в квартире к ~16:30. Вечер — закат на фуникулёре всем вместе</div>
+
+  <div class="time-block">
+    <div class="time-label">08:50</div>
+    <div class="time-body">
+      <h4>Артём + Валера: поезд BCN→BIO</h4>
+      <p><strong>Renfe Alvia</strong> Barcelona-Sants → Bilbao-Abando, прямой, 08:50 → 15:53 (7ч 03м). WiFi PlayRenfe, розетки, cafetería. Билет на trainline.com.</p>
+      <p class="tip">На вокзал за 30 мин — security check. Перекус купить в Caprabo прямо на Sants</p>
+    </div>
+  </div>
 
   <div class="time-block">
     <div class="time-label">~10:30</div>
     <div class="time-body">
-      <h4>Guggenheim Museum</h4>
+      <h4>Иван: Guggenheim Museum</h4>
       <p>Serra (зал 104 — огромные стальные скульптуры), Kusama Infinity Room (QR-очередь!), Puppy + паук Maman снаружи. <span class="price">€15</span>, до 18 бесплатно. ~2.5-3 часа.</p>
       <p class="dist">🚶 9 мин от квартиры — спуститься по холму к реке</p>
       <a class="link" href="https://www.guggenheim-bilbao.eus/en/hours-and-admission" target="_blank">Купить билет</a>
@@ -211,7 +236,7 @@ a:hover{text-decoration:underline}
   <div class="time-block">
     <div class="time-label">~14:00</div>
     <div class="time-body">
-      <h4>Обед — на выбор</h4>
+      <h4>Иван: обед — на выбор</h4>
       <p><strong>La Viña del Ensanche</strong> — хамон ибёрико сэндвичи, фуа-гра · <a href="https://www.google.com/maps/search/?api=1&query=La+Viña+del+Ensanche+Bilbao" target="_blank">карта</a><br>
       <strong>Café Iruña</strong> (1903) — мавританский интерьер, pintxos morunos · <a href="https://www.google.com/maps/search/?api=1&query=Café+Iruña+Bilbao" target="_blank">карта</a><br>
       <strong>Markina</strong> — menú del día <span class="price">€17.50</span> (3 блюда + вино + кофе) · <a href="https://www.google.com/maps/search/?api=1&query=Restaurante+Markina+Bilbao" target="_blank">карта</a></p>
@@ -219,11 +244,11 @@ a:hover{text-decoration:underline}
   </div>
 
   <div class="time-block">
-    <div class="time-label">~16:30</div>
+    <div class="time-label">15:53</div>
     <div class="time-body">
-      <h4>Прогулка по набережной</h4>
-      <p>Мост Zubizuri (Калатрава, белый стеклянный) → парк Doña Casilda → <strong>Azkuna Zentroa</strong> (43 колонны Starck, бесплатно).</p>
-      <a class="link" href="https://www.google.com/maps/dir/Guggenheim+Museum+Bilbao/Zubizuri/Azkuna+Zentroa/" target="_blank">Маршрут прогулки</a>
+      <h4>Артём + Валера: прибытие Bilbao-Abando</h4>
+      <p>Вокзал в центре, 5 мин пешком до Casco Viejo через мост. До квартиры: такси €8-12 (7-10 мин) или метро L3 Abando → Matiko (2 остановки, €1.75). В квартире ~16:30.</p>
+      <a class="link" href="https://www.google.com/maps/dir/Bilbao-Abando/43.268776,-2.928995/" target="_blank">Маршрут от вокзала</a>
     </div>
   </div>
 
@@ -252,15 +277,24 @@ a:hover{text-decoration:underline}
 
 <!-- DAY 3 -->
 <div class="day-content" id="day3">
-  <div class="day-header">Пятница — Spannabis</div>
-  <div class="day-vibe">Выставка в своём темпе. Champions Cup вечером. Ужин в Bascook</div>
+  <div class="day-header">Пятница — Дина прилетает · Spannabis</div>
+  <div class="day-vibe">Дина утром из Барсы, сразу в квартиру. Группой на Spannabis после обеда. Champions Cup вечером. Ужин в Bascook</div>
 
   <div class="time-block">
-    <div class="time-label">~10:30</div>
+    <div class="time-label">10:15</div>
     <div class="time-body">
-      <h4>BEC — Spannabis 2026</h4>
-      <p>Metro Matiko → L2 → Ansio (~20 мин). Касса 10:30, двери 11:00. 500+ стендов, World Cannabis Conference — панели весь день. 1-дневный билет = один вход.</p>
-      <p class="tip">Совет: берите перекус, внутри еда дорогая. Вода с собой</p>
+      <h4>Дина: прилёт BIO (Vueling из BCN)</h4>
+      <p>Прилёт 09:00 из Барселоны, на земле 10:15. Автобус A3247 → Gran Vía или такси ~€15. В квартире к ~11:00-11:30.</p>
+      <p class="tip">Фернандо знает: Дина НЕ регистрируется (договорено). Просто заходит с остальными.</p>
+    </div>
+  </div>
+
+  <div class="time-block">
+    <div class="time-label">~13:00</div>
+    <div class="time-body">
+      <h4>BEC — Spannabis 2026 (все 4)</h4>
+      <p>Metro Matiko → L2 → Ansio (~20 мин). 500+ стендов, World Cannabis Conference — панели весь день. 1-дневный билет = один вход, без re-entry. Часы: пт-сб 11-20.</p>
+      <p class="tip">Совет: перекус с собой, внутри еда дорогая. Вода. Поздний заход даёт Дине время отдохнуть после перелёта</p>
       <a class="link" href="https://spannabis.es/bilbao/en/home/" target="_blank">Купить билеты</a>
       <a class="link green" href="https://www.google.com/maps/dir/43.268776,-2.928995/BEC+Bilbao+Exhibition+Centre/" target="_blank">Маршрут от дома</a>
       <a class="link orange" href="https://www.google.com/maps/place/?q=place_id:ChIJ97ux2XdaTg0RmCLfs_Ro6xo" target="_blank">BEC на карте</a>
@@ -350,24 +384,20 @@ a:hover{text-decoration:underline}
 <!-- DAY 5 -->
 <div class="day-content" id="day5">
   <div class="day-header">Воскресенье — Домой</div>
-  <div class="day-vibe">Ранний подъём, такси, BIO→MUC→BEG. Дома к обеду</div>
+  <div class="day-vibe">Возврат LH-рейса оформлен через Kiwi (€200 instant refund). Обратные рейсы каждый купит отдельно</div>
 
   <div class="time-block">
-    <div class="time-label" style="color:var(--accent)">~05:10</div>
+    <div class="time-label" style="color:var(--muted)">TBD</div>
     <div class="time-body">
-      <h4>Подъём → такси в аэропорт</h4>
-      <p>Заказать <strong>Cabify/Uber накануне</strong> на ~05:30. До аэропорта ~15 мин, <span class="price">~€15</span>. Check-out до 12:00, но вещи оставить нельзя — забрать всё.</p>
-      <p class="tip">Автобус A3247 в это время НЕ ходит — только такси!</p>
-      <a class="link" href="https://www.google.com/maps/dir/43.268776,-2.928995/Bilbao+Airport/" target="_blank">Маршрут в аэропорт</a>
-    </div>
-  </div>
-
-  <div class="time-block">
-    <div class="time-label">07:40</div>
-    <div class="time-body">
-      <h4>BIO → MUC → BEG</h4>
-      <p>07:40→09:55 (BIO→MUC) + 10:50→12:20 (MUC→BEG). Стыковка 55 мин в MUC T2 — быстрые коннекты. <strong>Дома к обеду.</strong></p>
-      <p class="tip">Только единый PNR! 55 мин стыковка раздельными билетами невозможна — нет сквозного багажа</p>
+      <h4>⚠ Обратный маршрут планируется</h4>
+      <p>Оригинальный LH BIO→MUC→BEG отменён вместе с outbound. Через Kiwi получен <strong>instant refund €200</strong> на Kiwi-счёт (вместо полного refund по EC 261). Кэш не вернулся — только Kiwi-credit.</p>
+      <p>Каждый участник покупает обратный рейс самостоятельно под свой календарь:</p>
+      <ul style="margin:8px 0 8px 18px;font-size:13px;line-height:1.6">
+        <li><strong>Иван</strong> — вариант: Vueling BIO→BCN + домой</li>
+        <li><strong>Артём+Валера</strong> — вариант: BIO→BCN→BEG в один день (Vueling + Air Serbia) или train+Vueling</li>
+        <li><strong>Дина</strong> — отдельно, под её расписание</li>
+      </ul>
+      <p class="tip">Проверить рейсы на <a href="https://www.google.com/travel/flights" target="_blank">Google Flights</a> (broad) + <a href="https://kayak.com" target="_blank">Kayak</a> (верификация с багажом)</p>
     </div>
   </div>
 </div>
