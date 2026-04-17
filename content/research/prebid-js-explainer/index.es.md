@@ -8,7 +8,7 @@ confidence: "certain"
 description: "Análisis profundo de la tecnología que procesa billones de subastas publicitarias al año — de la mecánica al impacto empresarial."
 tags: ["adtech", "programmatic", "header-bidding", "prebid", "monetization"]
 series: "Información ≠ Comprensión"
-ai_disclosure: "Research conducted with Claude (Anthropic). Human editorial direction and domain expertise."
+ai_disclosure: "Investigación realizada con Claude (Anthropic). Dirección editorial y experiencia en el dominio: del autor."
 license: "CC BY-NC 4.0"
 ---
 

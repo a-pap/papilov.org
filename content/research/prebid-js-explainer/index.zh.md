@@ -8,7 +8,7 @@ confidence: "certain"
 description: "深度解析每年处理数万亿次广告拍卖的技术——从机制到商业影响。面向决策者。"
 tags: ["adtech", "programmatic", "header-bidding", "prebid", "monetization"]
 series: "信息 ≠ 理解"
-ai_disclosure: "Research conducted with Claude (Anthropic). Human editorial direction and domain expertise."
+ai_disclosure: "研究借助 Claude（Anthropic）完成。编辑方向与领域专业知识由作者提供。"
 license: "CC BY-NC 4.0"
 ---
 

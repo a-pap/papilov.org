@@ -8,7 +8,7 @@ confidence: "certain"
 description: "Eine tiefgehende Analyse der Technologie, die Billionen von Werbeauktionen pro Jahr verarbeitet — von der Mechanik bis zu den geschäftlichen Auswirkungen. Für Entscheidungsträger."
 tags: ["adtech", "programmatic", "header-bidding", "prebid", "monetization"]
 series: "Information ≠ Verständnis"
-ai_disclosure: "Research conducted with Claude (Anthropic). Human editorial direction and domain expertise."
+ai_disclosure: "Recherche mit Claude (Anthropic) durchgeführt. Redaktionelle Leitung und Fachkompetenz vom Autor."
 license: "CC BY-NC 4.0"
 ---
 

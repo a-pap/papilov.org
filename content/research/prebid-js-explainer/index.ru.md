@@ -8,7 +8,7 @@ confidence: "certain"
 description: "Глубокий разбор технологии, которая обрабатывает триллионы рекламных аукционов в год — от механики до бизнес-эффектов. Для тех, кто принимает решения."
 tags: ["adtech", "programmatic", "header-bidding", "prebid", "monetization"]
 series: "Информация ≠ Понимание"
-ai_disclosure: "Research conducted with Claude (Anthropic). Human editorial direction and domain expertise."
+ai_disclosure: "Исследование выполнено с помощью Claude (Anthropic). Редакторское направление и предметная экспертиза — авторские."
 license: "CC BY-NC 4.0"
 ---
 
