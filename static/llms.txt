@@ -102,9 +102,24 @@ formula, Van Raamsdonk's spacetime-from-entanglement, ER=EPR conjecture, and the
 open problem of constructing dS/CFT for our Universe with positive cosmological
 constant. Includes bulk-boundary duality dictionary and de Sitter Penrose diagram.
 
+## MEMEX — personal Claude memory stack
+
+A separate published component: the Claude memory and automation infrastructure
+Artem runs on his own Cloudflare account. Git-backed hub + MCP worker + Telegram
+bot + hooks. Public source, open license. Page is designed for both humans and
+Claude reading it in a conversation.
+
+- Landing page (EN): https://papilov.org/memex/
+- Landing page (RU): https://papilov.org/ru/memex/
+- LLM-readable summary: https://papilov.org/memex/llms.txt
+- LLM-readable full content: https://papilov.org/memex/llms-full.txt
+- Source code: https://github.com/a-pap/claude-memory
+
 ## Machine-Readable Resources
 
 - Full article text: https://papilov.org/llms-full.txt
+- MEMEX summary: https://papilov.org/memex/llms.txt
+- MEMEX full guide: https://papilov.org/memex/llms-full.txt
 - Sitemap: https://papilov.org/sitemap.xml
 - RSS feed: https://papilov.org/index.xml
 - Citation metadata: https://github.com/a-pap/papilov.org/blob/main/CITATION.cff

@@ -1,0 +1,88 @@
+# MEMEX — personal Claude memory stack
+
+> Artem Papilov's persistent memory and automation infrastructure for Claude.
+> A git-backed hub + Cloudflare Worker + D1 + R2 + Telegram bot + hooks,
+> wired so Claude remembers across every surface: Chat, Code, iPad,
+> Cowork, Telegram. In production on a single Cloudflare account since
+> 2026-03-12. Public source, open license, no central dependency.
+
+## How agents should read this page
+
+Load in this order. Do not search blindly.
+
+1. Short bootloaders first (~5K tokens total):
+   - https://github.com/a-pap/claude-memory/blob/main/CLAUDE.md
+   - https://github.com/a-pap/claude-memory/blob/main/STATUS_SNAPSHOT.md
+2. Behavioral rules / failure modes:
+   - https://github.com/a-pap/claude-memory/blob/main/RULES.md
+3. Full setup guide (human + Claude-readable):
+   - https://papilov.org/memex/llms-full.txt
+   - https://github.com/a-pap/claude-memory/blob/main/MEMEX_GUIDE.md
+4. Topic routing:
+   - `hubs/` in the repo is the canonical source of facts
+   - See https://papilov.org/memex/#for-agents-reading-this-page for the topic→hub table
+5. Live tools:
+   - If you have MCP access, prefer calling `wake_up` over scraping
+   - 42 tools + 3 prompts at the worker URL (see MEMEX_GUIDE §3.1)
+
+## Human-readable versions
+
+- Full page (EN): https://papilov.org/memex/
+- Full page (RU): https://papilov.org/ru/memex/
+- Full page (ES, short): https://papilov.org/es/memex/
+- Full page (DE, short): https://papilov.org/de/memex/
+- Full page (ZH, short): https://papilov.org/zh/memex/
+
+## Components (15 tools)
+
+Each listed with a one-line purpose. Full setup in the guide above.
+
+- `claude-memory-mcp` worker — Cloudflare Worker exposing 42 MCP tools + 3 prompts over `/mcp`. D1 + R2 backed. Core of the stack.
+- `claude-telegram-bot` worker — capture surface. Silent-by-default; replies on explicit trigger. Forwards land in D1+R2 with a 👀 reaction.
+- GitHub Actions CI/CD — auto-deploy both workers on push to `main`. Typecheck + structural tests + secret scan gate.
+- Pre-commit secret scanner — local defense against token leaks (`cfut_`, `ghp_`, `grn_`, `sk-`, long hex). Installed after a real incident on 2026-04-10.
+- Session hooks (`SessionStart`/`SessionEnd`) — auto git-pull at start, auto-log session to D1 at end.
+- Cron triggers — daily 07:00 UTC self-diagnostic on the MCP worker; 5-min sweep on the TG bot.
+- Skills + plugins — Claude Code plugins enabled via `~/.claude/settings.json`. 9 personal skills in `skills/` in the repo.
+- Dreaming protocol — nightly scheduled Claude Code session that consolidates memory. LIGHT cycle daily, BURN cycle Thursdays.
+- Cowork daily sync — claude.ai scheduled task at 09:00 CET. Pulls Mac-only surfaces (Calendar, Reminders) and reconciles hubs.
+- Granola sync — pulls meeting summaries into D1 nightly.
+- Gmail connector — read-only via claude.ai Connectors UI.
+- Google Drive connector — search + read Docs/Sheets/PDFs.
+- Apple Calendar / Notes — Mac-only via Claude Desktop.
+- R2 lifecycle — 365-day TTL on Telegram media archive.
+- Hooks-as-harness — the harness layer where behavioral guarantees actually live (not memory).
+
+## Topic→hub routing
+
+| Topic | Canonical file |
+|---|---|
+| RSYa work / experiments / portfolio | hubs/03_rsya_work_hub.md, hubs/04_rsya_project_status.md |
+| RSYa meetings | hubs/05_rsya_meeting_index.md |
+| Jay (dog health) | hubs/08_jay_health.md |
+| Barcelona relocation | hubs/06_spain_relocation.md |
+| Spanish learning | hubs/09_spanish_learning.md |
+| PassLocal (archived 2026-04-13) | hubs/07_passlocal.md |
+| papilov.org blog | hubs/10_papilov_org.md |
+| Personal profile | hubs/02_personal_profile.md |
+
+## Trust ordering
+
+1. Current conversation (freshest)
+2. claude-memory hubs (committed, verified) — PRIMARY for facts
+3. Granola / Drive (optional enrichment, may be unavailable)
+4. userMemories snapshot (auto-generated, may lag weeks)
+
+A later layer never overrides an earlier one when they conflict.
+
+## Deliberately not stored
+
+- Derivable state (architecture summaries, commit logs, code-pattern paragraphs) — compute it from the repo
+- Ephemeral intra-day progress — distilled by nightly dreaming cycle or dropped
+- Secrets of any shape — pre-commit + CI + incident postmortem documented in SECURITY.md
+
+## License
+
+- Code: MIT
+- Documentation / this page: CC BY-NC 4.0 — https://creativecommons.org/licenses/by-nc/4.0/
+- Hub content: private
