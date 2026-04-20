@@ -35,12 +35,6 @@
   Content-Type: text/plain; charset=utf-8
   Cache-Control: public, max-age=86400
   X-Robots-Tag: all
-  Link: </memex/llms-full.txt>; rel="alternate"; type="text/plain"; title="MEMEX full guide"
-
-/memex/llms-full.txt
-  Content-Type: text/plain; charset=utf-8
-  Cache-Control: public, max-age=86400
-  X-Robots-Tag: all
 
 /memex/
   X-Robots-Tag: all, max-snippet:-1, max-image-preview:large
