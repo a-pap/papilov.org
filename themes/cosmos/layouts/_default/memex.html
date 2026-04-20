@@ -1,52 +1,36 @@
 {{ define "main" }}
+{{ $repo := "https://github.com/a-pap/memex" }}
+{{ $rawReadme := "https://raw.githubusercontent.com/a-pap/memex/main/README.md" }}
+{{ $rawBase := "https://github.com/a-pap/memex/blob/main/" }}
 <div class="container">
   <div class="article-header">
     <a href="{{ .Site.Home.RelPermalink }}" class="back-link">← {{ .Site.Title }}</a>
-    <div class="label">{{ with .Params.label }}{{ . }}{{ else }}Personal Infrastructure{{ end }}</div>
+    <div class="label">Public blueprint</div>
     <h1>{{ .Title }}</h1>
     {{ with .Params.description }}<p class="description">{{ . }}</p>{{ end }}
     <div class="meta">
-      <span>{{ .Date.Format "2006-01-02" }}</span>
-      {{ if and .Params.lastmod (ne (.Params.lastmod.Format "2006-01-02") (.Date.Format "2006-01-02")) }}
-      <span>last-reviewed {{ .Params.lastmod.Format "2006-01-02" }}</span>
-      {{ end }}
-      {{ with .Params.version }}<span>v{{ . }}</span>{{ end }}
-      {{ with .Params.status }}<span>{{ . }}</span>{{ end }}
-      <a href="/memex/llms.txt" class="changelog-link" target="_blank" rel="noopener noreferrer">llms.txt</a>
+      <a href="{{ $repo }}" class="changelog-link" target="_blank" rel="noopener noreferrer">github.com/a-pap/memex ↗</a>
     </div>
-
-    {{ if .IsTranslated }}
-    <div class="article-langs">
-      {{ range .AllTranslations }}
-        {{ if eq $.Language.Lang .Lang }}
-          <span class="active">{{ .Language.LanguageName }}</span>
-        {{ else }}
-          <a href="{{ .RelPermalink }}">{{ .Language.LanguageName }}</a>
-        {{ end }}
-      {{ end }}
-    </div>
-    {{ end }}
   </div>
 
-  {{ if .TableOfContents }}
-  <nav class="article-toc" aria-label="Table of contents">
-    <details>
-      <summary class="toc-toggle">{{ i18n "toc_label" | default "Contents" }}</summary>
-      <div class="toc-body">
-        {{ .TableOfContents }}
-      </div>
-    </details>
-  </nav>
-  {{ end }}
-
   <div class="article-body">
-    {{ .Content }}
-
-    {{ with .Params.ai_disclosure }}
-    <div class="ai-disclosure">
-      <strong>AI disclosure:</strong> {{ . }}
-    </div>
+    {{ $fetched := try (resources.GetRemote $rawReadme) }}
+    {{ if $fetched.Err }}
+      <p>Could not fetch the README. Read it on <a href="{{ $repo }}">GitHub</a>.</p>
+    {{ else }}
+      {{ $content := $fetched.Value.Content }}
+      {{/* Rewrite repo-relative links like [foo](bar.md) → absolute GitHub URLs.
+           Go RE2 has no negative lookahead, so the character class on the first
+           character of the link target excludes http/https/mailto/anchor by
+           forbidding '#' and ':' — any path starting with a letter, digit,
+           underscore or dot matches; 'http://x' stops at the ':' and fails to
+           complete the pattern. */}}
+      {{ $content = replaceRE "\\]\\(([A-Za-z0-9_.][\\w./\\-]*)\\)" (printf "](%s$1)" $rawBase) $content }}
+      {{ $content | markdownify }}
     {{ end }}
+
+    <hr>
+    <p><em>Mirrored from <a href="{{ $repo }}">github.com/a-pap/memex</a>. Source of truth is the repo. Code: MIT. Docs: CC BY 4.0.</em></p>
   </div>
 </div>
 {{ end }}
